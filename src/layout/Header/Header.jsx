@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import burgerMenu from "../../assets/images/HeaderMedia/burger-menu-right.svg";
 import basket from "../../assets/images/HeaderMedia/headerBag.svg";
 import logo from "../../assets/images/HeaderMedia/headerLogo.svg";
-import classes from "./Header.module.css";
+import styles from "./Header.module.css";
 
 export const Header = () => {
     return (
         <div>
             <header>
-                <img className={classes.logo} src={logo} alt="Logo" />
-                <nav className={classes.navMenu}>
-                    <ul className={classes.navList}>
+                <img className={styles.logo} src={logo} alt="Logo" />
+                <nav className={styles.navMenu}>
+                    <ul className={styles.navList}>
                         <li>
                             <Link to='/main'>Main Page</Link>
                         </li>
@@ -26,11 +26,11 @@ export const Header = () => {
                         </li>
                     </ul>
                 </nav>
-                <div className={classes.basketWrapper}>
+                <div className={styles.basketWrapper}>
                     <Link to="basket">
                         <img src={basket} alt="Basket" />
                     </Link>
-                    <img className={classes.burgerMenu} src={burgerMenu} alt="BurgerMenu" />
+                    <img className={styles.burgerMenu} src={burgerMenu} alt="BurgerMenu" />
                 </div>
             </header>
         </div>
