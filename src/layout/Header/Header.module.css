@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../assets/fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat-bold";
+  src: url("/fonts/MyFont-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+header {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  font-size: 20px;
+  padding: 30px 40px 28px 40px;
+  font-family: "Montserrat";
+}
+.navList {
+  display: flex;
+  gap: 32px;
+  padding: 0px;
+}
+
+.navList > li,
+a {
+  list-style: none;
+  text-decoration: none;
+  color: #282828;
+}
+
+.basketWrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.logo {
+  height: 70px;
+}
+
+.burgerMenu {
+  display: none;
+}
+
+@media (max-width: 730px) {
+  header {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .navList{
+    gap: 20px;
+  }
+}
+
+@media (max-width:610px) {
+    header {
+      padding: 5px;
+    font-size: 14px;
+  }
+  .navList{
+    gap: 10px;
+  }
+}
+
+@media (max-width: 470px) {
+  .burgerMenu {
+    display: flex;
+  }
+
+  .navList {
+    display: none;
+  }
+}
