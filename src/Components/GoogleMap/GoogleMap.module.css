@@ -1,0 +1,32 @@
+.googleMapBild {
+  width: 96%;
+  height: 350px;
+  margin: 30px;
+}
+
+@media screen and (max-width: 1440px) {
+  .googleMapBild {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .googleMapBild {
+    width: 93%;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .googleMapBild {
+    width: 90%;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .googleMapBild {
+    width: 85%;
+    height: 250px;
+  }
+}
