@@ -7,7 +7,7 @@ import { AllProductsPage } from "./Pages/AllProductsPage.jsx";
 import { AllSalesPage } from "./Pages/AllSalesPage.jsx";
 import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
 import { MainPage } from "./Pages/MainPage.jsx";
-import { store } from "./Store/store.js";
+import { store } from "./store/store.js";
 
 
 const router = createBrowserRouter([
