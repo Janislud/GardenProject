@@ -1,6 +1,5 @@
-import { Route, Routes } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Header } from "./layout/Header/Header";
-import { NotFound } from "./Pages/NotFound";
 
 
 function App() {
@@ -8,12 +7,7 @@ function App() {
     <>
       <div>
         <Header />
-        {/* <Routes>
-          <Route path='/main' element={MainPage} />
-            <Route path='/categories' element={Categories} />
-            <Route path='/all-products' element={AllProducts} />
-            <Route path='/all-sales' element={AllSales} />
-        </Routes> */}
+        <Outlet />
       </div>
     </>
   );
