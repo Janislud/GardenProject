@@ -1,4 +1,3 @@
-import { DataUserForm } from "./Components/DataUserForm/DataUserForm";
 import { Header } from "./layout/Header/Header";
 
 function App() {
@@ -6,7 +5,6 @@ function App() {
     <>
       <div>
         <Header />
-        <DataUserForm />
       </div>
     </>
   );
