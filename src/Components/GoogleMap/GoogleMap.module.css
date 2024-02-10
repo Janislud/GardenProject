@@ -1,7 +1,9 @@
 .googleMapBild {
-  width: 96%;
+  width: 98%;
   height: 350px;
   margin: 30px;
+  border: none;
+  border-radius: 6px;
 }
 
 @media screen and (max-width: 1440px) {
@@ -12,7 +14,7 @@
 
 @media screen and (max-width: 1000px) {
   .googleMapBild {
-    width: 93%;
+    width: 95%;
     height: 250px;
   }
 }

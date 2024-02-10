@@ -1,0 +1,24 @@
+.ContactsCards {
+  border-radius: 12px;
+  background-color: #f1f3f4;
+  padding: 32px;
+  min-width: 548px;
+}
+
+.ContactsCardsTitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: #8b8b8b;
+  margin-bottom: 16px;
+}
+
+.ContactsCardsContent {
+  font-size: 40px;
+  font-weight: 600;
+  color: #282828;
+}
+
+.ContactsCardsImage {
+  gap: 16px;
+  display: flex;
+}

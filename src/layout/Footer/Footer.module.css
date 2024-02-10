@@ -1,0 +1,22 @@
+.footer {
+  padding: 0 40px 80px 40px;
+}
+
+.footerTitle {
+  color: #282828;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.footerCards {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 376px;
+}
+
+.contacts-cards:ntn-child(odd) {
+  flex: 2 2 auto;
+}
