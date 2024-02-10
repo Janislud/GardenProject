@@ -19,7 +19,6 @@ useEffect(() => {
     if (isLoading) {
         console.log("Loading");
     } else if (data) {
-        console.log("Data:",data)
         setCategories(data)
     }
 },[isLoading,data,error])
