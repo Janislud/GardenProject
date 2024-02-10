@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../assets/fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat-bold";
+  src: url("/fonts/MyFont-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+.categoryImg {
+    max-width: 316px;
+    height: 300px;
+    border-radius: 12px;
+}
+
+.categoryCardsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    text-align: center;
+    justify-content: center;
+}
+
+.categoryCardText {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+    color: #282828;
+}
+
+.categoryBtnDescription {
+  color: #8b8b8b;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 126%;
+}
+
+.categoryBtnAdaptive {
+  display: flex;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid  #ddd;
+  background: white;
+  margin: 20px auto;
+}
+    
+
+@media (min-width: 510px) {
+    .categoryBtnAdaptive {
+        display: none;
+    }
+}

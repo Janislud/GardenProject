@@ -9,29 +9,33 @@ import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
 import { MainPage } from "./Pages/MainPage.jsx";
 import { store } from "./store/store.js";
 
-
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
-    children: [{
-      path: '/main',
-      element: <MainPage />,
-    }, {
-      path: '/categories',
-      element: <CategoriesPage />,
-    }, {
-      path: '/all-products',
-      element: <AllSalesPage />
-    }, {
-      path: '/all-sales',
-      element: <AllProductsPage />
-    }]
-  }
-])
+    children: [
+      {
+        path: "/",
+        element: <MainPage />,
+      },
+      {
+        path: "/categories",
+        element: <CategoriesPage />,
+      },
+      {
+        path: "/all-products",
+        element: <AllSalesPage />,
+      },
+      {
+        path: "/all-sales",
+        element: <AllProductsPage />,
+      },
+    ],
+  },
+]);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <RouterProvider router={router} />
   </Provider>
 );
-
