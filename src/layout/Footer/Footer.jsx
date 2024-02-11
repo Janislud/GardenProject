@@ -15,21 +15,21 @@ export const Footer = () => {
     { title: "Working Hours", content: "24 hours a day" },
   ];
   return (
-    <div className={styles.footer}>
+    <section className={styles.footer}>
       <h1 className={styles.footerTitle}>Contact</h1>
       <div className={styles.footerCards}>
         {contactsCardData.map(
           /** с помощью метода map перебираем карточки и рендерим ContactCards для каждого элемента массива */
-          (item, index) => (
+          (card, index) => (
             <ContactsCards
-              contactCardConfig={item}
+              cardData={card}
               key={index}
             /> /**также можно здесь использовать item.id в качестве ключа для каждого элемента списка */
           )
         )}
       </div>
       <GoogleMap />
-    </div>
+    </section>
   );
 };
 
