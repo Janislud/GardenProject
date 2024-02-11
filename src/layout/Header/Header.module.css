@@ -54,17 +54,17 @@ a {
     font-size: 16px;
     padding: 10px;
   }
-  .navList{
+  .navList {
     gap: 20px;
   }
 }
 
-@media (max-width:610px) {
-    header {
-      padding: 5px;
+@media (max-width: 610px) {
+  header {
+    padding: 5px;
     font-size: 14px;
   }
-  .navList{
+  .navList {
     gap: 10px;
   }
 }
@@ -74,7 +74,11 @@ a {
     display: flex;
   }
 
-  .navList {
+  .navMenuToggle {
+    display: flex;
+  }
+
+  .navMenu {
     display: none;
   }
 }

@@ -8,30 +8,38 @@ import { AllSalesPage } from "./Pages/AllSalesPage.jsx";
 import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
 import { MainPage } from "./Pages/MainPage.jsx";
 import { store } from "./store/store.js";
-
+import { CheckOut } from "./Pages/CheckOut.jsx";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
-    children: [{
-      path: '/main',
-      element: <MainPage />,
-    }, {
-      path: '/categories',
-      element: <CategoriesPage />,
-    }, {
-      path: '/all-products',
-      element: <AllSalesPage />
-    }, {
-      path: '/all-sales',
-      element: <AllProductsPage />
-    }]
-  }
-])
+    children: [
+      {
+        path: "/main",
+        element: <MainPage />,
+      },
+      {
+        path: "/categories",
+        element: <CategoriesPage />,
+      },
+      {
+        path: "/all-products",
+        element: <AllSalesPage />,
+      },
+      {
+        path: "/all-sales",
+        element: <AllProductsPage />,
+      },{
+        path: "/check",
+        element: <CheckOut/>
+      }
+    ],
+  },
+]);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <RouterProvider router={router} />
   </Provider>
 );
-

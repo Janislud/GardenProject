@@ -1,6 +1,8 @@
 import styles from "./GoogleMap.module.css";
 
+
 export const GoogleMap = () => {  /** изменила обычную функцию на именованный экспорт, кот способствует более четкому контролю за сущностями*/
+
   return (
     <div>
       <iframe
@@ -13,4 +15,5 @@ export const GoogleMap = () => {  /** изменила обычную функц
     </div>
   );
 }
+
 
