@@ -7,9 +7,9 @@ export const MainPage = () => {
   return (
     <main>
       <Discount/>
-      {/* <Categories /> */}
-      {/* <DataUserForm /> */}
-      {/* <Sales /> */}
+      <Categories />
+      <DataUserForm />
+      <Sales />
     </main>
   );
 };
