@@ -6,9 +6,9 @@ import App from "./App.jsx";
 import { AllProductsPage } from "./Pages/AllProductsPage.jsx";
 import { AllSalesPage } from "./Pages/AllSalesPage.jsx";
 import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
+import { CheckOut } from "./Pages/CheckOut.jsx";
 import { MainPage } from "./Pages/MainPage.jsx";
 import { store } from "./store/store.js";
-import { CheckOut } from "./Pages/CheckOut.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/main",
+        path: "/",
         element: <MainPage />,
       },
       {
@@ -30,10 +30,11 @@ const router = createBrowserRouter([
       {
         path: "/all-sales",
         element: <AllProductsPage />,
-      },{
+      },
+      {
         path: "/check",
-        element: <CheckOut/>
-      }
+        element: <CheckOut />,
+      },
     ],
   },
 ]);
