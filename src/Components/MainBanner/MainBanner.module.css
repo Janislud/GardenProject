@@ -5,13 +5,12 @@
   max-width: 1440px;
   margin: 0 auto;
   background-position: center center;
-  padding-bottom: 210px;
-  padding-top: 80px;
   margin-bottom: 60px;
+  padding: 80px 40px 210px 40px;
 }
 
 .discountDescription {
-  padding: 80px 40px 40px 40px;
+  /* padding: 80px 40px 40px 40px; */
   max-width: 1360px;
   font-family: "Montserrat";
   color: #fff;

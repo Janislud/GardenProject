@@ -1,24 +1,30 @@
-.ContactsCards {
+.contactsCards {
   border-radius: 12px;
   background-color: #f1f3f4;
   padding: 32px;
-  min-width: 548px;
 }
 
-.ContactsCardsTitle {
+.contactsCardsTitle {
   font-size: 20px;
   font-weight: 500;
   color: #8b8b8b;
   margin-bottom: 16px;
 }
 
-.ContactsCardsContent {
+.contactsCardsContent {
   font-size: 40px;
   font-weight: 600;
   color: #282828;
 }
 
-.ContactsCardsImage {
-  gap: 16px;
+.contactsCardsImages {
+  gap: 20px;
   display: flex;
 }
+
+.contacts-cards:ntn-child(odd) {
+  flex: 2 2 auto;
+}
+
+/* use ntn child
+потому что разные размеры карточек */

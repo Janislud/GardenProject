@@ -1,12 +1,12 @@
 import { Categories } from "../Components/Categories/Categories";
 import { DataUserForm } from "../Components/DataUserForm/DataUserForm";
-import { Discount } from "../Components/Discount/Discount";
+import { MainBanner } from "../Components/MainBanner/MainBanner";
 import { Sales } from "../Components/Sales/Sales";
 
 export const MainPage = () => {
   return (
     <main>
-      <Discount/>
+      <MainBanner/>
       <Categories />
       <DataUserForm />
       <Sales />
