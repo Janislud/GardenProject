@@ -4,6 +4,7 @@ import { GoogleMap } from "../../Components/GoogleMap/GoogleMap";
 import { ContactsCards } from "../../Components/ContactsCards/ContactsCards";
 
 export const Footer = () => {
+  /**Массив объектов создан для облегчения добавления и изменения данных в случае если это потребуется */
   const contactsCardData = [
     { title: "Phone", content: "+49 999 999 99 99" },
     { title: "Social", content: "" },
