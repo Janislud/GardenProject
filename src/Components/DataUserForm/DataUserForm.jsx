@@ -32,7 +32,7 @@ export const DataUserForm = () => {
   return (
     <div>
       <div className={styles.greenDiv}>
-        <h2>5% off on the first order</h2>
+        <h2 className={styles.h2}>5% off on the first order</h2>
         <form onSubmit={handleSubmit(handleAddUser)}>
           <div className={styles.imgWrapper}>
             <img

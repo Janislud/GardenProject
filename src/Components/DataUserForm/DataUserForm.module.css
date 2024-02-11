@@ -21,7 +21,7 @@
   margin: 30px;
 }
 
-h2 {
+.h2 {
   color: #fff;
   text-align: center;
   font-family: Montserrat;
@@ -169,7 +169,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 1000px) {
-  h2 {
+  .h2 {
     font-size: 64px;
     margin-top: 20px;
   }
@@ -231,7 +231,7 @@ input::placeholder {
   .greenDiv .imgWrapper {
     width: 418px;
   }
-  h2 {
+  .h2 {
     font-size: 49px;
   }
 }
@@ -240,7 +240,7 @@ input::placeholder {
   .greenDiv .imgWrapper {
     width: 420px;
   }
-  h2 {
+  .h2 {
     font-size: 49px;
   }
   .divInputs input {
@@ -276,7 +276,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 768px) {
-  h2 {
+  .h2 {
     font-size: 45px;
   }
   .greenDiv .imgWrapper {
@@ -355,14 +355,14 @@ input::placeholder {
   .divInputs {
     margin-left: 10px;
   }
-  h2 {
+  .h2 {
     font-size: 40px;
     margin-bottom: 60px;
   }
 }
 
 @media screen and (max-width: 600px) {
-  h2 {
+  .h2 {
     font-size: 40px;
   }
   form {
@@ -403,7 +403,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 566px) {
-  h2 {
+  .h2 {
     font-size: 35px;
   }
   .divInputs {
@@ -415,7 +415,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 520px) {
-  h2 {
+  .h2 {
     font-size: 30px;
   }
   .divInputs {
@@ -431,7 +431,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 466px) {
-  h2 {
+  .h2 {
     font-size: 30px;
   }
   .divInputs {
@@ -447,7 +447,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 440px) {
-  h2 {
+  .h2 {
     font-size: 25px;
   }
   .divInputs {
@@ -467,7 +467,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 433px) {
-  h2 {
+  .h2 {
     font-size: 25px;
   }
   .divInputs {
@@ -491,7 +491,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 395px) {
-  h2 {
+  .h2 {
     font-size: 25px;
   }
   form {
