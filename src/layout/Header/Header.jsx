@@ -18,16 +18,16 @@ export const Header = () => {
             <img className={styles.logo} src={logo} alt="Logo" />
             <nav className={styles.navMenu}>
                 <ul className={`${styles.navList} ${styles.menuToggleVisible}  ${isOpen ? styles.menuToggle : ''}`}>
-                    <li>
+                    <li className={styles.listStyle}>
                         <Link to='/main'>Main Page</Link>
                     </li>
-                    <li>
+                    <li className={styles.listStyle}>
                         <Link to='/categories'>Categories</Link>
                     </li>
-                    <li>
+                    <li className={styles.listStyle}>
                         <Link to='/all-products'>All products</Link>
                     </li>
-                    <li>
+                    <li className={styles.listStyle}>
                         <Link to='/all-sales'>All sales</Link>
                     </li>
                 </ul>
