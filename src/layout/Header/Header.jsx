@@ -17,7 +17,7 @@ export const Header = () => {
         <header>
             <img className={styles.logo} src={logo} alt="Logo" />
             <nav className={styles.navMenu}>
-                <ul className={`${styles.navList} ${styles.menuToggleVisible}  ${isOpen ? styles.menuToggle : ''}`}>
+                <ul className={`${styles.navList} ${isOpen ? styles.menuToggle : ''}`}>
                     <li className={styles.listStyle}>
                         <Link to='/main'>Main Page</Link>
                     </li>

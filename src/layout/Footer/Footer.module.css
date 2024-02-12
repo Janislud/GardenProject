@@ -1,5 +1,7 @@
 .footer {
   padding: 0 40px 80px 40px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .footerTitle {
@@ -9,14 +11,17 @@
 }
 
 .footerCards {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 500px;
+  grid-template-rows: auto auto;
   gap: 32px;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  height: 376px;
+  width: 100%;
 }
 
-.contacts-cards:ntn-child(odd) {
-  flex: 2 2 auto;
+@media (max-width:1000px) {
+  .footerCards {
+      grid-template-columns: 1fr;
+  }
 }
+
+            

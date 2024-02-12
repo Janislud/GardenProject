@@ -1,16 +1,4 @@
-@font-face {
-  font-family: "Montserrat";
-  src: url("../../assets/fonts/Montserrat-Medium.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: "Montserrat-bold";
-  src: url("/fonts/MyFont-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
 
 header {
   margin: 0 auto;
@@ -56,7 +44,8 @@ header {
 
   .navList {
     display: flex;
-    background-color: bisque;
+    gap: 20px;
+    background-color: #393;
     flex-direction: column;
     justify-content: center;
     position: fixed;
@@ -67,7 +56,7 @@ header {
     margin-top: 39px;
     transition: transform 0.4s ease-in-out;
     transform: translate(100%);
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .burgerMenu {
