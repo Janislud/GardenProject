@@ -25,12 +25,22 @@ useEffect(() => {
 
 const discountedSales = sales.filter((sale) => sale.discont_price !== null);
 
+ const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+ };
+
+ const randomlyDisplayedSales = shuffleArray(discountedSales).slice(0, 4);
+
 return (
     <section>
         <Line title = "Sale" linkTo="/all-sales" buttonText="All Sales" />
 
         <section className={style.saleCardWrapper}>
-            {discountedSales.slice(0,4).map((sale) => (
+            {randomlyDisplayedSales.map((sale) => (
                 <Link
                 key={sale.id}
                 className={style.saleCard}
