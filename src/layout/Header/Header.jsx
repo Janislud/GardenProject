@@ -19,7 +19,7 @@ export const Header = () => {
             <nav className={styles.navMenu}>
                 <ul className={`${styles.navList} ${isOpen ? styles.menuToggle : ''}`}>
                     <li className={styles.listStyle}>
-                        <Link to='/main'>Main Page</Link>
+                        <Link to='/'>Main Page</Link>
                     </li>
                     <li className={styles.listStyle}>
                         <Link to='/categories'>Categories</Link>
@@ -36,7 +36,7 @@ export const Header = () => {
                 <Link to="/basket">
                     <img src={basket} alt="Basket" />
                 </Link>
-                <img className={styles.burgerMenu} src={burgerMenu} alt="BurgerMenu" onClick={toggleMenu}  />
+                <img className={styles.burgerMenu} src={burgerMenu} alt="BurgerMenu" onClick={toggleMenu} />
 
             </div>
         </header>

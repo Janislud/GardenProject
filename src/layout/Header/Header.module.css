@@ -1,5 +1,3 @@
-
-
 header {
   margin: 0 auto;
   display: flex;
@@ -16,7 +14,8 @@ header {
   padding: 0px;
 }
 
-.listStyle, a {
+.listStyle,
+a {
   list-style: none;
   text-decoration: none;
   color: #282828;
@@ -38,6 +37,9 @@ header {
 
 @media (max-width: 750px) {
   header {
+    background-color: #ffff;
+    position: sticky;
+    top: 0;
     padding: 5px;
     font-size: 14px;
   }
@@ -49,18 +51,23 @@ header {
     flex-direction: column;
     justify-content: center;
     position: fixed;
-    right: 0;
+    right: 1;
     width: 100%;
     height: 100vh;
-    align-items: center;
-    margin-top: 39px;
+    margin-top: 40px;
     transition: transform 0.4s ease-in-out;
     transform: translate(100%);
     font-size: 30px;
+    padding-left: 20px;
+  }
+
+  .listStyle > a {
+    color: white;
   }
 
   .burgerMenu {
     display: block;
+    cursor: pointer;
   }
 
   .menuToggle {

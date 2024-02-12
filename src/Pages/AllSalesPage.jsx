@@ -1,4 +1,5 @@
+import { Sales } from "../Components/Sales/Sales"
 
 export const AllSalesPage = () => {
-    return <div>AllSalesPage</div>
+    return <main><Sales/></main>
 }
