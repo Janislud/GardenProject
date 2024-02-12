@@ -43,7 +43,7 @@ a {
     padding: 5px;
     font-size: 14px;
   }
-
+/* Закрепил Header в верхней части экрана Sticky */
   .navList {
     display: flex;
     gap: 20px;
