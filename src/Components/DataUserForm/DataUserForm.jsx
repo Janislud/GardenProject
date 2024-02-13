@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import formHands from "../../assets/images/FormHands/formHands.svg";
+import imgGreenForm from "../../assets/images/imgGreenForm/imgGreenForm.svg";
 import { addNewUser } from "../../slices/usersSlice";
 import styles from "./DataUserForm.module.css";
 
@@ -37,7 +37,7 @@ export const DataUserForm = () => {
           <div className={styles.imgWrapper}>
             <img
               className={styles.formHands}
-              src={formHands}
+              src={imgGreenForm}
               alt="five hands picture"
             />
           </div>
