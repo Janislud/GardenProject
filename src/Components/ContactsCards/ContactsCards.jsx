@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./ContactsCards.module.css";
 import instagram from "../../assets/images/FooterMedia/ic-instagram.svg";
 import whatsapp from "../../assets/images/FooterMedia/ic-whatsapp.svg";
+import styles from "./ContactsCards.module.css";
 
 export const ContactsCards = ({ cardData }) => {
   /**этот объект содержит данные для конкретной карточки */
