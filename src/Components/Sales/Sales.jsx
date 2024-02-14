@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useGetProductsQuery } from "../../slices/apiSlice";
+import { FilterBar } from "../FilterBar/FilterBar";
 import { Line } from "../Line/Line";
 import style from '../Sales/Sales.module.css';
 
@@ -39,6 +40,8 @@ return (
     <section>
         <Line title = "Sale" linkTo="/all-sales" buttonText="All Sales" />
 
+          <FilterBar title='Tools and equipment'/>
+
         <section className={style.saleCardWrapper}>
             {randomlyDisplayedSales.map((sale) => (
                 <Link
@@ -71,6 +74,8 @@ return (
                 </Link>
             ))}
         </section>
+
+      
 
         <button className={style.saleBtnAdaptive}>
             <Link className={style.saleBtnDescription} to={'/all-sales'}>

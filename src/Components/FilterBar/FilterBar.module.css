@@ -1,0 +1,49 @@
+.filterBarWrapper {
+    margin: 0 auto;
+    max-width: 1350px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formFilterBar {
+    align-items: center;
+}
+
+.filterTitle {
+    color: rgb(40, 40, 40);
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 110%;
+    margin: 40px 0px;
+}
+
+.lablePrice {
+    color: rgb(40, 40, 40);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+.priceInput {
+    width: 112px;
+    height: 36px;
+    padding: 8px 16px 8px 16px;
+    margin: 0px 16px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 6px;
+}
+
+.priceInput::placeholder {
+    color: rgb(139, 139, 139);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 126%;
+    letter-spacing: 0%;
+}
+
+.lableDiscount {
+    color: rgb(40, 40, 40);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+}
