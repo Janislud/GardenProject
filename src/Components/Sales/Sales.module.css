@@ -50,7 +50,7 @@
    display: flex;
    flex-wrap: wrap;
    gap: 15px;
-   margin: 0px 32px -23px 32px; 
+   margin: 0px 32px 32px 32px; 
 }
 
 .realPrice {
