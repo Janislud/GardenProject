@@ -1,35 +1,30 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../slices/apiSlice";
 import style from "../Categories/Categories.module.css";
-import { Line } from "../Line/Line";
-
+import { TitleBar } from './../TitleBar/TitleBar';
 
 export const Categories = () => {
-  const [ categories, setCategories ] = useState([]);
+
   const { data, error, isLoading } = useGetCategoriesQuery();
 
-useEffect(() => {
-    if (error) {
-        console.log("Error fetchig data:" , error);
-    }
-},[error]);
+  if(error) {
+    return (
+      <p>Error fetching  date: {error.message}</p>
+    )
+  };
 
-useEffect(() => {
-    if (isLoading) {
-        console.log("Loading");
-    } else if (data) {
-        console.log("Data:",data)
-        setCategories(data)
-    }
-},[isLoading,data,error])
+  if (isLoading) {
+    return (
+      <p>Loading...</p>
+    )
+  };
 
   return (
-    <section>
-      <Line title = "Categories" linkTo="/categories" buttonText="All Categories" />
+    <section className={style.categoriesSection}>
+      <TitleBar title = "Categories" linkTo="/categories" buttonText="All Categories" />
 
       <section className={style.categoryCardsWrapper}>
-      {categories.slice(0,4).map((category) => (
+      {data && data.slice(0,4).map((category) => (
         <Link key={category.id} className={style.categoryCard}
         to={`/categories/${category.id}`}
         >
@@ -54,4 +49,4 @@ useEffect(() => {
     </section>
     
   )
-}
+};
