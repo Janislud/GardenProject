@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
-import style from "../Line/Line.module.css";
-export const Line = ({ title, linkTo, buttonText}) => {
+import style from "./TitleBar.module.css";
+
+
+export const TitleBar = ({ title, linkTo, buttonText}) => {
 return (
       <div className={style.titleTextWrapper}>
         <h2 className={style.titleDescription}>
