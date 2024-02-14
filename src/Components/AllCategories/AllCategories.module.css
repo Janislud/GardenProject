@@ -1,0 +1,80 @@
+.categoryImg {
+  max-width: 248px;
+  height: 350px;
+  border-radius: 12px;
+}
+
+.categoryCardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  text-align: center;
+  justify-content: center;
+}
+
+.categoryCardText {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 130%;
+  color: #282828;
+}
+
+.categoryBtnDescription {
+  color: #8b8b8b;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 126%;
+}
+
+.categoryBtnAdaptive {
+  display: flex;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: white;
+  margin: 20px auto;
+}
+.buttonWrapper {
+  max-width: 254px;
+  display: flex;
+  max-width: 300px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.lineDiv {
+  flex-grow: 1;
+  border-bottom: 1px solid #ddd;
+}
+.mainPageBtn , .categoreisBtn {
+  padding: 8px 16px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+}
+.mainPageBtn {
+  color: rgb(139, 139, 139);
+}
+
+.categoriesWrapperText {
+  margin-bottom: 40px;
+}
+
+.allCategoriesWrapper {
+  margin: 0 auto;
+  padding: 30px 40px 28px 40px;
+  max-width: 1440px;
+
+}
+
+@media (min-width: 510px) {
+  .categoryBtnAdaptive {
+    display: none;
+  }
+}

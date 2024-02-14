@@ -25,7 +25,7 @@ useEffect(() => {
 
   return (
     <section>
-      <Line title = "Categories" linkTo="/categories" buttonText="All Categories" />
+      <Line title = "Categories" linkTo="/all-categories" buttonText="All Categories" />
 
       <section className={style.categoryCardsWrapper}>
       {categories.slice(0,4).map((category) => (

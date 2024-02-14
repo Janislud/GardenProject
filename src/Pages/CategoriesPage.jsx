@@ -1,7 +1,7 @@
-import { Categories } from "../Components/Categories/Categories"
+import { AllCategories } from "../Components/AllCategories/AllCategories"
 
 export const CategoriesPage = () => {
     return (
-        <main><Categories/></main> ///Подключил компонент Categories
+        <main><AllCategories /></main>
     )
 }

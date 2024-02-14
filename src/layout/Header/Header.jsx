@@ -14,10 +14,11 @@ export const Header = () => {
     }
 
     return (
-        <header>
+        <header className={styles.headerWrapper}>
             <img className={styles.logo} src={logo} alt="Logo" />
             <nav className={styles.navMenu}>
-                <ul className={`${styles.navList} ${isOpen ? styles.menuToggle : ''}`}>
+                <ul className=
+                {`${styles.navList} ${isOpen ? styles.menuToggle : ''}`}>
                     <li className={styles.listStyle}>
                         <Link to='/'>Main Page</Link>
                     </li>
@@ -33,7 +34,7 @@ export const Header = () => {
                 </ul>
             </nav>
             <div className={styles.basketWrapper}>
-                <Link to="/basket">
+                <Link to="/cart">
                     <img src={basket} alt="Basket" />
                 </Link>
                 <img className={styles.burgerMenu} src={burgerMenu} alt="BurgerMenu" onClick={toggleMenu} />
