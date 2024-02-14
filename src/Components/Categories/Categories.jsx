@@ -1,15 +1,26 @@
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../slices/apiSlice";
 import style from "../Categories/Categories.module.css";
-import { TitleBar } from "../TitleBar/TitleBar";
-
+import { TitleBar } from './../TitleBar/TitleBar';
 
 export const Categories = () => {
 
   const { data, error, isLoading } = useGetCategoriesQuery();
 
+  if(error) {
+    return (
+      <p>Error fetching  date: {error.message}</p>
+    )
+  };
+
+  if (isLoading) {
+    return (
+      <p>Loading...</p>
+    )
+  };
+
   return (
-    <section>
+    <section className={style.categoriesSection}>
       <TitleBar title = "Categories" linkTo="/categories" buttonText="All Categories" />
 
       <section className={style.categoryCardsWrapper}>
@@ -38,4 +49,4 @@ export const Categories = () => {
     </section>
     
   )
-}
+};

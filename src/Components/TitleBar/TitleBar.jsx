@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import style from "./TitleBar.module.css";
-
-
 export const TitleBar = ({ title, linkTo, buttonText}) => {
 return (
       <div className={style.titleTextWrapper}>
