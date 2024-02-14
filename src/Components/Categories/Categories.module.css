@@ -15,7 +15,7 @@
 .categoryImg {
     max-width: 316px;
     height: 300px;
-    border-radius: var(--radius-big, 12px);
+    border-radius: 12px;
 }
 
 .categoryCardsWrapper {
@@ -31,11 +31,11 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 130%;
-    color: var(--txt-black, #282828);
+    color: #282828;
 }
 
 .categoryBtnDescription {
-  color: var(--txt-grey, #8b8b8b);
+  color: #8b8b8b;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
@@ -46,8 +46,8 @@
 .categoryBtnAdaptive {
   display: flex;
   padding: 8px 16px;
-  border-radius: var(--radius-small, 6px);
-  border: 1px solid var(--grey-divider, #ddd);
+  border-radius: 6px;
+  border: 1px solid  #ddd;
   background: white;
   margin: 20px auto;
 }

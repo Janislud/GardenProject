@@ -1,4 +1,7 @@
+import { AllCategories } from "../Components/AllCategories/AllCategories"
 
 export const CategoriesPage = () => {
-    return <div>Categories Page</div>
+    return (
+        <main><AllCategories /></main>
+    )
 }

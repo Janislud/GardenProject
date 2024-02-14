@@ -1,0 +1,44 @@
+.backgroundImage {
+  background-image: url(/src/assets/images/DiscountMedia/discountBackground.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-position: center center;
+  margin-bottom: 60px;
+  padding: 80px 40px 210px 40px;
+}
+
+.discountDescription {
+  /* padding: 80px 40px 40px 40px; */
+  max-width: 1360px;
+  font-family: "Montserrat";
+  color: #fff;
+  font-size: 90px;
+  font-weight: 700;
+}
+
+.discountBtn {
+  padding: 16px 56px;
+  border-radius: 6px;
+  color: #ffff;
+  background-color: #393;
+  border-color: transparent;
+  font-size: 20px;
+  margin-left: 40px;
+}
+
+
+@media (max-width: 1050px) {
+    .discountDescription{
+        font-size: 70px;
+    }
+
+
+}
+
+@media (max-width: 830px) {
+    .discountDescription{
+        font-size: 50px;
+    }
+}
