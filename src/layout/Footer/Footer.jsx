@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./Footer.module.css";
+import style from "./Footer.module.css";
 import { GoogleMap } from "../../Components/GoogleMap/GoogleMap";
 import { ContactsCards } from "../../Components/ContactsCards/ContactsCards";
 
 export const Footer = () => {
   /**Массив объектов создан для облегчения добавления и изменения данных в случае если это потребуется */
   const contactsCardData = [
-    { title: "Phone", content: "+49 999 999 99 99" },
+    { title: "Phone", content: <a href="tel:+499999999999">+49 999 999 99 99</a> },
     { title: "Social", content: "" },
     {
       title: "Address",
@@ -15,9 +15,9 @@ export const Footer = () => {
     { title: "Working Hours", content: "24 hours a day" },
   ];
   return (
-    <section className={styles.footer}>
-      <h1 className={styles.footerTitle}>Contact</h1>
-      <div className={styles.footerCards}>
+    <section className={style.footer}>
+      <h1 className={style.footerTitle}>Contact</h1>
+      <div className={style.footerCards}>
         {contactsCardData.map(
           /** с помощью метода map перебираем карточки и рендерим ContactCards для каждого элемента массива */
           (card, index) => (
