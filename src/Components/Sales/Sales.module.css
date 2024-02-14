@@ -1,0 +1,93 @@
+.saleCardWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+}
+
+.saleCard {
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    max-width: 315px;
+}
+
+.saleBlock {
+    position: absolute;
+    margin-left: 240px;
+    margin-top: 16px;
+    background-color: #393;
+    color: #ffffff;
+    padding:4px 8px;
+    border-radius: 4px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: 0.6px;
+}
+
+.saleImg {
+    max-width: 315px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 20px;
+    height: 315px;
+}
+
+.saleCardText {
+  font-family: "Montserrat", sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 130%;
+  margin: 0px 32px 16px 32px;
+  min-height: 55px;  
+}
+
+.salePriceWrapper {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 15px;
+   margin: 0px 32px -23px 32px; 
+}
+
+.realPrice {
+    font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 110%;    
+}
+
+.firstPrice {
+  font-family: "Montserrat", sans-serif;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 130%;
+  text-decoration-line: line-through;
+  color: #8b8b8b;
+}
+
+.saleBtnAdaptive {
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  max-width: 97px;
+  max-height: 36px;
+  background-color: #fff;
+  display: flex;
+  padding: 8px 14px;
+  align-items: center;
+  margin: 30px auto;
+}
+
+.saleBtnDescription {
+  color: #8b8b8b;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 126%;
+}
+
+@media (min-width: 510px) {
+    .saleBtnAdaptive {
+        display: none;
+    }
+}
