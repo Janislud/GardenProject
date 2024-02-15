@@ -1,30 +1,24 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useGetProductsQuery } from "../../slices/apiSlice";
-import { FilterBar } from "../FilterBar/FilterBar";
-import { Line } from "../Line/Line";
 import style from '../Sales/Sales.module.css';
+import { TitleBar } from "../TitleBar/TitleBar";
 
 export const Sales = () => {
  const { data, error, isLoading } = useGetProductsQuery();
- const [ sales, setSales] = useState([]);
 
-useEffect(() => {
-    if (error) {
-        console.log("Error fetchig data:" , error);
-    }
-},[error]);
+ if (error) {
+    return (
+        <p>Error featching date: {error.message}</p>
+    )
+ }
 
-useEffect(() => {
-    if (isLoading) {
-        console.log("Loading");
-    } else if (data) {
-        console.log("Data:",data)
-        setSales(data)
-    }
-},[isLoading,data,error])
+ if (isLoading) {
+    return (
+        <p>Loading...</p>
+    )
+ }
 
-const discountedSales = sales.filter((sale) => sale.discont_price !== null);
+const discountedSales = data ? data.filter((sale) => sale.discont_price !== null) : [];
 
  const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -37,17 +31,14 @@ const discountedSales = sales.filter((sale) => sale.discont_price !== null);
  const randomlyDisplayedSales = shuffleArray(discountedSales).slice(0, 4);
 
 return (
-    <section>
-        <Line title = "Sale" linkTo="/all-sales" buttonText="All Sales" />
-
-          <FilterBar title='Tools and equipment'/>
-
+    <section className={style.salesCategoryWrapper}>
+        <TitleBar title = "Sale" linkTo="/all-sales" buttonText="All Sales" />
         <section className={style.saleCardWrapper}>
             {randomlyDisplayedSales.map((sale) => (
                 <Link
                 key={sale.id}
                 className={style.saleCard}
-                to={``}
+                to={`products/${sale.id}`}
                 >
                 <div className={style.saleBlock}>
                   {sale.price &&
@@ -84,5 +75,5 @@ return (
         </button>
         
     </section>
-) 
+)
 }

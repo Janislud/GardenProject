@@ -5,6 +5,10 @@
     gap: 32px;
 }
 
+.salesCategoryWrapper {
+ font-family: "Montserrat", sans-serif; 
+}
+
 .saleCard {
     border-radius: 12px;
     border: 1px solid #ddd;
@@ -19,22 +23,22 @@
     color: #ffffff;
     padding:4px 8px;
     border-radius: 4px;
-    font-family: "Montserrat", sans-serif;
     font-size: 20px;
     line-height: 130%;
     letter-spacing: 0.6px;
 }
 
 .saleImg {
-    max-width: 315px;
+    max-width: 312px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-bottom: 20px;
     height: 315px;
+    border-bottom: 1px solid #DDDDDD;
+    object-fit: cover;
 }
 
 .saleCardText {
-  font-family: "Montserrat", sans-serif;
   font-size: 19px;
   font-weight: 500;
   line-height: 130%;
@@ -46,18 +50,16 @@
    display: flex;
    flex-wrap: wrap;
    gap: 15px;
-   margin: 0px 32px -23px 32px; 
+   margin: 0px 32px 32px 32px; 
 }
 
 .realPrice {
-    font-family: "Montserrat", sans-serif;
     font-size: 40px;
     font-weight: 600;
     line-height: 110%;    
 }
 
 .firstPrice {
-  font-family: "Montserrat", sans-serif;
   font-size: 23px;
   font-weight: 500;
   line-height: 130%;

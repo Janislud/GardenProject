@@ -12,6 +12,10 @@
   font-style: normal;
 }
 
+.categoriesSection {
+    font-family: "Montserrat", sans-serif;
+}
+
 .categoryImg {
     max-width: 316px;
     height: 300px;
@@ -27,7 +31,6 @@
 }
 
 .categoryCardText {
-    font-family: "Montserrat", sans-serif;
     font-size: 20px;
     font-weight: 500;
     line-height: 130%;
