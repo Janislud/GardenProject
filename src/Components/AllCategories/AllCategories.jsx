@@ -29,7 +29,7 @@ export const AllCategories = () => {
             <h2 className={style.categoriesWrapperText}>Categories</h2>
             <section className={style.categoryCardsWrapper}>
                 {data.map((category) => (
-                    <Link key={category.id} className={style.categoryCard} to={`/categories/${category.id}`}>
+                    <Link key={category.id} className={style.categoryCard} to={`/single-category/${category.id}`}>
                         <img className={style.categoryImg}
                             src={`http://localhost:3333${category.image}`}
                             alt={category.title} />
