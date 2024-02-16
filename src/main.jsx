@@ -10,6 +10,7 @@ import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
 import {CartPage} from "./Pages/CartPage.jsx";
 import { MainPage } from "./Pages/MainPage.jsx";
 import { store } from "./store/store.js";
+import { SingleCategoryPage } from "./Components/SingleCategoryPage/SingleCategoryPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,9 @@ const router = createBrowserRouter([
       }, {
         path: "/all-categories",
         element: <AllCategories />
+      },{
+        path: "/single-category/:id",
+        element: <SingleCategoryPage/>
       },
       {
         path: "/all-products",

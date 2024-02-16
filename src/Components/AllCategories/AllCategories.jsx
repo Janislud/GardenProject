@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../slices/apiSlice";
-import style from "./AllCategories.module.css";
+import styles from "./AllCategories.module.css";
 
 
 export const AllCategories = () => {
@@ -12,28 +12,27 @@ export const AllCategories = () => {
     if (isLoading) {
         return (<h2>Loading....</h2>)
     }
-
-
+    
 
     return (
-        <section className={style.allCategoriesWrapper}>
-            <div className={style.buttonWrapper}>
+        <section className={styles.allCategoriesWrapper}>
+            <div className={styles.buttonWrapper}>
                 <Link to='/'>
-                <button className={style.mainPageBtn}>Main page</button>
+                <button className={styles.mainPageBtn}>Main page</button>
                 </Link>
-                <div className={style.lineDiv}></div>
+                <div className={styles.lineDiv}></div>
                 
-                <button className={style.categoreisBtn}>Categories</button>
+                <button className={styles.categoreisBtn}>Categories</button>
                 
             </div>
-            <h2 className={style.categoriesWrapperText}>Categories</h2>
-            <section className={style.categoryCardsWrapper}>
+            <h2 className={styles.categoriesWrapperText}>Categories</h2>
+            <section className={styles.categoryCardsWrapper}>
                 {data.map((category) => (
-                    <Link key={category.id} className={style.categoryCard} to={`/single-category/${category.id}`}>
-                        <img className={style.categoryImg}
+                    <Link key={category.id} className={styles.categoryCard} to={`/single-category/${category.id}`}>
+                        <img className={styles.categoryImg}
                             src={`http://localhost:3333${category.image}`}
                             alt={category.title} />
-                        <h2 className={style.categoryCardText}>
+                        <h2 className={styles.categoryCardText}>
                             {category.title}
                         </h2>
                     </Link>
