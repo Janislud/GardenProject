@@ -1,0 +1,95 @@
+.singleCategoryWrapper {
+  margin: 0 auto;
+  padding: 30px 40px 28px 40px;
+  max-width: 1440px;
+}
+
+.singleCategoryCardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.singleCardImg {
+  width: 316px;
+  height: 284px;
+}
+
+.singleCardWrapper {
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  max-width: 316px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sale {
+  background: transparent;
+}
+.saleBox {
+  position: absolute;
+  margin-left: 240px;
+  margin-top: 16px;
+  background-color: #393;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0.6px;
+}
+
+.productTitle {
+  /* padding: 20px 32px 0px 32px; */
+  font-size: 20px;
+}
+
+.priceBox {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  /* padding: 16px 32px 32px 32px; */
+}
+
+.firstPrice {
+  font-size: 20px;
+  color: rgb(139, 139, 139);
+  font-weight: 500;
+  text-decoration: line-through;
+}
+
+@media (max-width: 1091px) {
+  /* .priceBox {
+    max-width: 185px;
+    padding: 0px 20px 20px 20px;
+  } */
+
+  .firstPrice {
+    font-size: 20px;
+  }
+
+  .singleCardWrapper {
+    max-width: 215px;
+  }
+
+  .singleCategoryCardsWrapper {
+    gap: 14px;
+  }
+
+  .singleCardImg {
+    max-width: 215px;
+    height: 250px;
+  }
+  .saleBox {
+    margin-left: 160px;
+    margin-top: 17px;
+  }
+  .titlePriceWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+  }
+}
