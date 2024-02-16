@@ -9,13 +9,13 @@ export const Categories = () => {
 
   if(error) {
     return (
-      <p>Error fetching  date: {error.message}</p>
+      <p className={style.errorFetching}>Error fetching  date: {error.message}</p>
     )
   };
 
   if (isLoading) {
     return (
-      <p>Loading...</p>
+      <p className={style.loadingData}>Loading...</p>
     )
   };
 

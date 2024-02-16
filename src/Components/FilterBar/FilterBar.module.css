@@ -3,10 +3,31 @@
     max-width: 1350px;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.sortedLable {
+    margin-left: 40px;
+    color: rgb(40, 40, 40);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
 }
 
 .formFilterBar {
     align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.selectOption {
+    margin-left: 16px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 6px;
+    padding: 8px 8px 8px 16px;
+    width: 200px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .filterTitle {
@@ -24,6 +45,39 @@
     line-height: 130%;
 }
 
+.discountItemsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+
+.inputCheckBox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    background-color: #fff;
+}
+
+.inputCheckBox:checked {
+    background: rgb(51, 153, 51);
+    background-image: url(../../assets/images/imgFilter/checkbox-active.svg);
+    background-size: cover;
+    border: none;
+}
+
+.selectOption option:checked {
+    color: rgb(40, 40, 40);
+}
+
+option {
+    color: grey;
+}
+
 .priceInput {
     width: 112px;
     height: 36px;
@@ -31,6 +85,7 @@
     margin: 0px 16px;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 6px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .priceInput::placeholder {

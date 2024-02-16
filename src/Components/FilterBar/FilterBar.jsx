@@ -17,7 +17,7 @@ export const FilterBar = ({ title }) => {
           setIsChecked(true);
           dispatch(toggleShowOnlyDiscounted());
         }
-          
+    
     }
 
     return (
@@ -25,22 +25,24 @@ export const FilterBar = ({ title }) => {
              <h2 className={style.filterTitle}>{title}</h2>
             <form className={style.formFilterBar}>
                 <label className={style.lablePrice} htmlFor="price">Price</label>
-                    <input className={style.priceInput} type="number" placeholder="from" id="price" onChange={(element) => dispatch(minPriceChange(element.target.value))} />
-                    <input className={style.priceInput} type="number" placeholder="to" onChange={(element) => dispatch(maxPriceChange(element.target.value))} />
+                    <input className={style.priceInput} type="number" placeholder="from" id="price" min="0" onChange={(element) => dispatch(minPriceChange(element.target.value))} />
+                    <input className={style.priceInput} type="number" placeholder="to" min="0" onChange={(element) => dispatch(maxPriceChange(element.target.value))} />
            
-                <div>
+                <div className={style.discountItemsWrapper}>
                     <label className={style.lableDiscount} htmlFor="discounted-items">Discounted items</label>
-                    <input type="checkbox" id="discounted-items" name="discount" checked={isChecked} onChange={handleToggleShowOnlyDiscounted} />
+                    <input className={style.inputCheckBox} type="checkbox" id="discounted-items" name="discount" checked={isChecked} onChange={handleToggleShowOnlyDiscounted} />
                 </div>
                 
-            
-
-                <label htmlFor="sort">Sorted</label>
-                    <select id="sort" onChange={(element) => dispatch(sortChange(element.target.value))}>
-                        <option>By default</option>
-                        <option value="Ascending">Ascending</option>
-                        <option value="Descending">Descending</option>
+                <label className={style.sortedLable} htmlFor="sort">Sorted</label>
+                <div className={style.customSelect}>
+                        <select className={style.selectOption} id="sort" onChange={(element) => dispatch(sortChange(element.target.value))}>
+                        <option className={style.btnOption}>by default</option>
+                        <option className={style.btnOption} value="Ascending">price: high-low</option>
+                        <option className={style.btnOption} value="Descending">price: low-high</option>
                     </select>
+
+                </div>
+                    
             </form>
         </div>
       
