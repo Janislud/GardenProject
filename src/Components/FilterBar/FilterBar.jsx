@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useLocation } from 'react-router'
 import { maxPriceChange, minPriceChange, sortChange, toggleShowOnlyDiscounted } from '../../slices/filterSlice'
 import style from '../FilterBar/FilterBar.module.css'
 
@@ -7,6 +8,14 @@ export const FilterBar = ({ title }) => {
     const dispatch = useDispatch()
     const showOnlyDiscounted = useSelector(state => state.filter.showOnlyDiscounted);
     const [isChecked , setIsChecked] = useState(showOnlyDiscounted);
+    const location = useLocation();
+
+     useEffect(() => {
+        setIsChecked(showOnlyDiscounted);
+        dispatch(minPriceChange(''));
+        dispatch(maxPriceChange(''));
+        dispatch(sortChange(''));
+    }, [showOnlyDiscounted, location, dispatch]);
 
     const handleToggleShowOnlyDiscounted = () => {
         

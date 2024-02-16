@@ -1,37 +1,10 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useGetProductsQuery } from "../../slices/apiSlice";
 import style from '../Sales/Sales.module.css';
 import { TitleBar } from "../TitleBar/TitleBar";
-import { FilterBar } from './../FilterBar/FilterBar';
 
 export const Sales = () => {
  const { data, error, isLoading } = useGetProductsQuery();
- const { minPrice, maxPrice, sort} = useSelector((state) => state.filter) //+
- const [ products, setProducts] = useState(data) //+
-
- useEffect(() => { //+
-    const filteredProducts = data?.filter((products) => {
-        return (
-            (!minPrice || products.price >=Number(minPrice)) &&
-            (!maxPrice || products.price <= Number(maxPrice))
-        )
-    })
-
-const sortedProducts = sort === '' || sort === 'by default' ? //+
-  filteredProducts : filteredProducts?.sort((a, b) => {
-    if (sort === 'Ascending') {
-      return a.price - b.price;
-    } else {
-      return b.price - a.price;
-    }
-  });
-
-setProducts(sortedProducts)
-},[minPrice,maxPrice,sort, data])
-
-
 
  if (error) {
     return (
@@ -57,12 +30,9 @@ const discountedSales = data ? data.filter((sale) => sale.discont_price !== null
 
  const randomlyDisplayedSales = shuffleArray(discountedSales).slice(0, 4);
 
-
-
 return (
     <section className={style.salesCategoryWrapper}>
         <TitleBar title = "Sale" linkTo="/all-sales" buttonText="All Sales" />
-        <FilterBar title = "Tools and equipment" />
         <section className={style.saleCardWrapper}>
             {randomlyDisplayedSales.map((sale) => (
                 <Link
