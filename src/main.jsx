@@ -4,7 +4,8 @@ import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import { AllCategories } from "./Components/AllCategories/AllCategories.jsx";
-import { AllProductsPage } from "./Pages/AllProductsPage.jsx";
+import { SingleCategoryPage } from "./Components/SingleCategoryPage/SingleCategoryPage.jsx";
+import { ProductsPage } from "./Pages/ProductsPage.jsx";
 import { AllSalesPage } from "./Pages/AllSalesPage.jsx";
 import { CartPage } from "./Pages/CartPage.jsx";
 import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
@@ -27,11 +28,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-categories",
-        element: <AllCategories />,
+        element: <AllCategories />
+      },{
+        path: "/single-category/:id",
+        element: <SingleCategoryPage/>
       },
       {
         path: "/all-products",
-        element: <AllProductsPage />,
+        element: <ProductsPage />,
       },
       {
         path: "/all-sales",
