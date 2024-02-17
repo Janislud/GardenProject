@@ -7,11 +7,15 @@ export const Sales = () => {
   const { data, error, isLoading } = useGetProductsQuery();
 
   if (error) {
-    return <p>Error featching date: {error.message}</p>;
+    return (
+      <p className={style.errorFetching}>
+        Error featching date: {error.message}
+      </p>
+    );
   }
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p className={style.loadingData}>Loading...</p>;
   }
 
   const discountedSales = data
@@ -54,7 +58,6 @@ export const Sales = () => {
 
             <div className={style.salePriceWrapper}>
               <p className={style.realPrice}>${sale.discont_price}</p>
-
               {sale.discont_price ? (
                 <p className={style.firstPrice}>${sale.price}</p>
               ) : null}
@@ -62,7 +65,6 @@ export const Sales = () => {
           </Link>
         ))}
       </section>
-
       <button className={style.saleBtnAdaptive}>
         <Link className={style.saleBtnDescription} to={"/all-sales"}>
           {"All Sales"}

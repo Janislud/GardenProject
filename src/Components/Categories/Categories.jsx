@@ -7,11 +7,15 @@ export const Categories = () => {
   const { data, error, isLoading } = useGetCategoriesQuery();
 
   if (error) {
-    return <p>Error fetching date: {error.message}</p>;
+    return (
+      <p className={style.errorFetching}>
+        Error fetching date: {error.message}
+      </p>
+    );
   }
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p className={style.loadingData}>Loading...</p>;
   }
 
   return (
