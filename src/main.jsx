@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import { AllCategories } from "./Components/AllCategories/AllCategories.jsx";
 import { SingleCategoryPage } from "./Components/SingleCategoryPage/SingleCategoryPage.jsx";
-import { AllProductsPage } from "./Pages/AllProductsPage.jsx";
+import { ProductsPage } from "./Pages/ProductsPage.jsx";
 import { AllSalesPage } from "./Pages/AllSalesPage.jsx";
 import { CartPage } from "./Pages/CartPage.jsx";
 import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-products",
-        element: <AllProductsPage />,
+        element: <ProductsPage />,
       },
       {
         path: "/all-sales",
