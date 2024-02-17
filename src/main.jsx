@@ -4,13 +4,13 @@ import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import { AllCategories } from "./Components/AllCategories/AllCategories.jsx";
+import { SingleCategoryPage } from "./Components/SingleCategoryPage/SingleCategoryPage.jsx";
 import { ProductsPage } from "./Pages/ProductsPage.jsx";
 import { AllSalesPage } from "./Pages/AllSalesPage.jsx";
+import { CartPage } from "./Pages/CartPage.jsx";
 import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
-import {CartPage} from "./Pages/CartPage.jsx";
 import { MainPage } from "./Pages/MainPage.jsx";
 import { store } from "./store/store.js";
-import { SingleCategoryPage } from "./Components/SingleCategoryPage/SingleCategoryPage.jsx";
 
 const router = createBrowserRouter([
   {

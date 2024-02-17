@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-.h2 {
+.h2TitleForm {
   color: #fff;
   text-align: center;
   font-family: Montserrat;
@@ -19,7 +19,7 @@
   margin-bottom: 30px;
 }
 
-form {
+.divForm {
   display: flex;
 }
 
@@ -48,7 +48,7 @@ form {
   margin-left: -40px;
 }
 
-form .divInputs {
+.divForm .divInputs {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,7 +58,7 @@ form .divInputs {
   margin-top: 10px;
 }
 
-input {
+.allThreeInputs {
   border-radius: 6px;
   padding: 16px 32px;
   width: 450px;
@@ -71,7 +71,7 @@ input {
   background: transparent;
 }
 
-input::placeholder {
+.allThreeInputs::placeholder {
   color: #fff;
 }
 
@@ -105,10 +105,10 @@ input::placeholder {
     width: 535px;
     overflow: hidden;
   }
-  form {
+  .divForm {
     gap: 50px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 470px;
   }
   .whiteButton {
@@ -130,10 +130,10 @@ input::placeholder {
     width: 544px;
     overflow: hidden;
   }
-  form {
+  .divForm {
     gap: 50px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 470px;
   }
   .whiteButton {
@@ -155,10 +155,10 @@ input::placeholder {
     width: 548px;
     overflow: hidden;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 470px;
   }
-  form {
+  .divForm {
     gap: 50px;
   }
 
@@ -174,10 +174,10 @@ input::placeholder {
   .formErrorMessage {
     font-size: 20px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 450px;
   }
-  form {
+  .divForm {
     gap: 50px;
   }
 
@@ -190,7 +190,7 @@ input::placeholder {
   .formErrorMessage {
     font-size: 18px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 450px;
   }
   .whiteButton {
@@ -199,7 +199,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 1000px) {
-  .h2 {
+  .h2TitleForm {
     font-size: 64px;
     margin-top: 20px;
     margin-bottom: 40px;
@@ -217,7 +217,7 @@ input::placeholder {
     height: 331px;
     object-fit: cover;
   }
-  form {
+  .divForm {
     margin-top: -50px;
   }
 
@@ -231,7 +231,7 @@ input::placeholder {
     font-size: 16px;
     width: 290px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 340px;
     padding: auto 20px;
   }
@@ -247,7 +247,7 @@ input::placeholder {
   .divInputs {
     margin-left: 20px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 340px;
   }
 
@@ -269,7 +269,7 @@ input::placeholder {
   .greenDiv .imgWrapper {
     width: 418px;
   }
-  .h2 {
+  .h2TitleForm {
     font-size: 49px;
   }
 }
@@ -278,10 +278,10 @@ input::placeholder {
   .greenDiv .imgWrapper {
     width: 420px;
   }
-  .h2 {
+  .h2TitleForm {
     font-size: 49px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 320px;
     padding: auto 20px;
   }
@@ -291,7 +291,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 815px) {
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 270px;
     padding: auto 20px;
   }
@@ -304,7 +304,7 @@ input::placeholder {
   .greenDiv .imgWrapper {
     width: 360px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 270px;
     padding: auto 20px;
   }
@@ -314,7 +314,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 768px) {
-  .h2 {
+  .h2TitleForm {
     font-size: 45px;
   }
   .greenDiv .imgWrapper {
@@ -332,7 +332,7 @@ input::placeholder {
     justify-content: flex-end;
     margin-left: 5px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 350px;
     padding: auto 20px;
   }
@@ -344,7 +344,7 @@ input::placeholder {
     width: 88%;
     padding: 15px 10px;
   }
-  form {
+  .divForm {
     margin-top: -35px;
   }
 }
@@ -353,7 +353,7 @@ input::placeholder {
   .greenDiv .imgWrapper {
     width: 320px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 250px;
     padding: auto 20px;
   }
@@ -393,17 +393,17 @@ input::placeholder {
   .divInputs {
     margin-left: 10px;
   }
-  .h2 {
+  .h2TitleForm {
     font-size: 40px;
     margin-bottom: 60px;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .h2 {
+  .h2TitleForm {
     font-size: 37px;
   }
-  form {
+  .divForm {
     flex-direction: column-reverse;
   }
   .greenDiv .imgWrapper {
@@ -421,7 +421,7 @@ input::placeholder {
     justify-content: center;
     margin-left: 115px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 370px;
     padding: auto 20px;
   }
@@ -435,13 +435,13 @@ input::placeholder {
     height: 674px;
     margin: 20px;
   }
-  form {
+  .divForm {
     margin-top: -15px;
   }
 }
 
 @media screen and (max-width: 566px) {
-  .h2 {
+  .h2TitleForm {
     font-size: 35px;
   }
   .divInputs {
@@ -450,7 +450,7 @@ input::placeholder {
   .greenDiv .imgWrapper {
     margin-left: 20px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 350px;
   }
   .whiteButton {
@@ -459,7 +459,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 520px) {
-  .h2 {
+  .h2TitleForm {
     font-size: 30px;
   }
   .divInputs {
@@ -472,7 +472,7 @@ input::placeholder {
   .greenDiv {
     height: 650px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 350px;
   }
   .whiteButton {
@@ -481,7 +481,7 @@ input::placeholder {
 }
 
 @media screen and (max-width: 470px) {
-  .h2 {
+  .h2TitleForm {
     font-size: 25px;
   }
   .divInputs {
@@ -498,20 +498,20 @@ input::placeholder {
   .greenDiv {
     height: 630px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 370px;
   }
 }
 
 @media screen and (max-width: 444px) {
-  .h2 {
+  .h2TitleForm {
     font-size: 25px;
   }
   .divInputs {
     margin-left: 85px;
     width: 70px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 300px;
   }
   .greenDiv .imgWrapper {
@@ -528,10 +528,10 @@ input::placeholder {
 }
 
 @media screen and (max-width: 395px) {
-  .h2 {
+  .h2TitleForm {
     font-size: 25px;
   }
-  form {
+  .divForm {
     flex-direction: column-reverse;
   }
   .greenDiv .imgWrapper {
@@ -549,7 +549,7 @@ input::placeholder {
     justify-content: center;
     margin-left: 80px;
   }
-  .divInputs input {
+  .divInputs .allThreeInputs {
     width: 290px;
     padding: auto 20px;
   }
@@ -562,7 +562,7 @@ input::placeholder {
     height: 615px;
     margin: 15px;
   }
-  form {
+  .divForm {
     margin-top: -15px;
   }
 }

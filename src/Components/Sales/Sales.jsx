@@ -8,13 +8,13 @@ export const Sales = () => {
 
  if (error) {
     return (
-        <p>Error featching date: {error.message}</p>
+        <p className={style.errorFetching}>Error featching date: {error.message}</p>
     )
  }
 
  if (isLoading) {
     return (
-        <p>Loading...</p>
+        <p className={style.loadingData}>Loading...</p>
     )
  }
 
@@ -57,21 +57,17 @@ return (
 
                 <div className={style.salePriceWrapper}>
                     <p className={style.realPrice}>${sale.discont_price}</p>
-                    
-
                       {sale.discont_price ? (
                   <p className={style.firstPrice}>${sale.price}</p>) : null}
                 </div>
                 </Link>
             ))}
         </section>
-
         <button className={style.saleBtnAdaptive}>
             <Link className={style.saleBtnDescription} to={'/all-sales'}>
                 {'All Sales'}
             </Link>
         </button>
-        
     </section>
 )
 }
