@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import imgGreenForm from "../../assets/images/imgGreenForm/imgGreenForm.svg";
 import { addNewUser } from "../../slices/usersSlice";
-import styles from "./DataUserForm.module.css";
+import style from "./DataUserForm.module.css";
 
 export const DataUserForm = () => {
   const dispatch = useDispatch();
@@ -31,19 +31,19 @@ export const DataUserForm = () => {
 
   return (
     <div>
-      <div className={styles.greenDiv}>
-        <h2 className={styles.h2}>5% off on the first order</h2>
-        <form onSubmit={handleSubmit(handleAddUser)}>
-          <div className={styles.imgWrapper}>
+      <div className={style.greenDiv}>
+        <h2 className={style.h2TitleForm}>5% off on the first order</h2>
+        <form className={style.divForm} onSubmit={handleSubmit(handleAddUser)}>
+          <div className={style.imgWrapper}>
             <img
-              className={styles.formHands}
+              className={style.formHands}
               src={imgGreenForm}
               alt="five hands picture"
             />
           </div>
-          <div className={styles.divInputs}>
+          <div className={style.divInputs}>
             {isFormSubmitted && (
-              <p className={styles.pSubmittedRegistration}>
+              <p className={style.pSubmittedRegistration}>
                 {isSubmitSuccessful
                   ? "Thank you for your registration!"
                   : "Try please your registration one more time. Thank you!"}
@@ -51,10 +51,11 @@ export const DataUserForm = () => {
             )}
             {!isFormSubmitted && (
               <>
-                <p className={styles.formErrorMessage}>
+                <p className={style.formErrorMessage}>
                   {errors.firstName?.message}
                 </p>
                 <input
+                  className={style.allThreeInputs}
                   type="text"
                   placeholder="Name"
                   id="name"
@@ -70,10 +71,11 @@ export const DataUserForm = () => {
                     },
                   })}
                 />
-                <p className={styles.formErrorMessage}>
+                <p className={style.formErrorMessage}>
                   {errors.phone?.message}
                 </p>
                 <input
+                  className={style.allThreeInputs}
                   type="tel"
                   placeholder="Phone number"
                   id="phone"
@@ -86,10 +88,11 @@ export const DataUserForm = () => {
                     },
                   })}
                 />
-                <p className={styles.formErrorMessage}>
+                <p className={style.formErrorMessage}>
                   {errors.email?.message}
                 </p>
                 <input
+                  className={style.allThreeInputs}
                   type="email"
                   placeholder="Email"
                   id="email"
@@ -101,7 +104,7 @@ export const DataUserForm = () => {
                     },
                   })}
                 />
-                <button type="submit" className={styles.whiteButton}>
+                <button type="submit" className={style.whiteButton}>
                   Get a discount
                 </button>
               </>

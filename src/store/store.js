@@ -1,11 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import usersReducer from "../slices/usersSlice.js";
 import { dateApi } from "../slices/apiSlice";
+import counterReducer from "../slices/counterSlice.js";
+import usersReducer from "../slices/usersSlice.js";
 
 export const store = configureStore({
-    reducer: {
-        users: usersReducer,
-        [dateApi.reducerPath]: dateApi.reducer
-    },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(dateApi.middleware),
-})
+  reducer: {
+    users: usersReducer,
+    counter: counterReducer,
+    [dateApi.reducerPath]: dateApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(dateApi.middleware),
+});
