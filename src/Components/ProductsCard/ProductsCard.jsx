@@ -9,14 +9,13 @@ export const ProductsCard = ({ product }) => {
       className={style.saleCard}
       to={`products/${product.id}`}
     >
-      <div className={style.saleBlock}>
-        {product.discont_price !== null
-          ? `-${Math.round(
-              ((product.price - product.discont_price) / product.price) * 100
-            )}%`
-          : `${product.price}`}
+   <div className={style.saleBlock}> 
+        {product.discont_price !== null 
+          ? `-${Math.round( 
+              ((product.price - product.discont_price) / product.price) * 100 
+            )}%` 
+          : product.price } 
       </div>
-
       <img
         className={style.saleImg}
         src={`http://localhost:3333${product.image}`}
