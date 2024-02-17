@@ -10,6 +10,7 @@ import { AllSalesPage } from "./Pages/AllSalesPage.jsx";
 import { CartPage } from "./Pages/CartPage.jsx";
 import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
 import { MainPage } from "./Pages/MainPage.jsx";
+import { SingleProductPage } from "./Pages/SingleProductPage.jsx";
 import { store } from "./store/store.js";
 
 const router = createBrowserRouter([
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
       {
         path: "/categories",
         element: <CategoriesPage />,
-      }, {
+      },
+      {
         path: "/all-categories",
         element: <AllCategories />
       },{
@@ -40,8 +42,12 @@ const router = createBrowserRouter([
         element: <AllSalesPage />,
       },
       {
+        path: "/sales/:id",
+        element: <SingleProductPage />,
+      },
+      {
         path: "/cart",
-        element: <CartPage/>,
+        element: <CartPage />,
       },
     ],
   },
@@ -52,4 +58,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </Provider>
 );
-
