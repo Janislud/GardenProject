@@ -16,7 +16,7 @@ const productsSlice = createSlice({
     },
     productsLoaded: (state, action) => {
       state.isFetching = true;
-      state.products = action.payload.length ? action.payload[0] : [];
+      state.products = action.payload?.length ? action.payload : [];
     },
     productsLoadFailed: (state, action) => {
       state.isFetching = false;
@@ -24,9 +24,8 @@ const productsSlice = createSlice({
     },
     productsLoadedWithDiscount: (state,action) => {
       state.isFetching = true;
-      state.products = action.payload;
+      state.products = action.payload?.length ? action.payload.filter((product) => product.discont_price) : [];
     }
- 
   },
 });
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { ProductsList } from "../Components/ProductsList/ProductsList";
-import { productsLoadedWithDiscount } from "../slices/productsSlice";
+import {productsLoadedWithDiscount, productsLoadFailed, startFetching} from "../slices/productsSlice";
 import { useDispatch } from "react-redux";
 import { useGetProductsQuery } from "../slices/apiSlice";
 import { TitleBar } from "../Components/TitleBar/TitleBar";
@@ -8,13 +8,13 @@ import { TitleBar } from "../Components/TitleBar/TitleBar";
 export const AllSalesPage = () => {
   const dispatch = useDispatch();
 
-  const { isLoading, products, error } = useGetProductsQuery();
+  const { isLoading, data, error } = useGetProductsQuery();
 
   useEffect(() => {
     if (isLoading) dispatch(startFetching());
     if (error) dispatch(productsLoadFailed(error));
-    if (products) dispatch(productsLoadedWithDiscount(products.products));
-  }, [isLoading, products, error]);
+    if (data) dispatch(productsLoadedWithDiscount(data));
+  }, [isLoading, data, error]);
 
   return (
     <main>

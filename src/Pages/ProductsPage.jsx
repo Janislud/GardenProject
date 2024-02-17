@@ -9,13 +9,13 @@ export const ProductsPage = () => {
 
   const dispatch = useDispatch();
 
-  const { isLoading, products, error } = useGetProductsQuery()
+  const { isLoading, data, error } = useGetProductsQuery();
 
   useEffect( () => {
     if (isLoading) dispatch(startFetching());
     if (error) dispatch(productsLoadFailed(error));
-    if (products) dispatch(productsLoaded(products.products));
-  }, [isLoading, products, error]);
+    if (data) dispatch(productsLoaded(data));
+  }, [isLoading, data, error]);
 
    return (
     <div>
