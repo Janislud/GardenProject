@@ -1,38 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import style from './ProductsCard.module.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import style from "./ProductsCard.module.css";
 
-export const ProductsCard = ({product}) => {
+export const ProductsCard = ({ product }) => {
   return (
     <Link
-                key={product.id}
-                className={style.saleCard}
-                to={`products/${product.id}`}
-                >
-                <div className={style.saleBlock}>
-                  {product.price &&
-                  product.discont_price &&
-                  `-${Math.round(
-                    ((product.price - product.discont_price) / product.price) * 100
-                  )}%`}
-                </div>
-                <img className={style.saleImg}
-                src={`http://localhost:3333${product.image}`}
-                alt={product.title}
-                />
-                <h2 className={style.saleCardText}>
-                    {product.title}
-                </h2>
+      key={product.id}
+      className={style.saleCard}
+      to={`products/${product.id}`}
+    >
+      <div className={style.saleBlock}>
+        {product.discont_price !== null
+          ? `-${Math.round(
+              ((product.price - product.discont_price) / product.price) * 100
+            )}%`
+          : `${product.price}`}
+      </div>
 
-                <div className={style.salePriceWrapper}>
-                    <p className={style.realPrice}>${product.discont_price}</p>
-                    
+      <img
+        className={style.saleImg}
+        src={`http://localhost:3333${product.image}`}
+        alt={product.title}
+      />
+      <h2 className={style.saleCardText}>{product.title}</h2>
 
-                      {product.discont_price ? (
-                  <p className={style.firstPrice}>${product.price}</p>) : null}
-                </div>
-                </Link>
-  )
-}
+      <div className={style.salePriceWrapper}>
+        <p className={style.realPrice}>${product.discont_price}</p>
 
-export default ProductsCard
+        {product.discont_price ? (
+          <p className={style.firstPrice}>${product.price}</p>
+        ) : null}
+      </div>
+    </Link>
+  );
+};
+
+export default ProductsCard;
