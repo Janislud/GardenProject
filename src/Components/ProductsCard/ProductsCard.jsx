@@ -7,14 +7,14 @@ export const ProductsCard = ({ product }) => {
     <Link
       key={product.id}
       className={style.saleCard}
-      to={`products/${product.id}`}
+      to={`/single-product/${product.id}`}
     >
-   <div className={style.saleBlock}> 
-        {product.discont_price !== null 
-          ? `-${Math.round( 
-              ((product.price - product.discont_price) / product.price) * 100 
-            )}%` 
-          : product.price } 
+      <div className={style.saleBlock}>
+        {product.discont_price !== null
+          ? `-${Math.round(
+              ((product.price - product.discont_price) / product.price) * 100
+            )}%`
+          : product.price}
       </div>
       <img
         className={style.saleImg}

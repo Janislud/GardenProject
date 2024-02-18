@@ -15,40 +15,45 @@ export const SingleProduct = () => {
   if (isLoading) {
     return <p>Loading...</p>;
   }
+  console.log(data);
 
   return (
     <section className={style.mainDivSingleProduct}>
       <section className={style.divSingleProduct}>
-        {data.map((sale) => (
-          <div
-            key={sale.id}
+        {data.map((product) => (
+          <Link
+            key={product.id}
             className={style.saleBlock}
-            to={`sales/${sale.id}`}
+            to={`/single-product/${product.id}`}
           >
             <div className={style.productItemImage}>
               <img
                 className={style.imgProduct}
-                src={`http://localhost:3333${sale.image}`}
-                alt={sale.title}
+                src={`http://localhost:3333${product.image}`}
+                alt={product.title}
               />
             </div>
 
             <div className={style.divWithPriceCounterDescription}>
-              <h2 className={style.h2TitleText}>{sale.title}</h2>
+              <h2 className={style.h2TitleText}>{product.title}</h2>
               <div className={style.divPrices}>
-                <p className={style.discontPrice}>${sale.discont_price}</p>
+                <p className={style.discontPrice}>${product.price}</p>
 
-                {sale.discont_price ? (
-                  <p className={style.initialPrice}>${sale.price}</p>
+                {product.discont_price ? (
+                  <p className={style.initialPrice}>${product.discont_price}</p>
                 ) : null}
 
-                <div className={style.percentagePrice}>
-                  {sale.price &&
-                    sale.discont_price &&
-                    `-${Math.round(
-                      ((sale.price - sale.discont_price) / sale.price) * 100
-                    )}%`}
-                </div>
+                {product.price &&
+                  product.discont_price &&
+                  product.price !== product.discont_price && (
+                    <div className={style.percentagePrice}>
+                      {`-${Math.round(
+                        ((product.price - product.discont_price) /
+                          product.price) *
+                          100
+                      )}%`}
+                    </div>
+                  )}
               </div>
 
               <div className={style.counterUndButton}>
@@ -56,7 +61,7 @@ export const SingleProduct = () => {
                   <Counter />
                 </div>
                 <div className={style.divButton}>
-                  <Link to="/shopping-cart">
+                  <Link to="/cart">
                     <Button
                       className={style.addGreenButton}
                       buttonClass="primary"
@@ -68,14 +73,12 @@ export const SingleProduct = () => {
 
               <div className={style.productDescription}>
                 <h6 className={style.h6Description}>Description</h6>
-                <p className={style.textColor}>{sale.description}</p>
+                <p className={style.textColor}>{product.description}</p>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </section>
     </section>
   );
 };
-
-//{products.length > 0 ? products[0].description : ""}
