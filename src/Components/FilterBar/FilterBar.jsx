@@ -12,7 +12,7 @@ export const FilterBar = ({ title }) => {
 
      useEffect(() => {
         setIsChecked(showOnlyDiscounted);
-        dispatch(minPriceChange(''));
+        dispatch(minPriceChange(''));4
         dispatch(maxPriceChange(''));
         dispatch(sortChange(''));
     }, [showOnlyDiscounted, location, dispatch]);
@@ -36,12 +36,12 @@ export const FilterBar = ({ title }) => {
                 <label className={style.lablePrice} htmlFor="price">Price</label>
                     <input className={style.priceInput} type="number" placeholder="from" id="price" min="0" onChange={(element) => dispatch(minPriceChange(element.target.value))} />
                     <input className={style.priceInput} type="number" placeholder="to" min="0" onChange={(element) => dispatch(maxPriceChange(element.target.value))} />
-           
+                    {title !== "All Sales" &&
                 <div className={style.discountItemsWrapper}>
                     <label className={style.lableDiscount} htmlFor="discounted-items">Discounted items</label>
                     <input className={style.inputCheckBox} type="checkbox" id="discounted-items" name="discount" checked={isChecked} onChange={handleToggleShowOnlyDiscounted} />
                 </div>
-                
+                }
                 <label className={style.sortedLable} htmlFor="sort">Sorted</label>
                 <div className={style.customSelect}>
                         <select className={style.selectOption} id="sort" onChange={(element) => dispatch(sortChange(element.target.value))}>
