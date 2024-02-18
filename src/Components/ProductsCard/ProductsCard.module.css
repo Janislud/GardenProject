@@ -36,3 +36,29 @@
     text-decoration-line: line-through;
     color: #8b8b8b;
 }
+
+.saleBlock {
+    position: absolute;
+    margin-left: 240px;
+    margin-top: 16px;
+    background-color: #393;
+    color: #ffffff;
+    padding:4px 8px;
+    border-radius: 4px;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: 0.6px;
+}
+
+.saleCard {
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    max-width: 313px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.myFirstBlock {
+    display: flex;
+}

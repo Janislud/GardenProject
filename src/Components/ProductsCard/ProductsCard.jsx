@@ -4,6 +4,7 @@ import style from "./ProductsCard.module.css";
 
 export const ProductsCard = ({ product }) => {
   return (
+    
     <Link
       key={product.id}
       className={style.saleCard}

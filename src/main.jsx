@@ -29,7 +29,8 @@ const router = createBrowserRouter([
       {
         path: "/all-categories",
         element: <AllCategories />
-      },{
+      },
+      {
         path: "/single-category/:id",
         element: <SingleCategoryPage/>
       },
