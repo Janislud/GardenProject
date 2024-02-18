@@ -19,6 +19,8 @@ export const Categories = () => {
     )
   };
 
+  console.log(data)
+
   return (
     <section className={style.categoriesSection}>
       <TitleBar title = "Categories" linkTo="/categories" buttonText="All Categories" />
@@ -26,7 +28,7 @@ export const Categories = () => {
       <section className={style.categoryCardsWrapper}>
       {data && data.slice(0,4).map((category) => (
         <Link key={category.id} className={style.categoryCard}
-        to={`/categories/${category.id}`}
+        to={`/single-category/${category.id}`}
         >
           <img
           className={style.categoryImg}

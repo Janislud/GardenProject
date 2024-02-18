@@ -24,10 +24,12 @@ const router = createBrowserRouter([
       {
         path: "/categories",
         element: <CategoriesPage />,
-      }, {
+      },
+      {
         path: "/all-categories",
         element: <AllCategories />
-      },{
+      },
+      {
         path: "/single-category/:id",
         element: <SingleCategoryPage/>
       },

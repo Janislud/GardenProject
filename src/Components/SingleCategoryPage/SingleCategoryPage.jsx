@@ -8,8 +8,8 @@ import style from "./SingleCategoryPage.module.css";
 export const SingleCategoryPage = () => {
     const { id } = useParams()
     const { data, error, isLoading } = useGetCategoriesByIdQuery(id)
-    const { minPrice, maxPrice, sort ,showOnlyDiscounted} = useSelector((state) => state.filter) //+
-    const [ products, setProducts] = useState([]) //+
+    const { minPrice, maxPrice, sort ,showOnlyDiscounted} = useSelector((state) => state.filter)
+    const [ products, setProducts] = useState([])
 
 useEffect(() => {
 
@@ -42,10 +42,11 @@ useEffect(() => {
         return <h2>Loading...</h2>
     }
 
+   
     return (
         <section className={style.singleCategoryWrapper}>
             <div className={style.singleBtnWrapper}></div>
-            <FilterBar title = "Annuals" />
+            <FilterBar title={`${data.category.title}`} />
             <div className={style.singleCategoryCardsWrapper}>
                 {products.map((product) => (
                     <div className={style.singleCardWrapper} key={product.id}>
