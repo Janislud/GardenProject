@@ -5,12 +5,12 @@ import ProductsCard from '../ProductsCard/ProductsCard';
 import style from './ProductsList.module.css';
 
 
-export const ProductsList = () => {
+export const ProductsList = ({title}) => {
   const products = useSelector((state) => state.products.products);
  
     return (
       <section className={style.myFirstSection}>
-        <FilterBar title={`All Products`} />
+        <FilterBar title={title} />
   <div className={style.productsList}>
       { products?.length && products.map((product) => (
         <ProductsCard key={product.id} product={product} />
