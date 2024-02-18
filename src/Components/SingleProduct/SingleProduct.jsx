@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../slices/apiSlice";
 import { Button } from "../Button/Button";
@@ -7,6 +8,12 @@ import style from "./singleProduct.module.css";
 export const SingleProduct = () => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetProductByIdQuery(id);
+  const [space, setSpace] = useState(false);
+
+  const switcherText = (event) => {
+    event.preventDefault();
+    setSpace((prevSpace) => !prevSpace);
+  };
 
   if (error) {
     return <p>Error featching date: {error.message}</p>;
@@ -15,7 +22,6 @@ export const SingleProduct = () => {
   if (isLoading) {
     return <p>Loading...</p>;
   }
-  console.log(data);
 
   return (
     <section className={style.mainDivSingleProduct}>
@@ -73,7 +79,21 @@ export const SingleProduct = () => {
 
               <div className={style.productDescription}>
                 <h6 className={style.h6Description}>Description</h6>
-                <p className={style.textColor}>{product.description}</p>
+                <p
+                  className={
+                    style.productTextDescriptionMain +
+                    (space ? "" : "" + style.clamp)
+                  }
+                >
+                  {product.description}
+                </p>
+
+                <button
+                  onClick={switcherText}
+                  className={style.productTextDescriptionReadMore}
+                >
+                  Read more
+                </button>
               </div>
             </div>
           </Link>
@@ -82,3 +102,5 @@ export const SingleProduct = () => {
     </section>
   );
 };
+
+//<p className={style.textColor}>{product.description}</p>

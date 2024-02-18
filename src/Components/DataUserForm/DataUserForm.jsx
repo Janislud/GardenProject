@@ -30,7 +30,7 @@ export const DataUserForm = () => {
   };
 
   return (
-    <div>
+    <>
       <div className={style.greenDiv}>
         <h2 className={style.h2TitleForm}>5% off on the first order</h2>
         <form className={style.divForm} onSubmit={handleSubmit(handleAddUser)}>
@@ -112,6 +112,6 @@ export const DataUserForm = () => {
           </div>
         </form>
       </div>
-    </div>
+    </>
   );
 };
