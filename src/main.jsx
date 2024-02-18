@@ -5,11 +5,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import { AllCategories } from "./Components/AllCategories/AllCategories.jsx";
 import { SingleCategoryPage } from "./Components/SingleCategoryPage/SingleCategoryPage.jsx";
-import { AllProductsPage } from "./Pages/AllProductsPage.jsx";
+import { ProductsPage } from "./Pages/ProductsPage.jsx";
 import { AllSalesPage } from "./Pages/AllSalesPage.jsx";
 import { CartPage } from "./Pages/CartPage.jsx";
 import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
 import { MainPage } from "./Pages/MainPage.jsx";
+import { SingleProductPage } from "./Pages/SingleProductPage.jsx";
 import { store } from "./store/store.js";
 
 const router = createBrowserRouter([
@@ -35,15 +36,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-products",
-        element: <AllProductsPage />,
+        element: <ProductsPage />,
       },
       {
         path: "/all-sales",
         element: <AllSalesPage />,
       },
       {
+        path: "/sales/:id",
+        element: <SingleProductPage />,
+      },
+      {
         path: "/cart",
-        element: <CartPage/>,
+        element: <CartPage />,
       },
     ],
   },
@@ -54,4 +59,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </Provider>
 );
-
