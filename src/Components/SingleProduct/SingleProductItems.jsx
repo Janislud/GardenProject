@@ -16,8 +16,6 @@ export const SingleProductItem = () => {
       <Link to="/all-products">
         <button className={style.toolsButton}>All Products</button>
       </Link>
-      <div className={style.shortLine}></div>
-      <button className={style.titleButton}>Product</button>
     </div>
   );
 };

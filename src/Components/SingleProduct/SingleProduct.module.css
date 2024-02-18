@@ -22,8 +22,7 @@
 
 .mainCategoriesToolsButtons {
   display: flex;
-  margin: 60px 90px;
-  margin-top: 60px;
+  margin: 60px auto;
   margin-left: 90px;
 }
 
@@ -495,9 +494,7 @@
 
 @media screen and (max-width: 700px) {
   .mainCategoriesToolsButtons {
-    display: flex;
-    flex-direction: column;
-    margin-left: 50px;
+    display: none;
   }
   .mainCategoriesToolsButtons .titleButton {
     width: 120px;
@@ -561,14 +558,14 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 570px) {
   .productItemImage .imgProduct {
-    width: 250px;
-    height: 340px;
+    width: 200px;
+    height: 300px;
   }
   .productDescription {
     margin-top: 50px;
-    margin-left: -280px;
+    margin-left: -250px;
     max-width: 450px;
   }
   .h2TitleText {
@@ -584,7 +581,80 @@
     width: 54px;
   }
   .divWithPriceCounterDescription {
-    margin-left: -20px;
+    margin-left: -40px;
+  }
+  .divPrices {
+    margin-top: -5px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .divWithPriceCounterDescription {
+    margin-left: -70px;
+  }
+  .productDescription {
+    margin-top: 70px;
+    margin-left: -220px;
+    max-width: 450px;
+  }
+  .divPrices {
+    margin-top: -20px;
+  }
+}
+
+@media screen and (max-width: 455px) {
+  .divSingleProduct .saleBlock {
+    flex-direction: column;
+  }
+  .productDescription {
+    margin-top: 50px;
+    margin-left: 10px;
+  }
+  .divWithPriceCounterDescription {
+    margin: 10px auto;
+    margin-top: -450px;
+  }
+  .productItemImage .imgProduct {
+    width: 370px;
+    margin-top: 60px;
+  }
+  .saleBlock .productItemImage .imgProduct {
+    height: 300px;
+  }
+  .h2TitleText {
+    margin-top: -370px;
+    margin-bottom: 370px;
+    font-size: 28px;
+  }
+  .percentagePrice {
+    margin-top: -330px;
+    margin-left: 50px;
+  }
+  .counterUndButton {
+    margin: 5px auto;
+  }
+  .divCounter .minusButton {
+    width: 74px;
+  }
+  .divCounter .countButton {
+    width: 74px;
+  }
+  .divCounter .plusButton {
+    width: 74px;
+  }
+  .discontPrice {
+    margin-left: 100px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .productItemImage .imgProduct {
+    width: 330px;
+    margin-top: 70px;
+  }
+  .percentagePrice {
+    margin-left: 20px;
   }
 }
 

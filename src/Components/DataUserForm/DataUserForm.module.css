@@ -105,88 +105,54 @@
 }
 
 @media screen and (max-width: 1300px) {
-  .formErrorMessage {
-    font-size: 20px;
+  .imgWrapper .formHands {
+    width: 700px;
   }
-  .divInputs .allThreeInputs {
-    width: 450px;
-  }
-  .divForm {
-    gap: 50px;
-  }
+}
 
-  .whiteButton {
-    width: 450px;
+@media screen and (max-width: 1200px) {
+  .imgWrapper .formHands {
+    width: 650px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .imgWrapper .formHands {
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .imgWrapper .formHands {
+    width: 550px;
   }
 }
 
 @media screen and (max-width: 1050px) {
-  .formErrorMessage {
-    font-size: 18px;
-  }
-  .divInputs .allThreeInputs {
-    width: 450px;
-  }
-  .whiteButton {
-    width: 450px;
+  .imgWrapper .formHands {
+    width: 500px;
   }
 }
 
 @media screen and (max-width: 1000px) {
   .h2TitleForm {
     font-size: 64px;
-    margin-top: 20px;
-    margin-bottom: 40px;
   }
-  .greenDiv {
-    width: 90%;
-    padding: 10px;
-  }
-  .greenDiv .imgWrapper {
-    width: 448px;
-    overflow: hidden;
-  }
-  .imgWrapper .formHands {
-    width: 120%;
-    height: 331px;
-    object-fit: cover;
-  }
-  .divForm {
-    margin-top: -50px;
-  }
-
   .divInputs {
-    width: 10%;
-    justify-content: flex-end;
-    margin-left: 20px;
-    margin-top: 2px;
+    width: 450px;
   }
-  .formErrorMessage {
-    font-size: 16px;
-    width: 290px;
-  }
-  .divInputs .allThreeInputs {
-    width: 340px;
-    padding: auto 20px;
-  }
-  .divInputs .whiteButton {
-    width: 340px;
-  }
-  .formErrorMessage {
-    font-size: 20px;
+  .whiteButton {
+    width: 450px;
   }
 }
 
 @media screen and (max-width: 950px) {
   .divInputs {
-    margin-left: 20px;
-  }
-  .divInputs .allThreeInputs {
-    width: 340px;
+    width: 400px;
   }
 
   .whiteButton {
-    width: 340px;
+    width: 400px;
   }
 }
 
@@ -202,9 +168,16 @@
 @media screen and (max-width: 870px) {
   .greenDiv .imgWrapper {
     width: 418px;
+    margin-right: 30px;
   }
   .h2TitleForm {
     font-size: 49px;
+  }
+  .divInputs {
+    width: 370px;
+  }
+  .whiteButton {
+    width: 370px;
   }
 }
 
@@ -236,7 +209,8 @@
 
 @media screen and (max-width: 800px) {
   .greenDiv .imgWrapper {
-    width: 360px;
+    width: 350px;
+    margin-right: 40px;
   }
   .divInputs .allThreeInputs {
     width: 270px;
@@ -262,9 +236,8 @@
   }
 
   .divInputs {
-    width: 10%;
     justify-content: flex-end;
-    margin-left: 5px;
+    margin-left: 20px;
   }
   .divInputs .allThreeInputs {
     width: 350px;
@@ -296,9 +269,8 @@
   }
 
   .divInputs {
-    width: 10%;
     justify-content: flex-end;
-    margin-left: 5px;
+    margin-left: 15px;
   }
 }
 
@@ -351,9 +323,7 @@
     object-fit: fill;
   }
   .divInputs {
-    width: 10%;
-    justify-content: center;
-    margin-left: 115px;
+    margin: 10px auto;
   }
   .divInputs .allThreeInputs {
     width: 370px;
@@ -379,12 +349,12 @@
     font-size: 35px;
   }
   .divInputs {
-    margin-left: 105px;
+    margin: 10px auto;
   }
   .greenDiv .imgWrapper {
     margin-left: 20px;
   }
-  .divInputs .allThreeInputs {
+  .divInputs {
     width: 350px;
   }
   .whiteButton {
@@ -397,7 +367,7 @@
     font-size: 30px;
   }
   .divInputs {
-    margin-left: 100px;
+    margin: 10px auto;
   }
   .greenDiv .imgWrapper {
     margin-left: 10px;
@@ -406,7 +376,7 @@
   .greenDiv {
     height: 650px;
   }
-  .divInputs .allThreeInputs {
+  .divInputs {
     width: 350px;
   }
   .whiteButton {
@@ -419,7 +389,7 @@
     font-size: 25px;
   }
   .divInputs {
-    margin-left: 90px;
+    margin: 10px auto;
     width: 70px;
   }
   .greenDiv .imgWrapper {
@@ -442,7 +412,7 @@
     font-size: 25px;
   }
   .divInputs {
-    margin-left: 85px;
+    margin: 10px auto;
     width: 70px;
   }
   .divInputs .allThreeInputs {
@@ -479,9 +449,7 @@
     margin-left: 10px;
   }
   .divInputs {
-    width: 10%;
-    justify-content: center;
-    margin-left: 80px;
+    margin: 10px auto;
   }
   .divInputs .allThreeInputs {
     width: 290px;
