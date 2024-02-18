@@ -1,1 +1,9 @@
-.ProductsList {}
+.productsList {
+    border: 1px solid green;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin: 0 auto;
+    max-width: 1360px;
+    justify-content: center;
+}

@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import { ProductsList } from "../Components/ProductsList/ProductsList";
-import {productsLoadedWithDiscount, productsLoadFailed, startFetching} from "../slices/productsSlice";
 import { useDispatch } from "react-redux";
+import { ProductsList } from "../Components/ProductsList/ProductsList";
 import { useGetProductsQuery } from "../slices/apiSlice";
-import { TitleBar } from "../Components/TitleBar/TitleBar";
+import { productsLoadedWithDiscount, productsLoadFailed, startFetching } from "../slices/productsSlice";
 
 export const AllSalesPage = () => {
   const dispatch = useDispatch();
@@ -18,7 +17,6 @@ export const AllSalesPage = () => {
 
   return (
     <main>
-      <TitleBar title="Sale" linkTo="/all-sales" buttonText="All Sales" />
       <ProductsList />
     </main>
   );
