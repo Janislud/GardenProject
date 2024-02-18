@@ -6,17 +6,17 @@ import { TitleBar } from "../TitleBar/TitleBar";
 export const Sales = () => {
   const { data, error, isLoading } = useGetProductsQuery();
 
- if (error) {
+  if (error) {
     return (
-        <p className={style.errorFetching}>Error featching date: {error.message}</p>
-    )
- }
+      <p className={style.errorFetching}>
+        Error featching date: {error.message}
+      </p>
+    );
+  }
 
- if (isLoading) {
-    return (
-        <p className={style.loadingData}>Loading...</p>
-    )
- }
+  if (isLoading) {
+    return <p className={style.loadingData}>Loading...</p>;
+  }
 
   const discountedSales = data
     ? data.filter((sale) => sale.discont_price !== null)
@@ -56,20 +56,20 @@ export const Sales = () => {
             />
             <h2 className={style.saleCardText}>{sale.title}</h2>
 
-                <div className={style.salePriceWrapper}>
-                    <p className={style.realPrice}>${sale.discont_price}</p>
-                      {sale.discont_price ? (
-                  <p className={style.firstPrice}>${sale.price}</p>) : null}
-                </div>
-                </Link>
-            ))}
-        </section>
-        <button className={style.saleBtnAdaptive}>
-            <Link className={style.saleBtnDescription} to={'/all-sales'}>
-                {'All Sales'}
-            </Link>
-        </button>
-
+            <div className={style.salePriceWrapper}>
+              <p className={style.realPrice}>${sale.discont_price}</p>
+              {sale.discont_price ? (
+                <p className={style.firstPrice}>${sale.price}</p>
+              ) : null}
+            </div>
+          </Link>
+        ))}
+      </section>
+      <button className={style.saleBtnAdaptive}>
+        <Link className={style.saleBtnDescription} to={"/all-sales"}>
+          {"All Sales"}
+        </Link>
+      </button>
     </section>
   );
 };

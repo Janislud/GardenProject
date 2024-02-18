@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetCategoriesByIdQuery } from "../../slices/apiSlice";
 import { FilterBar } from "../FilterBar/FilterBar";
 import style from "./SingleCategoryPage.module.css";
@@ -11,38 +11,42 @@ export const SingleCategoryPage = () => {
     const { minPrice, maxPrice, sort ,showOnlyDiscounted} = useSelector((state) => state.filter)
     const [ products, setProducts] = useState([])
 
-useEffect(() => {
+  useEffect(() => {
+    if (data && data.data) {
+      let filteredProducts = data.data;
 
-        if (data && data.data) {
-            let filteredProducts = data.data;
-            
-            if (showOnlyDiscounted) {
-                filteredProducts = filteredProducts.filter((product) => product.discont_price);
-            }
-            
-            filteredProducts = filteredProducts.filter((product) => (
-                (!minPrice || product.price >= Number(minPrice)) &&
-                (!maxPrice || product.price <= Number(maxPrice))
-            ));
+      if (showOnlyDiscounted) {
+        filteredProducts = filteredProducts.filter(
+          (product) => product.discont_price
+        );
+      }
 
-            const sortedProducts = sort === '' || sort === 'by default' ?
-                filteredProducts :
-                filteredProducts.sort((a, b) => {
-                    return sort === 'Ascending' ? b.price - a.price : a.price - b.price;
-                });
+      filteredProducts = filteredProducts.filter(
+        (product) =>
+          (!minPrice || product.price >= Number(minPrice)) &&
+          (!maxPrice || product.price <= Number(maxPrice))
+      );
 
-            setProducts(sortedProducts);
-        }
-    }, [data, minPrice, maxPrice, sort, showOnlyDiscounted]);
+      const sortedProducts =
+        sort === "" || sort === "by default"
+          ? filteredProducts
+          : filteredProducts.sort((a, b) => {
+              return sort === "Ascending"
+                ? b.price - a.price
+                : a.price - b.price;
+            });
 
-    if (error) {
-        return <h2>Error....</h2>
+      setProducts(sortedProducts);
     }
-    if (isLoading) {
-        return <h2>Loading...</h2>
-    }
+  }, [data, minPrice, maxPrice, sort, showOnlyDiscounted]);
 
-   
+  if (error) {
+    return <h2>Error....</h2>;
+  }
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
+
     return (
         <section className={style.singleCategoryWrapper}>
             <div className={style.singleBtnWrapper}></div>
@@ -70,6 +74,9 @@ useEffect(() => {
                     </div>
                 ))}
             </div>
-        </section>
-    )
-}
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+};

@@ -6,17 +6,17 @@ import { TitleBar } from "./../TitleBar/TitleBar";
 export const Categories = () => {
   const { data, error, isLoading } = useGetCategoriesQuery();
 
-  if(error) {
+  if (error) {
     return (
-      <p className={style.errorFetching}>Error fetching  date: {error.message}</p>
-    )
-  };
+      <p className={style.errorFetching}>
+        Error fetching date: {error.message}
+      </p>
+    );
+  }
 
   if (isLoading) {
-    return (
-      <p className={style.loadingData}>Loading...</p>
-    )
-  };
+    return <p className={style.loadingData}>Loading...</p>;
+  }
 
   console.log(data)
 
