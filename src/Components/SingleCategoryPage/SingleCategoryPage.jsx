@@ -7,28 +7,24 @@ import style from "./SingleCategoryPage.module.css";
 import { ProductsCard } from "../ProductsCard/ProductsCard";
 
 export const SingleCategoryPage = () => {
-  const { id } = useParams();
-  const { data, error, isLoading } = useGetCategoriesByIdQuery(id);
-  const { minPrice, maxPrice, sort, showOnlyDiscounted } = useSelector(
-    (state) => state.filter
-  );
-  const [products, setProducts] = useState([]);
+    const { id } = useParams()
+    const { data, error, isLoading } = useGetCategoriesByIdQuery(id)
+    const { minPrice, maxPrice, sort ,showOnlyDiscounted} = useSelector((state) => state.filter) //+
+    const [ products, setProducts] = useState([]) //+
 
-  useEffect(() => {
-    if (data && data.data) {
-      let filteredProducts = data.data;
+useEffect(() => {
 
-      if (showOnlyDiscounted) {
-        filteredProducts = filteredProducts.filter(
-          (product) => product.discont_price
-        );
-      }
-
-      filteredProducts = filteredProducts.filter(
-        (product) =>
-          (!minPrice || product.price >= Number(minPrice)) &&
-          (!maxPrice || product.price <= Number(maxPrice))
-      );
+        if (data && data.data) {
+            let filteredProducts = data.data;
+            
+            if (showOnlyDiscounted) {
+                filteredProducts = filteredProducts.filter((product) => product.discont_price);
+            }
+            
+            filteredProducts = filteredProducts.filter((product) => (
+                (!minPrice || product.price >= Number(minPrice)) &&
+                (!maxPrice || product.price <= Number(maxPrice))
+            ));
 
       const sortedProducts =
         sort === "" || sort === "by default"
