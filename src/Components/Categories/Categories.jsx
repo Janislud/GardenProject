@@ -18,8 +18,6 @@ export const Categories = () => {
     return <p className={style.loadingData}>Loading...</p>;
   }
 
-  console.log(data)
-
   return (
     <section className={style.categoriesSection}>
       <TitleBar

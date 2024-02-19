@@ -15,7 +15,7 @@ export const Footer = () => {
     { title: "Working Hours", content: "24 hours a day" },
   ];
   return (
-    <section className={style.footer}>
+    <footer className={style.footerWrapper}>
       <h1 className={style.footerTitle}>Contact</h1>
       <div className={style.footerCards}>
         {contactsCardData.map(
@@ -29,7 +29,7 @@ export const Footer = () => {
         )}
       </div>
       <GoogleMap />
-    </section>
+    </footer>
   );
 };
 
