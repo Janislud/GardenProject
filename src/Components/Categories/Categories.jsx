@@ -32,7 +32,7 @@ export const Categories = () => {
             <Link
               key={category.id}
               className={style.categoryCard}
-              to={`/categories/${category.id}`}
+              to={`/single-category/${category.id}`}
             >
               <img
                 className={style.categoryImg}
