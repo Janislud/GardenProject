@@ -1,4 +1,4 @@
-.footer {
+.footerWrapper {
   padding: 0 40px 80px 40px;
   max-width: 1440px;
   margin: 0 auto;
@@ -8,6 +8,7 @@
   color: #282828;
   font-size: 64px;
   font-weight: 700;
+  margin-bottom: 30px;
 }
 
 .footerCards {
