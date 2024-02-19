@@ -1,7 +1,7 @@
 .greenDiv {
   background: #0b710b;
   border-radius: 20px;
-  max-width: 1440px;
+  max-width: 1360px;
   height: 510px;
   margin: 30px auto;
   justify-content: center;
@@ -42,7 +42,7 @@
 }
 
 .formHands {
-  width: 900px;
+  width: 850px;
   height: 371px;
   margin-left: -40px;
 }
