@@ -11,7 +11,7 @@ export const SingleCategoryPage = ( title ) => {
     const { data, error, isLoading } = useGetCategoriesByIdQuery(id)
     const { minPrice, maxPrice, sort ,showOnlyDiscounted} = useSelector((state) => state.filter) //+
     const [ products, setProducts] = useState([]) //+
-console.log(data);
+
 useEffect(() => {
 
         if (data && data.data) {
@@ -49,7 +49,7 @@ useEffect(() => {
   return (
     <section className={style.singleCategoryWrapper}>
       <div className={style.singleBtnWrapper}></div>
-      <FilterBar title={`${data.categories.title}`} />
+      <FilterBar title={data.category.title} />
       <div className={style.singleCategoryCardsWrapper}>
         {products.map((product) => (
           <ProductsCard key={product.id} product={product} />
