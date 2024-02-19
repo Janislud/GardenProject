@@ -6,17 +6,19 @@ import { TitleBar } from "./../TitleBar/TitleBar";
 export const Categories = () => {
   const { data, error, isLoading } = useGetCategoriesQuery();
 
-  if(error) {
+  if (error) {
     return (
-      <p className={style.errorFetching}>Error fetching  date: {error.message}</p>
-    )
-  };
+      <p className={style.errorFetching}>
+        Error fetching date: {error.message}
+      </p>
+    );
+  }
 
   if (isLoading) {
-    return (
-      <p className={style.loadingData}>Loading...</p>
-    )
-  };
+    return <p className={style.loadingData}>Loading...</p>;
+  }
+
+  console.log(data)
 
   return (
     <section className={style.categoriesSection}>
@@ -27,24 +29,25 @@ export const Categories = () => {
       />
 
       <section className={style.categoryCardsWrapper}>
-        {data &&
-          data.slice(0, 4).map((category) => (
-            <Link
-              key={category.id}
-              className={style.categoryCard}
-              to={`/single-category/${category.id}`}
-            >
-              <img
-                className={style.categoryImg}
-                src={`http://localhost:3333${category.image}`}
-                alt={category.title}
-              />
-              <h2 className={style.categoryCardText}>{category.title}</h2>
-            </Link>
-          ))}
-      </section>
-      <button className={style.categoryBtnAdaptive}>
-        <Link className={style.categoryBtnDescription} to="/categories">
+      {data && data.slice(0,4).map((category) => (
+        <Link key={category.id} className={style.categoryCard}
+        to={`/single-category/${category.id}`}
+        >
+          <img
+          className={style.categoryImg}
+          src={`http://localhost:3333${category.image}`}
+          alt={category.title}
+          />
+          <h2 className={style.categoryCardText}>
+            {category.title}
+          </h2>
+        </Link>
+      ))}
+   
+    </section>
+       <button className={style.categoryBtnAdaptive}>
+        <Link className={style.categoryBtnDescription}
+        to="/categories">
           {"All Categoris"}
         </Link>
       </button>

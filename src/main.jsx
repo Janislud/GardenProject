@@ -5,12 +5,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import { AllCategories } from "./Components/AllCategories/AllCategories.jsx";
 import { SingleCategoryPage } from "./Components/SingleCategoryPage/SingleCategoryPage.jsx";
-import { ProductsPage } from "./Pages/ProductsPage.jsx";
 import { AllSalesPage } from "./Pages/AllSalesPage.jsx";
 import { CartPage } from "./Pages/CartPage.jsx";
 import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
 import { MainPage } from "./Pages/MainPage.jsx";
+import { ProductsPage } from "./Pages/ProductsPage.jsx";
 import { SingleProductPage } from "./Pages/SingleProductPage.jsx";
+import { SingleSalePage } from "./Pages/SingleSalePage.jsx";
 import { store } from "./store/store.js";
 
 const router = createBrowserRouter([
@@ -29,13 +30,18 @@ const router = createBrowserRouter([
       {
         path: "/all-categories",
         element: <AllCategories />
-      },{
+      },
+      {
         path: "/single-category/:id",
-        element: <SingleCategoryPage/>
+        element: <SingleCategoryPage />,
       },
       {
         path: "/all-products",
         element: <ProductsPage />,
+      },
+      {
+        path: "/single-product/:id",
+        element: <SingleProductPage />,
       },
       {
         path: "/all-sales",
@@ -43,7 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/sales/:id",
-        element: <SingleProductPage />,
+        element: <SingleSalePage />,
       },
       {
         path: "/cart",
