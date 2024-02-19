@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useGetCategoriesByIdQuery } from "../../slices/apiSlice";
 import { FilterBar } from "../FilterBar/FilterBar";
-import style from "./SingleCategoryPage.module.css";
 import { ProductsCard } from "../ProductsCard/ProductsCard";
+import style from "./SingleCategoryPage.module.css";
 
-export const SingleCategoryPage = () => {
+export const SingleCategoryPage = ( title ) => {
     const { id } = useParams()
     const { data, error, isLoading } = useGetCategoriesByIdQuery(id)
     const { minPrice, maxPrice, sort ,showOnlyDiscounted} = useSelector((state) => state.filter) //+
     const [ products, setProducts] = useState([]) //+
-
+console.log(data);
 useEffect(() => {
 
         if (data && data.data) {
@@ -49,7 +49,7 @@ useEffect(() => {
   return (
     <section className={style.singleCategoryWrapper}>
       <div className={style.singleBtnWrapper}></div>
-      <FilterBar title="Annuals" />
+      <FilterBar title={`${data.categories.title}`} />
       <div className={style.singleCategoryCardsWrapper}>
         {products.map((product) => (
           <ProductsCard key={product.id} product={product} />

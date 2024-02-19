@@ -27,9 +27,7 @@ export const AllProductsFilter = () => {
             const sortedProducts = sort === '' || sort === 'by default' ?
                 filteredProducts :
                 filteredProducts.sort((a, b) => {
-                    return sort === 'Ascending' ? b.price - a.price : a.price - b.price;
-                    
-                });
+                    return sort === 'Ascending' ? b.price - a.price : a.price - b.price;});
                 dispatch(productsLoaded(sortedProducts))
         }
         
