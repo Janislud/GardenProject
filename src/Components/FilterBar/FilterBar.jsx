@@ -12,7 +12,7 @@ export const FilterBar = ({ title }) => {
 
      useEffect(() => {
         setIsChecked(showOnlyDiscounted);
-        dispatch(minPriceChange(''));4
+        dispatch(minPriceChange(''));
         dispatch(maxPriceChange(''));
         dispatch(sortChange(''));
     }, [showOnlyDiscounted, location, dispatch]);

@@ -15,7 +15,7 @@ const productsSlice = createSlice({
       state.error = "";
     },
     productsLoaded: (state, action) => {
-      state.isFetching = true;
+      state.isFetching = false; // Здесь изменено на false
       state.products = action.payload?.length ? action.payload : [];
     },
     productsLoadFailed: (state, action) => {
@@ -28,7 +28,6 @@ const productsSlice = createSlice({
     }
   },
 });
-
 export const { startFetching, productsLoadFailed, productsLoaded, productsLoadedWithDiscount } =
   productsSlice.actions;
 export default productsSlice.reducer;
