@@ -17,12 +17,14 @@ export const FilterBar = ({ title }) => {
   const [isChecked, setIsChecked] = useState(showOnlyDiscounted);
   const location = useLocation();
 
+
   useEffect(() => {
     setIsChecked(showOnlyDiscounted);
     dispatch(minPriceChange(""));
     dispatch(maxPriceChange(""));
     dispatch(sortChange(""));
   }, [showOnlyDiscounted, location, dispatch]);
+
 
   const handleToggleShowOnlyDiscounted = () => {
     if (isChecked) {
