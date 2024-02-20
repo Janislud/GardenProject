@@ -7,7 +7,6 @@
   border-bottom: 1px solid #dddddd;
   object-fit: cover;
 }
-
 .saleCard:hover {
   transform: scale(1.1);
 }
@@ -28,13 +27,11 @@
   gap: 15px;
   margin: 0px 32px 32px 32px;
 }
-
 .realPrice {
   font-size: 40px;
   font-weight: 600;
   line-height: 110%;
 }
-
 .firstPrice {
   font-size: 23px;
   font-weight: 500;
