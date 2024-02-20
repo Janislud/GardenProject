@@ -141,17 +141,10 @@
   .divInputs {
     width: 450px;
   }
-  .whiteButton {
-    width: 450px;
-  }
 }
 
 @media screen and (max-width: 950px) {
   .divInputs {
-    width: 400px;
-  }
-
-  .whiteButton {
     width: 400px;
   }
 }
@@ -176,9 +169,6 @@
   .divInputs {
     width: 370px;
   }
-  .whiteButton {
-    width: 370px;
-  }
 }
 
 @media screen and (max-width: 845px) {
@@ -192,18 +182,12 @@
     width: 320px;
     padding: auto 20px;
   }
-  .divInputs .whiteButton {
-    width: 320px;
-  }
 }
 
 @media screen and (max-width: 815px) {
   .divInputs .allThreeInputs {
     width: 270px;
     padding: auto 20px;
-  }
-  .divInputs .whiteButton {
-    width: 270px;
   }
 }
 
@@ -215,9 +199,6 @@
   .divInputs .allThreeInputs {
     width: 270px;
     padding: auto 20px;
-  }
-  .divInputs .whiteButton {
-    width: 270px;
   }
 }
 
@@ -329,10 +310,6 @@
     width: 370px;
     padding: auto 20px;
   }
-
-  .divInputs .whiteButton {
-    width: 370px;
-  }
   .greenDiv {
     width: 86%;
     padding: 5px 10px;
@@ -357,9 +334,6 @@
   .divInputs {
     width: 350px;
   }
-  .whiteButton {
-    width: 350px;
-  }
 }
 
 @media screen and (max-width: 520px) {
@@ -379,9 +353,6 @@
   .divInputs {
     width: 350px;
   }
-  .whiteButton {
-    width: 350px;
-  }
 }
 
 @media screen and (max-width: 470px) {
@@ -395,9 +366,6 @@
   .greenDiv .imgWrapper {
     margin-left: 5px;
     width: 380px;
-  }
-  .divInputs .whiteButton {
-    width: 370px;
   }
   .greenDiv {
     height: 630px;
@@ -422,9 +390,6 @@
     margin-left: 5px;
     width: 350px;
     height: 200px;
-  }
-  .divInputs .whiteButton {
-    width: 300px;
   }
   .greenDiv {
     height: 630px;
@@ -454,9 +419,6 @@
   .divInputs .allThreeInputs {
     width: 290px;
     padding: auto 20px;
-  }
-  .divInputs .whiteButton {
-    width: 290px;
   }
   .greenDiv {
     width: 89%;

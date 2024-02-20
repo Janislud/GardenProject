@@ -75,7 +75,7 @@ export const SingleProduct = () => {
                     <Link to="/cart">
                       <Button
                         className={style.addGreenButton}
-                        buttonClass="primary"
+                        buttonClass="addGreenButton"
                         text="Add to cart"
                       />
                     </Link>
