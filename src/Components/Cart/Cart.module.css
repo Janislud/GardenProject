@@ -1,0 +1,38 @@
+.CartWrapper {
+    border: 1px solid green;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 1350px;
+}
+
+.cartProductWrapper {
+    border: 1px solid red;
+    max-width: 780px;
+}
+
+.cartImgSize {
+    width: 200px;
+    height: 180px;
+    margin: 0px 32px;
+}
+
+.cartProduct {
+    display: flex;
+    flex-wrap: wrap;
+}
+.priceWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 32px 32px 32px 0px;
+}
+
+.productCardTitle {
+    color: rgb(40, 40, 40);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: left; 
+}

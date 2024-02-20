@@ -1,9 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addProductToCart } from "../../slices/cartSlice";
 import style from "./ProductsCard.module.css";
 
 export const ProductsCard = ({ product }) => {
-  return (
+  const dispatch = useDispatch();
+
+function calculateDiscountPercent(price, discountPrice) {
+    return Math.round(((price - discountPrice) / price) * 100);
+  }
+
+  const handleAddToCart = () => {
+    dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
+  };
+
+ return (
     
     <Link
       key={product.id}
@@ -13,7 +25,7 @@ export const ProductsCard = ({ product }) => {
   {
   product.discont_price && product.price &&
   <div className={style.saleBlock}> 
-    -{Math.round(((product.price - product.discont_price) / product.price) * 100)}%
+    -{calculateDiscountPercent(product.price, product.discont_price)}%
   </div>
 }
 
@@ -31,8 +43,14 @@ export const ProductsCard = ({ product }) => {
           <p className={style.firstPrice}>${product.price}</p>
         ) : null}
       </div>
+        <button className={style.btnAddToCard} onClick={handleAddToCart}> 
+        Add to cart
+        </button>
     </Link>
+
+    
   );
 };
 
-export default ProductsCard;
+
+
