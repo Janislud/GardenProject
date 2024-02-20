@@ -1,7 +1,10 @@
+import { DataCartForm } from "../Components/DataCartForm/DataCartForm"
 
 
 export const CartPage = () => {
    return (
-   <div>Жмяк сделал, а я еще не доделан ‿︵‿ヽ(°□° )ノ︵‿︵</div>
+      <div><DataCartForm/></div>
+   // <div>Жмяк сделал, а я еще не доделан ‿︵‿ヽ(°□° )ノ︵‿︵</div>
+    
    )
 }
