@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../slices/apiSlice";
-import styles from "./AllCategories.module.css";
+import style from "./AllCategories.module.css";
 
 
 export const AllCategories = () => {
@@ -15,24 +15,24 @@ export const AllCategories = () => {
     
 
     return (
-        <section className={styles.allCategoriesWrapper}>
-            <div className={styles.buttonWrapper}>
+        <section className={style.allCategoriesWrapper}>
+            <div className={style.buttonWrapper}>
                 <Link to='/'>
-                <button className={styles.mainPageBtn}>Main page</button>
+                <button className={style.mainPageBtn}>Main page</button>
                 </Link>
-                <div className={styles.lineDiv}></div>
+                <div className={style.lineDiv}></div>
                 
-                <button className={styles.categoreisBtn}>Categories</button>
+                <button className={style.categoreisBtn}>Categories</button>
                 
             </div>
-            <h2 className={styles.categoriesWrapperText}>Categories</h2>
-            <section className={styles.categoryCardsWrapper}>
+            <h2 className={style.categoriesWrapperText}>Categories</h2>
+            <section className={style.categoryCardsWrapper}>
                 {data.map((category) => (
-                    <Link key={category.id} className={styles.categoryCard} to={`/single-category/${category.id}`}>
-                        <img className={styles.categoryImg}
+                    <Link key={category.id} className={style.categoryCard} to={`/single-category/${category.id}`}>
+                        <img className={style.categoryImg}
                             src={`http://localhost:3333${category.image}`}
                             alt={category.title} />
-                        <h2 className={styles.categoryCardText}>
+                        <h2 className={style.categoryCardText}>
                             {category.title}
                         </h2>
                     </Link>

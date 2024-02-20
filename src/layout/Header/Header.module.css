@@ -15,6 +15,10 @@
   padding: 0px;
 }
 
+.active {
+  color: #393;
+}
+
 .listStyle,
 a {
   list-style: none;
@@ -24,7 +28,7 @@ a {
 
 .basketWrapper {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 30px;
 }
 
@@ -35,43 +39,103 @@ a {
 .burgerMenu {
   display: none;
 }
+/* Burger menu */
 
-@media (max-width: 750px) {
+.burger {
+  display: none;
+  width: 60px;
+  height: 50px;
+  cursor: pointer;
+  position: relative;
+}
+
+.burger_line {
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  left: 0;
+  transition: 0.3s all linear;
+}
+
+.burger_line_first {
+  top: 0;
+}
+.burger_line_second,
+.burger_line_third {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.burger_line_fourth {
+  bottom: 0;
+}
+
+.burger_active .burger_line_first,
+.burger_active .burger_line_fourth {
+  opacity: 0;
+}
+
+.burger_active .burger_line_second {
+  transform: translateY(-50%) rotate(45deg);
+  color: #ffff;
+}
+
+.burger_active .burger_line_third {
+  transform: translateY(-50%) rotate(-45deg);
+  color: #ffff;
+}
+
+@media (max-width: 720px) {
+  .listStyle > a {
+    font-size: 17px;
+  }
+
+  .navList {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 620px) {
   header {
     background-color: #ffff;
-    position: sticky;
-    top: 0;
     padding: 5px;
     font-size: 14px;
   }
-/* Закрепил Header в верхней части экрана Sticky */
   .navList {
     display: flex;
+    visibility: hidden;
     gap: 20px;
     background-color: #393;
     flex-direction: column;
     justify-content: center;
     position: fixed;
-    right: 1;
+    top: 0;
     width: 100%;
     height: 100vh;
-    margin-top: 40px;
-    transition: transform 0.4s ease-in-out;
-    transform: translate(100%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
     font-size: 30px;
     padding-left: 20px;
   }
 
   .listStyle > a {
     color: white;
+    font-size: 25px;
   }
 
-  .burgerMenu {
+  .burger {
     display: block;
     cursor: pointer;
+  }
+  .burger_active .burger_line {
+    background-color: #ffff;
   }
 
   .menuToggle {
     transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
   }
 }

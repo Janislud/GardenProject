@@ -10,12 +10,12 @@
 }
 
 .discountDescription {
-  /* padding: 80px 40px 40px 40px; */
-  max-width: 1360px;
+  max-width: 950px;
   font-family: "Montserrat";
   color: #fff;
   font-size: 90px;
   font-weight: 700;
+  margin-bottom: 40px;
 }
 
 .discountBtn {
@@ -28,17 +28,16 @@
   margin-left: 40px;
 }
 
-
 @media (max-width: 1050px) {
-    .discountDescription{
-        font-size: 70px;
-    }
-
-
+  .discountDescription {
+    font-size: 70px;
+    max-width: 733px
+  }
 }
 
 @media (max-width: 830px) {
-    .discountDescription{
-        font-size: 50px;
-    }
+  .discountDescription {
+    font-size: 50px;
+    max-width: 523px;
+  }
 }
