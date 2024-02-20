@@ -11,31 +11,11 @@
 }
 
 .singleCardImg {
-  padding: 2px;
-  width: 314px;
+  max-width: 315px;
   height: 284px;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
-
-/* .addToCard {
-  background-color: #393;
-  color: #fff;
-  position: relative;
-  top: -21px;
-  left: 10px;
-  height: 46px;
-  max-width: 295px;
-  font-size: 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  opacity: 1;
-}
-
-.productTitle:hover .addToCard {
-  opacity: 1;
-} */
 
 .singleCardWrapper {
   border: 1px solid rgb(221, 221, 221);
@@ -73,7 +53,6 @@
 }
 
 .productTitle {
-  /* padding: 20px 32px 0px 32px; */
   font-size: 20px;
 }
 
@@ -81,7 +60,6 @@
   display: flex;
   align-items: flex-end;
   gap: 16px;
-  /* padding: 16px 32px 32px 32px; */
 }
 
 .firstPrice {
