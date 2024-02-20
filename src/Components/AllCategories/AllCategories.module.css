@@ -4,6 +4,10 @@
   border-radius: 12px;
 }
 
+.categoryCard:hover .categoryCardText{
+  color: #393;
+}
+
 .categoryCardsWrapper {
   display: flex;
   flex-wrap: wrap;
@@ -37,13 +41,14 @@
   background: white;
   margin: 20px auto;
 }
+
 .buttonWrapper {
-  max-width: 254px;
+  max-width: 260px;
   display: flex;
-  max-width: 300px;
   align-items: center;
   margin-bottom: 40px;
 }
+
 .lineDiv {
   flex-grow: 1;
   border-bottom: 1px solid #ddd;
@@ -64,6 +69,7 @@
 
 .categoriesWrapperText {
   margin-bottom: 40px;
+  font-size: 64px;
 }
 
 .allCategoriesWrapper {
