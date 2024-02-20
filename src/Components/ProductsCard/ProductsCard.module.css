@@ -1,64 +1,71 @@
 .saleImg {
-    max-width: 312px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    margin-bottom: 20px;
-    height: 315px;
-    border-bottom: 1px solid #DDDDDD;
-    object-fit: cover;
+  max-width: 312px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 20px;
+  height: 315px;
+  border-bottom: 1px solid #dddddd;
+  object-fit: cover;
 }
 
+.saleCard:hover {
+  transform: scale(1.1);
+}
 .saleCardText {
-    font-size: 19px;
-    font-weight: 500;
-    line-height: 130%;
-    margin: 0px 32px 16px 32px;
-    min-height: 55px;  
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 130%;
+  margin: 0px 32px 16px 32px;
+  min-height: 55px;
+}
+.saleCardText:hover {
+    color: #393;
 }
 
 .salePriceWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 0px 32px 32px 32px; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 0px 32px 32px 32px;
 }
 
 .realPrice {
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 110%;    
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 110%;
 }
 
 .firstPrice {
-    font-size: 23px;
-    font-weight: 500;
-    line-height: 130%;
-    text-decoration-line: line-through;
-    color: #8b8b8b;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 130%;
+  text-decoration-line: line-through;
+  color: #8b8b8b;
 }
 
 .saleBlock {
-    position: absolute;
-    margin-left: 240px;
-    margin-top: 16px;
-    background-color: #393;
-    color: #ffffff;
-    padding:4px 8px;
-    border-radius: 4px;
-    font-size: 20px;
-    line-height: 130%;
-    letter-spacing: 0.6px;
+  position: absolute;
+  margin-left: 240px;
+  margin-top: 16px;
+  background-color: #393;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0.6px;
 }
 
 .saleCard {
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    max-width: 313px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  max-width: 313px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  transition: transform 0.3s ease-in-out;
 }
 
 .myFirstBlock {
-    display: flex;
+  display: flex;
 }
