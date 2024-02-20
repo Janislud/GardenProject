@@ -31,11 +31,13 @@
 @media (max-width: 1050px) {
   .discountDescription {
     font-size: 70px;
+    max-width: 733px
   }
 }
 
 @media (max-width: 830px) {
   .discountDescription {
     font-size: 50px;
+    max-width: 523px;
   }
 }

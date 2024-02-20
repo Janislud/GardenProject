@@ -19,18 +19,29 @@
   font-weight: bold;
   font-style: normal;
 }
-
 .categoriesSection {
   font-family: "Montserrat", sans-serif;
 }
-
-
 .categoryImg {
   max-width: 316px;
   height: 300px;
   border-radius: 12px;
   margin-bottom: 12px;
+  background-size: cover;
+  transition: transform 0.3s ease-in-out;
 }
+
+
+.categoryCard {
+  transition: transform 0.3s ease-in-out;
+}
+
+.categoryCard:hover, 
+.categoryCardText:hover, 
+.categoryImg:hover {
+  transform: scale(1.1);
+}
+
 
 .categoryCardsWrapper {
   display: flex;
@@ -46,6 +57,11 @@
   font-weight: 500;
   line-height: 130%;
   color: #282828;
+  transition: transform 0.3s ease-in-out;
+}
+.categoryCardText:hover{
+    color: #393;
+  transform: scale(1.3);
 }
 
 .categoriesWrapperText h2 {

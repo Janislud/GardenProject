@@ -2,12 +2,16 @@
   max-width: 248px;
   height: 350px;
   border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
 }
-
-.categoryCard:hover .categoryCardText{
+.categoryCard:hover,
+.categoryCardText:hover {
+  transform: scale(1.1);
+}
+.categoryCardText:hover {
   color: #393;
 }
-
 .categoryCardsWrapper {
   display: flex;
   flex-wrap: wrap;
@@ -16,12 +20,17 @@
   justify-content: center;
 }
 
+.categoryCard {
+  transition: transform 0.3s ease-in-out;
+}
+
 .categoryCardText {
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 130%;
   color: #282828;
+  transition: transform 0.3s ease-in-out;
 }
 
 .categoryBtnDescription {
@@ -53,7 +62,8 @@
   flex-grow: 1;
   border-bottom: 1px solid #ddd;
 }
-.mainPageBtn , .categoreisBtn {
+.mainPageBtn,
+.categoreisBtn {
   padding: 8px 16px;
   border: 1px solid rgb(221, 221, 221);
   border-radius: 6px;
@@ -76,7 +86,6 @@
   margin: 0 auto;
   padding: 30px 40px 28px 40px;
   max-width: 1440px;
-
 }
 
 @media (min-width: 510px) {
