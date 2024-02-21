@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import imgGreenForm from "../../assets/images/imgGreenForm/imgGreenForm.svg";
 import { addNewUser } from "../../slices/usersSlice";
+import { Button } from "../Button/Button";
 import style from "./DataUserForm.module.css";
 
 export const DataUserForm = () => {
@@ -104,9 +105,12 @@ export const DataUserForm = () => {
                     },
                   })}
                 />
-                <button type="submit" className={style.whiteButton}>
-                  Get a discount
-                </button>
+                <Button
+                  className={style.whiteButton}
+                  buttonClass="whiteButton"
+                  text="Get a discount"
+                  type="submit"
+                />
               </>
             )}
           </div>
@@ -115,3 +119,4 @@ export const DataUserForm = () => {
     </>
   );
 };
+//<button type="submit" className={style.whiteButton}>Get a discount</button>
