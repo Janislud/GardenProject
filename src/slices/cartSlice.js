@@ -41,9 +41,14 @@ const cartSlice = createSlice({
         // Уменьшаем общее количество товаров в корзине
         state.totalCount -= action.payload.price;
       }
-    }
+    },
+
+    cleanCart: (state) => {
+      state.products = []
+    },
+
   }
 });
 
-export const { addProductToCart, dropProductFromCart } = cartSlice.actions
+export const { addProductToCart, dropProductFromCart, cleanCart } = cartSlice.actions
 export default cartSlice.reducer;

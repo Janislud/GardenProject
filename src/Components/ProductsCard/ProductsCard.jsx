@@ -11,7 +11,8 @@ function calculateDiscountPercent(price, discountPrice) {
     return Math.round(((price - discountPrice) / price) * 100);
   }
 
-  const handleAddToCart = () => {
+  const handleAddToCart = ( event ) => {
+    event.preventDefault();
     dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
   };
 
@@ -47,8 +48,6 @@ function calculateDiscountPercent(price, discountPrice) {
         Add to cart
         </button>
     </Link>
-
-    
   );
 };
 
