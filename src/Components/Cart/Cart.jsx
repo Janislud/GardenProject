@@ -11,9 +11,8 @@ export const Cart = () => {
     const dispatch = useDispatch();
     console.log(cartProducts)
     console.log(totalCount)
-    console.log('product.discount_price:', products.discount_price);
-    console.log('product.count:', products.count);   
-
+    console.log(products)
+    
     // Обработчик события для удаления товара из корзины
     const handleRemoveFromCart = (productId, price) => {
         dispatch(dropProductFromCart({ id: productId, price: price }));
@@ -28,14 +27,17 @@ export const Cart = () => {
         return <div className={style.emptyCart}>Cart is empty</div>;
     }
 
-
     return (
         <section className={style.CartWrapper}>
             <div className={style.cartProductWrapper}>
                 {cartProducts.map(product => {
                     const totalPrice = product.price * product.count;
-                    const discountedTotalPrice = product.discount_price != null ? product.discount_price * product.count : 'yo';
-
+                    const discountedTotalPrice = product.discont_price !== null ? product.discont_price * product.count : null;
+                        console.log(product.price)
+                        console.log('product.discount_price:', product.discont_price);
+                        console.log('product.count:', product.count);
+                        console.log('product.price:', product.price);
+                        console.log('product.title:', product.title)
                     return (
                         <div key={product.id} className={style.cartProduct}>
                             <img className={style.cartImgSize} src={`http://localhost:3333${product.image}`} alt={product.title} />
@@ -47,11 +49,10 @@ export const Cart = () => {
                                         <p className={style.count}>{product.count}</p>
                                         <button className={style.btnPlus} onClick={() => handleAddToCart(product.id,product.price)}>+</button>
                                     </div>
-                          <div className={style.salePriceWrapper}>
-                                    <p className={style.realPrice}>${totalPrice}</p>
-                                    <p>{discountedTotalPrice}</p>
-                                
-                                </div>
+                                    <div className={style.salePriceWrapper}>
+                                        {discountedTotalPrice !== null && <p className={style.discountedPrice}>${discountedTotalPrice}</p>}
+                                        <p className={discountedTotalPrice === null ? style.discountedPrice : style.realPrice}>${totalPrice ? totalPrice : discountedTotalPrice}</p>
+                                        </div>
                                 </div>
                             </div>
                             <button className={style.crossBtn} onClick={() => handleRemoveFromCart(product.id, product.price)}>
@@ -61,7 +62,7 @@ export const Cart = () => {
                     );
                 })}
             </div>
-            <div className={style.totalCount}>Total Count: {totalCount} </div> {/* Отображаем totalCount */}
+            <div className={style.totalCount}>Total Count:{totalCount}</div>
         </section>
     )
 }
