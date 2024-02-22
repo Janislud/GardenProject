@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import cross from '../../assets/images/CartMedia/cross.png';
-import { addProductToCart, dropProductFromCart } from '../../slices/cartSlice';
+import { addProductToCart, dropOneProductFromCart, dropProductFromCart } from '../../slices/cartSlice';
 import style from '../Cart/Cart.module.css';
 
 export const Cart = () => {
     const cartProducts = useSelector(state => state.cart.products);
     const totalCount = useSelector(state => state.cart.totalCount);
+    const totalQuantity = useSelector(state => state.cart.totalQuantity)
     const products = useSelector((state) => state.products.products);
     const dispatch = useDispatch();
     console.log(cartProducts)
@@ -55,7 +56,7 @@ export const Cart = () => {
                                         </div>
                                 </div>
                             </div>
-                            <button className={style.crossBtn} onClick={() => handleRemoveFromCart(product.id, product.price)}>
+                            <button className={style.crossBtn} onClick={() => dispatch(dropOneProductFromCart({ id: product.id }))}>
                                 <img className={style.btnCroosImg} src={cross} alt="cross" />
                             </button>
                         </div>
@@ -63,6 +64,7 @@ export const Cart = () => {
                 })}
             </div>
             <div className={style.totalCount}>Total Count:{totalCount}</div>
+            <div>Total Qty:{totalQuantity}</div>
         </section>
     )
 }

@@ -50,7 +50,7 @@
 .productCardWrapper {
     display: flex;
     flex-wrap: wrap;
-    padding: 32px 32px 32px 0px;
+    padding: 32px 114px 32px 0px;
     position: relative;
     flex-direction: column;
 }
@@ -114,8 +114,6 @@ color: rgb(139, 139, 139);
 }
 
 .count{
-/* border: 1px solid rgb(221, 221, 221);
-border-radius: 6px; */
 position: static;
 width: 58px;
 height: 58px;
@@ -164,9 +162,3 @@ color: rgb(139, 139, 139);
     margin-top: 18px;
 }
 
-.price {
-    color: rgb(40, 40, 40);
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 110%;  
-}

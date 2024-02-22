@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../slices/apiSlice";
+import { addProductToCart } from "../../slices/cartSlice";
 import { Button } from "../Button/Button";
 import Counter from "./CounterForProduct";
 import { SingleProductItem } from "./SingleProductItems";
@@ -10,6 +12,7 @@ export const SingleProduct = () => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetProductByIdQuery(id);
   const [space, setSpace] = useState(false);
+  const dispatch = useDispatch();
 
   const switcherText = (event) => {
     event.preventDefault();
@@ -23,6 +26,10 @@ export const SingleProduct = () => {
   if (isLoading) {
     return <p>Loading...</p>;
   }
+
+ const handleAddToCart = ( product ) => {
+    dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
+  };
 
   return (
     <>
@@ -72,11 +79,12 @@ export const SingleProduct = () => {
                     <Counter />
                   </div>
                   <div className={style.divButton}>
-                    <Link to="/cart">
-                      <Button
-                        className={style.addGreenButton}
-                        buttonClass="primary"
-                        text="Add to cart"
+                    <Link>
+                     <Button
+                          className={style.addGreenButton}
+                          buttonClass="primary"
+                          text="Add to cart"
+                          onClick={handleAddToCart(product)} 
                       />
                     </Link>
                   </div>

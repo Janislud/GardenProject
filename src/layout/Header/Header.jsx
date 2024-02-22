@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useLocation, } from 'react-router-dom';
 import basket from '../../assets/images/HeaderMedia/headerBag.svg';
 import logo from '../../assets/images/HeaderMedia/headerLogo.svg';
@@ -9,6 +10,7 @@ export const Header = () => {
 
     const [isOpen, setIsOpen] = useState(false)
     const location = useLocation()
+    const totalQuantity = useSelector(state => state.cart.totalQuantity)
 
     const toggleMenu = () => {
         setIsOpen(!isOpen)
@@ -35,7 +37,8 @@ export const Header = () => {
                 </ul>
             </nav>
             <div className={styles.basketWrapper}>
-                <Link to='/cart'>
+                <Link className={styles.toCart} to='/cart'>
+                    <div className={styles.cartTotalQuantity}>{totalQuantity}</div>
                     <img src={basket} alt='Basket' />
                 </Link>
                 <div onClick={toggleMenu} className={`${styles.burger} ${isOpen ? styles.burger_active : ''}`}>
