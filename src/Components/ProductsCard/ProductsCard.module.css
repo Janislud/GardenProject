@@ -18,7 +18,11 @@
   min-height: 55px;
 }
 .saleCardText:hover {
-    color: #393;
+  color: #393;
+}
+
+.saleCard:hover .productCartButton {
+  visibility: visible;
 }
 
 .salePriceWrapper {
@@ -26,6 +30,7 @@
   flex-wrap: wrap;
   gap: 15px;
   margin: 0px 32px 32px 32px;
+  align-items: baseline;
 }
 .realPrice {
   font-size: 40px;
@@ -61,8 +66,32 @@
   flex-direction: column;
   flex-wrap: wrap;
   transition: transform 0.3s ease-in-out;
+  position: relative;
 }
 
 .myFirstBlock {
   display: flex;
+}
+
+.productCartButton {
+  visibility: hidden;
+  padding: 16px 56px;
+  width: 284px;
+  height: 58px;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #339933;
+  color: #ffffff;
+  position: absolute;
+  bottom: 177px;
+  left: 13px;
+}
+
+.productCartButton:hover {
+  visibility: visible;
+  background-color: #282828;
+  color: #ffffff;
 }

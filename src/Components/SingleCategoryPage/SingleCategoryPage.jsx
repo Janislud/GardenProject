@@ -6,34 +6,34 @@ import { FilterBar } from "../FilterBar/FilterBar";
 import { ProductsCard } from "../ProductsCard/ProductsCard";
 import style from "./SingleCategoryPage.module.css";
 
-export const SingleCategoryPage = ( title ) => {
-    const { id } = useParams()
-    const { data, error, isLoading } = useGetCategoriesByIdQuery(id)
-    const { minPrice, maxPrice, sort ,showOnlyDiscounted} = useSelector((state) => state.filter) //+
-    const [ products, setProducts] = useState([]) //+
+export const SingleCategoryPage = (title) => {
+  const { id } = useParams()
+  const { data, error, isLoading } = useGetCategoriesByIdQuery(id)
+  const { minPrice, maxPrice, sort, showOnlyDiscounted } = useSelector((state) => state.filter) //+
+  const [products, setProducts] = useState([]) //+
 
-useEffect(() => {
+  useEffect(() => {
 
-        if (data && data.data) {
-            let filteredProducts = data.data;
-            
-            if (showOnlyDiscounted) {
-                filteredProducts = filteredProducts.filter((product) => product.discont_price);
-            }
-            
-            filteredProducts = filteredProducts.filter((product) => (
-                (!minPrice || product.price >= Number(minPrice)) &&
-                (!maxPrice || product.price <= Number(maxPrice))
-            ));
+    if (data && data.data) {
+      let filteredProducts = data.data;
+
+      if (showOnlyDiscounted) {
+        filteredProducts = filteredProducts.filter((product) => product.discont_price);
+      }
+
+      filteredProducts = filteredProducts.filter((product) => (
+        (!minPrice || product.price >= Number(minPrice)) &&
+        (!maxPrice || product.price <= Number(maxPrice))
+      ));
 
       const sortedProducts =
         sort === "" || sort === "by default"
           ? filteredProducts
           : filteredProducts.sort((a, b) => {
-              return sort === "Ascending"
-                ? b.price - a.price
-                : a.price - b.price;
-            });
+            return sort === "Ascending"
+              ? b.price - a.price
+              : a.price - b.price;
+          });
 
       setProducts(sortedProducts);
     }
@@ -52,7 +52,7 @@ useEffect(() => {
       <FilterBar title={data.category.title} />
       <div className={style.singleCategoryCardsWrapper}>
         {products.map((product) => (
-          <ProductsCard key={product.id} product={product} />
+          <ProductsCard key={product.id}  product={product} />
         ))}
       </div>
     </section>

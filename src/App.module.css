@@ -14,6 +14,7 @@
 
   body, html {
     font-family: "Montserrat", sans-serif;
+    background: #FFFFFF;
   }
 
   *{
@@ -21,3 +22,5 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  

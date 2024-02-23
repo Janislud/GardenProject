@@ -11,6 +11,7 @@
 
 .totalPrice {
   display: flex;
+  align-items: flex-end;
   gap: 135px;
   margin-bottom: 32px;
 }
@@ -59,3 +60,5 @@
   font-size: 64px;
   font-weight: 700;
 }
+
+
