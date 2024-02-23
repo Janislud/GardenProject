@@ -40,7 +40,8 @@ export const FilterBar = ({ title }) => {
     <div className={style.filterBarWrapper}>
       <h2 className={style.filterTitle}>{title}</h2>
       <form className={style.formFilterBar}>
-        <label className={style.lablePrice} htmlFor="price">
+        <div className={style.priceWrapper}>
+          <label className={style.lablePrice} htmlFor="price">
           Price
         </label>
         <input
@@ -58,6 +59,7 @@ export const FilterBar = ({ title }) => {
           min="0"
           onChange={(element) => dispatch(maxPriceChange(element.target.value))}
         />
+        </div>
         {title !== "All Sales" && (
           <div className={style.discountItemsWrapper}>
             <label className={style.lableDiscount} htmlFor="discounted-items">
@@ -73,10 +75,11 @@ export const FilterBar = ({ title }) => {
             />
           </div>
         )}
-        <label className={style.sortedLable} htmlFor="sort">
+        
+        <div className={style.customSelect}>
+          <label className={style.sortedLable} htmlFor="sort">
           Sorted
         </label>
-        <div className={style.customSelect}>
           <select
             className={style.selectOption}
             id="sort"
