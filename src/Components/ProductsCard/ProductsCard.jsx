@@ -1,32 +1,36 @@
-import React, { useState } from "react";
+
+import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addProductToCart } from "../../slices/cartSlice";
 import style from "./ProductsCard.module.css";
 
 export const ProductsCard = ({ product }) => {
 
-  const [textButton, setTextButton] = useState(false)
+  const dispatch = useDispatch();
 
-  function handleClick (event) {
-    event.preventDefault()
-    setTextButton(true)
-  }
-
-  function calculateDiscountPercent(price, discountPrice) {
+function calculateDiscountPercent(price, discountPrice) {
     return Math.round(((price - discountPrice) / price) * 100);
   }
 
-  return (
+  const handleAddToCart = ( event ) => {
+    event.preventDefault();
+    dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
+  };
 
+
+    
     <Link
       key={product.id}
       className={style.saleCard}
     >
-      {
-        product.discont_price && product.price &&
-        <div className={style.saleBlock}>
-          -{`${calculateDiscountPercent(product.price, product.discont_price)}`}%
-        </div>
-      }
+ {
+  product.discont_price && product.price &&
+  <div className={style.saleBlock}> 
+    -{calculateDiscountPercent(product.price, product.discont_price)}%
+  </div>
+}
+
       <img
         className={style.saleImg}
         src={`http://localhost:3333${product.image}`}
@@ -42,8 +46,12 @@ export const ProductsCard = ({ product }) => {
           <p className={style.firstPrice}>${product.price}</p>
         ) : null}
       </div>
+        <button className={style.btnAddToCard} onClick={handleAddToCart}> 
+        Add to cart
+        </button>
     </Link>
   );
 };
 
-export default ProductsCard;
+
+
