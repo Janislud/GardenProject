@@ -79,12 +79,14 @@ export const SingleProduct = () => {
                     <Counter />
                   </div>
                   <div className={style.divButton}>
+
                     <Link>
                      <Button
                           className={style.addGreenButton}
                           buttonClass="primary"
                           text="Add to cart"
                           onClick={handleAddToCart(product)} 
+
                       />
                     </Link>
                   </div>

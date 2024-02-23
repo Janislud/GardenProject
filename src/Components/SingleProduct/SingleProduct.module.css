@@ -12,7 +12,7 @@
 }
 
 .productTextDescriptionMain {
-  color: var(--txt-black, #282828);
+  color: #282828;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -20,10 +20,17 @@
   margin-top: 32px;
 }
 
+.clamp {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .mainCategoriesToolsButtons {
   display: flex;
-  margin: 60px auto;
-  margin-left: 90px;
+  margin: 0 auto;
+  padding: 60px 40px 20px 40px;
+  max-width: 1440px;
 }
 
 .mainCategoriesToolsButtons .shortLine {
@@ -101,7 +108,7 @@
 }
 
 .mainDivSingleProduct {
-  max-width: 1440px;
+  max-width: 1360px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -184,20 +191,6 @@
   margin-top: 52px;
 }
 
-.counterUndButton .divButton .addGreenButton {
-  padding: 20px 72px 20px 72px;
-
-  gap: 10px;
-  border-radius: 6px;
-  color: #282828;
-  text-align: center;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-}
-
 .percentagePrice {
   color: white;
   padding: 4px 8px;
@@ -259,40 +252,19 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: 1999px) {
-  .mainCategoriesToolsButtons {
-    margin-left: 250px;
-  }
-}
-
 @media screen and (max-width: 1800px) {
-  .mainCategoriesToolsButtons {
-    margin-left: 180px;
-  }
   .divWithPriceCounterDescription {
     margin-left: -10px;
   }
 }
 
-@media screen and (max-width: 1700px) {
-  .mainCategoriesToolsButtons {
-    margin-left: 150px;
-  }
-}
-
 @media screen and (max-width: 1600px) {
-  .mainCategoriesToolsButtons {
-    margin-left: 120px;
-  }
   .divWithPriceCounterDescription {
     margin-left: -10px;
   }
 }
 
 @media screen and (max-width: 1500px) {
-  .mainCategoriesToolsButtons {
-    margin-left: 100px;
-  }
   .divWithPriceCounterDescription {
     margin-left: -20px;
   }
@@ -316,9 +288,6 @@
   .divCounter .plusButton {
     width: 58px;
   }
-  .counterUndButton .addGreenButton {
-    padding: 16px 36px;
-  }
   .containerTitlePrice {
     margin-left: 10px;
     margin-top: -50px;
@@ -335,14 +304,14 @@
 }
 
 @media screen and (max-width: 1100px) {
-  .mainCategoriesToolsButtons {
-    margin-left: 20px;
-  }
   .divWithPriceCounterDescription {
     margin-left: -40px;
   }
   .mainDivSingleProduct {
     margin-left: 30px;
+  }
+  .divPrices {
+    margin-top: -5px;
   }
 }
 
@@ -361,9 +330,6 @@
   .divCounter .plusButton {
     width: 58px;
   }
-  .counterUndButton .addGreenButton {
-    padding: 16px 36px;
-  }
   .containerTitlePrice {
     margin-left: 10px;
     margin-top: -50px;
@@ -379,7 +345,10 @@
     height: 660px;
   }
   .divPrices {
-    margin-top: 60px;
+    margin-top: 20px;
+  }
+  .counterUndButton {
+    margin-top: 30px;
   }
 }
 
@@ -396,9 +365,6 @@
   .divCounter .plusButton {
     width: 56px;
   }
-  .counterUndButton .addGreenButton {
-    width: 70px;
-  }
   .counterUndButton {
     margin-top: 20px;
   }
@@ -411,7 +377,7 @@
   }
   .imgProduct {
     width: 430px;
-    height: 600px;
+    height: 700px;
   }
   .divWithPriceCounterDescription {
     margin-left: -15px;
@@ -423,7 +389,7 @@
 
 @media screen and (max-width: 940px) {
   .productDescription {
-    margin-top: 140px;
+    margin-top: 60px;
   }
   .divCounter .minusButton {
     width: 74px;
@@ -490,21 +456,14 @@
   .h2TitleText {
     font-size: 30px;
   }
+  .divWithPriceCounterDescription {
+    margin-left: -30px;
+  }
 }
 
 @media screen and (max-width: 700px) {
   .mainCategoriesToolsButtons {
     display: none;
-  }
-  .mainCategoriesToolsButtons .titleButton {
-    width: 120px;
-  }
-  .mainCategoriesToolsButtons .shortLine {
-    width: 2px;
-    height: 20px;
-    background: #ddd;
-    margin-left: 60px;
-    margin-top: -1px;
   }
   .productItemImage .imgProduct {
     width: 350px;
@@ -532,6 +491,9 @@
   .productDescription {
     margin-top: 50px;
     margin-left: -350px;
+  }
+  .divPrices {
+    margin-top: 5px;
   }
 }
 
@@ -600,6 +562,9 @@
   .divPrices {
     margin-top: -20px;
   }
+  .productItemImage .imgProduct {
+    height: 315px;
+  }
 }
 
 @media screen and (max-width: 455px) {
@@ -632,6 +597,8 @@
   }
   .counterUndButton {
     margin: 5px auto;
+    justify-content: center;
+    align-items: center;
   }
   .divCounter .minusButton {
     width: 74px;
