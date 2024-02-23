@@ -8,6 +8,7 @@ import { SingleCategoryPage } from "./Components/SingleCategoryPage/SingleCatego
 import { AllSalesPage } from "./Pages/AllSalesPage.jsx";
 import { CartPage } from "./Pages/CartPage.jsx";
 import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
+import { ErrorPage } from "./Pages/ErrorPage.jsx";
 import { MainPage } from "./Pages/MainPage.jsx";
 import { ProductsPage } from "./Pages/ProductsPage.jsx";
 import { SingleProductPage } from "./Pages/SingleProductPage.jsx";
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-categories",
-        element: <AllCategories />
+        element: <AllCategories />,
       },
       {
         path: "/single-category/:id",
@@ -54,6 +55,14 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <CartPage />,
+      },
+      {
+        path: "/like",
+        element: <CartPage />,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],
   },

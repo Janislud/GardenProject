@@ -1,0 +1,111 @@
+.mainErrorDiv {
+  padding: 80px;
+}
+
+.errorPicture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.errorMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.h1PageNotFound {
+  color: #282828;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.pMessage {
+  color: #8b8b8b;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.buttonGoHome {
+  padding: 16px 56px;
+  border-radius: 6px;
+  background: #393;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 770px) {
+  .h1PageNotFound {
+    font-size: 54px;
+  }
+  .errorPicture .kaktus {
+    width: 250px;
+    height: 300px;
+  }
+  .errorPicture .fourGreen {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .h1PageNotFound {
+    font-size: 45px;
+    width: 400px;
+  }
+  .errorPicture .kaktus {
+    width: 200px;
+    height: 250px;
+  }
+  .errorPicture .fourGreen {
+    width: 150px;
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .h1PageNotFound {
+    font-size: 45px;
+    width: 400px;
+  }
+  .errorPicture .kaktus {
+    width: 150px;
+    height: 200px;
+  }
+  .errorPicture .fourGreen {
+    width: 100px;
+    height: 150px;
+  }
+  .mainErrorDiv {
+    padding-top: 30px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .h1PageNotFound {
+    font-size: 40px;
+    width: 300px;
+  }
+  .errorPicture .kaktus {
+    width: 120px;
+    height: 170px;
+  }
+  .errorPicture .fourGreen {
+    width: 90px;
+    height: 120px;
+  }
+  .mainErrorDiv {
+    padding-top: 30px;
+  }
+}

@@ -4,10 +4,12 @@ import cartReducer from "../slices/cartSlice.js";
 import counterReducer from "../slices/counterSlice.js";
 import filterReducer from "../slices/filterSlice.js";
 import productsReducer from "../slices/productsSlice.js";
+import themeReducer from "../slices/themaSlice.js";
 import usersReducer from "../slices/usersSlice.js";
 
 export const store = configureStore({
   reducer: {
+    theme: themeReducer,
     users: usersReducer,
     counter: counterReducer,
     [dateApi.reducerPath]: dateApi.reducer,
