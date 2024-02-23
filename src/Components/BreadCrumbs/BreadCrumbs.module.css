@@ -1,0 +1,32 @@
+.breadcrumbs-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .breadcrumbs-block {
+    display: flex;
+    align-items: center;
+  }
+  
+  .breadcrumb {
+    height: 20px;
+    width: fit-content;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    color: gray;
+    border: 1px solid gray;
+    border-radius: 6px;
+  }
+  
+  .active {
+    color: black;
+  }
+  
+  .breadcrumb-line {
+    content: "";
+    height: 1px;
+    width: 16px;
+    display: block;
+    background-color: gray;
+  }

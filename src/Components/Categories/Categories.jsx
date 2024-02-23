@@ -46,7 +46,7 @@ export const Categories = () => {
        <button className={style.categoryBtnAdaptive}>
         <Link className={style.categoryBtnDescription}
         to="/categories">
-          {"All Categoris"}
+          {"All Categories"}
         </Link>
       </button>
     </section>

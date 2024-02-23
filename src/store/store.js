@@ -6,6 +6,7 @@ import filterReducer from "../slices/filterSlice.js";
 import productsReducer from "../slices/productsSlice.js";
 import themeReducer from "../slices/themaSlice.js";
 import usersReducer from "../slices/usersSlice.js";
+import breadcrumbsReducer from "../slices/breadcrumbsSlice.js";
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     products: productsReducer,
     filter: filterReducer,
     cart:cartReducer,
+    breadcrumbs: breadcrumbsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(dateApi.middleware),

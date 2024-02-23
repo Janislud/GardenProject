@@ -50,7 +50,6 @@ function calculateDiscountPercent(price, discountPrice) {
         Add to cart
         </button>
     </Link>
-  );
 };
 
 
