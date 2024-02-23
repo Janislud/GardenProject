@@ -109,12 +109,16 @@ option {
     margin-left: 0px;
   }
   .filterTitle {
-    margin: 40px auto;
+    margin: 40px 20px;
+    text-align: center;
   }
   .formFilterBar {
-    margin: 30px auto;
+    margin: 30px 20px;
     max-width: 400px;
     gap: 30px;
+  }
+  .filterBarWrapper {
+    align-items: center;
   }
 }
 
@@ -124,7 +128,7 @@ option {
     }
     .formFilterBar {
         gap: 30px;
-        margin: auto 40px;
+        margin: 40px 40px;
     }
     .filterTitle {
         text-align: center;
