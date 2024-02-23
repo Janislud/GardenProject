@@ -19,6 +19,7 @@
     align-items: center;
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .selectOption {
@@ -101,4 +102,37 @@ option {
     font-size: 20px;
     font-weight: 600;
     line-height: 130%;
+}
+
+@media (min-width: 360px) and (max-width:768px) {
+  .sortedLable {
+    margin-left: 0px;
+  }
+  .filterTitle {
+    margin: 40px auto;
+  }
+  .formFilterBar {
+    margin: 30px auto;
+    max-width: 400px;
+    gap: 30px;
+  }
+}
+
+@media (min-width:768px) and (max-width: 987px) {
+    .sortedLable {
+        margin-left:0px;
+    }
+    .formFilterBar {
+        gap: 30px;
+        margin: auto 40px;
+    }
+    .filterTitle {
+        text-align: center;
+    }
+}
+
+@media (min-width:988px) and (max-width: 1440px) {
+.filterBarWrapper {
+   margin: 0px 40px 40px 40px;
+}
 }
