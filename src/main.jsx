@@ -57,6 +57,10 @@ const router = createBrowserRouter([
         element: <CartPage />,
       },
       {
+        path: "/like",
+        element: <CartPage />,
+      },
+      {
         path: "*",
         element: <ErrorPage />,
       },

@@ -39,13 +39,14 @@
 }
 
 .saleImg {
-    max-width: 311px;
+    max-width: 310px;
     border-top-left-radius: 11px;
     border-top-right-radius: 11px;
     margin-bottom: 20px;
     height: 315px;
     border-bottom: 1px solid #DDDDDD;
     object-fit: cover;
+    padding: 1px;
 }
 
 .saleCardText {
