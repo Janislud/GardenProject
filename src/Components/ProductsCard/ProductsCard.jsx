@@ -54,12 +54,21 @@ function calculateDiscountPercent(price, discountPrice) {
         <button
           className={style.btnAddToCard} 
           onClick={handleAddToCart}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={() => {
+                if (!isAddedToCart) {
+                  setIsHovered(true);
+                }
+              }}
+          onMouseLeave={() => {
+    // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
+    if (!isAddedToCart) {
+      setIsHovered(false);
+    }
+  }}
         >
           
         <img 
-        src={isAddedToCart ? (isHovered ? cartBlack : cartGreen) : (isHovered ? cartBlack : cart)}
+        src={isAddedToCart ? cartGreen : isHovered ? cartBlack : cart}
         alt="cart" 
    
       />
