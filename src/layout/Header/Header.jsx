@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, } from 'react-router-dom';
 import basket from '../../assets/images/HeaderMedia/headerBag.svg';
 import logo from '../../assets/images/HeaderMedia/headerLogo.svg';
 import like from '../../assets/images/HeaderMedia/like.svg';
-import style from './Header.module.css';
 import circle from '../../assets/images/ThemaToggle/light-thema-circle.svg';
 import moon from '../../assets/images/ThemaToggle/light-thema-moon.svg';
 import { toggleTheme } from '../../slices/themaSlice';
-import sun from '../../assets/images/ThemaToggle/sun.svg'
+import style from './Header.module.css';
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
     const location = useLocation()
-
     const totalQuantity = useSelector(state => state.cart.totalQuantity)
-   const theme = useSelector(state => state.theme.mode)
-//     const dispatch = useDispatch()
+    const theme = useSelector(state => state.theme.mode)
+    const dispatch = useDispatch()
 
     const toggleMenu = () => {
         setIsOpen(!isOpen)
@@ -58,8 +56,16 @@ export const Header = () => {
             <div className={style.basketWrapper}>
                 <Link className={style.toCart} to='/cart'>
                     <div className={style.cartTotalQuantity}>{totalQuantity}</div>
-                   <img src={basket} alt='Basket' />
+
+                <div className={style.basketWrapper}></div>
+                    </Link>
+                <Link to='/like'>
+                    <img src={like} alt="Heart" />
                </Link>
+                <Link to='/cart'>
+
+                    <img src={basket} alt='Basket' />
+                </Link>
                 <div onClick={toggleMenu} className={`${style.burger} ${isOpen ? style.burger_active : ''}`}>
                     <span className={`${style.burger_line} ${style.burger_line_first}`}></span>
                     <span className={`${style.burger_line} ${style.burger_line_second}`}></span>
@@ -67,6 +73,7 @@ export const Header = () => {
                     <span className={`${style.burger_line} ${style.burger_line_fourth}`}></span>
                 </div>
             </div>
+         
         </header >
     )
 }
