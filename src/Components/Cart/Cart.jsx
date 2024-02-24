@@ -30,11 +30,6 @@ export const Cart = () => {
                 {cartProducts.map(product => {
                     const totalPrice = product.price * product.count;
                     const discountedTotalPrice = product.discont_price !== null ? product.discont_price * product.count : null;
-                        console.log(product.price)
-                        console.log('product.discount_price:', product.discont_price);
-                        console.log('product.count:', product.count);
-                        console.log('product.price:', product.price);
-                        console.log('product.title:', product.title);
                     return (
                         <div key={product.id} className={style.cartProduct}>
                             <img className={style.cartImgSize} src={`http://localhost:3333${product.image}`} alt={product.title} />
