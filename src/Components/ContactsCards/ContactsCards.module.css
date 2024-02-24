@@ -28,3 +28,25 @@
 
 /* use ntn child
 потому что разные размеры карточек */
+
+@media (max-width: 480px) {
+  .contactsCardsImages {
+    margin-left: 80px;
+    margin-top: -40px;
+  }
+  .contactsCards {
+    padding: 20px;
+  }
+  .contactsCards .contactsCardsContent {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 370px) {
+  .contactsCards .contactsCardsContent {
+    font-size: 24px;
+  }
+  .contactsCards {
+    padding: 20px;
+  }
+}

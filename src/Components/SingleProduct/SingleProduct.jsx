@@ -37,7 +37,9 @@ export const SingleProduct = () => {
       <section className={style.mainDivSingleProduct}>
         <section className={style.divSingleProduct}>
           {data.map((product) => (
-            <div key={product.id} className={style.saleBlock}>
+            <div key={product.id} className={style.saleBlock}
+              /**to={`/single-product/${product.id}`}*/
+            >
               <div className={style.productItemImage}>
                 <img
                   className={style.imgProduct}

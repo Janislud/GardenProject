@@ -46,7 +46,7 @@ export const DataUserForm = () => {
             {isFormSubmitted && (
               <p className={style.pSubmittedRegistration}>
                 {isSubmitSuccessful
-                  ? "Thank you for your registration!"
+                  ? "Thank you for your registration! Check your Email and enjoy the promo code of 5%!"
                   : "Try please your registration one more time. Thank you!"}
               </p>
             )}
@@ -119,4 +119,3 @@ export const DataUserForm = () => {
     </>
   );
 };
-//<button type="submit" className={style.whiteButton}>Get a discount</button>
