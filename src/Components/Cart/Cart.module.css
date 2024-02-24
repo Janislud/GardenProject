@@ -4,6 +4,7 @@
     margin: 0 auto;
     max-width: 1350px;
     margin-bottom: 80px;
+    gap: 40px;
 }
 
 .cartProductWrapper {

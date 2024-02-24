@@ -3,16 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import cross from '../../assets/images/CartMedia/cross.png';
 import { addProductToCart, dropOneProductFromCart, dropProductFromCart } from '../../slices/cartSlice';
 import style from '../Cart/Cart.module.css';
+import { DataCartForm } from '../DataCartForm/DataCartForm';
 
 export const Cart = () => {
     const cartProducts = useSelector(state => state.cart.products);
-    const totalCount = useSelector(state => state.cart.totalCount);
-    const totalQuantity = useSelector(state => state.cart.totalQuantity)
-    const products = useSelector((state) => state.products.products);
     const dispatch = useDispatch();
-    console.log(cartProducts)
-    console.log(totalCount)
-    console.log(products)
+
     
     // Обработчик события для удаления товара из корзины
     const handleRemoveFromCart = (productId, price) => {
@@ -63,8 +59,7 @@ export const Cart = () => {
                     );
                 })}
             </div>
-            <div className={style.totalCount}>Total Count:{totalCount}</div>
-            <div>Total Qty:{totalQuantity}</div>
+            <DataCartForm />
         </section>
     )
 }
