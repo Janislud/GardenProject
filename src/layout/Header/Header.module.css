@@ -54,17 +54,17 @@ a {
 }
 
 .cartTotalQuantity {
-    background-color: #393;
-    border-radius: 118px;
-    font-size: 10px;
-    color: #ffff;
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    right: 21px;
-    top: 4px;
-    text-align: center;
-    padding-top: 5px;
+  background-color: #393;
+  border-radius: 118px;
+  font-size: 10px;
+  color: #ffff;
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  right: -131px;
+  top: -43px;
+  text-align: center;
+  padding-top: 5px;
 }
 
 .burger_line {
@@ -127,7 +127,6 @@ a {
 .switch {
   cursor: pointer;
 }
-
 
 @media (max-width: 889px) {
   .listStyle > a {
