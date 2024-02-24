@@ -1,26 +1,62 @@
 import React, { useEffect } from "react";
-import style from "./BreadCrumbs.module.css";
-import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addBreadcrumb, removeBreadcrumb, setBreadcrumbs } from "../../slices/breadcrumbsSlice";
+import { useLocation, Link } from "react-router-dom";
+import {
+  addBreadcrumb,
+  removeBreadcrumb,
+  setBreadcrumbs,
+} from "../../slices/breadcrumbsSlice";
+import style from "./BreadCrumbs.module.css";
 
-const BreadCrumbs = () => {
+const BreadCrumbs = ({ data }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const breadcrumbs = useSelector((state) => state.breadcrumbs.breadcrumbsList);
 
-   // Обновляет хлебные крошки в зависимости от текущего маршрута
-   useEffect(() => {
-    const pathnames = location.pathname.split('/').filter(x => x);
-    const newBreadcrumbs = pathnames.map((pathname, index) => {
-      return `Breadcrumb for ${pathname}`;
+  let routesMap = {
+    "/categories/all": "Categories",
+    "/categories/:id": "Categories",
+  };
+
+  const categoriesMap = {
+    1: "Annual",
+  };
+
+  const newBreadcrumb = { [data.id]: data.title };
+  routesMap = { ...routesMap, ...newBreadcrumb };
+
+  const defaultPath = { name: "Main page", path: "" };
+
+  useEffect(() => {
+    const pathnames = location.pathname.split("/").filter((x) => x);
+    const newBreadcrumbs = pathnames.map((pathname) => {
+      return {
+        name: routesMap[pathname] || pathname,
+        path: pathname === "/categories/:id" ? "/categories/all" : pathname,
+      };
     });
-    // Очищает текущие хлебные крошки и добавить новые в зависимости от маршрута
-    dispatch(setBreadcrumbs(newBreadcrumbs));
-  }, [location, dispatch]);
+
+    console.log(data, routesMap[data.categoryId]);
+
+    if (pathnames.includes("/product/:id")) {
+      const singleProductsBreadcrumbs = [
+        defaultPath,
+        { name: "Categories", path: "/categories/all" },
+        {
+          name: categoriesMap[data.categoryId],
+          path: `categories/${data.categoryId}`,
+        },
+      ];
+      dispatch(
+        setBreadcrumbs([...singleProductsBreadcrumbs, ...newBreadcrumbs])
+      );
+    } else {
+      dispatch(setBreadcrumbs([defaultPath, ...newBreadcrumbs]));
+    }
+  }, [location, dispatch, data, routesMap]);
 
   const handleAddBreadcrumb = () => {
-    const newBreadcrumb = `New Breadcrumb ${breadcrumbs.length + 1}`;
+    const newBreadcrumb = breadcrumbs.length + 1;
     dispatch(addBreadcrumb(newBreadcrumb));
   };
 
@@ -32,15 +68,11 @@ const BreadCrumbs = () => {
 
   return (
     <div className={style.buttonWrapper}>
-      <Link to="/">
-        <button className={style.mainPageBtn}>Main page</button>
-      </Link>
-      <div className={style.lineDiv}></div>
-
-      <button className={style.categoreisBtn}>Categories</button>
       <div>
         {breadcrumbs.map((breadcrumb, index) => (
-          <div key={index}>{breadcrumb}</div>
+          <Link to={`/${breadcrumb.path}`} key={index}>
+            <div>{breadcrumb.name}</div>
+          </Link>
         ))}
       </div>
     </div>
@@ -48,18 +80,3 @@ const BreadCrumbs = () => {
 };
 
 export { BreadCrumbs };
-
-{
-  /* <div className={styles.breadcrumbs_container}>
-{breadcrumbs.map((breadcrumb, index) => (
-  <div key={index} className={styles.breadcrumbs_block}>
-    <div className={`breadcrumb ${index === breadcrumbs.length -1 ? 'active' : ''}`}>
-    {breadcrumb}
-    </div>
-    {index !== breadcrumbslength -1 && <div className={styles.breadcrumb_line}></div>}
-  </div>
-))}
-<button onClick={handleAddBreadcrumb}>Add Breadcrumb</button>
-<button onClick={handleRemoveBreadcrumb}>Remove Breadcrumb</button>
-</div> */
-}

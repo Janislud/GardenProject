@@ -22,5 +22,5 @@ export const breadcrumbsSlice = createSlice({
     }
 })
 
-export const {setBreadcrumbs, addBreadcrumb, removeBreadcrumb} = breadcrumbsSlice
+export const {setBreadcrumbs, addBreadcrumb, removeBreadcrumb} = breadcrumbsSlice.actions
 export default breadcrumbsSlice.reducer

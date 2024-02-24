@@ -22,31 +22,30 @@ export const Categories = () => {
     <section className={style.categoriesSection}>
       <TitleBar
         title="Categories"
-        linkTo="/categories"
+        linkTo="/categories/all"
         buttonText="All Categories"
       />
 
       <section className={style.categoryCardsWrapper}>
-      {data && data.slice(0,4).map((category) => (
-        <Link key={category.id} className={style.categoryCard}
-        to={`/single-category/${category.id}`}
-        >
-          <img
-          className={style.categoryImg}
-          src={`http://localhost:3333${category.image}`}
-          alt={category.title}
-          />
-          <h2 className={style.categoryCardText}>
-            {category.title}
-          </h2>
-        </Link>
-      ))}
-   
-    </section>
-       <button className={style.categoryBtnAdaptive}>
-        <Link className={style.categoryBtnDescription}
-        to="/categories">
-          {"All Categories"}
+        {data &&
+          data.slice(0, 4).map((category) => (
+            <Link
+              key={category.id}
+              className={style.categoryCard}
+              to={`/categories/${category.id}`}
+            >
+              <img
+                className={style.categoryImg}
+                src={`http://localhost:3333${category.image}`}
+                alt={category.title}
+              />
+              <h2 className={style.categoryCardText}>{category.title}</h2>
+            </Link>
+          ))}
+      </section>
+      <button className={style.categoryBtnAdaptive}>
+        <Link className={style.categoryBtnDescription} to="/categories/all">
+          {"All Categoris"}
         </Link>
       </button>
     </section>

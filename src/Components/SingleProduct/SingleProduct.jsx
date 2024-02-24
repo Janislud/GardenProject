@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../slices/apiSlice";
 import { addProductToCart } from "../../slices/cartSlice";
 import { Button } from "../Button/Button";
@@ -27,7 +27,7 @@ export const SingleProduct = () => {
     return <p>Loading...</p>;
   }
 
- const handleAddToCart = ( product ) => {
+  const handleAddToCart = (product) => {
     dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
   };
 
@@ -37,11 +37,7 @@ export const SingleProduct = () => {
       <section className={style.mainDivSingleProduct}>
         <section className={style.divSingleProduct}>
           {data.map((product) => (
-            <Link
-              key={product.id}
-              className={style.saleBlock}
-              to={`/single-product/${product.id}`}
-            >
+            <div key={product.id} className={style.saleBlock}>
               <div className={style.productItemImage}>
                 <img
                   className={style.imgProduct}
@@ -79,14 +75,12 @@ export const SingleProduct = () => {
                     <Counter />
                   </div>
                   <div className={style.divButton}>
-           
-                     <Button
-                          className={style.addGreenButton}
-                          buttonClass="primary"
-                          text="Add to cart"
-                          onClick={() => handleAddToCart(product)}  
-                      />
-            
+                    <Button
+                      className={style.addGreenButton}
+                      buttonClass="primary"
+                      text="Add to cart"
+                      onClick={() => handleAddToCart(product)}
+                    />
                   </div>
                 </div>
 
@@ -109,7 +103,7 @@ export const SingleProduct = () => {
                   </button>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </section>
       </section>

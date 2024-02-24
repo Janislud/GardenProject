@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../slices/apiSlice";
 import style from "./AllCategories.module.css";
+import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 
 
 export const AllCategories = () => {
@@ -16,6 +17,7 @@ export const AllCategories = () => {
 
     return (
         <section className={style.allCategoriesWrapper}>
+            <BreadCrumbs data={data}/>
             <div className={style.buttonWrapper}>
                 <Link to='/'>
                 <button className={style.mainPageBtn}>Main page</button>
@@ -28,7 +30,7 @@ export const AllCategories = () => {
             <h2 className={style.categoriesWrapperText}>Categories</h2>
             <section className={style.categoryCardsWrapper}>
                 {data.map((category) => (
-                    <Link key={category.id} className={style.categoryCard} to={`/single-category/${category.id}`}>
+                    <Link key={category.id} className={style.categoryCard} to={`/categories/${category.id}`}>
                         <img className={style.categoryImg}
                             src={`http://localhost:3333${category.image}`}
                             alt={category.title} />

@@ -4,6 +4,7 @@
   border-radius: 12px;
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px;
 }
 .categoryCard:hover,
 .categoryCardText:hover {
