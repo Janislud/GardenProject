@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import cartBlack from "../../assets/images/CartMedia/cart-black-img.svg";
 import cartGreen from "../../assets/images/CartMedia/cart-green-img.svg";
 import cart from "../../assets/images/CartMedia/cart-img.svg";
 import { addProductToCart } from "../../slices/cartSlice";
@@ -11,6 +12,7 @@ export const ProductsCard = ({ product }) => {
 
 const dispatch = useDispatch();
 const [isAddedToCart, setIsAddedToCart] = useState(false);
+const [isHovered, setIsHovered] = useState(false);
 
 
   const handleAddToCart = ( event ) => {
@@ -49,8 +51,18 @@ function calculateDiscountPercent(price, discountPrice) {
           <p className={style.firstPrice}>${product.price}</p>
         ) : null}
       </div>
-        <button className={style.btnAddToCard} onClick={handleAddToCart}> 
-        <img src={isAddedToCart ? cartGreen : cart} alt="cart" style={{ filter: isAddedToCart ? 'none' : 'grayscale(100%)' }} />
+        <button
+          className={style.btnAddToCard} 
+          onClick={handleAddToCart}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          
+        <img 
+        src={isAddedToCart ? (isHovered ? cartBlack : cartGreen) : (isHovered ? cartBlack : cart)}
+        alt="cart" 
+   
+      />
 
         </button>
     </Link>
