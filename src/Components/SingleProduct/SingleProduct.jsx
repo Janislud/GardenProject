@@ -1,15 +1,18 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../slices/apiSlice";
+import { addProductToCart } from "../../slices/cartSlice";
 import { Button } from "../Button/Button";
 import Counter from "./CounterForProduct";
-import { SingleProductItem } from "./SingleProductItems";
 import style from "./singleProduct.module.css";
+import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 
 export const SingleProduct = () => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetProductByIdQuery(id);
   const [space, setSpace] = useState(false);
+  const dispatch = useDispatch();
 
   const switcherText = (event) => {
     event.preventDefault();
@@ -24,16 +27,18 @@ export const SingleProduct = () => {
     return <p>Loading...</p>;
   }
 
+  const handleAddToCart = (product) => {
+    dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
+  };
+
   return (
     <>
-      <SingleProductItem />
+      <BreadCrumbs data ={data[0]}/>
       <section className={style.mainDivSingleProduct}>
         <section className={style.divSingleProduct}>
           {data.map((product) => (
-            <div
-              key={product.id}
-              className={style.saleBlock}
-              to={`/single-product/${product.id}`}
+            <div key={product.id} className={style.saleBlock}
+              /**to={`/single-product/${product.id}`}*/
             >
               <div className={style.productItemImage}>
                 <img
@@ -72,13 +77,14 @@ export const SingleProduct = () => {
                     <Counter />
                   </div>
                   <div className={style.divButton}>
-                    <Link to="/cart">
-                      <Button
-                        className={style.addGreenButton}
-                        buttonClass="addGreenButton"
-                        text="Add to cart"
+           
+                     <Button
+                          className={style.addGreenButton}
+                          buttonClass="primary"
+                          text="Add to cart"
+                          onClick={() => handleAddToCart(product)}  
                       />
-                    </Link>
+            
                   </div>
                 </div>
 

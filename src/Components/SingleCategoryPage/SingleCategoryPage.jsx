@@ -5,26 +5,31 @@ import { useGetCategoriesByIdQuery } from "../../slices/apiSlice";
 import { FilterBar } from "../FilterBar/FilterBar";
 import { ProductsCard } from "../ProductsCard/ProductsCard";
 import style from "./SingleCategoryPage.module.css";
+import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 
-export const SingleCategoryPage = ( title ) => {
-    const { id } = useParams()
-    const { data, error, isLoading } = useGetCategoriesByIdQuery(id)
-    const { minPrice, maxPrice, sort ,showOnlyDiscounted} = useSelector((state) => state.filter) //+
-    const [ products, setProducts] = useState([]) //+
+export const SingleCategoryPage = () => {
+  const { id } = useParams();
+  const { data, error, isLoading } = useGetCategoriesByIdQuery(id);
+  const { minPrice, maxPrice, sort, showOnlyDiscounted } = useSelector(
+    (state) => state.filter
+  );
+  const [products, setProducts] = useState([]);
 
-useEffect(() => {
+  useEffect(() => {
+    if (data && data.data) {
+      let filteredProducts = data.data;
 
-        if (data && data.data) {
-            let filteredProducts = data.data;
-            
-            if (showOnlyDiscounted) {
-                filteredProducts = filteredProducts.filter((product) => product.discont_price);
-            }
-            
-            filteredProducts = filteredProducts.filter((product) => (
-                (!minPrice || product.price >= Number(minPrice)) &&
-                (!maxPrice || product.price <= Number(maxPrice))
-            ));
+      if (showOnlyDiscounted) {
+        filteredProducts = filteredProducts.filter(
+          (product) => product.discont_price
+        );
+      }
+
+      filteredProducts = filteredProducts.filter(
+        (product) =>
+          (!minPrice || product.price >= Number(minPrice)) &&
+          (!maxPrice || product.price <= Number(maxPrice))
+      );
 
       const sortedProducts =
         sort === "" || sort === "by default"
@@ -47,14 +52,17 @@ useEffect(() => {
   }
 
   return (
-    <section className={style.singleCategoryWrapper}>
-      <div className={style.singleBtnWrapper}></div>
-      <FilterBar title={data.category.title} />
-      <div className={style.singleCategoryCardsWrapper}>
-        {products.map((product) => (
-          <ProductsCard key={product.id} product={product} />
-        ))}
-      </div>
-    </section>
+    <>
+      <section className={style.singleCategoryWrapper}>
+        <BreadCrumbs data={data.category}/>
+        <div className={style.singleBtnWrapper}></div>
+        <FilterBar title={data.category.title} />
+        <div className={style.singleCategoryCardsWrapper}>
+          {products.map((product) => (
+            <ProductsCard key={product.id} product={product} />
+          ))}
+        </div>
+      </section>
+    </>
   );
 };

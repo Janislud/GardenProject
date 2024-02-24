@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { FilterBar } from '../FilterBar/FilterBar';
-import ProductsCard from '../ProductsCard/ProductsCard';
+import { ProductsCard } from '../ProductsCard/ProductsCard';
 import style from './ProductsList.module.css';
 
 export const ProductsList = ({title}) => {

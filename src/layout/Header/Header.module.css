@@ -32,7 +32,7 @@ a {
 
 .basketWrapper {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 30px;
 }
 
@@ -43,7 +43,7 @@ a {
 .burgerMenu {
   display: none;
 }
-/* Burger menu */
+/*////// Burger menu ///////*/
 
 .burger {
   display: none;
@@ -51,6 +51,24 @@ a {
   height: 50px;
   cursor: pointer;
   position: relative;
+}
+
+.toCart {
+  position: relative;
+}
+
+.cartTotalQuantity {
+  background-color: #393;
+  border-radius: 118px;
+  font-size: 10px;
+  color: #ffff;
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  right: -131px;
+  top: -43px;
+  text-align: center;
+  padding-top: 5px;
 }
 
 .burger_line {
@@ -91,7 +109,30 @@ a {
   color: #ffff;
 }
 
-@media (max-width: 720px) {
+/* //////TOGGLE THEMA//// */
+.logoToggleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.themaWrapper {
+  border-radius: 30px;
+  background: #8b8b8b;
+  width: 60px;
+}
+
+.themaDiv {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  padding: 3px;
+}
+.switch {
+  cursor: pointer;
+}
+
+@media (max-width: 889px) {
   .listStyle > a {
     font-size: 17px;
   }
@@ -101,7 +142,23 @@ a {
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 779px) {
+  .navList {
+    gap: 10px;
+  }
+
+  .listStyle > a {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 730px) {
+  .listStyle > a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 650px) {
   header {
     background-color: #ffff;
     padding: 5px;
@@ -111,21 +168,22 @@ a {
     display: flex;
     visibility: hidden;
     gap: 20px;
-    background-color: #393;
+    background-color: #ffff;
     flex-direction: column;
     justify-content: center;
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 0;
     font-size: 30px;
-    padding-left: 20px;
+    padding-left: 100px;
+    padding-top: 100px;
   }
 
   .listStyle > a {
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 25px;
   }
 
@@ -134,7 +192,7 @@ a {
     cursor: pointer;
   }
   .burger_active .burger_line {
-    background-color: #ffff;
+    background-color: #000000;
   }
 
   .menuToggle {
