@@ -50,7 +50,7 @@ const BreadCrumbs = ({ data }) => {
       };
     });
 
-    if (pathnames.includes("products")) {
+    if (pathnames.includes("products") & state?.prevPath) {
       if (data) {
         const breadcrumbs = state.prevPath.includes("categories")
           ? singleProductsBreadcrumbs["default"]
@@ -80,3 +80,6 @@ const BreadCrumbs = ({ data }) => {
 };
 
 export { BreadCrumbs };
+
+
+// если не null сэтать 

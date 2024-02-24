@@ -75,12 +75,14 @@ export const SingleProduct = () => {
                     <Counter />
                   </div>
                   <div className={style.divButton}>
-                    <Button
-                      className={style.addGreenButton}
-                      buttonClass="primary"
-                      text="Add to cart"
-                      onClick={() => handleAddToCart(product)}
-                    />
+           
+                     <Button
+                          className={style.addGreenButton}
+                          buttonClass="primary"
+                          text="Add to cart"
+                          onClick={() => handleAddToCart(product)}  
+                      />
+            
                   </div>
                 </div>
 
