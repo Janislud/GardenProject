@@ -30,7 +30,7 @@ export const SingleProduct = () => {
       <section className={style.mainDivSingleProduct}>
         <section className={style.divSingleProduct}>
           {data.map((product) => (
-            <Link
+            <div
               key={product.id}
               className={style.saleBlock}
               to={`/single-product/${product.id}`}
@@ -101,7 +101,7 @@ export const SingleProduct = () => {
                   </button>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </section>
       </section>
