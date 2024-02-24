@@ -17,12 +17,12 @@ export const Cart = () => {
 
     const handleAddToCart = (productId,price) => {
         dispatch(addProductToCart({id: productId, price: price}))
-    }
+    };
 
     // Проверяем, является ли cartProducts массивом и содержит ли он товары
     if (!Array.isArray(cartProducts) || cartProducts.length === 0) {
         return <div className={style.emptyCart}>Cart is empty</div>;
-    }
+    };
 
     return (
         <section className={style.CartWrapper}>
@@ -34,7 +34,7 @@ export const Cart = () => {
                         console.log('product.discount_price:', product.discont_price);
                         console.log('product.count:', product.count);
                         console.log('product.price:', product.price);
-                        console.log('product.title:', product.title)
+                        console.log('product.title:', product.title);
                     return (
                         <div key={product.id} className={style.cartProduct}>
                             <img className={style.cartImgSize} src={`http://localhost:3333${product.image}`} alt={product.title} />

@@ -42,13 +42,13 @@ export const Header = () => {
                         <Link to='/' className={location.pathname === '/' ? style.active : ''}>Main Page</Link>
                     </li>
                     <li className={style.listStyle}>
-                        <Link to='/categories' className={location.pathname === '/categories' ? style.active : ''}>Categories</Link>
+                        <Link to='/categories/all' className={location.pathname === '/categories/all' ? style.active : ''}>Categories</Link>
                     </li>
                     <li className={style.listStyle}>
-                        <Link to='/all-products' className={location.pathname === '/all-products' ? style.active : ''}>All products</Link>
+                        <Link to='/products/all' className={location.pathname === '/products/all' ? style.active : ''}>All products</Link>
                     </li>
                     <li className={style.listStyle}>
-                        <Link to='/all-sales' className={location.pathname === '/all-sales' ? style.active : ''}>All sales</Link>
+                        <Link to='/sales/all' className={location.pathname === '/sales/all' ? style.active : ''}>All sales</Link>
                     </li>
                 </ul>
             </nav>

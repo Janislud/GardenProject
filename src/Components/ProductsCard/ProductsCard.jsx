@@ -30,7 +30,7 @@ function calculateDiscountPercent(price, discountPrice) {
     <Link
       key={product.id}
       className={style.saleCard}
-      to={`/single-product/${product.id}`}
+      to={`/product/${product.id}`}
     >
  {
   product.discont_price && product.price &&

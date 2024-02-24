@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import style from './MainBanner.module.css';
 import { Button } from '../Button/Button';
+import style from './MainBanner.module.css';
 
 
 export const MainBanner = () => {
@@ -8,7 +8,7 @@ export const MainBanner = () => {
         <section className={style.backgroundImage}>
             <div className={style.descriptionWrapper}>
                 <h1 className={style.discountDescription}>Amazing Discounts on Garden Products!</h1>
-                <Link to='/all-sales'>
+                <Link to='/sales/all'>
                     <Button buttonClass='primary' text='Check out'/>
                 </Link>
             </div>

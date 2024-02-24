@@ -14,7 +14,7 @@ export const FilterBar = ({ title }) => {
   const showOnlyDiscounted = useSelector(
     (state) => state.filter.showOnlyDiscounted
   );
-  const [isChecked, setIsChecked] = useState(showOnlyDiscounted);
+  const [isChecked, setIsChecked] = useState(!showOnlyDiscounted);
   const location = useLocation();
 
 
