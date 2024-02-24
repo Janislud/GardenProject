@@ -47,7 +47,7 @@
 
 .saleBlock {
   position: absolute;
-  margin-left: 240px;
+  margin-left: 15px;
   margin-top: 16px;
   background-color: #393;
   color: #ffffff;
@@ -94,4 +94,15 @@
   visibility: visible;
   background-color: #282828;
   color: #ffffff;
+}
+
+.btnAddToCard {
+    max-width: 50px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    left: 255px;
+    top: 10px;
+    cursor: pointer;
+
 }

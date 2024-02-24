@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useGetProductsQuery } from "../../slices/apiSlice";
+import { ProductsCard } from "../ProductsCard/ProductsCard";
 import style from "../Sales/Sales.module.css";
 import { TitleBar } from "../TitleBar/TitleBar";
-import {ProductsCard} from "../ProductsCard/ProductsCard"
 
 export const Sales = () => {
   const { data, error, isLoading } = useGetProductsQuery();
@@ -35,14 +35,14 @@ export const Sales = () => {
 
   return (
     <section className={style.salesCategoryWrapper}>
-      <TitleBar title="Sale" linkTo="/all-sales" buttonText="All Sales" />
+      <TitleBar title="Sale" linkTo="/sales/all" buttonText="All Sales" />
       <section className={style.saleCardWrapper}>
         {randomlyDisplayedSales.map((sale) => (
           <ProductsCard key={sale.id} product={sale} />
           ))}
       </section>
       <button className={style.saleBtnAdaptive}>
-        <Link className={style.saleBtnDescription} to={"/all-sales"}>
+        <Link className={style.saleBtnDescription} to={"/sales/all"}>
           {"All Sales"}
         </Link>
       </button>

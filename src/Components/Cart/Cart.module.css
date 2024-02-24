@@ -4,6 +4,7 @@
     margin: 0 auto;
     max-width: 1350px;
     margin-bottom: 80px;
+    gap: 40px;
 }
 
 .cartProductWrapper {
@@ -46,11 +47,12 @@
     border: 1px solid rgb(221, 221, 221);
     border-radius: 12px;
     position: relative;
+    max-width: 780px;
 }
 .productCardWrapper {
     display: flex;
     flex-wrap: wrap;
-    padding: 32px 114px 32px 0px;
+    padding: 32px 90px 32px 0px;
     position: relative;
     flex-direction: column;
 }

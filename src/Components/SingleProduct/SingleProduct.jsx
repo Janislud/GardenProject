@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../slices/apiSlice";
 import { addProductToCart } from "../../slices/cartSlice";
 import { Button } from "../Button/Button";
@@ -37,10 +37,9 @@ export const SingleProduct = () => {
       <section className={style.mainDivSingleProduct}>
         <section className={style.divSingleProduct}>
           {data.map((product) => (
-            <Link
+            <div
               key={product.id}
               className={style.saleBlock}
-              to={`/single-product/${product.id}`}
             >
               <div className={style.productItemImage}>
                 <img
@@ -79,16 +78,14 @@ export const SingleProduct = () => {
                     <Counter />
                   </div>
                   <div className={style.divButton}>
-
-                    <Link>
+           
                      <Button
                           className={style.addGreenButton}
                           buttonClass="primary"
                           text="Add to cart"
-                          onClick={handleAddToCart(product)} 
-
+                          onClick={() => handleAddToCart(product)}  
                       />
-                    </Link>
+            
                   </div>
                 </div>
 
@@ -111,7 +108,7 @@ export const SingleProduct = () => {
                   </button>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </section>
       </section>

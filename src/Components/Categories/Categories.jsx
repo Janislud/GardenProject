@@ -22,14 +22,14 @@ export const Categories = () => {
     <section className={style.categoriesSection}>
       <TitleBar
         title="Categories"
-        linkTo="/categories"
+        linkTo="/categories/all"
         buttonText="All Categories"
       />
 
       <section className={style.categoryCardsWrapper}>
       {data && data.slice(0,4).map((category) => (
         <Link key={category.id} className={style.categoryCard}
-        to={`/single-category/${category.id}`}
+        to={`/categories/${category.id}`}
         >
           <img
           className={style.categoryImg}
@@ -45,7 +45,7 @@ export const Categories = () => {
     </section>
        <button className={style.categoryBtnAdaptive}>
         <Link className={style.categoryBtnDescription}
-        to="/categories">
+        to="/categories/all">
           {"All Categoris"}
         </Link>
       </button>
