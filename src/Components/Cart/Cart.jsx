@@ -1,9 +1,13 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import cross from '../../assets/images/CartMedia/cross.png';
-import { addProductToCart, dropOneProductFromCart, dropProductFromCart } from '../../slices/cartSlice';
-import style from '../Cart/Cart.module.css';
-import { DataCartForm } from '../DataCartForm/DataCartForm';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import cross from "../../assets/images/CartMedia/cross.png";
+import {
+    addProductToCart,
+    dropOneProductFromCart,
+    dropProductFromCart,
+} from "../../slices/cartSlice";
+import style from "../Cart/Cart.module.css";
+import { DataCartForm } from "../DataCartForm/DataCartForm";
 
 export const Cart = () => {
     const cartProducts = useSelector(state => state.cart.products);
