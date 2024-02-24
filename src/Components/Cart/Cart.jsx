@@ -2,9 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import cross from "../../assets/images/CartMedia/cross.png";
 import {
-  addProductToCart,
-  dropOneProductFromCart,
-  dropProductFromCart,
+    addProductToCart,
+    dropOneProductFromCart,
+    dropProductFromCart,
 } from "../../slices/cartSlice";
 import style from "../Cart/Cart.module.css";
 import { DataCartForm } from "../DataCartForm/DataCartForm";
