@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link , useLocation} from "react-router-dom";
 // import cartBlack from "../../assets/images/CartMedia/cart-black-img.svg";
 // import cartGreen from "../../assets/images/CartMedia/cart-green-img.svg";
 // import cart from "../../assets/images/CartMedia/cart-img.svg";
@@ -11,23 +11,24 @@ export const ProductsCard = ({ product }) => {
   const dispatch = useDispatch();
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const location  = useLocation()
 
   const handleAddToCart = (event) => {
     event.preventDefault();
     dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
     setIsAddedToCart(true);
   };
-
   function calculateDiscountPercent(price, discountPrice) {
     return Math.round(((price - discountPrice) / price) * 100);
   }
-
   return (
     <Link
       key={product.id}
       className={style.saleCard}
-      to={`/products/${product.id}`}
+      to={ `/products/${product.id}`}
+      state={{ prevPath: location.pathname }}
     >
+      
       {product.discont_price && product.price && (
         <div className={style.saleBlock}>
           -{calculateDiscountPercent(product.price, product.discont_price)}%

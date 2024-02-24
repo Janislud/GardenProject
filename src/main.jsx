@@ -12,6 +12,7 @@ import { MainPage } from "./Pages/MainPage.jsx";
 import { ProductsPage } from "./Pages/ProductsPage.jsx";
 import { SingleProductPage } from "./Pages/SingleProductPage.jsx";
 import { SingleSalePage } from "./Pages/SingleSalePage.jsx";
+import { AllCategories } from "./Components/AllCategories/AllCategories.jsx";
 import { store } from "./store/store.js";
 
 const router = createBrowserRouter([
@@ -23,9 +24,13 @@ const router = createBrowserRouter([
         path: "/",
         element: <MainPage />,
       },
+      // {
+      //   path: "/categories",
+      //   element: <CategoriesPage />,
+      // },
       {
         path: "/categories",
-        element: <CategoriesPage />,
+        element: <AllCategories />,
       },
       {
         path: "/categories/:id",

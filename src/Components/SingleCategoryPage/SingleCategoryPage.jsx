@@ -54,7 +54,7 @@ export const SingleCategoryPage = () => {
   return (
     <>
       <section className={style.singleCategoryWrapper}>
-        <BreadCrumbs data={data.category} />
+        <BreadCrumbs data={data.category}/>
         <div className={style.singleBtnWrapper}></div>
         <FilterBar title={data.category.title} />
         <div className={style.singleCategoryCardsWrapper}>

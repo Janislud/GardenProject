@@ -1,17 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, Link } from "react-router-dom";
-import {
-  addBreadcrumb,
-  removeBreadcrumb,
-  setBreadcrumbs,
-} from "../../slices/breadcrumbsSlice";
+import { setBreadcrumbs } from "../../slices/breadcrumbsSlice";
 import style from "./BreadCrumbs.module.css";
 
 const BreadCrumbs = ({ data }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const breadcrumbs = useSelector((state) => state.breadcrumbs.breadcrumbsList);
+  const { state } = location;
 
   let routesMap = {
     categories: "Categories",
@@ -24,48 +21,50 @@ const BreadCrumbs = ({ data }) => {
     4: "Plant Care",
     5: "Seasonal",
   };
-
-  const newBreadcrumb = { [data.id]: data.title };
-  routesMap = { ...routesMap, ...newBreadcrumb };
+  if (data) {
+    const newBreadcrumb = { [data.id]: data.title };
+    routesMap = { ...routesMap, ...newBreadcrumb };
+  }
 
   const defaultPath = { name: "Main page", path: "" };
 
+  const singleProductsBreadcrumbs = {
+    "/products": [defaultPath, { name: "All Products", path: "products" }],
+    "/sales": [defaultPath, { name: "All Sales", path: "sales" }],
+    default: [
+      defaultPath,
+      { name: "Categories", path: "categories" },
+      {
+        name: categoriesMap[data?.categoryId],
+        path: `categories/${data?.categoryId}`,
+      },
+    ],
+  };
+  // Обновляет хлебные крошки в зависимости от текущего маршрута
   useEffect(() => {
     const pathnames = location.pathname.split("/").filter((x) => x);
     const newBreadcrumbs = pathnames.map((pathname) => {
       return {
-        name: routesMap[pathname] || pathname,
+        name: routesMap[pathname],
         path: pathname,
       };
     });
 
     if (pathnames.includes("products")) {
-      const singleProductsBreadcrumbs = [
-        defaultPath,
-        { name: "Categories", path: "categories" },
-        {
-          name: categoriesMap[data.categoryId],
-          path: `categories/${data.categoryId}`,
-        },
-      ];
-      dispatch(
-        setBreadcrumbs([...singleProductsBreadcrumbs, ...newBreadcrumbs])
-      );
+      if (data) {
+        const breadcrumbs = state.prevPath.includes("categories")
+          ? singleProductsBreadcrumbs["default"]
+          : singleProductsBreadcrumbs[state.prevPath];
+        dispatch(setBreadcrumbs([...breadcrumbs, ...newBreadcrumbs]));
+      } else {
+        dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/products"]]));
+      }
+    } else if (pathnames.includes("sales")) {
+      dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/sales"]]));
     } else {
       dispatch(setBreadcrumbs([defaultPath, ...newBreadcrumbs]));
     }
-  }, [location, dispatch, data, routesMap]);
-
-  const handleAddBreadcrumb = () => {
-    const newBreadcrumb = breadcrumbs.length + 1;
-    dispatch(addBreadcrumb(newBreadcrumb));
-  };
-
-  const handleRemoveBreadcrumb = () => {
-    if (breadcrumbs.length > 0) {
-      dispatch(removeBreadcrumb(breadcrumbs.length - 1));
-    }
-  };
+  }, [location, dispatch]);
 
   return (
     <div className={style.buttonWrapper}>
