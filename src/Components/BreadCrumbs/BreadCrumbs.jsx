@@ -14,12 +14,15 @@ const BreadCrumbs = ({ data }) => {
   const breadcrumbs = useSelector((state) => state.breadcrumbs.breadcrumbsList);
 
   let routesMap = {
-    "/categories/all": "Categories",
-    "/categories/:id": "Categories",
+    categories: "Categories",
   };
 
   const categoriesMap = {
-    1: "Annual",
+    1: "Annuals",
+    2: "Nursery",
+    3: "Garden Art",
+    4: "Plant Care",
+    5: "Seasonal",
   };
 
   const newBreadcrumb = { [data.id]: data.title };
@@ -32,16 +35,14 @@ const BreadCrumbs = ({ data }) => {
     const newBreadcrumbs = pathnames.map((pathname) => {
       return {
         name: routesMap[pathname] || pathname,
-        path: pathname === "/categories/:id" ? "/categories/all" : pathname,
+        path: pathname,
       };
     });
 
-    console.log(data, routesMap[data.categoryId]);
-
-    if (pathnames.includes("/product/:id")) {
+    if (pathnames.includes("products")) {
       const singleProductsBreadcrumbs = [
         defaultPath,
-        { name: "Categories", path: "/categories/all" },
+        { name: "Categories", path: "categories" },
         {
           name: categoriesMap[data.categoryId],
           path: `categories/${data.categoryId}`,

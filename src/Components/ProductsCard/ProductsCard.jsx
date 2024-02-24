@@ -26,7 +26,7 @@ export const ProductsCard = ({ product }) => {
     <Link
       key={product.id}
       className={style.saleCard}
-      to={`/product/${product.id}`}
+      to={`/products/${product.id}`}
     >
       {product.discont_price && product.price && (
         <div className={style.saleBlock}>

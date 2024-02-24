@@ -35,14 +35,14 @@ export const Sales = () => {
 
   return (
     <section className={style.salesCategoryWrapper}>
-      <TitleBar title="Sale" linkTo="/sales/all" buttonText="All Sales" />
+      <TitleBar title="Sale" linkTo="/sales" buttonText="All Sales" />
       <section className={style.saleCardWrapper}>
         {randomlyDisplayedSales.map((sale) => (
           <ProductsCard key={sale.id} product={sale} />
         ))}
       </section>
       <button className={style.saleBtnAdaptive}>
-        <Link className={style.saleBtnDescription} to={"/sales/all"}>
+        <Link className={style.saleBtnDescription} to={"/sales"}>
           {"All Sales"}
         </Link>
       </button>

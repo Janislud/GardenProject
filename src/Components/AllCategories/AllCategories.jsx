@@ -13,11 +13,14 @@ export const AllCategories = () => {
     if (isLoading) {
         return (<h2>Loading....</h2>)
     }
-    
+    const breadcrumbsData = {
+        id: "all",
+        title: "Categories"
+    }
 
     return (
         <section className={style.allCategoriesWrapper}>
-            <BreadCrumbs data={data}/>
+            <BreadCrumbs data={breadcrumbsData}/>
             <div className={style.buttonWrapper}>
                 <Link to='/'>
                 <button className={style.mainPageBtn}>Main page</button>

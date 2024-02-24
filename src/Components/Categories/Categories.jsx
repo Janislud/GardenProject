@@ -22,7 +22,7 @@ export const Categories = () => {
     <section className={style.categoriesSection}>
       <TitleBar
         title="Categories"
-        linkTo="/categories/all"
+        linkTo="/categories"
         buttonText="All Categories"
       />
 
@@ -44,8 +44,8 @@ export const Categories = () => {
           ))}
       </section>
       <button className={style.categoryBtnAdaptive}>
-        <Link className={style.categoryBtnDescription} to="/categories/all">
-          {"All Categoris"}
+        <Link className={style.categoryBtnDescription} to="/categories">
+          {"All Categories"}
         </Link>
       </button>
     </section>

@@ -54,9 +54,9 @@ export const Header = () => {
           </li>
           <li className={style.listStyle}>
             <Link
-              to="/categories/all"
+              to="/categories"
               className={
-                location.pathname === "/categories/all" ? style.active : ""
+                location.pathname === "/categories" ? style.active : ""
               }
             >
               Categories
@@ -64,9 +64,9 @@ export const Header = () => {
           </li>
           <li className={style.listStyle}>
             <Link
-              to="/products/all"
+              to="/products"
               className={
-                location.pathname === "/products/all" ? style.active : ""
+                location.pathname === "/products" ? style.active : ""
               }
             >
               All products
@@ -74,8 +74,8 @@ export const Header = () => {
           </li>
           <li className={style.listStyle}>
             <Link
-              to="/sales/all"
-              className={location.pathname === "/sales/all" ? style.active : ""}
+              to="/sales"
+              className={location.pathname === "/sales" ? style.active : ""}
             >
               All sales
             </Link>

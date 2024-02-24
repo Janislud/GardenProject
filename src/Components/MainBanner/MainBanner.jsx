@@ -9,7 +9,7 @@ export const MainBanner = () => {
         <h1 className={style.discountDescription}>
           Amazing Discounts on Garden Products!
         </h1>
-        <Link to="/sales/all">
+        <Link to="/sales">
           <Button buttonClass="primary" text="Check out" />
         </Link>
       </div>
