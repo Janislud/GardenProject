@@ -5,8 +5,8 @@ import { useGetProductByIdQuery } from "../../slices/apiSlice";
 import { addProductToCart } from "../../slices/cartSlice";
 import { Button } from "../Button/Button";
 import Counter from "./CounterForProduct";
-import { SingleProductItem } from "./SingleProductItems";
 import style from "./singleProduct.module.css";
+import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 
 export const SingleProduct = () => {
   const { id } = useParams();
@@ -27,20 +27,17 @@ export const SingleProduct = () => {
     return <p>Loading...</p>;
   }
 
- const handleAddToCart = ( product ) => {
+  const handleAddToCart = (product) => {
     dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
   };
 
   return (
     <>
-      <SingleProductItem />
+      <BreadCrumbs data ={data[0]}/>
       <section className={style.mainDivSingleProduct}>
         <section className={style.divSingleProduct}>
           {data.map((product) => (
-            <div
-              key={product.id}
-              className={style.saleBlock}
-            >
+            <div key={product.id} className={style.saleBlock}>
               <div className={style.productItemImage}>
                 <img
                   className={style.imgProduct}

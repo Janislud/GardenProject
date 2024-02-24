@@ -17,14 +17,12 @@ export const FilterBar = ({ title }) => {
   const [isChecked, setIsChecked] = useState(!showOnlyDiscounted);
   const location = useLocation();
 
-
   useEffect(() => {
     setIsChecked(showOnlyDiscounted);
     dispatch(minPriceChange(""));
     dispatch(maxPriceChange(""));
     dispatch(sortChange(""));
   }, [showOnlyDiscounted, location, dispatch]);
-
 
   const handleToggleShowOnlyDiscounted = () => {
     if (isChecked) {
@@ -42,23 +40,27 @@ export const FilterBar = ({ title }) => {
       <form className={style.formFilterBar}>
         <div className={style.priceWrapper}>
           <label className={style.lablePrice} htmlFor="price">
-          Price
-        </label>
-        <input
-          className={style.priceInput}
-          type="number"
-          placeholder="from"
-          id="price"
-          min="0"
-          onChange={(element) => dispatch(minPriceChange(element.target.value))}
-        />
-        <input
-          className={style.priceInput}
-          type="number"
-          placeholder="to"
-          min="0"
-          onChange={(element) => dispatch(maxPriceChange(element.target.value))}
-        />
+            Price
+          </label>
+          <input
+            className={style.priceInput}
+            type="number"
+            placeholder="from"
+            id="price"
+            min="0"
+            onChange={(element) =>
+              dispatch(minPriceChange(element.target.value))
+            }
+          />
+          <input
+            className={style.priceInput}
+            type="number"
+            placeholder="to"
+            min="0"
+            onChange={(element) =>
+              dispatch(maxPriceChange(element.target.value))
+            }
+          />
         </div>
         {title !== "All Sales" && (
           <div className={style.discountItemsWrapper}>
@@ -75,11 +77,11 @@ export const FilterBar = ({ title }) => {
             />
           </div>
         )}
-        
+
         <div className={style.customSelect}>
           <label className={style.sortedLable} htmlFor="sort">
-          Sorted
-        </label>
+            Sorted
+          </label>
           <select
             className={style.selectOption}
             id="sort"

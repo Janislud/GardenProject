@@ -13,7 +13,7 @@ export const SingleProductItem = () => {
         <button className={style.categoryButton}>Categories</button>
       </Link>
       <div className={style.shortLine}></div>
-      <Link to="/all-products">
+      <Link to="/products">
         <button className={style.toolsButton}>All Products</button>
       </Link>
     </div>

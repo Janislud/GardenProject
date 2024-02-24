@@ -5,7 +5,7 @@ import { TitleBar } from './../Components/TitleBar/TitleBar';
 export const CartPage = () => {
    return (
    <section>
-      <TitleBar title="Shopping cart" linkTo="/all-products" buttonText="Back to the store" />
+      <TitleBar title="Shopping cart" linkTo="/products" buttonText="Back to the store" />
       <Cart />
    </section>
 

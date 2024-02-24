@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link,useLocation} from "react-router-dom";
 import cartBlack from "../../assets/images/CartMedia/cart-black-img.svg";
 import cartGreen from "../../assets/images/CartMedia/cart-green-img.svg";
 import cart from "../../assets/images/CartMedia/cart-img.svg";
@@ -13,8 +13,8 @@ export const ProductsCard = ({ product }) => {
 const dispatch = useDispatch();
 const [isAddedToCart, setIsAddedToCart] = useState(false);
 const [isHovered, setIsHovered] = useState(false);
-
-
+const location = useLocation()
+ 
   const handleAddToCart = ( event ) => {
     event.preventDefault();
     dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
@@ -30,7 +30,8 @@ function calculateDiscountPercent(price, discountPrice) {
     <Link
       key={product.id}
       className={style.saleCard}
-      to={`/product/${product.id}`}
+      to={`/products/${product.id}`}
+      state = {{prevPath:location.pathname}}
     >
  {
   product.discont_price && product.price &&
@@ -46,7 +47,9 @@ function calculateDiscountPercent(price, discountPrice) {
     
       <h2 className={style.saleCardText}>{product.title}</h2>
       <div className={style.salePriceWrapper}>
-        <p className={style.realPrice}>${product.discont_price ?? product.price}</p>
+        <p className={style.realPrice}>
+          ${product.discont_price ?? product.price}
+        </p>
         {product.discont_price ? (
           <p className={style.firstPrice}>${product.price}</p>
         ) : null}
@@ -79,6 +82,3 @@ function calculateDiscountPercent(price, discountPrice) {
  
   ;
 };
-
-
-
