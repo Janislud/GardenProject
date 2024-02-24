@@ -18,10 +18,10 @@ export const DataCartForm = () => {
             <div className={style.divFormWrapper}>
                 <div>
                     <h2 className={style.order}>Order details</h2>
-                    <p className={style.itemCounter}>{totalQuantity} item</p>
+                    <p className={style.itemCounter}>{totalQuantity} items</p>
                     <div className={style.totalPrice}>
                         <p className={style.total}>Total</p>
-                        <p className={style.price}>{Math.round(totalCount)}</p>
+                        <p className={style.price}>${Math.round(totalCount)}</p>
                     </div>
                 </div>
                 <form className={style.formWrapper}>
