@@ -67,6 +67,10 @@
   font-style: normal;
   font-weight: 500;
   background: transparent;
+  transition: transform 0.3s ease-in-out;
+}
+.allThreeInputs:hover {
+  transform: scale(1.1);
 }
 
 .allThreeInputs::placeholder {
