@@ -9,7 +9,6 @@ export const Cart = () => {
     const cartProducts = useSelector(state => state.cart.products);
     const dispatch = useDispatch();
 
-    
     // Обработчик события для удаления товара из корзины
     const handleRemoveFromCart = (productId, price) => {
         dispatch(dropProductFromCart({ id: productId, price: price }));
