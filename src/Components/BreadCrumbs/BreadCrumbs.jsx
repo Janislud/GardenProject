@@ -31,6 +31,7 @@ const BreadCrumbs = ({ data }) => {
   const singleProductsBreadcrumbs = {
     "/products": [defaultPath, { name: "All Products", path: "products" }],
     "/sales": [defaultPath, { name: "All Sales", path: "sales" }],
+    "/": [defaultPath],
     default: [
       defaultPath,
       { name: "Categories", path: "categories" },
@@ -40,6 +41,7 @@ const BreadCrumbs = ({ data }) => {
       },
     ],
   };
+  
   // Обновляет хлебные крошки в зависимости от текущего маршрута
   useEffect(() => {
     const pathnames = location.pathname.split("/").filter((x) => x);
@@ -50,7 +52,7 @@ const BreadCrumbs = ({ data }) => {
       };
     });
 
-    if (pathnames.includes("products") & state?.prevPath) {
+    if (pathnames.includes("products")) {
       if (data) {
         const breadcrumbs = state.prevPath.includes("categories")
           ? singleProductsBreadcrumbs["default"]
@@ -83,3 +85,4 @@ export { BreadCrumbs };
 
 
 // если не null сэтать 
+//  & state?.prevPath
