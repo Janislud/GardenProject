@@ -97,12 +97,11 @@
 }
 
 .btnAddToCard {
-    max-width: 50px;
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    left: 255px;
-    top: 10px;
-    cursor: pointer;
-
+  max-width: 50px;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  left: 255px;
+  top: 10px;
+  cursor: pointer;
 }

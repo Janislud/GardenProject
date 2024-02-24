@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../slices/apiSlice";
 import style from "./AllCategories.module.css";
+import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 
 
 export const AllCategories = () => {
@@ -12,10 +13,10 @@ export const AllCategories = () => {
     if (isLoading) {
         return (<h2>Loading....</h2>)
     }
-    
 
     return (
         <section className={style.allCategoriesWrapper}>
+            <BreadCrumbs data={data}/>
             <div className={style.buttonWrapper}>
                 <Link to='/'>
                 <button className={style.mainPageBtn}>Main page</button>

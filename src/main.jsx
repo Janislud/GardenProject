@@ -12,6 +12,7 @@ import { MainPage } from "./Pages/MainPage.jsx";
 import { ProductsPage } from "./Pages/ProductsPage.jsx";
 import { SingleProductPage } from "./Pages/SingleProductPage.jsx";
 import { SingleSalePage } from "./Pages/SingleSalePage.jsx";
+import { AllCategories } from "./Components/AllCategories/AllCategories.jsx";
 import { store } from "./store/store.js";
 
 const router = createBrowserRouter([
@@ -23,28 +24,28 @@ const router = createBrowserRouter([
         path: "/",
         element: <MainPage />,
       },
-      {
-        path: "/categories/all",
-        element: <CategoriesPage />,
-      },
       // {
-      //   path: "/all-categories",
-      //   element: <AllCategories />,
+      //   path: "/categories",
+      //   element: <CategoriesPage />,
       // },
+      {
+        path: "/categories",
+        element: <AllCategories />,
+      },
       {
         path: "/categories/:id",
         element: <SingleCategoryPage />,
       },
       {
-        path: "/products/all",
+        path: "/products",
         element: <ProductsPage />,
       },
       {
-        path: "/product/:id",
+        path: "/products/:id",
         element: <SingleProductPage />,
       },
       {
-        path: "/sales/all",
+        path: "/sales",
         element: <AllSalesPage />,
       },
       {
