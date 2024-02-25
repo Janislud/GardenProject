@@ -132,6 +132,15 @@ a {
   cursor: pointer;
 }
 
+.dark > header {
+  color: white;
+}
+
+.light {
+  background: white;
+  color: black;
+}
+
 @media (max-width: 889px) {
   .listStyle > a {
     font-size: 17px;
@@ -180,6 +189,7 @@ a {
     font-size: 30px;
     padding-left: 100px;
     padding-top: 100px;
+    z-index: 1;
   }
 
   .listStyle > a {
@@ -193,6 +203,7 @@ a {
   }
   .burger_active .burger_line {
     background-color: #000000;
+    z-index: 1;
   }
 
   .menuToggle {
