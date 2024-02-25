@@ -1,16 +1,58 @@
 .buttonWrapper {
-  max-width: 260px;
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  padding: 20px 16px;
+  gap: 5px;
+  background: #fff;
 }
 
-.lineDiv {
+.mainButton {
+  position: relative;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.mainButton:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+/* .lineDiv {
+  width: 30px;
+  height: 3px;
+  margin-left: -60px;
+  margin: 0px 12px;
+  background-color: #ddd;
+} */
+
+
+.buttonWrapper .mainButton {
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  color: #8b8b8b;
+  background: transparent;
+}
+
+/* padding: 0px 16px; */
+  /* justify-content: center; */
+  /* align-items: center; */
+
+/* .lineDiv {
   flex-grow: 1;
   border-bottom: 1px solid #ddd;
-}
-.mainPageBtn,
-.categoreisBtn {
+} */
+
+
+
+/* .mainButton {
   padding: 8px 16px;
   border: 1px solid rgb(221, 221, 221);
   border-radius: 6px;
@@ -19,53 +61,22 @@
   font-weight: 500;
   background: transparent;
   cursor: pointer;
-}
-.mainPageBtn {
   color: rgb(139, 139, 139);
-}
+} */
 
-
-
-
-/* .breadcrumbs_container {
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-  border: 1px solid rgb(221, 221, 221);
-  border-radius: 6px;
-  font-family: Montserrat;
-  font-size: 16px;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  }
-  
-  .breadcrumbs_block {
-    max-width: 260px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-  }
-  
-  .breadcrumb {
-    height: 20px;
-    width: fit-content;
-    padding: 8px 16px;
-    font-size: 16px;
-    font-weight: 500;
-    color: gray;
-    border: 1px solid gray;
-    border-radius: 6px;
-  }
-  
-  .active {
-    color: black;
-  }
-  
-  .breadcrumb_line {
-    content: "";
-    height: 1px;
-    width: 16px;
-    display: block;
-    background-color: gray;
-  } */
+/* .mainButton {
+height: 36px;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 16px 8px 16px;
+gap: 20px;
+flex: none;
+order: 2;
+flex-grow: 0;
+margin: 0px 0px;
+box-sizing: border-box;
+border: 1px solid rgb(221, 221, 221);
+border-radius: 6px;
+} */

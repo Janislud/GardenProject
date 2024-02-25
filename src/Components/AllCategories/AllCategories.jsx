@@ -17,7 +17,7 @@ export const AllCategories = () => {
     return (
         <section className={style.allCategoriesWrapper}>
             <BreadCrumbs data={data}/>
-            <div className={style.buttonWrapper}>
+            {/* <div className={style.buttonWrapper}>
                 <Link to='/'>
                 <button className={style.mainPageBtn}>Main page</button>
                 </Link>
@@ -25,7 +25,7 @@ export const AllCategories = () => {
                 
                 <button className={style.categoreisBtn}>Categories</button>
                 
-            </div>
+            </div> */}
             <h2 className={style.categoriesWrapperText}>Categories</h2>
             <section className={style.categoryCardsWrapper}>
                 {data.map((category) => (
