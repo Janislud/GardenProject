@@ -89,6 +89,16 @@
   max-width: 1440px;
 }
 
+.light {
+    background: white;
+    color: black;
+}
+
+.dark {
+    background: black;
+    color: white;
+}
+
 @media (min-width: 510px) {
   .categoryBtnAdaptive {
     display: none;

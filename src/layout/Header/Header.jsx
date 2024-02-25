@@ -1,50 +1,45 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import basket from "../../assets/images/HeaderMedia/headerBag.svg";
 import logo from "../../assets/images/HeaderMedia/headerLogo.svg";
 import like from "../../assets/images/HeaderMedia/like.svg";
 import circle from "../../assets/images/ThemaToggle/light-thema-circle.svg";
 import moon from "../../assets/images/ThemaToggle/light-thema-moon.svg";
-import { toggleTheme } from "../../slices/themaSlice";
 import style from "./Header.module.css";
 
-export const Header = () => {
+export const Header = ({ toggleThemeHandler }) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-  const theme = useSelector((state) => state.theme.mode);
-  const dispatch = useDispatch();
-
+  const theme = useSelector(state => state.theme.theme);
+  const color = useSelector(state => state.theme.color)
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const toggleThemeHandler = () => {
-    dispatch(toggleTheme());
-  };
-
   return (
-    <header className={style.headerWrapper}>
+    <header className={`${style.headerWrapper} `}>
       <div className={style.logoToggleWrapper}>
         <img className={style.logo} src={logo} alt="Logo" />
         <div className={style.themaWrapper}>
           <div className={style.themaDiv}>
-            <img
-              className={`${style.switch} ${
-                theme === "light" ? style.light : style.dark
-              } `}
-              src={circle}
-              alt="backgroundBtn"
-              onClick={toggleThemeHandler}
-            />
-            <img src={moon} alt="moon" />
+            <button onClick={toggleThemeHandler}>
+              <img
+                className={style.switch}
+                src={circle}
+                alt="backgroundBtn"
+              />
+            </button>
+            <button>
+              <img src={moon} alt="moon" />
+            </button>
           </div>
         </div>
       </div>
       <nav className={style.navMenu} onClick={toggleMenu}>
         <ul className={`${style.navList} ${isOpen ? style.menuToggle : ""}`}>
-          <li className={style.listStyle}>
+          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
             <Link
               to="/"
               className={location.pathname === "/" ? style.active : ""}
@@ -52,7 +47,7 @@ export const Header = () => {
               Main Page
             </Link>
           </li>
-          <li className={style.listStyle}>
+          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
             <Link
               to="/categories"
               className={
@@ -62,7 +57,7 @@ export const Header = () => {
               Categories
             </Link>
           </li>
-          <li className={style.listStyle}>
+          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
             <Link
               to="/products"
               className={
@@ -72,7 +67,7 @@ export const Header = () => {
               All products
             </Link>
           </li>
-          <li className={style.listStyle}>
+          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
             <Link
               to="/sales"
               className={location.pathname === "/sales" ? style.active : ""}
