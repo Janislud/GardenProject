@@ -70,16 +70,18 @@ const BreadCrumbs = ({ data }) => {
 
   return (
     <div className={style.buttonWrapper}>
-      <div>
         {breadcrumbs.map((breadcrumb, index) => (
-          <Link to={`/${breadcrumb.path}`} key={index}>
+          <Link to={`/${breadcrumb.path}`} key={index} className={style.mainButton}>
+             <div className={style.lineDiv}></div>
             <div>{breadcrumb.name}</div>
           </Link>
         ))}
+         <div className={style.lineDiv}></div>
       </div>
-    </div>
+
   );
 };
+
 
 export { BreadCrumbs };
 
