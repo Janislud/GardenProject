@@ -78,7 +78,5 @@ function calculateDiscountPercent(price, discountPrice) {
 
         </button>
     </Link>
-    )
- 
-  ;
+    );
 };
