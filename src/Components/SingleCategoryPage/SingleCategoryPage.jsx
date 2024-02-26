@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useGetCategoriesByIdQuery } from "../../slices/apiSlice";
+import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import { FilterBar } from "../FilterBar/FilterBar";
 import { ProductsCard } from "../ProductsCard/ProductsCard";
 import style from "./SingleCategoryPage.module.css";
-import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 
 export const SingleCategoryPage = () => {
   const { id } = useParams();

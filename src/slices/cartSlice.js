@@ -15,7 +15,9 @@ const cartSlice = createSlice({
       
       if (existingProductIndex !== -1) {
         // Если товар уже есть в корзине, увеличиваем его количество
-        state.products[existingProductIndex].count += 1;
+        // state.products[existingProductIndex].count += 1;
+        // Если товар уже есть в корзине, увеличиваем его количество
+        state.products[existingProductIndex].count += action.payload.quantity;
       } else {
         // Если товара еще нет в корзине, добавляем его
         state.products.push({ ...action.payload, count: 1 });
@@ -23,9 +25,11 @@ const cartSlice = createSlice({
       
       // Увеличиваем общее количество товаров в корзине
       state.totalCount += action.payload.price;
+      // product.discont_price
 
       // Увеличиваем общее колво товара
-      state.totalQuantity += 1;
+      // state.totalQuantity += 1;
+       state.totalQuantity += action.payload.quantity;
     },
 
     dropProductFromCart: (state, action) => {

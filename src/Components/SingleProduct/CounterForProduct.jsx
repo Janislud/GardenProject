@@ -1,40 +1,28 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  decrement,
-  increment,
-  reset,
-  selectCount,
-} from "../../slices/counterSlice";
+import { useState } from "react";
 import style from "./singleProduct.module.css";
 
-const Counter = () => {
-  const dispatch = useDispatch();
-  const count = useSelector(selectCount);
+const Counter = ({ onCountChange }) => {
+  const [quantity, setQuantity] = useState(1);
 
-  const handleIncrement = () => {
-    dispatch(increment());
+  const increase = () => {
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+    onCountChange(newQuantity); // Передаем новое значение в родительский компонент
   };
 
-  const handleDecrement = () => {
-    if (count > 0) dispatch(decrement());
+  const decrease = () => {
+    if (quantity > 1) {
+      const newQuantity = quantity - 1;
+      setQuantity(newQuantity);
+      onCountChange(newQuantity); // Передаем новое значение в родительский компонент
+    }
   };
-
-  useEffect(() => {
-    return () => {
-      dispatch(reset());
-    };
-  }, [dispatch]);
 
   return (
     <div className={style.divCounter}>
-      <button className={style.minusButton} onClick={handleDecrement}>
-        -
-      </button>
-      <button className={style.countButton}>{count}</button>
-      <button className={style.plusButton} onClick={handleIncrement}>
-        +
-      </button>
+      <button className={style.minusButton} onClick={decrease}>-</button>
+      <button className={style.countButton}>{quantity}</button>
+      <button className={style.plusButton} onClick={increase}>+</button>
     </div>
   );
 };
