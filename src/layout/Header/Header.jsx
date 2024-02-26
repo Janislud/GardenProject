@@ -4,16 +4,19 @@ import { Link, useLocation } from "react-router-dom";
 import basket from "../../assets/images/HeaderMedia/headerBag.svg";
 import logo from "../../assets/images/HeaderMedia/headerLogo.svg";
 import like from "../../assets/images/HeaderMedia/like.svg";
-import circle from "../../assets/images/ThemaToggle/light-thema-circle.svg";
+import elipseLight from "../../assets/images/ThemaToggle/light-thema-circle.svg";
 import moon from "../../assets/images/ThemaToggle/light-thema-moon.svg";
 import style from "./Header.module.css";
+import sun from "../../assets/images/ThemaToggle/sun.svg";
+import elipce from "../../assets/images/ThemaToggle/elipse-darkMode.svg";
+import heart from "../../assets/images/ThemaToggle/heart-dark-mode.svg";
+import cart from "../../assets/images/ThemaToggle/cart-dark-mode.svg";
 
 export const Header = ({ toggleThemeHandler }) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const theme = useSelector(state => state.theme.theme);
-  const color = useSelector(state => state.theme.color)
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -22,23 +25,25 @@ export const Header = ({ toggleThemeHandler }) => {
     <header className={`${style.headerWrapper} `}>
       <div className={style.logoToggleWrapper}>
         <img className={style.logo} src={logo} alt="Logo" />
-        <div className={style.themaWrapper}>
+        <div className={`${style.themaWrapper} ${theme === 'light' ? style.activeBg : ""}`}>
           <div className={style.themaDiv}>
-            <button onClick={toggleThemeHandler}>
-              <img
-                className={style.switch}
-                src={circle}
-                alt="backgroundBtn"
-              />
+            <img
+              className={style.modeImg}
+              src={sun}
+              alt="sun"
+            />
+            <button className={`${style.modeBtn} ${theme === 'dark' ? style.activeDarkMode : ""}`} onClick={toggleThemeHandler}>
+              {theme === 'dark' ? <img src={elipseLight} alt="elipseLight" /> : <img src={elipce} alt="sun" />}
             </button>
-            <button>
-              <img src={moon} alt="moon" />
-            </button>
+            <img className={style.modeImg}
+              src={moon}
+              alt="moon"
+            />
           </div>
         </div>
       </div>
       <nav className={style.navMenu} onClick={toggleMenu}>
-        <ul className={`${style.navList} ${isOpen ? style.menuToggle : ""}`}>
+        <ul className={`${style.navList} ${isOpen ? style.menuToggle : ""} ${theme === 'light' ? style.dark : style.light}`}>
           <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
             <Link
               to="/"
@@ -85,26 +90,26 @@ export const Header = ({ toggleThemeHandler }) => {
           <div className={style.basketWrapper}></div>
         </Link>
         <Link to="/like">
-          <img src={like} alt="Heart" />
+          {theme === 'light' ? <img src={heart} alt="heartDarkMode" /> : <img src={like} alt="heartLightMode" />}
         </Link>
         <Link to="/cart">
-          <img src={basket} alt="Basket" />
+          {theme === 'light' ? <img src={cart} alt="cartDarkMode" /> : <img src={basket} alt="cartLightMode" />}
         </Link>
         <div
           onClick={toggleMenu}
-          className={`${style.burger} ${isOpen ? style.burger_active : ""}`}
+          className={`${style.burger} ${isOpen ? style.burger_active : ""} `}
         >
           <span
-            className={`${style.burger_line} ${style.burger_line_first}`}
+            className={`${style.burger_line} ${style.burger_line_first} ${theme === 'light' ? style.light : style.dark}`}
           ></span>
           <span
-            className={`${style.burger_line} ${style.burger_line_second}`}
+            className={`${style.burger_line} ${style.burger_line_second} ${theme === 'light' ? style.light : style.dark}`}
           ></span>
           <span
-            className={`${style.burger_line} ${style.burger_line_third}`}
+            className={`${style.burger_line} ${style.burger_line_third} ${theme === 'light' ? style.light : style.dark}`}
           ></span>
           <span
-            className={`${style.burger_line} ${style.burger_line_fourth}`}
+            className={`${style.burger_line} ${style.burger_line_fourth} ${theme === 'light' ? style.light : style.dark}`}
           ></span>
         </div>
       </div>

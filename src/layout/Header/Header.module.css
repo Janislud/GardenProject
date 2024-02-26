@@ -8,6 +8,7 @@
   padding: 30px 40px 28px 40px;
   font-family: "Montserrat";
   border-bottom: 1px solid rgb(221, 221, 221);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 .navList {
   display: flex;
@@ -24,7 +25,7 @@ a {
   list-style: none;
   text-decoration: none;
   color: #282828;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 .listStyle:hover {
   transform: scale(1.1);
@@ -116,6 +117,16 @@ a {
   gap: 30px;
 }
 
+.modeBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  left: 29px;
+  top: 1px;
+  transition: left 0.3s ease-in-out;
+}
+
 .themaWrapper {
   border-radius: 30px;
   background: #8b8b8b;
@@ -126,22 +137,47 @@ a {
   justify-content: space-between;
   align-items: center;
   display: flex;
-  padding: 3px;
-}
-.switch {
-  cursor: pointer;
+  position: relative;
+  padding: 5px 4px;
 }
 
-.dark > header {
+.activeBg {
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  background: #ffff;
+}
+.activeDarkMode {
+  left: 2px;
+  top: 1px;
+}
+
+.dark > a {
+  background: #282828;
   color: white;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .light {
   background: white;
   color: black;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.dark .active {
+  color: #393; /* Цвет текста для темы dark */
 }
 
-@media (max-width: 889px) {
+.light .active {
+  color: #393; /* Цвет текста для темы light */
+}
+
+.dark .burger_line {
+  background-color: black;
+}
+
+.light .burger_line {
+  background-color: white;
+}
+
+@media (max-width: 909px) {
   .listStyle > a {
     font-size: 17px;
   }
@@ -151,7 +187,7 @@ a {
   }
 }
 
-@media (max-width: 779px) {
+@media (max-width: 820px) {
   .navList {
     gap: 10px;
   }
@@ -161,15 +197,14 @@ a {
   }
 }
 
-@media (max-width: 730px) {
+@media (max-width: 752px) {
   .listStyle > a {
     font-size: 12px;
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 693px) {
   header {
-    background-color: #ffff;
     padding: 5px;
     font-size: 14px;
   }
@@ -192,8 +227,19 @@ a {
     z-index: 1;
   }
 
-  .listStyle > a {
+  .dark .menuToggle .navlist {
+    background: #282828;
+  }
+
+  .dark .listStyle > a {
+    color: rgb(255, 255, 255);
+  }
+
+  .light .listStyle > a {
     color: rgb(0, 0, 0);
+  }
+
+  .listStyle > a {
     font-size: 25px;
   }
 
@@ -201,9 +247,18 @@ a {
     display: block;
     cursor: pointer;
   }
+
+  .dark .burger_active .burger_line {
+    background-color: white;
+  }
+
   .burger_active .burger_line {
     background-color: #000000;
     z-index: 1;
+  }
+
+  .dark .menuToggle {
+    background: #282828;
   }
 
   .menuToggle {
