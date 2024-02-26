@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../slices/apiSlice";
 import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
@@ -6,19 +7,11 @@ import style from "./AllCategories.module.css";
 
 export const AllCategories = () => {
     const { data, error, isLoading } = useGetCategoriesQuery()
-
-    if (error) {
-        return (<h2 className={style.error}>"Error fetching date:"</h2>)
-    }
-    if (isLoading) {
-        return (<h2 className={style.error}>Loading....</h2>)
-    }
+    const theme = useSelector((state => state.theme.theme))
 
     return (
-        <section className={style.allCategoriesWrapper}>
-            <BreadCrumbs data={data}/>
-            <div className={style.buttonWrapper}>
-            </div>
+        <section className={`${style.allCategoriesWrapper} ${theme === 'light' ? style.dark : style.light}`}>
+            <BreadCrumbs data={data} />
             <h2 className={style.categoriesWrapperText}>Categories</h2>
             <section className={style.categoryCardsWrapper}>
                 {data.map((category) => (
