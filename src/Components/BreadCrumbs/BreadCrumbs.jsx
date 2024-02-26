@@ -77,10 +77,10 @@ const BreadCrumbs = ({ data }) => {
             <div className={style.line}></div>
           </Link>
         ))}
-         <div className={style.lineDiv}></div>
+        <div className={style.lineDiv}></div>
       </div>
+    </div>
   );
 };
-
 
 export { BreadCrumbs };
