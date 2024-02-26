@@ -15,21 +15,16 @@ const cartSlice = createSlice({
       
       if (existingProductIndex !== -1) {
         // Если товар уже есть в корзине, увеличиваем его количество
-        // state.products[existingProductIndex].count += 1;
-        // Если товар уже есть в корзине, увеличиваем его количество
         state.products[existingProductIndex].count += action.payload.quantity;
       } else {
         // Если товара еще нет в корзине, добавляем его
-        state.products.push({ ...action.payload, count: 1 });
+        state.products.push({ ...action.payload, count: action.payload.quantity });
       }
-      
-      // Увеличиваем общее количество товаров в корзине
-      state.totalCount += action.payload.price;
-      // product.discont_price
+      // Обновляем общее количество товаров в корзине
+      state.totalQuantity += action.payload.quantity;
 
-      // Увеличиваем общее колво товара
-      // state.totalQuantity += 1;
-       state.totalQuantity += action.payload.quantity;
+      // Обновляем общую стоимость корзины
+      state.totalCount += action.payload.price * action.payload.quantity;
     },
 
     dropProductFromCart: (state, action) => {
@@ -53,11 +48,11 @@ const cartSlice = createSlice({
         state.totalQuantity -=1;
       }
     },
-
+    
     cleanCart: (state) => {
          state.products = [];
           state.totalCount = 0;
-          state.totalQuantity = 0;
+            state.totalQuantity = state.products.reduce((acc, product) => acc + product.count, 0);
     },
 
     dropOneProductFromCart : (state, action) => {
@@ -77,10 +72,8 @@ const cartSlice = createSlice({
 
       // Уменьшаем обшее кол во товаров в корзине
       state.totalQuantity -= existingProduct.count
-  }
-
-    },
-
+    }
+  },
   }
 });
 

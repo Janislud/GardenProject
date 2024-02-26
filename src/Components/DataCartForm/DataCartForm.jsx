@@ -6,7 +6,7 @@ import style from "./DataCartForm.module.css";
 export const DataCartForm = () => {
   const totalCount = useSelector((state) => state.cart.totalCount);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-  const discountedTotalPrice = useSelector((state) => state.cart.discountedTotalPrice)                
+               
   
   const {
     register,

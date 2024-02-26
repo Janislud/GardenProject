@@ -4,7 +4,7 @@ import cross from "../../assets/images/CartMedia/cross.png";
 import {
   addProductToCart,
   dropOneProductFromCart,
-  dropProductFromCart,
+  dropProductFromCart
 } from "../../slices/cartSlice";
 import style from "../Cart/Cart.module.css";
 import { DataCartForm } from "../DataCartForm/DataCartForm";
@@ -14,13 +14,18 @@ export const Cart = () => {
     const dispatch = useDispatch();
 
     // Обработчик события для удаления товара из корзины
-    const handleRemoveFromCart = (productId, price, quantity) => {
-        dispatch(dropProductFromCart({ id: productId, price: price, quantity: quantity }));
+    const handleRemoveFromCart = (productId, price, count) => {
+        dispatch(dropProductFromCart({ id: productId, price: price, quantity: count }));
     };
 
-    const handleAddToCart = (productId, price, quantity) => {
-        dispatch(addProductToCart({ id: productId, price: price, quantity: quantity }));
-      };
+     // Обработчик события для добавления одного товара к уже имеющемуся количеству
+    const handleAddOneToCart = (productId, price, count) => {
+        dispatch(addProductToCart({ id: productId, price: price, quantity: 1 }));
+    };
+
+    const handleAddToCart = (productId, price, count) => {
+        dispatch(addProductToCart({ id: productId, price: price, quantity: count }));
+    };
 
     // Проверяем, является ли cartProducts массивом и содержит ли он товары
     if (!Array.isArray(cartProducts) || cartProducts.length === 0) {
@@ -41,9 +46,9 @@ export const Cart = () => {
                                 <h3 className={style.productCardTitle}>{product.title}</h3>
                                 <div className={style.countPlusPriceWrapper}>
                                     <div className={style.btnWrapper}>
-                                        <button className={style.btnMinus} onClick={() => handleRemoveFromCart(product.id, product.price, product.quantity)}>-</button>
+                                        <button className={style.btnMinus} onClick={() => handleRemoveFromCart(product.id, product.price, product.count)}>-</button>
                                         <p className={style.count}>{product.count}</p>
-                                        <button className={style.btnPlus} onClick={() => handleAddToCart(product.id, product.price, product.quantity)}>+</button>
+                                        <button className={style.btnPlus} onClick={() => handleAddOneToCart(product.id, product.price, product.count)}>+</button>
                                     </div>
                                     <div className={style.salePriceWrapper}>
                                         {discountedTotalPrice !== null && <p className={style.discountedPrice}>${discountedTotalPrice}</p>}

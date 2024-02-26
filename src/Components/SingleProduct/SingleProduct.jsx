@@ -25,9 +25,9 @@ const decrease = () => {
   }
 };
 
-  const handleAddToCart = (product) => {
-    dispatch(addProductToCart({ ...product, quantity: quantity, price: product.discont_price ? product.discont_price : product.price }));
-  };
+const handleAddToCart = (product) => {
+  dispatch(addProductToCart({ ...product, quantity: parseInt(quantity), price: product.discont_price ? product.discont_price : product.price }));
+};
 
   const switcherText = (event) => {
     event.preventDefault();
@@ -84,12 +84,12 @@ const decrease = () => {
                 <div className={style.counterUndButton}>
                   <div className={style.divCounter}>
       <button className={style.minusButton} onClick={decrease}>-</button>
-      <input
-            className={style.countInput}
-            type="number"
-            value={quantity}
-            onChange={(e) => setQuantity(parseInt(e.target.value))}
-            />
+            <input
+          className={style.countInput}
+          type="number"
+          value={quantity}
+          onChange={(e) => setQuantity(parseInt(e.target.value))}
+        />
       <button className={style.plusButton} onClick={increase}>+</button>
     </div>
                   <div className={style.divButton}>
