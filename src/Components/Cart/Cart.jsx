@@ -28,9 +28,7 @@ export const Cart = () => {
     if (!Array.isArray(cartProducts) || cartProducts.length === 0) {
         return <div className={style.emptyCart}><h2>
           Looks like you have no items in your basket currently.</h2>
-       
           <Link className={style.emptyCartBtn} to={"/"}>Main Page</Link>
-       
           </div>;
     };
 

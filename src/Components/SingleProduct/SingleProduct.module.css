@@ -130,7 +130,7 @@
   cursor: pointer;
 }
 
-.divCounter .countButton {
+.countInput {
   width: 96px;
   height: 58px;
   background: #fff;

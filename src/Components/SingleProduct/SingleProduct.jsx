@@ -13,9 +13,8 @@ export const SingleProduct = () => {
   const [space, setSpace] = useState(false);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
-;
 
-  const increase = () => {
+const increase = () => {
   setQuantity(quantity + 1);
 };
 
@@ -41,6 +40,10 @@ const handleAddToCart = (product) => {
   if (isLoading) {
     return <p className={style.featchingDate}>Loading...</p>;
   }
+
+  function calculateDiscountPercent(price, discountPrice) {
+    return Math.round(((price - discountPrice) / price) * 100);
+  };
 
   return (
     <>
@@ -71,16 +74,11 @@ const handleAddToCart = (product) => {
                   {product.price &&
                     product.discont_price &&
                     product.price !== product.discont_price && (
-                      <div className={style.percentagePrice}>
-                        {`-${Math.round(
-                          ((product.price - product.discont_price) /
-                            product.price) *
-                            100
-                        )}%`}
-                      </div>
+                      <div className={style.percentagePrice}> 
+                      -{calculateDiscountPercent(product.price, product.discont_price)}%
+                    </div>
                     )}
                 </div>
-
                 <div className={style.counterUndButton}>
                   <div className={style.divCounter}>
       <button className={style.minusButton} onClick={decrease}>-</button>

@@ -44,6 +44,8 @@ export const SingleCategoryPage = () => {
     }
   }, [data, minPrice, maxPrice, sort, showOnlyDiscounted]);
 
+  console.log(data)
+
   if (error) {
     return <h2>Error....</h2>;
   }
