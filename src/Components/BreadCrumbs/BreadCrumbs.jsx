@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { setBreadcrumbs } from "../../slices/breadcrumbsSlice";
 import style from "./BreadCrumbs.module.css";
 
