@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import cross from "../../assets/images/CartMedia/cross.png";
 import {
   addProductToCart,
@@ -23,13 +24,14 @@ export const Cart = () => {
         dispatch(addProductToCart({ id: productId, price: price, quantity: 1 }));
     };
 
-    const handleAddToCart = (productId, price, count) => {
-        dispatch(addProductToCart({ id: productId, price: price, quantity: count }));
-    };
-
     // Проверяем, является ли cartProducts массивом и содержит ли он товары
     if (!Array.isArray(cartProducts) || cartProducts.length === 0) {
-        return <div className={style.emptyCart}>Cart is empty</div>;
+        return <div className={style.emptyCart}><h2>
+          Looks like you have no items in your basket currently.</h2>
+       
+          <Link className={style.emptyCartBtn} to={"/"}>Main Page</Link>
+       
+          </div>;
     };
 
     return (
