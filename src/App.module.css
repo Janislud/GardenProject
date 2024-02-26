@@ -1,35 +1,38 @@
 @font-face {
-    font-family: "Montserrat";
-    src: url("../../assets/fonts/Montserrat-Medium.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: "Montserrat-bold";
-    src: url("/fonts/MyFont-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-  }
+  font-family: "Montserrat";
+  src: url("../../assets/fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-  body, html {
-    font-family: "Montserrat", sans-serif;
-    background: #FFFFFF;
-  }
+@font-face {
+  font-family: "Montserrat-bold";
+  src: url("/fonts/MyFont-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+body,
+html {
+  font-family: "Montserrat", sans-serif;
+  background: #ffffff;
+  transition: transform 0.3s ease-in-out;
+}
 
-  .dark {
-    background-color: black;
-    color: white;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .light{
-    background-color: white;
-    color: black;
-  }
-  
+.dark {
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  background: #282828;
+  color: white;
+}
+
+.light {
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  background-color: white;
+  color: black;
+}

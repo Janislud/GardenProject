@@ -16,8 +16,7 @@ function App() {
   };
 
   return (
-    <div className={theme === 'light' ? style.dark : style.light}
-                           >
+    <div className={theme === 'light' ? style.dark : style.light}>
       <Header toggleThemeHandler={toggleThemeHandler} />
       <Outlet toggleThemeHandler={toggleThemeHandler} />
       <Footer toggleThemeHandler={toggleThemeHandler} />
