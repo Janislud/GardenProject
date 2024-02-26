@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import cross from "../../assets/images/CartMedia/cross.png";
 import {
-  addProductToCart,
-  dropOneProductFromCart,
-  dropProductFromCart
+    addProductToCart,
+    dropOneProductFromCart,
+    dropProductFromCart
 } from "../../slices/cartSlice";
 import style from "../Cart/Cart.module.css";
 import { DataCartForm } from "../DataCartForm/DataCartForm";
@@ -27,7 +27,7 @@ export const Cart = () => {
     // Проверяем, является ли cartProducts массивом и содержит ли он товары
     if (!Array.isArray(cartProducts) || cartProducts.length === 0) {
         return <div className={style.emptyCart}><h2>
-          Looks like you have no items in your basket currently.</h2>
+          Looks like you have no items in your basket currently</h2>
           <Link className={style.emptyCartBtn} to={"/"}>Main Page</Link>
           </div>;
     };
