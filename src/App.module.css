@@ -23,4 +23,13 @@
     box-sizing: border-box;
   }
 
+  .dark {
+    background-color: black;
+    color: white;
+  }
+
+  .light{
+    background-color: white;
+    color: black;
+  }
   
