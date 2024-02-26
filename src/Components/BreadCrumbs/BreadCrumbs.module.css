@@ -1,8 +1,29 @@
-.buttonWrapper {
-  max-width: 260px;
+.line {
+  width: 22px;
+  height: 1px;
+  background-color: #ddd;
+  margin-top: -18px;
+  margin-left: 131px;
+  margin-right: -20px;
+}
+.buttonWrapper .flexDivs {
   display: flex;
+  flex-direction: row;
+  gap: 20px;
   align-items: center;
-  margin-bottom: 40px;
+}
+
+.divBorder {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px;
+  padding: 9px 14px;
+  color: #8b8b8b;
+}
+
+.buttonWrapper {
+  margin: 60px auto;
+  max-width: 1380px;
 }
 
 .lineDiv {
@@ -23,9 +44,6 @@
 .mainPageBtn {
   color: rgb(139, 139, 139);
 }
-
-
-
 
 /* .breadcrumbs_container {
     display: flex;
