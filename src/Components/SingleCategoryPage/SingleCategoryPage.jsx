@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { filterProducts } from "../../hooks/useFilterCategory";
 import { useGetCategoriesByIdQuery } from "../../slices/apiSlice";
 import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import { FilterBar } from "../FilterBar/FilterBar";
@@ -17,30 +18,8 @@ export const SingleCategoryPage = () => {
 
   useEffect(() => {
     if (data && data.data) {
-      let filteredProducts = data.data;
-
-      if (showOnlyDiscounted) {
-        filteredProducts = filteredProducts.filter(
-          (product) => product.discont_price
-        );
-      }
-
-      filteredProducts = filteredProducts.filter(
-        (product) =>
-          (!minPrice || product.price >= Number(minPrice)) &&
-          (!maxPrice || product.price <= Number(maxPrice))
-      );
-
-      const sortedProducts =
-        sort === "" || sort === "by default"
-          ? filteredProducts
-          : filteredProducts.sort((a, b) => {
-              return sort === "Ascending"
-                ? b.price - a.price
-                : a.price - b.price;
-            });
-
-      setProducts(sortedProducts);
+      const filteredProducts = filterProducts(data.data, { minPrice, maxPrice, sort, showOnlyDiscounted });
+      setProducts([...filteredProducts]);
     }
   }, [data, minPrice, maxPrice, sort, showOnlyDiscounted]);
 
