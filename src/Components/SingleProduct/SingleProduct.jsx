@@ -3,12 +3,12 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../slices/apiSlice";
 import { addProductToCart } from "../../slices/cartSlice";
+import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import { Button } from "../Button/Button";
 import Counter from "./CounterForProduct";
 import style from "./singleProduct.module.css";
-import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 
-export const SingleProduct = () => {
+export const SingleProduct = ({ product }) => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetProductByIdQuery(id);
   const [space, setSpace] = useState(false);
@@ -27,17 +27,19 @@ export const SingleProduct = () => {
     return <p>Loading...</p>;
   }
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = () => {
     dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
   };
 
   return (
     <>
-      <BreadCrumbs data ={data[0]}/>
+      <BreadCrumbs data={data[0]} />
       <section className={style.mainDivSingleProduct}>
         <section className={style.divSingleProduct}>
           {data.map((product) => (
-            <div key={product.id} className={style.saleBlock}
+            <div
+              key={product.id}
+              className={style.saleBlock}
               /**to={`/single-product/${product.id}`}*/
             >
               <div className={style.productItemImage}>
@@ -77,24 +79,21 @@ export const SingleProduct = () => {
                     <Counter />
                   </div>
                   <div className={style.divButton}>
-           
-                     <Button
-                          className={style.addGreenButton}
-                          buttonClass="primary"
-                          text="Add to cart"
-                          onClick={() => handleAddToCart(product)}  
-                      />
-            
+                    <Button
+                      className={style.addGreenButton}
+                      buttonClass="primary"
+                      text="Add to cart"
+                      onClick={() => handleAddToCart()}
+                    />
                   </div>
                 </div>
 
                 <div className={style.productDescription}>
                   <h6 className={style.h6Description}>Description</h6>
                   <p
-                    className={
-                      style.productTextDescriptionMain +
-                      (space ? "" : "" + style.clamp)
-                    }
+                    className={`${style.productTextDescriptionMain} ${
+                      space ? "" : style.clamp
+                    }`}
                   >
                     {product.description}
                   </p>

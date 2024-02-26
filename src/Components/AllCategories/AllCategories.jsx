@@ -1,20 +1,12 @@
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../slices/apiSlice";
-import style from "./AllCategories.module.css";
 import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
+import style from "./AllCategories.module.css";
 import { useSelector } from "react-redux";
-
 
 export const AllCategories = () => {
     const { data, error, isLoading } = useGetCategoriesQuery()
     const theme = useSelector((state => state.theme.theme))
-
-    if (error) {
-        return (<h2>"Что-то не так"</h2>)
-    }
-    if (isLoading) {
-        return (<h2>Loading....</h2>)
-    }
 
     return (
         <section className={`${style.allCategoriesWrapper} ${theme === 'light' ? style.dark : style.light}`}>
