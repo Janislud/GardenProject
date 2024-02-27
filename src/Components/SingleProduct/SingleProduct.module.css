@@ -194,6 +194,7 @@
 
 .productDescription {
   margin-top: 52px;
+  max-width: 600px;
 }
 
 .featchingDate {
@@ -249,7 +250,11 @@
 .imgProduct {
   width: 700px;
   height: 700px;
+  border-radius: 10px;
 }
+/**.imgProduct:hover {
+  transform: scale(1.1);
+}*/
 
 .mainDivSingleProduct .divSingleProduct .productItemImage {
   width: 50%;
@@ -316,6 +321,13 @@
   }
 }
 
+@media screen and (max-width: 1340px) {
+  .productDescription {
+    margin-top: 52px;
+    max-width: 500px;
+  }
+}
+
 @media screen and (max-width: 1100px) {
   .divWithPriceCounterDescription {
     margin-left: -40px;
@@ -325,6 +337,10 @@
   }
   .divPrices {
     margin-top: -5px;
+  }
+  .productDescription {
+    margin-top: 52px;
+    max-width: 400px;
   }
 }
 

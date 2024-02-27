@@ -7,7 +7,7 @@ import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import { Button } from "../Button/Button";
 import style from "./singleProduct.module.css";
 
-export const SingleProduct = () => {
+export const SingleProduct = ({ product }) => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetProductByIdQuery(id);
   const [space, setSpace] = useState(false);
@@ -47,11 +47,13 @@ function calculateDiscountPercent(price, discountPrice) {
 
 return (
     <>
-      <BreadCrumbs data ={data[0]}/>
+      <BreadCrumbs data={data[0]} />
       <section className={style.mainDivSingleProduct}>
         <section className={style.divSingleProduct}>
           {data.map((product) => (
-            <div key={product.id} className={style.saleBlock}>
+            <div key={product.id} className={style.saleBlock}
+              /**to={`/single-product/${product.id}`}*/
+            >
               <div className={style.productItemImage}>
                 <img
                   className={style.imgProduct}
@@ -91,24 +93,21 @@ return (
       <button className={style.plusButton} onClick={increase}>+</button>
     </div>
                   <div className={style.divButton}>
-           
-                     <Button
-                          className={style.addGreenButton}
-                          buttonClass="primary"
-                          text="Add to cart"
-                          onClick={() => handleAddToCart(product)}  
-                      />
-            
+                    <Button
+                      className={style.addGreenButton}
+                      buttonClass="primary"
+                      text="Add to cart"
+                      onClick={() => handleAddToCart()}
+                    />
                   </div>
                 </div>
 
                 <div className={style.productDescription}>
                   <h6 className={style.h6Description}>Description</h6>
                   <p
-                    className={
-                      style.productTextDescriptionMain +
-                      (space ? "" : "" + style.clamp)
-                    }
+                    className={`${style.productTextDescriptionMain} ${
+                      space ? "" : style.clamp
+                    }`}
                   >
                     {product.description}
                   </p>

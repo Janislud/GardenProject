@@ -41,7 +41,7 @@ const BreadCrumbs = ({ data }) => {
       },
     ],
   };
-  
+
   // Обновляет хлебные крошки в зависимости от текущего маршрута
   useEffect(() => {
     const pathnames = location.pathname.split("/").filter((x) => x);
@@ -70,14 +70,15 @@ const BreadCrumbs = ({ data }) => {
 
   return (
     <div className={style.buttonWrapper}>
-      <div>
+      <div className={style.flexDivs}>
         {breadcrumbs.map((breadcrumb, index) => (
           <Link to={`/${breadcrumb.path}`} key={index}>
-            <div>{breadcrumb.name}</div>
+            <div className={style.divBorder}>{breadcrumb.name}</div>
+            <div className={style.line}></div>
           </Link>
         ))}
+         <div className={style.lineDiv}></div>
       </div>
-    </div>
   );
 };
 

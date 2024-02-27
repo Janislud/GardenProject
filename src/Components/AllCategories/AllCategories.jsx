@@ -3,8 +3,11 @@ import { useGetCategoriesQuery } from "../../slices/apiSlice";
 import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import style from "./AllCategories.module.css";
 
+import { useSelector } from "react-redux";
+
 export const AllCategories = () => {
     const { data, error, isLoading } = useGetCategoriesQuery()
+    const theme = useSelector((state => state.theme.theme))
 
     if (error) {
         return (<h2 className={style.error}>"Error fetching date:"</h2>)
