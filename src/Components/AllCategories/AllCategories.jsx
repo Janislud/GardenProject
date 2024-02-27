@@ -16,8 +16,6 @@ export const AllCategories = () => {
         return (<h2 className={style.error}>Loading....</h2>)
     }
 
-   
-
     return (
         <section className={style.allCategoriesWrapper}>
             <BreadCrumbs data={data}/>

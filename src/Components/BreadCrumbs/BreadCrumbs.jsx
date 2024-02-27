@@ -82,5 +82,4 @@ const BreadCrumbs = ({ data }) => {
   );
 };
 
-
 export { BreadCrumbs };

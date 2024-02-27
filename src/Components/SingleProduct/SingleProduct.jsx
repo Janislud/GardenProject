@@ -28,24 +28,24 @@ const handleAddToCart = (product) => {
   dispatch(addProductToCart({ ...product, quantity: parseInt(quantity), price: product.discont_price ? product.discont_price : product.price }));
 };
 
-  const switcherText = (event) => {
+const switcherText = (event) => {
     event.preventDefault();
     setSpace((prevSpace) => !prevSpace);
-  };
+};
 
-  if (error) {
+if (error) {
     return <p className={style.featchingDate}>Error featching date: {error.message}</p>;
-  }
+}
 
-  if (isLoading) {
+if (isLoading) {
     return <p className={style.featchingDate}>Loading...</p>;
-  }
+}
 
-  const handleAddToCart = (product) => {
-    dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
-  };
+function calculateDiscountPercent(price, discountPrice) {
+    return Math.round(((price - discountPrice) / price) * 100);
+};
 
-  return (
+return (
     <>
       <BreadCrumbs data={data[0]} />
       <section className={style.mainDivSingleProduct}>
