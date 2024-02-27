@@ -13,7 +13,7 @@ export function filterProducts(products, { minPrice, maxPrice, sort, showOnlyDis
 
   if (sort && sort !== "" && sort !== "by default") {
     filteredProducts.sort((a, b) => {
-      return sort === "Ascending" ? a.price - b.price : b.price - a.price;
+      return sort === "Ascending" ? b.price - a.price : a.price - b.price;
     });
   }
 
