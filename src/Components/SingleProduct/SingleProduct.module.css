@@ -130,7 +130,7 @@
   cursor: pointer;
 }
 
-.divCounter .countButton {
+.countInput {
   width: 96px;
   height: 58px;
   background: #fff;
@@ -165,6 +165,11 @@
   margin-top: 100px;
 }
 
+.divCounter {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .productDescription .textColor {
   overflow: hidden;
   color: #282828;
@@ -190,6 +195,14 @@
 .productDescription {
   margin-top: 52px;
   max-width: 600px;
+}
+
+.featchingDate {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 40px;
+    margin: 40px 40px;
 }
 
 .percentagePrice {

@@ -86,11 +86,33 @@
 
 .emptyCart {
   margin: 0 auto;
-  justify-content: center;
   max-width: 1350px;
   display: flex;
   flex-wrap: wrap;
-  font-size: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 130%;
+  flex-direction: column;
+  margin-bottom: 80px;
+}
+
+.emptyCartBtn {
+  border-radius: 6px;
+  background: rgb(51, 153, 51);
+  position: static;
+  max-width: 313px;
+  height: 58px;
+  align-items: center;
+  padding: 16px 56px 16px 56px;
+  margin: 32px 0px;
+  border: none;
+  color: white;
+  text-align: center;
+}
+
+.emptyCartLink {
+  max-width: 313px;
+  height: 58px;
 }
 
 .btnWrapper {

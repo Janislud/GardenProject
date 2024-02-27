@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link,useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import cartBlack from "../../assets/images/CartMedia/cart-black-img.svg";
 import cartGreen from "../../assets/images/CartMedia/cart-green-img.svg";
 import cart from "../../assets/images/CartMedia/cart-img.svg";
@@ -15,11 +15,11 @@ const [isAddedToCart, setIsAddedToCart] = useState(false);
 const [isHovered, setIsHovered] = useState(false);
 const location = useLocation()
  
-  const handleAddToCart = ( event ) => {
-    event.preventDefault();
-    dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
-    setIsAddedToCart(true);
-  };
+const handleAddToCart = (event) => {
+  event.preventDefault();
+  dispatch(addProductToCart({ ...product, quantity: 1 })); // Передаем объект с ключом quantity
+  setIsAddedToCart(true);
+};
 
 function calculateDiscountPercent(price, discountPrice) {
     return Math.round(((price - discountPrice) / price) * 100);
@@ -78,7 +78,5 @@ function calculateDiscountPercent(price, discountPrice) {
 
         </button>
     </Link>
-    )
- 
-  ;
+    );
 };
