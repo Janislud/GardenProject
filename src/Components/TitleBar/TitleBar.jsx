@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import style from "./TitleBar.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../../slices/themaSlice";
 
-export const TitleBar = ({ title, linkTo, buttonText}) => {
-  const theme = useSelector((state => state.theme.theme))
+export const TitleBar = ({ title, linkTo, buttonText }) => {
+  const theme = useSelector(state => state.theme.theme)
+
 
 return (
   <div className={`${style.titleTextWrapper} ${theme === 'light' ? style.dark : style.light}`}>

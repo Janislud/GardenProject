@@ -177,6 +177,10 @@ a {
   background-color: white;
 }
 
+.dark .burger_active .burger_line {
+  background: white;
+}
+
 @media (max-width: 909px) {
   .listStyle > a {
     font-size: 17px;
@@ -210,6 +214,8 @@ a {
   }
   .navList {
     display: flex;
+    align-items: center;
+    left: 0;
     visibility: hidden;
     gap: 20px;
     background-color: #ffff;
@@ -222,17 +228,11 @@ a {
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 0;
     font-size: 30px;
-    padding-left: 100px;
-    padding-top: 100px;
     z-index: 1;
   }
 
-  .dark .menuToggle .navlist {
-    background: #282828;
-  }
-
   .dark .listStyle > a {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
   }
 
   .light .listStyle > a {
@@ -248,17 +248,9 @@ a {
     cursor: pointer;
   }
 
-  .dark .burger_active .burger_line {
-    background-color: white;
-  }
-
   .burger_active .burger_line {
     background-color: #000000;
     z-index: 1;
-  }
-
-  .dark .menuToggle {
-    background: #282828;
   }
 
   .menuToggle {
