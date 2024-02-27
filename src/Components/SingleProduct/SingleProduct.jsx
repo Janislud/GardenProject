@@ -51,9 +51,7 @@ return (
       <section className={style.mainDivSingleProduct}>
         <section className={style.divSingleProduct}>
           {data.map((product) => (
-            <div key={product.id} className={style.saleBlock}
-              /**to={`/single-product/${product.id}`}*/
-            >
+            <div key={product.id} className={style.saleBlock}>
               <div className={style.productItemImage}>
                 <img
                   className={style.imgProduct}
@@ -97,7 +95,7 @@ return (
                       className={style.addGreenButton}
                       buttonClass="primary"
                       text="Add to cart"
-                      onClick={() => handleAddToCart()}
+                      onClick={() => handleAddToCart(product)}
                     />
                   </div>
                 </div>
