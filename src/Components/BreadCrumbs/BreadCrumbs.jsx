@@ -79,6 +79,7 @@ const BreadCrumbs = ({ data }) => {
         ))}
          <div className={style.lineDiv}></div>
       </div>
+    </div>
   );
 };
 
