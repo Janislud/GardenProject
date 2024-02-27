@@ -3,7 +3,6 @@ import { useGetCategoriesQuery } from "../../slices/apiSlice";
 import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import style from "./AllCategories.module.css";
 
-
 export const AllCategories = () => {
     const { data, error, isLoading } = useGetCategoriesQuery()
 

@@ -82,7 +82,3 @@ const BreadCrumbs = ({ data }) => {
 };
 
 export { BreadCrumbs };
-
-
-// если не null сэтать 
-//  & state?.prevPath
