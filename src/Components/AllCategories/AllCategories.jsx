@@ -19,13 +19,13 @@ export const AllCategories = () => {
     return (
         <section className={`${style.allCategoriesWrapper} ${theme === 'light' ? style.dark : style.light}`}>
             <BreadCrumbs data={data} />
-            <div className={style.buttonWrapper}>
+            <div className={`${style.buttonWrapper} ${theme === 'light' ? style.dark : style.light}`}>
                 <Link to='/'>
                     <button className={style.mainPageBtn}>Main page</button>
                 </Link>
                 <div className={style.lineDiv}></div>
 
-                <button className={style.categoreisBtn}>Categories</button>
+                <button className={`${style.categoreisBtn} ${theme === 'light' ? style.dark : style.light}`}>Categories</button>
 
             </div>
             <h2 className={style.categoriesWrapperText}>Categories</h2>
@@ -35,7 +35,7 @@ export const AllCategories = () => {
                         <img className={style.categoryImg}
                             src={`http://localhost:3333${category.image}`}
                             alt={category.title} />
-                        <h2 className={style.categoryCardText}>
+                        <h2 className={`${style.categoryCardText} ${theme === 'light' ? style.dark : style.light}`}>
                             {category.title}
                         </h2>
                     </Link>

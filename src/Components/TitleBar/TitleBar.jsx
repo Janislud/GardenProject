@@ -15,8 +15,8 @@ return (
 
         <div className={style.line}></div>
 
-        <button className={style.titleBtn}>
-          <Link className={style.titleBtnDescription} to={linkTo}>
+    <button className={`${style.titleBtn} ${theme === 'light' ? style.dark : style.light}`}>
+      <Link className={`${style.titleBtnDescription} ${theme === 'light' ? style.dark : style.light}`} to={linkTo}>
             {buttonText}
           </Link>
         </button>

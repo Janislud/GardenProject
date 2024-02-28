@@ -9,6 +9,7 @@ const BreadCrumbs = ({ data }) => {
   const location = useLocation();
   const breadcrumbs = useSelector((state) => state.breadcrumbs.breadcrumbsList);
   const { state } = location;
+  const theme = useSelector((state) => state.theme.theme)
 
   let routesMap = {
     categories: "Categories",
@@ -69,10 +70,10 @@ const BreadCrumbs = ({ data }) => {
   }, [location, dispatch]);
 
   return (
-    <div className={style.buttonWrapper}>
+    <div className={`${style.buttonWrapper} ${theme === 'light' ? style.dark : style.light}`}>
       <div>
         {breadcrumbs.map((breadcrumb, index) => (
-          <Link to={`/${breadcrumb.path}`} key={index}>
+          <Link className={theme === 'light' ? style.dark : style.light} to={`/${breadcrumb.path}`} key={index}>
             <div>{breadcrumb.name}</div>
           </Link>
         ))}

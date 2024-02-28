@@ -151,7 +151,6 @@ a {
 }
 
 .dark > a {
-  background: #282828;
   color: white;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
@@ -218,7 +217,7 @@ a {
     left: 0;
     visibility: hidden;
     gap: 20px;
-    background-color: #ffff;
+    background-color: white;
     flex-direction: column;
     justify-content: center;
     position: absolute;
@@ -231,12 +230,24 @@ a {
     z-index: 1;
   }
 
-  .dark .listStyle > a {
-    color: rgb(0, 0, 0);
+  .dark .burger_active {
+    background: #ffff;
   }
 
-  .light .listStyle > a {
-    color: rgb(0, 0, 0);
+  .dark .burger_line_second {
+    background-color: white;
+  }
+
+  .dark {
+    background: #282828;
+    color: white;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+
+  .light > {
+    background: white;
+    color: black;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   }
 
   .listStyle > a {
@@ -248,11 +259,15 @@ a {
     cursor: pointer;
   }
 
+  /* здесь спаны */
   .burger_active .burger_line {
     background-color: #000000;
     z-index: 1;
   }
 
+  .dark .burger_active {
+    background: #ffffff;
+  }
   .menuToggle {
     transform: translateX(0);
     visibility: visible;

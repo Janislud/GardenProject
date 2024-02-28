@@ -26,6 +26,16 @@
   flex: 2 2 auto;
 }
 
+.dark {
+  color: white;
+  background: #404040;
+}
+
+.dark .contactsCardsContent > a {
+  color: white;
+}
+
+
 /* use ntn child
 потому что разные размеры карточек */
 

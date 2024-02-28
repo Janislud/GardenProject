@@ -32,13 +32,12 @@
 }
 
 .dark {
-  background: #282828;
   color: white;
+  background: #282828;
 }
 
-.light  {
-  background: white;
-  color: #282828;
+.dark .categoryCardText {
+  color: white;
 }
 
 .categoryCard {

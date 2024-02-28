@@ -24,7 +24,10 @@
   color: rgb(139, 139, 139);
 }
 
-
+.dark  > div {
+  color: white;
+  background: #282828;
+}
 
 
 /* .breadcrumbs_container {
