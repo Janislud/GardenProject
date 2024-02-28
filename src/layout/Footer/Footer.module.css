@@ -19,6 +19,11 @@
   width: 100%;
 }
 
+.dark {
+  color: white;
+  background: #282828;
+}
+
 @media (max-width: 750px) {
   .footerCards {
     grid-template-columns: 1fr;

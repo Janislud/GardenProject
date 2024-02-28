@@ -2,8 +2,10 @@ import React from "react";
 import style from "./Footer.module.css";
 import { GoogleMap } from "../../Components/GoogleMap/GoogleMap";
 import { ContactsCards } from "../../Components/ContactsCards/ContactsCards";
+import { useSelector } from "react-redux";
 
 export const Footer = () => {
+  const theme = useSelector((state) => state.theme.theme)
   /**Массив объектов создан для облегчения добавления и изменения данных в случае если это потребуется */
   const contactsCardData = [
     { title: "Phone", content: <a href="tel:+499999999999">+49 999 999 99 99</a> },
@@ -15,8 +17,8 @@ export const Footer = () => {
     { title: "Working Hours", content: "24 hours a day" },
   ];
   return (
-    <footer className={style.footerWrapper}>
-      <h1 className={style.footerTitle}>Contact</h1>
+    <footer className={`${style.footerWrapper} ${theme === 'light' ? style.dark : style.light}`}>
+      <h1 className={`${style.footerTitle} ${theme === 'light' ? style.dark : style.light}`}>Contact</h1>
       <div className={style.footerCards}>
         {contactsCardData.map(
           /** с помощью метода map перебираем карточки и рендерим ContactCards для каждого элемента массива */

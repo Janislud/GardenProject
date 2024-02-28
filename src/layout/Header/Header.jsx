@@ -1,25 +1,31 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import basket from "../../assets/images/HeaderMedia/headerBag.svg";
 import logo from "../../assets/images/HeaderMedia/headerLogo.svg";
 import like from "../../assets/images/HeaderMedia/like.svg";
-import elipseLight from "../../assets/images/ThemaToggle/light-thema-circle.svg";
-import moon from "../../assets/images/ThemaToggle/light-thema-moon.svg";
-import style from "./Header.module.css";
-import sun from "../../assets/images/ThemaToggle/sun.svg";
+import cart from "../../assets/images/ThemaToggle/cart-dark-mode.svg";
 import elipce from "../../assets/images/ThemaToggle/elipse-darkMode.svg";
 import heart from "../../assets/images/ThemaToggle/heart-dark-mode.svg";
-import cart from "../../assets/images/ThemaToggle/cart-dark-mode.svg";
+import elipseLight from "../../assets/images/ThemaToggle/light-thema-circle.svg";
+import moon from "../../assets/images/ThemaToggle/light-thema-moon.svg";
+import sun from "../../assets/images/ThemaToggle/sun.svg";
+import style from "./Header.module.css";
+import { toggleTheme } from "../../slices/themaSlice";
 
-export const Header = ({ toggleThemeHandler }) => {
+export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
   const location = useLocation();
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-  const theme = useSelector(state => state.theme.theme);
+  const theme = useSelector((state) => state.theme.theme)
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const toggleThemeHandler = () => {
+    dispatch(toggleTheme())
+  }
 
   return (
     <header className={`${style.headerWrapper} `}>

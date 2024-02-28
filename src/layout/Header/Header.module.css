@@ -151,7 +151,6 @@ a {
 }
 
 .dark > a {
-  background: #282828;
   color: white;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
@@ -175,6 +174,10 @@ a {
 
 .light .burger_line {
   background-color: white;
+}
+
+.dark .burger_active .burger_line {
+  background: white;
 }
 
 @media (max-width: 909px) {
@@ -210,9 +213,11 @@ a {
   }
   .navList {
     display: flex;
+    align-items: center;
+    left: 0;
     visibility: hidden;
     gap: 20px;
-    background-color: #ffff;
+    background-color: white;
     flex-direction: column;
     justify-content: center;
     position: absolute;
@@ -222,21 +227,27 @@ a {
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 0;
     font-size: 30px;
-    padding-left: 100px;
-    padding-top: 100px;
     z-index: 1;
   }
 
-  .dark .menuToggle .navlist {
+  .dark .burger_active {
+    background: #ffff;
+  }
+
+  .dark .burger_line_second {
+    background-color: white;
+  }
+
+  .dark {
     background: #282828;
+    color: white;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   }
 
-  .dark .listStyle > a {
-    color: rgb(255, 255, 255);
-  }
-
-  .light .listStyle > a {
-    color: rgb(0, 0, 0);
+  .light > {
+    background: white;
+    color: black;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   }
 
   .listStyle > a {
@@ -248,19 +259,15 @@ a {
     cursor: pointer;
   }
 
-  .dark .burger_active .burger_line {
-    background-color: white;
-  }
-
+  /* здесь спаны */
   .burger_active .burger_line {
     background-color: #000000;
     z-index: 1;
   }
 
-  .dark .menuToggle {
-    background: #282828;
+  .dark .burger_active {
+    background: #ffffff;
   }
-
   .menuToggle {
     transform: translateX(0);
     visibility: visible;

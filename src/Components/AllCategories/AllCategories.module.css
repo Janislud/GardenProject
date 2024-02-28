@@ -101,14 +101,9 @@
   max-width: 1440px;
 }
 
-.light {
-    background: white;
-    color: black;
-}
-
 .dark {
-    background: black;
-    color: white;
+  color: white;
+  background: #282828;
 }
 
 @media (min-width: 510px) {

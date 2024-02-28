@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link,useLocation} from "react-router-dom";
 import cartBlack from "../../assets/images/CartMedia/cart-black-img.svg";
 import cartGreen from "../../assets/images/CartMedia/cart-green-img.svg";
 import cart from "../../assets/images/CartMedia/cart-img.svg";
@@ -14,6 +14,7 @@ const dispatch = useDispatch();
 const [isAddedToCart, setIsAddedToCart] = useState(false);
 const [isHovered, setIsHovered] = useState(false);
 const location = useLocation()
+const theme = useSelector((state) => state.theme.theme)
  
 const handleAddToCart = (event) => {
   event.preventDefault();
@@ -45,8 +46,8 @@ function calculateDiscountPercent(price, discountPrice) {
         alt={product.title}
       />
     
-      <h2 className={style.saleCardText}>{product.title}</h2>
-      <div className={style.salePriceWrapper}>
+      <h2 className={`${style.saleCardText} ${theme === 'light' ? style.dark : style.light}`}>{product.title}</h2>
+      <div className={`${style.salePriceWrapper} ${theme === 'light' ? style.dark : style.light}`}>
         <p className={style.realPrice}>
           ${product.discont_price ?? product.price}
         </p>

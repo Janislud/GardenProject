@@ -105,3 +105,8 @@
   top: 10px;
   cursor: pointer;
 }
+
+.dark {
+  color: white;
+  background: #282828;
+}

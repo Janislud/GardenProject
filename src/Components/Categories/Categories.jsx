@@ -23,7 +23,7 @@ export const Categories = () => {
 
   return (
     <section className={`${style.categoriesSection} ${theme === 'light' ? style.dark : style.light}`}>
-      <TitleBar
+      <TitleBar 
         title="Categories"
         linkTo="/categories"
         buttonText="All Categories"
