@@ -7,9 +7,11 @@
   margin-right: -20px;
 }
 
-.currentBreadcrumb:active  {
+/* .active {
+  background-color: yellow;
   color: red;
-}
+  border-color: aqua;
+} */
 
 .buttonWrapper .flexDivs {
   display: flex;

@@ -20,9 +20,16 @@ export const Cart = () => {
     };
 
      // Обработчик события для добавления одного товара к уже имеющемуся количеству
-    const handleAddOneToCart = (productId, price, count) => {
+ const handleAddOneToCart = (productId, price, count, discontPrice) => {
+    // Проверяем, есть ли у товара скидка
+    if (discontPrice) {
+        // Если есть скидка, добавляем товар с учетом скидочной цены
+        dispatch(addProductToCart({ id: productId, price: discontPrice, quantity: 1 }));
+    } else {
+        // Если скидки нет, добавляем товар с обычной ценой
         dispatch(addProductToCart({ id: productId, price: price, quantity: 1 }));
-    };
+    }
+};
 
     // Проверяем, является ли cartProducts массивом и содержит ли он товары
     if (!Array.isArray(cartProducts) || cartProducts.length === 0) {
@@ -48,7 +55,7 @@ export const Cart = () => {
                                     <div className={style.btnWrapper}>
                                         <button className={style.btnMinus} onClick={() => handleRemoveFromCart(product.id, product.price, product.count)}>-</button>
                                         <p className={style.count}>{product.count}</p>
-                                        <button className={style.btnPlus} onClick={() => handleAddOneToCart(product.id, product.price, product.count)}>+</button>
+                                        <button className={style.btnPlus} onClick={() => handleAddOneToCart(product.id, product.price, product.count, product.discont_price)}>+</button>
                                     </div>
                                     <div className={style.salePriceWrapper}>
                                         {discountedTotalPrice !== null && <p className={style.discountedPrice}>${discountedTotalPrice}</p>}
