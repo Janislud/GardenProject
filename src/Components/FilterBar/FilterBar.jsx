@@ -91,11 +91,11 @@ export const FilterBar = ({ title }) => {
             id="sort"
             onChange={(element) => dispatch(sortChange(element.target.value))}
           >
-            <option className={style.btnOption}>by default</option>
-            <option className={style.btnOption} value="Ascending">
+            <option className={`${style.btnOption} ${theme === 'light' ? style.dark : style.light}`}>by default</option>
+            <option className={`${style.btnOption} ${theme === 'light' ? style.dark : style.light}`} value="Ascending">
               price: high-low
             </option>
-            <option className={style.btnOption} value="Descending">
+            <option className={`${style.btnOption} ${theme === 'light' ? style.dark : style.light}`} value="Descending">
               price: low-high
             </option>
           </select>

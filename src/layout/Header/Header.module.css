@@ -214,7 +214,6 @@ a {
   .navList {
     display: flex;
     align-items: center;
-    left: 0;
     visibility: hidden;
     gap: 20px;
     background-color: white;
@@ -222,7 +221,7 @@ a {
     justify-content: center;
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 57%;
     height: 100%;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 0;
@@ -261,7 +260,6 @@ a {
 
   /* здесь спаны */
   .burger_active .burger_line {
-    background-color: #000000;
     z-index: 1;
   }
 

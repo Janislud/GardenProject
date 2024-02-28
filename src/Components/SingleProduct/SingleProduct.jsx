@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../slices/apiSlice";
 import { addProductToCart } from "../../slices/cartSlice";
@@ -13,6 +13,7 @@ export const SingleProduct = () => {
   const { data, error, isLoading } = useGetProductByIdQuery(id);
   const [space, setSpace] = useState(false);
   const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.theme)
 
   const switcherText = (event) => {
     event.preventDefault();
@@ -49,9 +50,9 @@ export const SingleProduct = () => {
               </div>
 
               <div className={style.divWithPriceCounterDescription}>
-                <h2 className={style.h2TitleText}>{product.title}</h2>
+                <h2 className={`${style.h2TitleText} ${theme === 'light' ? style.dark : style.light}`}>{product.title}</h2>
                 <div className={style.divPrices}>
-                  <p className={style.discontPrice}>${product.price}</p>
+                  <p className={`${style.discontPrice} ${theme === 'light' ? style.dark : style.light}`}>${product.price}</p>
 
                   {product.discont_price ? (
                     <p className={style.initialPrice}>
