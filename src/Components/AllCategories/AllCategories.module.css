@@ -93,11 +93,12 @@
 .categoriesWrapperText {
   margin-bottom: 40px;
   font-size: 64px;
+  margin: 60px auto;
+  max-width: 1380px;
 }
 
 .allCategoriesWrapper {
   margin: 0 auto;
-  padding: 30px 40px 28px 40px;
   max-width: 1440px;
 }
 

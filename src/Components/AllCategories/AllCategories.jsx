@@ -19,16 +19,6 @@ export const AllCategories = () => {
     return (
         <section className={`${style.allCategoriesWrapper} ${theme === 'light' ? style.dark : style.light}`}>
             <BreadCrumbs data={data} />
-            <div className={`${style.buttonWrapper} ${theme === 'light' ? style.dark : style.light}`}>
-                <Link to='/'>
-                    <button className={style.mainPageBtn}>Main page</button>
-                </Link>
-                <div className={style.lineDiv}></div>
-
-                <button className={`${style.categoreisBtn} ${theme === 'light' ? style.dark : style.light}`}>Categories</button>
-
-
-            </div>
             <h2 className={style.categoriesWrapperText}>Categories</h2>
             <section className={style.categoryCardsWrapper}>
                 {data.map((category) => (

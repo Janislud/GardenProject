@@ -16,12 +16,12 @@ export const AllSalesFilter = () => {
       
       filteredProducts = filteredProducts.filter(
         (product) =>
-          (!minPrice || product.price >= Number(minPrice)) &&
-          (!maxPrice || product.price <= Number(maxPrice))
+          (!minPrice || product.discont_price >= Number(minPrice)) &&
+          (!maxPrice || product.discont_price <= Number(maxPrice))
       );
 
       const sortedProducts = sort === "" || sort === "by default" ? filteredProducts : filteredProducts.sort((a, b) => {
-                return sort === "Ascending" ? b.price - a.price : a.price - b.price; });
+                return sort === "Ascending" ? b.discont_price - a.discont_price : a.discont_price - b.discont_price; });
       dispatch(productsLoadedWithDiscount(sortedProducts));
     }
   }, [data, minPrice, maxPrice, sort, showOnlyDiscounted]);
