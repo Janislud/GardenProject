@@ -1,14 +1,35 @@
-.buttonWrapper {
-  max-width: 260px;
+.line {
+  width: 22px;
+  height: 1px;
+  background-color: #ddd;
+  margin-top: -18px;
+  margin-left: 131px;
+  margin-right: -20px;
+}
+.buttonWrapper .flexDivs {
   display: flex;
+  flex-direction: row;
+  gap: 20px;
   align-items: center;
-  margin-bottom: 40px;
+}
+
+.divBorder {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px;
+  padding: 9px 14px;
+  color: #8b8b8b;
+}
+
+.buttonWrapper {
+  margin: 60px auto;
+  max-width: 1380px;
 }
 
 .lineDiv {
-  flex-grow: 1;
   border-bottom: 1px solid #ddd;
 }
+
 .mainPageBtn,
 .categoreisBtn {
   padding: 8px 16px;
@@ -28,47 +49,3 @@
   color: white;
   background: #282828;
 }
-
-
-/* .breadcrumbs_container {
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-  border: 1px solid rgb(221, 221, 221);
-  border-radius: 6px;
-  font-family: Montserrat;
-  font-size: 16px;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  }
-  
-  .breadcrumbs_block {
-    max-width: 260px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-  }
-  
-  .breadcrumb {
-    height: 20px;
-    width: fit-content;
-    padding: 8px 16px;
-    font-size: 16px;
-    font-weight: 500;
-    color: gray;
-    border: 1px solid gray;
-    border-radius: 6px;
-  }
-  
-  .active {
-    color: black;
-  }
-  
-  .breadcrumb_line {
-    content: "";
-    height: 1px;
-    width: 16px;
-    display: block;
-    background-color: gray;
-  } */

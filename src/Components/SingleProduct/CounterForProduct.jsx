@@ -10,14 +10,19 @@ import style from "./singleProduct.module.css";
 
 const Counter = () => {
   const dispatch = useDispatch();
+  // const [quantity, setQuantity] = useState( typeof initialQuantity === "number" ? initialQuantity : 0  );
   const count = useSelector(selectCount);
 
   const handleIncrement = () => {
+    //setQuantity(quantity + 1);
     dispatch(increment());
   };
 
   const handleDecrement = () => {
-    if (count > 0) dispatch(decrement());
+    if (count > 0) {
+      //setQuantity(quantity - 1);
+      dispatch(decrement());
+    }
   };
 
   useEffect(() => {

@@ -130,7 +130,7 @@
   cursor: pointer;
 }
 
-.divCounter .countButton {
+.countInput {
   width: 96px;
   height: 58px;
   background: #fff;
@@ -165,6 +165,11 @@
   margin-top: 100px;
 }
 
+.divCounter {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .productDescription .textColor {
   overflow: hidden;
   color: #282828;
@@ -189,6 +194,15 @@
 
 .productDescription {
   margin-top: 52px;
+  max-width: 600px;
+}
+
+.featchingDate {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 40px;
+    margin: 40px 40px;
 }
 
 .percentagePrice {
@@ -236,7 +250,11 @@
 .imgProduct {
   width: 700px;
   height: 700px;
+  border-radius: 10px;
 }
+/**.imgProduct:hover {
+  transform: scale(1.1);
+}*/
 
 .mainDivSingleProduct .divSingleProduct .productItemImage {
   width: 50%;
@@ -303,6 +321,13 @@
   }
 }
 
+@media screen and (max-width: 1340px) {
+  .productDescription {
+    margin-top: 52px;
+    max-width: 500px;
+  }
+}
+
 @media screen and (max-width: 1100px) {
   .divWithPriceCounterDescription {
     margin-left: -40px;
@@ -312,6 +337,10 @@
   }
   .divPrices {
     margin-top: -5px;
+  }
+  .productDescription {
+    margin-top: 52px;
+    max-width: 400px;
   }
 }
 
