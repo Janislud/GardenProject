@@ -58,8 +58,8 @@ export const Cart = () => {
                                         <button className={style.btnPlus} onClick={() => handleAddOneToCart(product.id, product.price, product.count, product.discont_price)}>+</button>
                                     </div>
                                     <div className={style.salePriceWrapper}>
-                                        {discountedTotalPrice !== null && <p className={style.discountedPrice}>${discountedTotalPrice}</p>}
-                                        <p className={discountedTotalPrice === null ? style.discountedPrice : style.realPrice}>${totalPrice ? totalPrice : discountedTotalPrice}</p>
+                                        {discountedTotalPrice !== null && <p className={style.discountedPrice}>${parseFloat(discountedTotalPrice.toFixed(2))}</p>}
+                                        <p className={discountedTotalPrice === null ? style.discountedPrice : style.realPrice}>${totalPrice ? totalPrice.toFixed(2) : discountedTotalPrice.toFixed(2)}</p>
                                         </div>
                                 </div>
                             </div>

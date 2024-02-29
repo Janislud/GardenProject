@@ -22,7 +22,7 @@ export const DataCartForm = () => {
         <p className={style.itemCounter}>{totalQuantity} items</p>
         <div className={style.totalPrice}>
           <p className={style.total}>Total</p>
-          <p className={style.price}>${totalCount}</p>
+          <p className={style.price}>${parseFloat(totalCount.toFixed(2))}</p>
         </div>
       </div>
       <form className={style.formWrapper}>
