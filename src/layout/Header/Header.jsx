@@ -116,6 +116,7 @@ export const Header = () => {
         <Link className={style.toLikedProducts} to="/liked-products">
           <div className={style.likeTotalQuantity}>{likeTotalQuantity}</div>
           <img src={heartWhite} alt="Heart"  />
+          </Link>
        
         <Link to="/cart">
           {theme === 'light' ? <img src={cart} alt="cartDarkMode" /> : <img src={basket} alt="cartLightMode" />}
