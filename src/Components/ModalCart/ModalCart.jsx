@@ -8,7 +8,7 @@ import { cleanCart } from '../../slices/cartSlice';
 
 
 
-export default function CustomizedDialogs({ open, handleClose }) {
+export default function ModalCart ({ open, handleClose }) {
   const dispatch = useDispatch();
 
   const handleCloseWithClearCart = () => {

@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import CustomizedDialogs from "../Modal/Modal";
+import { Button } from "../Button/Button";
+import ModalCart from './../ModalCart/ModalCart';
 import style from "./DataCartForm.module.css";
 
 export const DataCartForm = () => {
   const totalCount = useSelector((state) => state.cart.totalCount);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
-   const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClose = () => {
     setOpen(false);
@@ -86,11 +87,10 @@ export const DataCartForm = () => {
             },
           })}
         />
-        {/* <Button buttonClass={"primary"} text={"Order"} /> */}
-        <button type="submit">Add</button>
-        <CustomizedDialogs open={open} handleClose={handleClose} />
+        <Button buttonClass={"primary"} text={"Order"} type="submit"/>
+        <ModalCart open={open} handleClose={handleClose} />
       </form>
-       
+     
     </div>
   );
 };

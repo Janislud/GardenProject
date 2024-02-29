@@ -1,10 +1,7 @@
 
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link,useLocation} from "react-router-dom";
-import cartBlack from "../../assets/images/CartMedia/cart-black-img.svg";
-import cartGreen from "../../assets/images/CartMedia/cart-green-img.svg";
-import cart from "../../assets/images/CartMedia/cart-img.svg";
+import { Link, useLocation } from "react-router-dom";
 import { addProductToCart } from "../../slices/cartSlice";
 import style from "./ProductsCard.module.css";
 
@@ -69,13 +66,13 @@ function calculateDiscountPercent(price, discountPrice) {
       setIsHovered(false);
     }
   }}
-        >
+        >Add to cart
           
-        <img 
+        {/* <img 
         src={isAddedToCart ? cartGreen : isHovered ? cartBlack : cart}
         alt="cart" 
    
-      />
+      /> */}
 
         </button>
     </Link>
