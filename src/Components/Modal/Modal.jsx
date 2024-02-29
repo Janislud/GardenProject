@@ -5,8 +5,20 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
+import { cleanCart } from '../../slices/cartSlice';
+
+
 
 export default function CustomizedDialogs({ open, handleClose }) {
+  const dispatch = useDispatch();
+
+  const handleCloseWithClearCart = () => {
+    // Вызываем экшен для очистки корзины
+    dispatch(cleanCart());
+    // Закрываем модальное окно
+    handleClose();
+  };
 
   return (
     <Dialog open={open}>
@@ -15,7 +27,7 @@ export default function CustomizedDialogs({ open, handleClose }) {
       </DialogTitle>
       <IconButton
         aria-label="close"
-        onClick={handleClose}
+        onClick={handleCloseWithClearCart} // Заменяем handleClose на handleCloseWithClearCart
         sx={{
           position: 'absolute',
           right: 8,
@@ -27,9 +39,7 @@ export default function CustomizedDialogs({ open, handleClose }) {
       </IconButton>
 
       <DialogActions>
-        <Button autoFocus onClick={handleClose}>
-          Save changes
-        </Button>
+        <Button autoFocus onClick={handleCloseWithClearCart}>Save changes</Button>
       </DialogActions>
     </Dialog>
   );
