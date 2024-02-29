@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../slices/apiSlice";
-import style from "./AllCategories.module.css";
 import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
-import { useSelector } from "react-redux";
+import style from "./AllCategories.module.css";
 
+import { useSelector } from "react-redux";
 
 export const AllCategories = () => {
     const { data, error, isLoading } = useGetCategoriesQuery()
     const theme = useSelector((state => state.theme.theme))
 
     if (error) {
-        return (<h2>"Что-то не так"</h2>)
+        return (<h2 className={style.error}>"Error fetching date:"</h2>)
     }
     if (isLoading) {
-        return (<h2>Loading....</h2>)
+        return (<h2 className={style.error}>Loading....</h2>)
     }
 
     return (
@@ -26,6 +26,7 @@ export const AllCategories = () => {
                 <div className={style.lineDiv}></div>
 
                 <button className={`${style.categoreisBtn} ${theme === 'light' ? style.dark : style.light}`}>Categories</button>
+
 
             </div>
             <h2 className={style.categoriesWrapperText}>Categories</h2>
