@@ -13,6 +13,7 @@ import sun from "../../assets/images/ThemaToggle/sun.svg";
 import style from "./Header.module.css";
 import { toggleTheme } from "../../slices/themaSlice";
 import Modal from "../../Components/Modal/Modal";
+import { openModal } from "../../slices/modalSlice";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,8 +21,10 @@ export const Header = () => {
   const location = useLocation();
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const theme = useSelector((state) => state.theme.theme)
-  const [modalActive, setModalActive] = useState(true)
-  // const {modalActive} = useSelector((state) => state.modal)
+  // const [modalActive, setModalActive] = useState(true)
+  const {modalActive} = useSelector((state) => state.modal)
+  const products = useSelector((state) => state.products.products)
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -30,9 +33,13 @@ export const Header = () => {
     dispatch(toggleTheme())
   }
 
+  const handleShowModalWithDiscount = () => {
+    dispatch(openModal(products))
+  }
+
   return (
     <header className={`${style.headerWrapper} `}>
-      
+      {modalActive && <Modal />}
       <div className={style.logoToggleWrapper}>
         <img className={style.logo} src={logo} alt="Logo" />
         <div className={`${style.themaWrapper} ${theme === 'light' ? style.activeBg : ""}`}>
@@ -54,7 +61,7 @@ export const Header = () => {
       </div>
       
       <nav className={style.navMenu} onClick={toggleMenu}>
-      <button className={style.discountButton} onClick={() => setModalActive(true)}>1 day discount!</button>
+      <button className={style.discountButton} onClick={handleShowModalWithDiscount}>1 day discount!</button>
         <ul className={`${style.navList} ${isOpen ? style.menuToggle : ""} ${theme === 'light' ? style.dark : style.light}`}>
           <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
             <Link
@@ -125,8 +132,7 @@ export const Header = () => {
           ></span>
         </div>
       </div>
-      <Modal active={modalActive} setActive={setModalActive}/>
-      {/* {modalActive && <Modal />} */}
+      
     </header>
   );
 };
