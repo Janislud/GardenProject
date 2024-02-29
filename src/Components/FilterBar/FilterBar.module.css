@@ -1,110 +1,120 @@
 .filterBarWrapper {
-    margin: 0 auto;
-    max-width: 1350px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-bottom: 40px;
+  margin: 0 auto;
+  max-width: 1350px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 40px;
 }
 
 .sortedLable {
-    margin-left: 40px;
-    color: rgb(40, 40, 40);
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 130%;
+  margin-left: 40px;
+  color: rgb(40, 40, 40);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 130%;
 }
 
 .formFilterBar {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .selectOption {
-    margin-left: 16px;
-    border: 1px solid rgb(221, 221, 221);
-    border-radius: 6px;
-    padding: 8px 8px 8px 16px;
-    width: 200px;
-    font-family: "Montserrat", sans-serif;
+  margin-left: 16px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  padding: 8px 8px 8px 16px;
+  width: 200px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .filterTitle {
-    color: rgb(40, 40, 40);
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 110%;
-    margin: 40px 0px;
+  color: rgb(40, 40, 40);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 110%;
+  margin: 0px 0px 40px 0px;
 }
 
 .lablePrice {
-    color: rgb(40, 40, 40);
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 130%;
+  color: rgb(40, 40, 40);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 130%;
 }
 
 .discountItemsWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
 }
 
 .inputCheckBox {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: 1px solid rgb(221, 221, 221);
-    border-radius: 6px;
-    width: 36px;
-    height: 36px;
-    background-color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  background-color: #fff;
 }
 
 .inputCheckBox:checked {
-    background: rgb(51, 153, 51);
-    background-image: url(../../assets/images/imgFilter/checkbox-active.svg);
-    background-size: cover;
-    border: none;
+  background: rgb(51, 153, 51);
+  background-image: url(../../assets/images/imgFilter/checkbox-active.svg);
+  background-size: cover;
+  border: none;
 }
 
 .selectOption option:checked {
-    color: rgb(40, 40, 40);
+  color: rgb(40, 40, 40);
 }
 
 option {
-    color: grey;
+  color: grey;
 }
 
 .priceInput {
-    width: 112px;
-    height: 36px;
-    padding: 8px 16px 8px 16px;
-    margin: 0px 16px;
-    border: 1px solid rgb(221, 221, 221);
-    border-radius: 6px;
-    font-family: "Montserrat", sans-serif;
+  width: 112px;
+  height: 36px;
+  padding: 8px 16px 8px 16px;
+  margin: 0px 16px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .priceInput::placeholder {
-    color: rgb(139, 139, 139);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 126%;
-    letter-spacing: 0%;
+  color: rgb(139, 139, 139);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 126%;
+  letter-spacing: 0%;
 }
 
 .lableDiscount {
-    color: rgb(40, 40, 40);
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 130%;
+  color: rgb(40, 40, 40);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 130%;
 }
 
-@media (min-width: 360px) and (max-width:768px) {
+.dark {
+  color: white;
+  background: #282828;
+}
+
+.dark .priceInput {
+  color: white;
+  background: #282828;
+}
+
+@media (min-width: 360px) and (max-width: 768px) {
   .sortedLable {
     margin-left: 0px;
   }
@@ -122,21 +132,21 @@ option {
   }
 }
 
-@media (min-width:768px) and (max-width: 987px) {
-    .sortedLable {
-        margin-left:0px;
-    }
-    .formFilterBar {
-        gap: 30px;
-        margin: 40px 40px;
-    }
-    .filterTitle {
-        text-align: center;
-    }
+@media (min-width: 768px) and (max-width: 987px) {
+  .sortedLable {
+    margin-left: 0px;
+  }
+  .formFilterBar {
+    gap: 30px;
+    margin: 40px 40px;
+  }
+  .filterTitle {
+    text-align: center;
+  }
 }
 
-@media (min-width:988px) and (max-width: 1440px) {
-.filterBarWrapper {
-   margin: 0px 40px 40px 40px;
-}
+@media (min-width: 988px) and (max-width: 1440px) {
+  .filterBarWrapper {
+    margin: 0px 40px 40px 40px;
+  }
 }

@@ -23,7 +23,7 @@ export const Categories = () => {
 
   return (
     <section className={`${style.categoriesSection} ${theme === 'light' ? style.dark : style.light}`}>
-      <TitleBar
+      <TitleBar 
         title="Categories"
         linkTo="/categories"
         buttonText="All Categories"
@@ -34,7 +34,7 @@ export const Categories = () => {
           data.slice(0, 4).map((category) => (
             <Link
               key={category.id}
-              className={style.categoryCard}
+              className={`${style.categoryCard}${theme === 'light' ? style.dark : style.light}`}
               to={`/categories/${category.id}`}
             >
               <img
@@ -42,12 +42,12 @@ export const Categories = () => {
                 src={`http://localhost:3333${category.image}`}
                 alt={category.title}
               />
-              <h2 className={style.categoryCardText}>{category.title}</h2>
+              <h2 className={`${style.categoryCardText} ${theme === 'light' ? style.dark : style.light}`}>{category.title}</h2>
             </Link>
           ))}
       </section>
-      <button className={style.categoryBtnAdaptive}>
-        <Link className={style.categoryBtnDescription} to="/categories">
+      <button className={`${style.categoryBtnAdaptive} ${theme === 'light' ? style.dark : style.light}`}>
+        <Link className={`${style.categoryBtnDescription} ${theme === 'light' ? style.dark : style.light}`} to="/categories">
           {"All Categories"}
         </Link>
       </button>

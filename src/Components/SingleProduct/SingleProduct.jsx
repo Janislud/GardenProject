@@ -21,48 +21,38 @@ export const SingleProduct = ({ product }) => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
 
-  const increase = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const decrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const isLiked = useSelector((state) =>
+const isLiked = useSelector((state) =>
     state.likedProducts.likedProducts.some((product) => product.id === id)
   );
 
-  if (error) {
-    return <p>Error featching date: {error.message}</p>;
-  }
+const increase = () => {
+  setQuantity(quantity + 1);
+};
 
-  if (isLoading) {
-    return <p>Loading...</p>;
+const decrease = () => {
+  if (quantity > 1) {
+    setQuantity(quantity - 1);
   }
+};
 
-  const switcherText = (event) => {
+const handleAddToCart = (product) => {
+  dispatch(addProductToCart({ ...product, quantity: parseInt(quantity), price: product.price }));
+};
+
+const switcherText = (event) => {
     event.preventDefault();
     setSpace((prevSpace) => !prevSpace);
-  };
+};
 
-  const handleAddToCart = (product) => {
-    dispatch(
-      addProductToCart({
-        ...product,
-        quantity: parseInt(quantity),
-        price: product.discont_price ? product.discont_price : product.price,
-      })
-    );
-  };
+if (error) {
+    return <p className={style.featchingDate}>Error featching date: {error.message}</p>;
+}
 
-  function calculateDiscountPercent(price, discountPrice) {
-    return Math.round(((price - discountPrice) / price) * 100);
-  }
+if (isLoading) {
+    return <p className={style.featchingDate}>Loading...</p>;
+}
 
-  const handleAddToLikedProduct = (event) => {
+const handleAddToLikedProduct = (event) => {
     //event.stopPropagation();
     event.preventDefault();
     if (isLiked) {
@@ -73,7 +63,12 @@ export const SingleProduct = ({ product }) => {
     dispatch(getLikedProductsQuantity());
   };
 
-  return (
+function calculateDiscountPercent(price, discountPrice) {
+    return Math.round(((price - discountPrice) / price) * 100);
+};
+
+
+return (
     <>
       <BreadCrumbs data={data[0]} />
       <section className={style.mainDivSingleProduct}>
@@ -99,46 +94,36 @@ export const SingleProduct = ({ product }) => {
                   />
                 </div>
                 <div className={style.divPrices}>
-                  <p className={style.discontPrice}>
-                    $
-                    {product.discont_price
-                      ? product.discont_price
-                      : product.price}
-                  </p>
+
+                  <p className={style.discontPrice}>${product.discont_price ? product.discont_price : product.price}</p>
 
                   {product.discont_price ? (
-                    <p className={style.initialPrice}>${product.price}</p>
+                    <p className={style.initialPrice}>
+                      ${product.price}
+                    </p>
                   ) : null}
 
                   {product.price &&
                     product.discont_price &&
                     product.price !== product.discont_price && (
-                      <div className={style.percentagePrice}>
-                        -
-                        {calculateDiscountPercent(
-                          product.price,
-                          product.discont_price
-                        )}
-                        %
-                      </div>
+
+                      <div className={style.percentagePrice}> 
+                      -{calculateDiscountPercent(product.price, product.discont_price)}%
+                    </div>
                     )}
                 </div>
-
                 <div className={style.counterUndButton}>
                   <div className={style.divCounter}>
-                    <button className={style.minusButton} onClick={decrease}>
-                      -
-                    </button>
-                    <input
-                      className={style.countInput}
-                      type="number"
-                      value={quantity}
-                      onChange={(e) => setQuantity(parseInt(e.target.value))}
-                    />
-                    <button className={style.plusButton} onClick={increase}>
-                      +
-                    </button>
-                  </div>
+
+      <button className={style.minusButton} onClick={decrease}>-</button>
+            <input
+          className={style.countInput}
+          type="number"
+          value={quantity}
+          onChange={(e) => setQuantity(parseInt(e.target.value))}
+        />
+      <button className={style.plusButton} onClick={increase}>+</button>
+    </div>
 
                   <div className={style.divButton}>
                     <Button

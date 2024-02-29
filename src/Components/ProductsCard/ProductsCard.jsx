@@ -1,29 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import heartRed from "../../assets/images/LikesMedia/heartRed.svg";
-import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
 import { addProductToCart } from "../../slices/cartSlice";
 import {
   addToLikedProducts,
   deleteFromLikedProducts,
   getLikedProductsQuantity,
 } from "../../slices/likedProductsSlice";
+import heartRed from "../../assets/images/LikesMedia/heartRed.svg";
+import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
 import style from "./ProductsCard.module.css";
 
 export const ProductsCard = ({ product, id }) => {
-  const dispatch = useDispatch();
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [isAddedToLikedProducts, setIsAddedToLikedProducts] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const location = useLocation();
   const isLiked = useSelector((state) =>
     state.likedProducts.likedProducts.some((product) => product.id === id)
   );
+  const dispatch = useDispatch();
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const location = useLocation();
+  const theme = useSelector((state) => state.theme.theme);
+  const cartItems = useSelector((state) => state.cart.products);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    // Проверяем, был ли товар добавлен в корзину ранее при загрузке компонента
+    const isAlreadyAdded = cartItems.some((item) => item.id === product.id);
+    setIsAddedToCart(isAlreadyAdded);
+  }, [cartItems, product.id]);
 
   const handleAddToCart = (event) => {
     event.preventDefault();
-    dispatch(addProductToCart(product)); // вызываем действие при добавлении в корзину
+    dispatch(addProductToCart({ ...product, quantity: 1 }));
     setIsAddedToCart(true);
   };
 
@@ -37,6 +45,10 @@ export const ProductsCard = ({ product, id }) => {
     }
     dispatch(getLikedProductsQuantity());
     setIsAddedToLikedProducts(true);
+
+  const handleRemoveFromCart = () => {
+    dispatch(dropOneProductFromCart({ id: product.id }));
+    setIsAddedToCart(false); // Обновляем состояние при удалении товара из корзины
   };
 
   function calculateDiscountPercent(price, discountPrice) {
@@ -49,9 +61,12 @@ export const ProductsCard = ({ product, id }) => {
       className={style.saleCard}
       to={`/products/${product.id}`}
       state={{ prevPath: location.pathname }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {product.discont_price && product.price && (
-        <div className={style.saleBlock}>
+        <div className={style.saleBlock}> 
+
           -{calculateDiscountPercent(product.price, product.discont_price)}%
         </div>
       )}
@@ -60,8 +75,9 @@ export const ProductsCard = ({ product, id }) => {
         src={`http://localhost:3333${product.image}`}
         alt={product.title}
       />
-      <h2 className={style.saleCardText}>{product.title}</h2>
-      <div className={style.salePriceWrapper}>
+    
+      <h2 className={`${style.saleCardText} ${theme === 'light' ? style.dark : style.light}`}>{product.title}</h2>
+      <div className={`${style.salePriceWrapper} ${theme === 'light' ? style.dark : style.light}`}>
         <p className={style.realPrice}>
           ${product.discont_price ?? product.price}
         </p>
@@ -71,23 +87,7 @@ export const ProductsCard = ({ product, id }) => {
       </div>
 
       <button
-        className={style.btnAddToCard}
-        onClick={handleAddToCart}
-        onMouseEnter={() => {
-          if (!isAddedToCart) {
-            setIsHovered(true);
-          }
-        }}
-        onMouseLeave={() => {
-          // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
-          if (!isAddedToCart) {
-            setIsHovered(false);
-          }
-        }}
-      ></button>
-
-      <button
-        className={style.btnAddToCard}
+        className={style.btnAddToLikes}
         onClick={handleAddToLikedProduct}
         onMouseEnter={() => {
           if (!isAddedToLikedProducts) {
@@ -107,6 +107,15 @@ export const ProductsCard = ({ product, id }) => {
           className={style.heartIcon}
         />
       </button>
+      
+       {isHovered && (
+        <button
+          className={isAddedToCart ? style.addedToCart : style.btnAddToCard} 
+          onClick={isAddedToCart ? handleRemoveFromCart : handleAddToCart}
+        >
+          {isAddedToCart ? 'Added' : 'Add to cart'}
+        </button>
+      )}
     </Link>
   );
 };

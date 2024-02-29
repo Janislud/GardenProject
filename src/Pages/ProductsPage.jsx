@@ -1,7 +1,7 @@
 import React from "react";
+import { BreadCrumbs } from "../Components/BreadCrumbs/BreadCrumbs";
 import { ProductsList } from '../Components/ProductsList/ProductsList';
 import { AllProductsFilter } from '../hooks/useFilterAllProducts';
-import { BreadCrumbs } from "../Components/BreadCrumbs/BreadCrumbs";
 
 export const ProductsPage = () => {
   return (
