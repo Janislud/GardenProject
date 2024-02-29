@@ -21,6 +21,7 @@ export const Header = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const theme = useSelector((state) => state.theme.theme)
   const [modalActive, setModalActive] = useState(true)
+  // const {modalActive} = useSelector((state) => state.modal)
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -125,6 +126,7 @@ export const Header = () => {
         </div>
       </div>
       <Modal active={modalActive} setActive={setModalActive}/>
+      {/* {modalActive && <Modal />} */}
     </header>
   );
 };
