@@ -280,7 +280,6 @@ a {
 
   /* здесь спаны */
   .burger_active .burger_line {
-    background-color: #000000;
     z-index: 1;
   }
 
