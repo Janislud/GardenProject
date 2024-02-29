@@ -1,7 +1,5 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { Dialog } from '@mui/material';
-import Button from '@mui/material/Button';
-import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import * as React from 'react';
@@ -21,26 +19,45 @@ export default function CustomizedDialogs({ open, handleClose }) {
   };
 
   return (
-    <Dialog open={open}>
-      <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-        Modal title
+      <Dialog open={open} sx={{ padding: 0, margin: 16, borderRadius: 5,}}>
+           <DialogTitle
+       sx={{
+        fontFamily: 'Montserrat, sans-serif',
+        paddingTop : 2,
+        background: 'rgb(51, 153, 51);',
+        color: 'white',
+        }} id="customized-dialog-title">
+        Congratulations!
+      </DialogTitle>
+      <DialogTitle sx={{
+        fontFamily: 'Montserrat,sans-serif',
+        background: 'rgb(51, 153, 51);',
+        color: 'white',
+        }} id="customized-dialog-title">
+        Your order has been successfully placed on the website.
+      </DialogTitle>
+      <DialogTitle sx={{
+        fontFamily: 'Montserrat,sans-serif',
+        paddingBottom : 2,
+        background: 'rgb(51, 153, 51);',
+        color: 'white',
+        }} id="customized-dialog-title">
+        A manager will contact you shortly to confirm your order.
       </DialogTitle>
       <IconButton
         aria-label="close"
-        onClick={handleCloseWithClearCart} // Заменяем handleClose на handleCloseWithClearCart
+        onClick={handleCloseWithClearCart} 
         sx={{
           position: 'absolute',
           right: 8,
           top: 8,
+          background: 'rgb(51, 153, 51);',
+          color: 'white',
           color: (theme) => theme.palette.grey[500],
         }}
       >
-        <CloseIcon />
+      <CloseIcon sx={{ color: 'white' }} />
       </IconButton>
-
-      <DialogActions>
-        <Button autoFocus onClick={handleCloseWithClearCart}>Save changes</Button>
-      </DialogActions>
     </Dialog>
   );
 }
