@@ -6,11 +6,18 @@
   margin-left: 131px;
   margin-right: -20px;
 }
+
+/* .active {
+  background-color: yellow;
+  color: red;
+  border-color: aqua;
+} */
+
 .buttonWrapper .flexDivs {
   display: flex;
   flex-direction: row;
   gap: 20px;
-  align-items: center;
+  flex-wrap: wrap;
 }
 
 .divBorder {
@@ -45,7 +52,8 @@
   color: rgb(139, 139, 139);
 }
 
-.dark  > div {
+.dark .line {
   color: white;
-  background: #282828;
+  background: white;
 }
+

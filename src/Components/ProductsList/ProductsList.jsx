@@ -6,6 +6,7 @@ import style from './ProductsList.module.css';
 
 export const ProductsList = ({title}) => {
   const products = useSelector((state) => state.products.products);
+  console.log(products)
     return (
       <section className={style.myFirstSection}>
         <FilterBar title={title} />
@@ -15,6 +16,5 @@ export const ProductsList = ({title}) => {
       ))}
         </div>
       </section>
-    
     );
 };

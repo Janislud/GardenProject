@@ -25,7 +25,7 @@ const decrease = () => {
 };
 
 const handleAddToCart = (product) => {
-  dispatch(addProductToCart({ ...product, quantity: parseInt(quantity), price: product.discont_price ? product.discont_price : product.price }));
+  dispatch(addProductToCart({ ...product, quantity: parseInt(quantity), price: product.price }));
 };
 
 const switcherText = (event) => {
