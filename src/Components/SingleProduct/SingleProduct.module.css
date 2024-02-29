@@ -11,6 +11,12 @@
   cursor: pointer;
 }
 
+.titleAndHeart {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
 .productTextDescriptionMain {
   color: #282828;
   font-family: "Montserrat", sans-serif;

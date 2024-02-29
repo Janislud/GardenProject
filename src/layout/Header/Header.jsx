@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import basket from "../../assets/images/HeaderMedia/headerBag.svg";
 import logo from "../../assets/images/HeaderMedia/headerLogo.svg";
-import like from "../../assets/images/HeaderMedia/like.svg";
+import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
 import circle from "../../assets/images/ThemaToggle/light-thema-circle.svg";
 import moon from "../../assets/images/ThemaToggle/light-thema-moon.svg";
 import style from "./Header.module.css";
@@ -12,8 +12,11 @@ export const Header = ({ toggleThemeHandler }) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-  const theme = useSelector(state => state.theme.theme);
-  const color = useSelector(state => state.theme.color)
+  const likeTotalQuantity = useSelector(
+    (state) => state.likedProducts.likeTotalQuantity
+  );
+  const theme = useSelector((state) => state.theme.theme);
+  const color = useSelector((state) => state.theme.color);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -25,11 +28,7 @@ export const Header = ({ toggleThemeHandler }) => {
         <div className={style.themaWrapper}>
           <div className={style.themaDiv}>
             <button onClick={toggleThemeHandler}>
-              <img
-                className={style.switch}
-                src={circle}
-                alt="backgroundBtn"
-              />
+              <img className={style.switch} src={circle} alt="backgroundBtn" />
             </button>
             <button>
               <img src={moon} alt="moon" />
@@ -39,7 +38,11 @@ export const Header = ({ toggleThemeHandler }) => {
       </div>
       <nav className={style.navMenu} onClick={toggleMenu}>
         <ul className={`${style.navList} ${isOpen ? style.menuToggle : ""}`}>
-          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
+          <li
+            className={`${style.listStyle} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+          >
             <Link
               to="/"
               className={location.pathname === "/" ? style.active : ""}
@@ -47,7 +50,11 @@ export const Header = ({ toggleThemeHandler }) => {
               Main Page
             </Link>
           </li>
-          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
+          <li
+            className={`${style.listStyle} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+          >
             <Link
               to="/categories"
               className={
@@ -57,17 +64,23 @@ export const Header = ({ toggleThemeHandler }) => {
               Categories
             </Link>
           </li>
-          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
+          <li
+            className={`${style.listStyle} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+          >
             <Link
               to="/products"
-              className={
-                location.pathname === "/products" ? style.active : ""
-              }
+              className={location.pathname === "/products" ? style.active : ""}
             >
               All products
             </Link>
           </li>
-          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
+          <li
+            className={`${style.listStyle} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+          >
             <Link
               to="/sales"
               className={location.pathname === "/sales" ? style.active : ""}
@@ -84,8 +97,9 @@ export const Header = ({ toggleThemeHandler }) => {
 
           <div className={style.basketWrapper}></div>
         </Link>
-        <Link to="/like">
-          <img src={like} alt="Heart" />
+        <Link className={style.toLikedProducts} to="/liked-products">
+          <div className={style.likeTotalQuantity}>{likeTotalQuantity}</div>
+          <img src={heartWhite} alt="Heart" />
         </Link>
         <Link to="/cart">
           <img src={basket} alt="Basket" />
