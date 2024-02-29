@@ -12,6 +12,7 @@ import moon from "../../assets/images/ThemaToggle/light-thema-moon.svg";
 import sun from "../../assets/images/ThemaToggle/sun.svg";
 import style from "./Header.module.css";
 import { toggleTheme } from "../../slices/themaSlice";
+import Modal from "../../Components/Modal/Modal";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,7 @@ export const Header = () => {
   const location = useLocation();
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const theme = useSelector((state) => state.theme.theme)
+  const [modalActive, setModalActive] = useState(true)
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -29,6 +31,7 @@ export const Header = () => {
 
   return (
     <header className={`${style.headerWrapper} `}>
+      
       <div className={style.logoToggleWrapper}>
         <img className={style.logo} src={logo} alt="Logo" />
         <div className={`${style.themaWrapper} ${theme === 'light' ? style.activeBg : ""}`}>
@@ -48,7 +51,9 @@ export const Header = () => {
           </div>
         </div>
       </div>
+      
       <nav className={style.navMenu} onClick={toggleMenu}>
+      <button className={style.discountButton} onClick={() => setModalActive(true)}>1 day discount!</button>
         <ul className={`${style.navList} ${isOpen ? style.menuToggle : ""} ${theme === 'light' ? style.dark : style.light}`}>
           <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
             <Link
@@ -119,6 +124,7 @@ export const Header = () => {
           ></span>
         </div>
       </div>
+      <Modal active={modalActive} setActive={setModalActive}/>
     </header>
   );
 };
