@@ -10,6 +10,7 @@ export const ProductsCard = ({ product }) => {
   const location = useLocation();
   const theme = useSelector((state) => state.theme.theme);
   const cartItems = useSelector((state) => state.cart.products);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     // Проверяем, был ли товар добавлен в корзину ранее при загрузке компонента
@@ -38,6 +39,8 @@ export const ProductsCard = ({ product }) => {
       className={style.saleCard}
       to={`/products/${product.id}`}
       state={{ prevPath: location.pathname }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {product.discont_price && product.price && (
         <div className={style.saleBlock}> 
@@ -59,12 +62,14 @@ export const ProductsCard = ({ product }) => {
           <p className={style.firstPrice}>${product.price}</p>
         ) : null}
       </div>
-      <button
-        className={isAddedToCart ? style.addedToCart : style.btnAddToCard} 
-        onClick={isAddedToCart ? handleRemoveFromCart : handleAddToCart}
-      >
-        {isAddedToCart ? 'Added' : 'Add to cart'}
-      </button>
+    {isHovered && (
+        <button
+          className={isAddedToCart ? style.addedToCart : style.btnAddToCard} 
+          onClick={isAddedToCart ? handleRemoveFromCart : handleAddToCart}
+        >
+          {isAddedToCart ? 'Added' : 'Add to cart'}
+        </button>
+      )}
     </Link>
   );
 };

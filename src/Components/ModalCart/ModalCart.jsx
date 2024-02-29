@@ -26,6 +26,8 @@ export default function ModalCart ({ open, handleClose }) {
         paddingTop : 2,
         background: 'rgb(51, 153, 51);',
         color: 'white',
+        fontSize: 40,
+        textAlign: 'center',
         }} id="customized-dialog-title">
         Congratulations!
       </DialogTitle>
