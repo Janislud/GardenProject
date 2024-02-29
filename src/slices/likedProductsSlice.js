@@ -25,9 +25,13 @@ const likedProductsSlice = createSlice({
       }
     },
     deleteFromLikedProducts(state, action) {
-      const productIdToRemove = action.payload;
+      const productId = action.payload.id;
+      const existingProductIndex = state.products.findIndex(
+        (product) => product.id === productId
+      );
+      // Удаляем весь товар с заданным идентификатором из страницы люимых товаров
       state.likedProducts = state.likedProducts.filter(
-        (product) => product.id !== productIdToRemove
+        (product) => product.id !== productId
       );
       state.likeTotalQuantity--;
     },
