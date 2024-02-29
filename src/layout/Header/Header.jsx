@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import basket from "../../assets/images/HeaderMedia/headerBag.svg";
 import logo from "../../assets/images/HeaderMedia/headerLogo.svg";
-import like from "../../assets/images/HeaderMedia/like.svg";
+import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
 import cart from "../../assets/images/ThemaToggle/cart-dark-mode.svg";
 import elipce from "../../assets/images/ThemaToggle/elipse-darkMode.svg";
 import heart from "../../assets/images/ThemaToggle/heart-dark-mode.svg";
@@ -18,7 +18,12 @@ export const Header = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const likeTotalQuantity = useSelector(
+    (state) => state.likedProducts.likeTotalQuantity
+  );
+ 
   const theme = useSelector((state) => state.theme.theme)
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -49,8 +54,10 @@ export const Header = () => {
         </div>
       </div>
       <nav className={style.navMenu} onClick={toggleMenu}>
+
         <ul className={`${style.navList} ${isOpen ? style.menuToggle : ""} ${theme === 'light' ? style.dark : style.light}`}>
           <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
+
             <Link
               to="/"
               className={location.pathname === "/" ? style.active : ""}
@@ -58,7 +65,11 @@ export const Header = () => {
               Main Page
             </Link>
           </li>
-          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
+          <li
+            className={`${style.listStyle} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+          >
             <Link
               to="/categories"
               className={
@@ -68,17 +79,23 @@ export const Header = () => {
               Categories
             </Link>
           </li>
-          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
+          <li
+            className={`${style.listStyle} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+          >
             <Link
               to="/products"
-              className={
-                location.pathname === "/products" ? style.active : ""
-              }
+              className={location.pathname === "/products" ? style.active : ""}
             >
               All products
             </Link>
           </li>
-          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
+          <li
+            className={`${style.listStyle} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+          >
             <Link
               to="/sales"
               className={location.pathname === "/sales" ? style.active : ""}
@@ -95,9 +112,11 @@ export const Header = () => {
 
           <div className={style.basketWrapper}></div>
         </Link>
-        <Link to="/like">
-          {theme === 'light' ? <img src={heart} alt="heartDarkMode" /> : <img src={like} alt="heartLightMode" />}
-        </Link>
+
+        <Link className={style.toLikedProducts} to="/liked-products">
+          <div className={style.likeTotalQuantity}>{likeTotalQuantity}</div>
+          <img src={heartWhite} alt="Heart"  />
+       
         <Link to="/cart">
           {theme === 'light' ? <img src={cart} alt="cartDarkMode" /> : <img src={basket} alt="cartLightMode" />}
         </Link>

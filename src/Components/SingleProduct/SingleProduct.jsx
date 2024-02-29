@@ -1,8 +1,15 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import heartRed from "../../assets/images/LikesMedia/heartRed.svg";
+import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
 import { useGetProductByIdQuery } from "../../slices/apiSlice";
 import { addProductToCart } from "../../slices/cartSlice";
+import {
+  addToLikedProducts,
+  deleteFromLikedProducts,
+  getLikedProductsQuantity,
+} from "../../slices/likedProductsSlice";
 import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import { Button } from "../Button/Button";
 import style from "./singleProduct.module.css";
@@ -13,6 +20,10 @@ export const SingleProduct = ({ product }) => {
   const [space, setSpace] = useState(false);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
+
+const isLiked = useSelector((state) =>
+    state.likedProducts.likedProducts.some((product) => product.id === id)
+  );
 
 const increase = () => {
   setQuantity(quantity + 1);
@@ -41,9 +52,21 @@ if (isLoading) {
     return <p className={style.featchingDate}>Loading...</p>;
 }
 
+const handleAddToLikedProduct = (event) => {
+    //event.stopPropagation();
+    event.preventDefault();
+    if (isLiked) {
+      dispatch(deleteFromLikedProducts(id));
+    } else {
+      dispatch(addToLikedProducts(id));
+    }
+    dispatch(getLikedProductsQuantity());
+  };
+
 function calculateDiscountPercent(price, discountPrice) {
     return Math.round(((price - discountPrice) / price) * 100);
 };
+
 
 return (
     <>
@@ -61,8 +84,17 @@ return (
               </div>
 
               <div className={style.divWithPriceCounterDescription}>
-                <h2 className={style.h2TitleText}>{product.title}</h2>
+                <div className={style.titleAndHeart}>
+                  <h2 className={style.h2TitleText}>{product.title}</h2>
+                  <img
+                    src={isLiked ? heartRed : heartWhite}
+                    alt="heartIcon"
+                    className={style.heartIcon}
+                    onClick={handleAddToLikedProduct}
+                  />
+                </div>
                 <div className={style.divPrices}>
+
                   <p className={style.discontPrice}>${product.discont_price ? product.discont_price : product.price}</p>
 
                   {product.discont_price ? (
@@ -74,6 +106,7 @@ return (
                   {product.price &&
                     product.discont_price &&
                     product.price !== product.discont_price && (
+
                       <div className={style.percentagePrice}> 
                       -{calculateDiscountPercent(product.price, product.discont_price)}%
                     </div>
@@ -81,6 +114,7 @@ return (
                 </div>
                 <div className={style.counterUndButton}>
                   <div className={style.divCounter}>
+
       <button className={style.minusButton} onClick={decrease}>-</button>
             <input
           className={style.countInput}
@@ -90,6 +124,7 @@ return (
         />
       <button className={style.plusButton} onClick={increase}>+</button>
     </div>
+
                   <div className={style.divButton}>
                     <Button
                       className={style.addGreenButton}

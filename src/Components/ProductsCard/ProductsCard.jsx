@@ -2,9 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { addProductToCart } from "../../slices/cartSlice";
+import {
+  addToLikedProducts,
+  deleteFromLikedProducts,
+  getLikedProductsQuantity,
+} from "../../slices/likedProductsSlice";
+import heartRed from "../../assets/images/LikesMedia/heartRed.svg";
+import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
 import style from "./ProductsCard.module.css";
 
-export const ProductsCard = ({ product }) => {
+export const ProductsCard = ({ product, id }) => {
+  const [isAddedToLikedProducts, setIsAddedToLikedProducts] = useState(false);
+  const isLiked = useSelector((state) =>
+    state.likedProducts.likedProducts.some((product) => product.id === id)
+  );
   const dispatch = useDispatch();
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const location = useLocation();
@@ -23,6 +34,17 @@ export const ProductsCard = ({ product }) => {
     dispatch(addProductToCart({ ...product, quantity: 1 }));
     setIsAddedToCart(true);
   };
+
+  const handleAddToLikedProduct = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    if (isLiked) {
+      dispatch(deleteFromLikedProducts(product));
+    } else {
+      dispatch(addToLikedProducts(product));
+    }
+    dispatch(getLikedProductsQuantity());
+    setIsAddedToLikedProducts(true);
 
   const handleRemoveFromCart = () => {
     dispatch(dropOneProductFromCart({ id: product.id }));
@@ -44,6 +66,7 @@ export const ProductsCard = ({ product }) => {
     >
       {product.discont_price && product.price && (
         <div className={style.saleBlock}> 
+
           -{calculateDiscountPercent(product.price, product.discont_price)}%
         </div>
       )}
@@ -62,7 +85,30 @@ export const ProductsCard = ({ product }) => {
           <p className={style.firstPrice}>${product.price}</p>
         ) : null}
       </div>
-    {isHovered && (
+
+      <button
+        className={style.btnAddToLikes}
+        onClick={handleAddToLikedProduct}
+        onMouseEnter={() => {
+          if (!isAddedToLikedProducts) {
+            setIsHovered(true);
+          }
+        }}
+        onMouseLeave={() => {
+          // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
+          if (!isAddedToLikedProducts) {
+            setIsHovered(false);
+          }
+        }}
+      >
+        <img
+          src={isLiked ? heartRed : isHovered ? heartRed : heartWhite}
+          alt="heartIcon"
+          className={style.heartIcon}
+        />
+      </button>
+      
+       {isHovered && (
         <button
           className={isAddedToCart ? style.addedToCart : style.btnAddToCard} 
           onClick={isAddedToCart ? handleRemoveFromCart : handleAddToCart}

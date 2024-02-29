@@ -7,12 +7,6 @@
   margin-right: -20px;
 }
 
-/* .active {
-  background-color: yellow;
-  color: red;
-  border-color: aqua;
-} */
-
 .buttonWrapper .flexDivs {
   display: flex;
   flex-direction: row;
@@ -26,6 +20,7 @@
   padding: 7px;
   padding: 9px 14px;
   color: #8b8b8b;
+  text-align: center;
 }
 
 .buttonWrapper {
@@ -56,4 +51,3 @@
   color: white;
   background: white;
 }
-

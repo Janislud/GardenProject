@@ -1,0 +1,60 @@
+.emptyLikedProducts {
+  font-size: 30px;
+  color: #979696;
+  margin: 100px auto;
+  max-width: 1360px;
+  text-align: center;
+}
+
+.productCard .btnDelete {
+  background-color: transparent;
+  border: none;
+  max-width: 50px;
+  position: absolute;
+  left: 255px;
+  bottom: 30px;
+  cursor: pointer;
+}
+
+.productCard {
+  position: relative;
+}
+
+.likedProductsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(23%, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  max-width: 1360px;
+  margin: 100px auto;
+}
+
+@media (max-width: 1440px) {
+  .likedProductsList {
+    grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
+  }
+}
+
+@media (max-width: 1000px) {
+  .likedProductsList {
+    grid-template-columns: repeat(auto-fill, minmax(47%, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .likedProductsList {
+    grid-template-columns: repeat(auto-fill, minmax(46%, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .likedProductsList {
+    display: flex;
+    flex-direction: column;
+  }
+  .productCard {
+    width: 100%;
+  }
+}
