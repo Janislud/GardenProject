@@ -20,7 +20,13 @@ export const SingleProduct = ({ product }) => {
   const [space, setSpace] = useState(false);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
+  const [isAddedToLikedProducts, setIsAddedToLikedProducts] = useState(false);
+  const [isHoveredLikes, setIsHoveredLikes] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
+
+  const isLiked = useSelector((state) =>
+    state.likedProducts.likedProducts.some((product) => product.id === id)
+  );
 
   const increase = () => {
     setQuantity(quantity + 1);
@@ -63,6 +69,16 @@ export const SingleProduct = ({ product }) => {
     return Math.round(((price - discountPrice) / price) * 100);
   }
 
+  const handleAddToLikedProduct = (event) => {
+    event.preventDefault();
+    if (isLiked) {
+      dispatch(deleteFromLikedProducts(product));
+    } else {
+      dispatch(addToLikedProducts(product));
+    }
+    dispatch(getLikedProductsQuantity());
+    setIsAddedToLikedProducts(true);
+  };
 
   return (
     <>
@@ -83,14 +99,30 @@ export const SingleProduct = ({ product }) => {
                 <div className={style.titleAndHeart}>
                   <h2 className={style.h2TitleText}>{product.title}</h2>
                   <img
-                    src={isLiked ? heartRed : heartWhite}
+                    src={
+                      isLiked
+                        ? heartRed
+                        : isHoveredLikes
+                        ? heartRed
+                        : heartWhite
+                    }
                     alt="heartIcon"
                     className={style.heartIcon}
                     onClick={handleAddToLikedProduct}
+                    onMouseEnter={() => {
+                      if (!isAddedToLikedProducts) {
+                        setIsHoveredLikes(true);
+                      }
+                    }}
+                    onMouseLeave={() => {
+                      // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
+                      if (!isAddedToLikedProducts) {
+                        setIsHoveredLikes(false);
+                      }
+                    }}
                   />
                 </div>
                 <div className={style.divPrices}>
-
                   <p className={style.discontPrice}>
                     $
                     {product.discont_price
@@ -105,7 +137,6 @@ export const SingleProduct = ({ product }) => {
                   {product.price &&
                     product.discont_price &&
                     product.price !== product.discont_price && (
-
                       <div className={style.percentagePrice}>
                         -
                         {calculateDiscountPercent(
@@ -118,7 +149,6 @@ export const SingleProduct = ({ product }) => {
                 </div>
                 <div className={style.counterUndButton}>
                   <div className={style.divCounter}>
-
                     <button className={style.minusButton} onClick={decrease}>
                       -
                     </button>

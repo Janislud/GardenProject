@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import heartRed from "../../assets/images/LikesMedia/heartRed.svg";
+import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
 import { addProductToCart } from "../../slices/cartSlice";
 import {
   addToLikedProducts,
@@ -20,6 +22,7 @@ export const ProductsCard = ({ product, id }) => {
   const theme = useSelector((state) => state.theme.theme);
   const cartItems = useSelector((state) => state.cart.products);
   const [isHovered, setIsHovered] = useState(false);
+  const [isHoveredLikes, setIsHoveredLikes] = useState(false);
 
   useEffect(() => {
     // Проверяем, был ли товар добавлен в корзину ранее при загрузке компонента
@@ -94,6 +97,27 @@ export const ProductsCard = ({ product, id }) => {
         ) : null}
       </div>
 
+      <button
+        className={style.btnAddToLikes}
+        onClick={handleAddToLikedProduct}
+        onMouseEnter={() => {
+          if (!isAddedToLikedProducts) {
+            setIsHoveredLikes(true);
+          }
+        }}
+        onMouseLeave={() => {
+          // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
+          if (!isAddedToLikedProducts) {
+            setIsHoveredLikes(false);
+          }
+        }}
+      >
+        <img
+          src={isLiked ? heartRed : isHoveredLikes ? heartRed : heartWhite}
+          alt="heartIcon"
+          className={style.heartIcon}
+        />
+      </button>
       {isHovered && (
         <button
           className={isAddedToCart ? style.addedToCart : style.btnAddToCard}
