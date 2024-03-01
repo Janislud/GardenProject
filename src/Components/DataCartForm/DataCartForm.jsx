@@ -1,11 +1,30 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { Button } from "../Button/Button";
+import ModalCart from "./../ModalCart/ModalCart";
 import style from "./DataCartForm.module.css";
 
 export const DataCartForm = () => {
   const totalCount = useSelector((state) => state.cart.totalCount);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const onSubmit = () => {
+    // Вы можете добавить здесь логику для отправки данных формы, если это необходимо
+    // Например, вызов функции для отправки данных на сервер
+    // Затем можно вызвать handleOpen() для открытия модального окна
+    handleOpen();
+  };
 
   const {
     register,
@@ -21,10 +40,10 @@ export const DataCartForm = () => {
         <p className={style.itemCounter}>{totalQuantity} items</p>
         <div className={style.totalPrice}>
           <p className={style.total}>Total</p>
-          <p className={style.price}>${Math.round(totalCount)}</p>
+          <p className={style.price}>${parseFloat(totalCount.toFixed(2))}</p>
         </div>
       </div>
-      <form className={style.formWrapper}>
+      <form className={style.formWrapper} onSubmit={handleSubmit(onSubmit)}>
         <input
           className={style.allThreeInputs}
           type="text"
@@ -37,7 +56,7 @@ export const DataCartForm = () => {
               message: "Your name should have more than 4 Letters",
             },
             maxLength: {
-              value: 10,
+              value: 20,
               message: "Your name should have less than 10 Letters",
             },
           })}
@@ -68,7 +87,8 @@ export const DataCartForm = () => {
             },
           })}
         />
-        <Button buttonClass={"primary"} text={"Order"} />
+        <Button buttonClass={"primary"} text={"Order"} type="submit" />
+        <ModalCart open={open} handleClose={handleClose} />
       </form>
     </div>
   );

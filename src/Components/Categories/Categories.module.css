@@ -31,17 +31,24 @@
   transition: transform 0.3s ease-in-out;
 }
 
+.dark {
+  color: white;
+  background: #282828;
+}
+
+.dark .categoryCardText {
+  color: white;
+}
 
 .categoryCard {
   transition: transform 0.3s ease-in-out;
 }
 
-.categoryCard:hover, 
-.categoryCardText:hover, 
+.categoryCard:hover,
+.categoryCardText:hover,
 .categoryImg:hover {
   transform: scale(1.1);
 }
-
 
 .categoryCardsWrapper {
   display: flex;
@@ -59,8 +66,8 @@
   color: #282828;
   transition: transform 0.3s ease-in-out;
 }
-.categoryCardText:hover{
-    color: #393;
+.categoryCardText:hover {
+  color: #393;
   transform: scale(1.3);
 }
 

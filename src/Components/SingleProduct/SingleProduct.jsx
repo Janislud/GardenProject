@@ -21,7 +21,12 @@ export const SingleProduct = ({ product }) => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
   const [isAddedToLikedProducts, setIsAddedToLikedProducts] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHoveredLikes, setIsHoveredLikes] = useState(false);
+  const theme = useSelector((state) => state.theme.theme);
+
+  const isLiked = useSelector((state) =>
+    state.likedProducts.likedProducts.some((product) => product.id === id)
+  );
 
   const increase = () => {
     setQuantity(quantity + 1);
@@ -33,32 +38,32 @@ export const SingleProduct = ({ product }) => {
     }
   };
 
-  const isLiked = useSelector((state) =>
-    state.likedProducts.likedProducts.some((product) => product.id === id)
-  );
-
-  if (error) {
-    return <p>Error featching date: {error.message}</p>;
-  }
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  const handleAddToCart = (product) => {
+    dispatch(
+      addProductToCart({
+        ...product,
+        quantity: parseInt(quantity),
+        price: product.price,
+      })
+    );
+  };
 
   const switcherText = (event) => {
     event.preventDefault();
     setSpace((prevSpace) => !prevSpace);
   };
 
-  const handleAddToCart = (product) => {
-    dispatch(
-      addProductToCart({
-        ...product,
-        quantity: parseInt(quantity),
-        price: product.discont_price ? product.discont_price : product.price,
-      })
+  if (error) {
+    return (
+      <p className={style.featchingDate}>
+        Error featching date: {error.message}
+      </p>
     );
-  };
+  }
+
+  if (isLoading) {
+    return <p className={style.featchingDate}>Loading...</p>;
+  }
 
   function calculateDiscountPercent(price, discountPrice) {
     return Math.round(((price - discountPrice) / price) * 100);
@@ -67,9 +72,9 @@ export const SingleProduct = ({ product }) => {
   const handleAddToLikedProduct = (event) => {
     event.preventDefault();
     if (isLiked) {
-      dispatch(deleteFromLikedProducts(id));
+      dispatch(deleteFromLikedProducts(product));
     } else {
-      dispatch(addToLikedProducts(id));
+      dispatch(addToLikedProducts(product));
     }
     dispatch(getLikedProductsQuantity());
     setIsAddedToLikedProducts(true);
@@ -94,19 +99,25 @@ export const SingleProduct = ({ product }) => {
                 <div className={style.titleAndHeart}>
                   <h2 className={style.h2TitleText}>{product.title}</h2>
                   <img
-                    src={isLiked ? heartRed : isHovered ? heartRed : heartWhite}
+                    src={
+                      isLiked
+                        ? heartRed
+                        : isHoveredLikes
+                        ? heartRed
+                        : heartWhite
+                    }
                     alt="heartIcon"
                     className={style.heartIcon}
                     onClick={handleAddToLikedProduct}
                     onMouseEnter={() => {
                       if (!isAddedToLikedProducts) {
-                        setIsHovered(true);
+                        setIsHoveredLikes(true);
                       }
                     }}
                     onMouseLeave={() => {
                       // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
                       if (!isAddedToLikedProducts) {
-                        setIsHovered(false);
+                        setIsHoveredLikes(false);
                       }
                     }}
                   />
@@ -136,7 +147,6 @@ export const SingleProduct = ({ product }) => {
                       </div>
                     )}
                 </div>
-
                 <div className={style.counterUndButton}>
                   <div className={style.divCounter}>
                     <button className={style.minusButton} onClick={decrease}>

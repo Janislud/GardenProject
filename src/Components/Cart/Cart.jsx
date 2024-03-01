@@ -1,10 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import cross from "../../assets/images/CartMedia/cross.png";
 import {
-    addProductToCart,
-    dropOneProductFromCart,
-    dropProductFromCart,
+  addProductToCart,
+  dropOneProductFromCart,
+  dropProductFromCart,
 } from "../../slices/cartSlice";
 import style from "../Cart/Cart.module.css";
 import { DataCartForm } from "../DataCartForm/DataCartForm";
@@ -14,17 +15,36 @@ export const Cart = () => {
   const dispatch = useDispatch();
 
   // Обработчик события для удаления товара из корзины
-  const handleRemoveFromCart = (productId, price) => {
-    dispatch(dropProductFromCart({ id: productId, price: price }));
+  const handleRemoveFromCart = (productId, price, count) => {
+    dispatch(
+      dropProductFromCart({ id: productId, price: price, quantity: count })
+    );
   };
 
-  const handleAddToCart = (productId, price) => {
-    dispatch(addProductToCart({ id: productId, price: price }));
+  // Обработчик события для добавления одного товара к уже имеющемуся количеству
+  const handleAddOneToCart = (productId, price, count, discontPrice) => {
+    // Проверяем, есть ли у товара скидка
+    if (discontPrice) {
+      // Если есть скидка, добавляем товар с учетом скидочной цены
+      dispatch(
+        addProductToCart({ id: productId, price: discontPrice, quantity: 1 })
+      );
+    } else {
+      // Если скидки нет, добавляем товар с обычной ценой
+      dispatch(addProductToCart({ id: productId, price: price, quantity: 1 }));
+    }
   };
 
   // Проверяем, является ли cartProducts массивом и содержит ли он товары
   if (!Array.isArray(cartProducts) || cartProducts.length === 0) {
-    return <div className={style.emptyCart}>Cart is empty</div>;
+    return (
+      <div className={style.emptyCart}>
+        <h2>Looks like you have no items in your basket currently.</h2>
+        <Link className={style.emptyCartBtn} to={"/"}>
+          Continue Shopping
+        </Link>
+      </div>
+    );
   }
 
   return (
@@ -36,6 +56,7 @@ export const Cart = () => {
             product.discont_price !== null
               ? product.discont_price * product.count
               : null;
+          console.log(cartProducts);
           return (
             <div key={product.id} className={style.cartProduct}>
               <img
@@ -50,7 +71,11 @@ export const Cart = () => {
                     <button
                       className={style.btnMinus}
                       onClick={() =>
-                        handleRemoveFromCart(product.id, product.price)
+                        handleRemoveFromCart(
+                          product.id,
+                          product.price,
+                          product.count
+                        )
                       }
                     >
                       -
@@ -58,7 +83,14 @@ export const Cart = () => {
                     <p className={style.count}>{product.count}</p>
                     <button
                       className={style.btnPlus}
-                      onClick={() => handleAddToCart(product.id, product.price)}
+                      onClick={() =>
+                        handleAddOneToCart(
+                          product.id,
+                          product.price,
+                          product.count,
+                          product.discont_price
+                        )
+                      }
                     >
                       +
                     </button>
@@ -66,7 +98,7 @@ export const Cart = () => {
                   <div className={style.salePriceWrapper}>
                     {discountedTotalPrice !== null && (
                       <p className={style.discountedPrice}>
-                        ${discountedTotalPrice}
+                        ${parseFloat(discountedTotalPrice.toFixed(2))}
                       </p>
                     )}
                     <p
@@ -76,7 +108,10 @@ export const Cart = () => {
                           : style.realPrice
                       }
                     >
-                      ${totalPrice ? totalPrice : discountedTotalPrice}
+                      $
+                      {totalPrice
+                        ? totalPrice.toFixed(2)
+                        : discountedTotalPrice.toFixed(2)}
                     </p>
                   </div>
                 </div>

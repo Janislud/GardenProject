@@ -6,7 +6,7 @@ import {
   minPriceChange,
   resetFilters,
   sortChange,
-  toggleShowOnlyDiscounted
+  toggleShowOnlyDiscounted,
 } from "../../slices/filterSlice";
 import style from "../FilterBar/FilterBar.module.css";
 
@@ -17,15 +17,15 @@ export const FilterBar = ({ title }) => {
   );
   const [isChecked, setIsChecked] = useState(!showOnlyDiscounted);
   const location = useLocation();
+  const theme = useSelector((state) => state.theme.theme);
 
   useEffect(() => {
     setIsChecked(showOnlyDiscounted);
-  }, [ showOnlyDiscounted, location, dispatch] );
+  }, [showOnlyDiscounted, location, dispatch]);
 
   useEffect(() => {
     dispatch(resetFilters());
-  }, [location.pathname, dispatch])
-
+  }, [location.pathname, dispatch]);
 
   const handleToggleShowOnlyDiscounted = () => {
     if (isChecked) {
@@ -39,14 +39,27 @@ export const FilterBar = ({ title }) => {
 
   return (
     <div className={style.filterBarWrapper}>
-      <h2 className={style.filterTitle}>{title}</h2>
+      <h2
+        className={`${style.filterTitle}  ${
+          theme === "light" ? style.dark : style.light
+        }`}
+      >
+        {title}
+      </h2>
       <form className={style.formFilterBar}>
         <div className={style.priceWrapper}>
-          <label className={style.lablePrice} htmlFor="price">
+          <label
+            className={`${style.lablePrice} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+            htmlFor="price"
+          >
             Price
           </label>
           <input
-            className={style.priceInput}
+            className={`${style.priceInput} ${
+              theme === "light" ? style.dark : style.light
+            }`}
             type="number"
             placeholder="from"
             id="price"
@@ -56,7 +69,9 @@ export const FilterBar = ({ title }) => {
             }
           />
           <input
-            className={style.priceInput}
+            className={`${style.priceInput} ${
+              theme === "light" ? style.dark : style.light
+            }`}
             type="number"
             placeholder="to"
             min="0"
@@ -67,11 +82,18 @@ export const FilterBar = ({ title }) => {
         </div>
         {title !== "All Sales" && (
           <div className={style.discountItemsWrapper}>
-            <label className={style.lableDiscount} htmlFor="discounted-items">
+            <label
+              className={`${style.lableDiscount} ${
+                theme === "light" ? style.dark : style.light
+              }`}
+              htmlFor="discounted-items"
+            >
               Discounted items
             </label>
             <input
-              className={style.inputCheckBox}
+              className={`${style.inputCheckBox} ${
+                theme === "light" ? style.dark : style.light
+              }`}
               type="checkbox"
               id="discounted-items"
               name="discount"
@@ -82,11 +104,18 @@ export const FilterBar = ({ title }) => {
         )}
 
         <div className={style.customSelect}>
-          <label className={style.sortedLable} htmlFor="sort">
+          <label
+            className={`${style.sortedLable} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+            htmlFor="sort"
+          >
             Sorted
           </label>
           <select
-            className={style.selectOption}
+            className={`${style.selectOption} ${
+              theme === "light" ? style.dark : style.light
+            }`}
             id="sort"
             onChange={(element) => dispatch(sortChange(element.target.value))}
           >

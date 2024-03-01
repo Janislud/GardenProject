@@ -1,9 +1,9 @@
-import { SingleSaleProduct } from "../Components/SingleProduct/SingleSaleProduct";
+import { SingleProduct } from "../Components/SingleProduct/SingleProduct";
 
 export const SingleSalePage = () => {
   return (
     <main>
-      <SingleSaleProduct />
+      <SingleProduct />
     </main>
   );
 };
