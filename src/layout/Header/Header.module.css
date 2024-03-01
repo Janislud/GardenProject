@@ -91,6 +91,24 @@ a {
   padding-top: 5px;
 }
 
+.toLikedProducts {
+  position: relative;
+}
+
+.likeTotalQuantity {
+  background-color: #393;
+  border-radius: 118px;
+  font-size: 10px;
+  color: #ffff;
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  right: 25px;
+  top: -1px;
+  text-align: center;
+  padding-top: 5px;
+}
+
 .burger_line {
   display: block;
   width: 100%;
@@ -141,7 +159,7 @@ a {
   background: none;
   cursor: pointer;
   position: absolute;
-  left: 29px;
+  left: 31px;
   top: 1px;
   transition: left 0.3s ease-in-out;
 }
@@ -165,7 +183,7 @@ a {
   background: #ffff;
 }
 .activeDarkMode {
-  left: 2px;
+  left: 1px;
   top: 1px;
 }
 

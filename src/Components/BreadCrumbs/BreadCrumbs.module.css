@@ -6,11 +6,13 @@
   margin-left: 131px;
   margin-right: -20px;
 }
+
 .buttonWrapper .flexDivs {
   display: flex;
   flex-direction: row;
   gap: 20px;
-  align-items: center;
+  flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .divBorder {
@@ -19,6 +21,7 @@
   padding: 7px;
   padding: 9px 14px;
   color: #8b8b8b;
+  text-align: center;
 }
 
 .buttonWrapper {
@@ -45,7 +48,7 @@
   color: rgb(139, 139, 139);
 }
 
-.dark  > div {
+.dark .line {
   color: white;
-  background: #282828;
+  background: white;
 }
