@@ -6,7 +6,6 @@ import logo from "../../assets/images/HeaderMedia/headerLogo.svg";
 import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
 import cart from "../../assets/images/ThemaToggle/cart-dark-mode.svg";
 import elipce from "../../assets/images/ThemaToggle/elipse-darkMode.svg";
-import heart from "../../assets/images/ThemaToggle/heart-dark-mode.svg";
 import elipseLight from "../../assets/images/ThemaToggle/light-thema-circle.svg";
 import moon from "../../assets/images/ThemaToggle/light-thema-moon.svg";
 import sun from "../../assets/images/ThemaToggle/sun.svg";
