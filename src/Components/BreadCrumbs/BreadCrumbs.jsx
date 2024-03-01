@@ -9,6 +9,7 @@ const BreadCrumbs = ({ data }) => {
   const location = useLocation();
   const breadcrumbs = useSelector((state) => state.breadcrumbs.breadcrumbsList);
   const { state } = location;
+  const theme = useSelector((state) => state.theme.theme);
 
   let routesMap = {
     categories: "Categories",
@@ -21,6 +22,7 @@ const BreadCrumbs = ({ data }) => {
     4: "Plant Care",
     5: "Seasonal",
   };
+
   if (data) {
     const newBreadcrumb = { [data.id]: data.title };
     routesMap = { ...routesMap, ...newBreadcrumb };
@@ -29,9 +31,14 @@ const BreadCrumbs = ({ data }) => {
   const defaultPath = { name: "Main page", path: "" };
 
   const singleProductsBreadcrumbs = {
+    "/categories": [defaultPath, { name: "Categories", path: "categories" }],
     "/products": [defaultPath, { name: "All Products", path: "products" }],
     "/sales": [defaultPath, { name: "All Sales", path: "sales" }],
-    "/": [defaultPath],
+    "/liked-products": [
+      defaultPath,
+      { name: "Liked Products", path: "liked-products" },
+    ],
+
     default: [
       defaultPath,
       { name: "Categories", path: "categories" },
@@ -42,22 +49,41 @@ const BreadCrumbs = ({ data }) => {
     ],
   };
 
-  // Обновляет хлебные крошки в зависимости от текущего маршрута
   useEffect(() => {
-    const pathnames = location.pathname.split("/").filter((x) => x);
-    const newBreadcrumbs = pathnames.map((pathname) => {
-      return {
-        name: routesMap[pathname],
-        path: pathname,
-      };
-    });
+    const pathnames = location.pathname.split("/").filter((x) => x); // Фильтруем пустые пути
+
+    // Удаляем последний элемент, если он пустой
+    if (pathnames.length > 1 && pathnames[pathnames.length - 1] === "") {
+      pathnames.pop();
+    }
+
+    let newBreadcrumbs = [];
+
+    if (!pathnames.includes("products")) {
+      // Проверяем, нет ли в текущем пути "products"
+      newBreadcrumbs = pathnames.map((pathname, index) => {
+        return {
+          name: routesMap[pathname],
+          path: index === pathnames.length - 1 ? "" : pathname, // Оставляем пустой путь только для последнего элемента
+        };
+      });
+    }
 
     if (pathnames.includes("products")) {
       if (data) {
-        const breadcrumbs = state.prevPath.includes("categories")
-          ? singleProductsBreadcrumbs["default"]
-          : singleProductsBreadcrumbs[state.prevPath];
-        dispatch(setBreadcrumbs([...breadcrumbs, ...newBreadcrumbs]));
+        // Создаем крошку для товара по его id
+        const productBreadcrumb = {
+          name: `${data.title}`,
+          path: `products/${encodeURIComponent(data.title)}`,
+        };
+
+        const breadcrumbs =
+          state && state.prevPath && state.prevPath.includes("categories")
+            ? singleProductsBreadcrumbs["default"]
+            : singleProductsBreadcrumbs[state?.prevPath || "/products"];
+        dispatch(
+          setBreadcrumbs([...breadcrumbs, ...newBreadcrumbs, productBreadcrumb])
+        );
       } else {
         dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/products"]]));
       }
@@ -66,18 +92,57 @@ const BreadCrumbs = ({ data }) => {
     } else {
       dispatch(setBreadcrumbs([defaultPath, ...newBreadcrumbs]));
     }
-  }, [location, dispatch]);
+
+    // Выводим информацию о текущем пути в консоль
+    console.log("Current Path:", location.pathname);
+    console.log("Breadcrumbs:", breadcrumbs);
+  }, [location, dispatch, data, state]);
 
   return (
-    <div className={style.buttonWrapper}>
+    <div
+      className={`${style.buttonWrapper} ${
+        theme === "light" ? style.dark : style.light
+      }`}
+    >
       <div className={style.flexDivs}>
-        {breadcrumbs.map((breadcrumb, index) => (
-          <Link to={`/${breadcrumb.path}`} key={index}>
-            <div className={style.divBorder}>{breadcrumb.name}</div>
-            <div className={style.line}></div>
-          </Link>
-        ))}
-        <div className={style.lineDiv}></div>
+        {breadcrumbs.map((breadcrumb, index) =>
+          index !== breadcrumbs.length - 1 ? (
+            <Link
+              className={`${theme === "light" ? style.dark : style.light}`}
+              to={`/${breadcrumb.path}`}
+              key={index}
+            >
+              <div
+                className={`${style.divBorder} ${
+                  location.pathname === `/${breadcrumb.path}`
+                    ? style.active
+                    : ""
+                }`}
+              >
+                {breadcrumb.name}
+              </div>
+              <div
+                className={`${style.line} ${
+                  theme === "light" ? style.dark : style.light
+                }`}
+              ></div>
+            </Link>
+          ) : (
+            <div
+              className={`${style.divBorder} ${
+                location.pathname === `/${breadcrumb.path}` ? style.active : ""
+              }`}
+              key={index}
+            >
+              {breadcrumb.name}
+            </div>
+          )
+        )}
+        <div
+          className={`${style.lineDiv} ${
+            theme === "light" ? style.dark : style.light
+          }`}
+        ></div>
       </div>
     </div>
   );

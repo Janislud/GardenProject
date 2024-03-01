@@ -7,7 +7,6 @@ import { AllCategories } from "./Components/AllCategories/AllCategories.jsx";
 import { SingleCategoryPage } from "./Components/SingleCategoryPage/SingleCategoryPage.jsx";
 import { AllSalesPage } from "./Pages/AllSalesPage.jsx";
 import { CartPage } from "./Pages/CartPage.jsx";
-import { CategoriesPage } from "./Pages/CategoriesPage.jsx";
 import { ErrorPage } from "./Pages/ErrorPage.jsx";
 import { LikedProductsPage } from "./Pages/LikedProductsPage.jsx";
 import { MainPage } from "./Pages/MainPage.jsx";
@@ -23,10 +22,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <MainPage />,
-      },
-      {
-        path: "/categories",
-        element: <CategoriesPage />,
       },
       {
         path: "/categories",

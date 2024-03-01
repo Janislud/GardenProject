@@ -71,23 +71,7 @@ export const ProductsCard = ({ product, id }) => {
       </div>
 
       <button
-        className={style.btnAddToCard}
-        onClick={handleAddToCart}
-        onMouseEnter={() => {
-          if (!isAddedToCart) {
-            setIsHovered(true);
-          }
-        }}
-        onMouseLeave={() => {
-          // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
-          if (!isAddedToCart) {
-            setIsHovered(false);
-          }
-        }}
-      ></button>
-
-      <button
-        className={style.btnAddToCard}
+        className={style.btnAddToLikes}
         onClick={handleAddToLikedProduct}
         onMouseEnter={() => {
           if (!isAddedToLikedProducts) {

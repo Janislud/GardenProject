@@ -6,11 +6,12 @@
   margin-left: 131px;
   margin-right: -20px;
 }
+
 .buttonWrapper .flexDivs {
   display: flex;
   flex-direction: row;
   gap: 20px;
-  align-items: center;
+  flex-wrap: wrap;
 }
 
 .divBorder {
@@ -46,21 +47,7 @@
   color: rgb(139, 139, 139);
 }
 
-/**.mainButton {
-  position: relative;
-  text-align: center;
-  font-family: Montserrat;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  cursor: pointer;
+.dark .line {
+  color: white;
+  background: white;
 }
-
-.mainButton:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  right: -3px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-}*/

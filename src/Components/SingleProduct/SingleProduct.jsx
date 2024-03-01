@@ -20,6 +20,8 @@ export const SingleProduct = ({ product }) => {
   const [space, setSpace] = useState(false);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
+  const [isAddedToLikedProducts, setIsAddedToLikedProducts] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const increase = () => {
     setQuantity(quantity + 1);
@@ -63,7 +65,6 @@ export const SingleProduct = ({ product }) => {
   }
 
   const handleAddToLikedProduct = (event) => {
-    //event.stopPropagation();
     event.preventDefault();
     if (isLiked) {
       dispatch(deleteFromLikedProducts(id));
@@ -71,6 +72,7 @@ export const SingleProduct = ({ product }) => {
       dispatch(addToLikedProducts(id));
     }
     dispatch(getLikedProductsQuantity());
+    setIsAddedToLikedProducts(true);
   };
 
   return (
@@ -92,10 +94,21 @@ export const SingleProduct = ({ product }) => {
                 <div className={style.titleAndHeart}>
                   <h2 className={style.h2TitleText}>{product.title}</h2>
                   <img
-                    src={isLiked ? heartRed : heartWhite}
+                    src={isLiked ? heartRed : isHovered ? heartRed : heartWhite}
                     alt="heartIcon"
                     className={style.heartIcon}
                     onClick={handleAddToLikedProduct}
+                    onMouseEnter={() => {
+                      if (!isAddedToLikedProducts) {
+                        setIsHovered(true);
+                      }
+                    }}
+                    onMouseLeave={() => {
+                      // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
+                      if (!isAddedToLikedProducts) {
+                        setIsHovered(false);
+                      }
+                    }}
                   />
                 </div>
                 <div className={style.divPrices}>
