@@ -126,7 +126,7 @@ export const Header = () => {
           <div className={style.basketWrapper}></div>
         </Link>
 
-        <Link className={style.toLikedProducts} to="/liked-products">
+        <Link className={style.toLikedProducts} to="/favorites">
           <div className={style.likeTotalQuantity}>{likeTotalQuantity}</div>
           <img src={heartWhite} alt="Heart"  />
           </Link>

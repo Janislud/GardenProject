@@ -14,10 +14,10 @@ export const LikedProductsPage = () => {
 
   return (
     <section>
-      <BreadCrumbs data={likedProducts} />
+      <BreadCrumbs />
       <TitleBar
         title="Liked Products"
-        linkTo="/liked-products"
+        linkTo="/favorites"
         buttonText="Back to the store"
       />
 
