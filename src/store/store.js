@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { dateApi } from "../slices/apiSlice";
-import breadcrumbsReducer from "../slices/breadcrumbsSlice.js";
 import cartReducer from "../slices/cartSlice.js";
 import counterReducer from "../slices/counterSlice.js";
 import filterReducer from "../slices/filterSlice.js";
