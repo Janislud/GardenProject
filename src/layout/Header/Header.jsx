@@ -13,8 +13,6 @@ import sun from "../../assets/images/ThemaToggle/sun.svg";
 import style from "./Header.module.css";
 import { toggleTheme } from "../../slices/themaSlice";
 import Modal from "../../Components/Modal/Modal";
-import { openModal } from "../../slices/modalSlice";
-import { productsLoadedWithDiscount } from "../../slices/productsSlice";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,9 +25,6 @@ export const Header = () => {
  
   const theme = useSelector((state) => state.theme.theme)
 
-  // const [modalActive, setModalActive] = useState(true)
-  const {modalActive, product} = useSelector((state) => state.modal.modalActive)
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -38,13 +33,6 @@ export const Header = () => {
     dispatch(toggleTheme())
   }
 
-  const handleShowRandomProduct = () => {
-    const productsWithDiscount = useSelector((state) => state.products.products.filter((product) => product.discount_price));
-    if (productsWithDiscount.length > 0) {
-      const randomProduct = productsWithDiscount[Math.floor(Math.random() * productsWithDiscount.length)];
-      dispatch(openModal(randomProduct));
-    }
-  };
 
   return (
     <header className={`${style.headerWrapper} `}>
@@ -69,7 +57,7 @@ export const Header = () => {
         </div>
       </div>
       <nav className={style.navMenu} onClick={toggleMenu}>
-      <button className={style.discountButton} onClick={handleShowRandomProduct}>1 day discount!</button>
+      <button className={style.discountButton} >1 day discount!</button>
         <ul className={`${style.navList} ${isOpen ? style.menuToggle : ""} ${theme === 'light' ? style.dark : style.light}`}>
           <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
 

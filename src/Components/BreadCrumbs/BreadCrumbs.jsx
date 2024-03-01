@@ -91,10 +91,6 @@ const BreadCrumbs = ({ data }) => {
 } else {
   dispatch(setBreadcrumbs([defaultPath, ...newBreadcrumbs]));
 }
-
-    // Выводим информацию о текущем пути в консоль
-    console.log("Current Path:", location.pathname);
-    console.log("Breadcrumbs:", breadcrumbs);
   }, [location, dispatch, data, state]);
 
   return (
