@@ -34,7 +34,7 @@ const BreadCrumbs = ({ data }) => {
     "/categories": [defaultPath, { name: "Categories", path: "categories" }],
     "/products": [defaultPath, { name: "All Products", path: "products" }],
     "/sales": [defaultPath, { name: "All Sales", path: "sales" }],
-    "/favorites": [defaultPath,{ name: "Favorites", path: "favorites" },],
+    "/favorites": [defaultPath,{ name: "Liked Products", path: "favorites" },],
 
     default: [
       defaultPath,
