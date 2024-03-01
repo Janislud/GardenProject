@@ -1,8 +1,15 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import heartRed from "../../assets/images/LikesMedia/heartRed.svg";
+import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
 import { useGetProductByIdQuery } from "../../slices/apiSlice";
 import { addProductToCart } from "../../slices/cartSlice";
+import {
+  addToLikedProducts,
+  deleteFromLikedProducts,
+  getLikedProductsQuantity,
+} from "../../slices/likedProductsSlice";
 import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import { Button } from "../Button/Button";
 import style from "./singleProduct.module.css";
@@ -56,6 +63,7 @@ export const SingleProduct = ({ product }) => {
     return Math.round(((price - discountPrice) / price) * 100);
   }
 
+
   return (
     <>
       <BreadCrumbs data={data[0]} />
@@ -72,8 +80,17 @@ export const SingleProduct = ({ product }) => {
               </div>
 
               <div className={style.divWithPriceCounterDescription}>
-                <h2 className={style.h2TitleText}>{product.title}</h2>
+                <div className={style.titleAndHeart}>
+                  <h2 className={style.h2TitleText}>{product.title}</h2>
+                  <img
+                    src={isLiked ? heartRed : heartWhite}
+                    alt="heartIcon"
+                    className={style.heartIcon}
+                    onClick={handleAddToLikedProduct}
+                  />
+                </div>
                 <div className={style.divPrices}>
+
                   <p className={style.discontPrice}>
                     $
                     {product.discont_price
@@ -88,6 +105,7 @@ export const SingleProduct = ({ product }) => {
                   {product.price &&
                     product.discont_price &&
                     product.price !== product.discont_price && (
+
                       <div className={style.percentagePrice}>
                         -
                         {calculateDiscountPercent(
@@ -100,6 +118,7 @@ export const SingleProduct = ({ product }) => {
                 </div>
                 <div className={style.counterUndButton}>
                   <div className={style.divCounter}>
+
                     <button className={style.minusButton} onClick={decrease}>
                       -
                     </button>
@@ -113,6 +132,7 @@ export const SingleProduct = ({ product }) => {
                       +
                     </button>
                   </div>
+
                   <div className={style.divButton}>
                     <Button
                       className={style.addGreenButton}
