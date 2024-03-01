@@ -8,10 +8,10 @@ import { SingleCategoryPage } from "./Components/SingleCategoryPage/SingleCatego
 import { AllSalesPage } from "./Pages/AllSalesPage.jsx";
 import { CartPage } from "./Pages/CartPage.jsx";
 import { ErrorPage } from "./Pages/ErrorPage.jsx";
+import { LikedProductsPage } from "./Pages/LikedProductsPage.jsx";
 import { MainPage } from "./Pages/MainPage.jsx";
 import { ProductsPage } from "./Pages/ProductsPage.jsx";
 import { SingleProductPage } from "./Pages/SingleProductPage.jsx";
-import { SingleSalePage } from "./Pages/SingleSalePage.jsx";
 import { store } from "./store/store.js";
 
 const router = createBrowserRouter([
@@ -45,15 +45,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/sales/:id",
-        element: <SingleSalePage />,
+        element: <SingleProductPage />,
       },
       {
         path: "/cart",
         element: <CartPage />,
       },
       {
-        path: "/like",
-        element: <CartPage />,
+        path: "/liked-products",
+        element: <LikedProductsPage />,
       },
       {
         path: "*",

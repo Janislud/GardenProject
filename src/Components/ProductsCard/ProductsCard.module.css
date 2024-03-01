@@ -130,3 +130,13 @@
   color: white;
   background: #282828;
 }
+
+.btnAddToLikes {
+  max-width: 50px;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  left: 255px;
+  top: 10px;
+  cursor: pointer;
+}

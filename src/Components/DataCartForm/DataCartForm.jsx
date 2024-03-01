@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { Button } from "../Button/Button";
-import ModalCart from './../ModalCart/ModalCart';
+import ModalCart from "./../ModalCart/ModalCart";
 import style from "./DataCartForm.module.css";
 
 export const DataCartForm = () => {
@@ -17,15 +17,15 @@ export const DataCartForm = () => {
 
   const handleOpen = () => {
     setOpen(true);
-  }
+  };
 
-    const onSubmit = () => {
+  const onSubmit = () => {
     // Вы можете добавить здесь логику для отправки данных формы, если это необходимо
     // Например, вызов функции для отправки данных на сервер
     // Затем можно вызвать handleOpen() для открытия модального окна
     handleOpen();
   };
-               
+
   const {
     register,
     handleSubmit,
@@ -87,10 +87,9 @@ export const DataCartForm = () => {
             },
           })}
         />
-        <Button buttonClass={"primary"} text={"Order"} type="submit"/>
+        <Button buttonClass={"primary"} text={"Order"} type="submit" />
         <ModalCart open={open} handleClose={handleClose} />
       </form>
-     
     </div>
   );
 };
