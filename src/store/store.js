@@ -8,11 +8,8 @@ import likedProductsReducer from "../slices/likedProductsSlice.js";
 import productsReducer from "../slices/productsSlice.js";
 import themeReducer from "../slices/themaSlice.js";
 import usersReducer from "../slices/usersSlice.js";
-<<<<<<< HEAD
 import breadcrumbsReducer from "../slices/breadcrumbsSlice.js";
 import modalReducer from "../slices/modalSlice.js"
-=======
->>>>>>> 4665f6de3deebfd5d88ee242b2f22ed537323ef8
 
 export const store = configureStore({
   reducer: {
