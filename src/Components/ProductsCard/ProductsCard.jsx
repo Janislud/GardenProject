@@ -65,8 +65,9 @@ export const ProductsCard = ({ product, id }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {product.discont_price && product.price && (
-        <div className={style.saleBlock}> 
 
+        <div className={style.saleBlock}>
+        
           -{calculateDiscountPercent(product.price, product.discont_price)}%
         </div>
       )}
@@ -75,9 +76,19 @@ export const ProductsCard = ({ product, id }) => {
         src={`http://localhost:3333${product.image}`}
         alt={product.title}
       />
-    
-      <h2 className={`${style.saleCardText} ${theme === 'light' ? style.dark : style.light}`}>{product.title}</h2>
-      <div className={`${style.salePriceWrapper} ${theme === 'light' ? style.dark : style.light}`}>
+
+      <h2
+        className={`${style.saleCardText} ${
+          theme === "light" ? style.dark : style.light
+        }`}
+      >
+        {product.title}
+      </h2>
+      <div
+        className={`${style.salePriceWrapper} ${
+          theme === "light" ? style.dark : style.light
+        }`}
+      >
         <p className={style.realPrice}>
           ${product.discont_price ?? product.price}
         </p>
@@ -85,35 +96,13 @@ export const ProductsCard = ({ product, id }) => {
           <p className={style.firstPrice}>${product.price}</p>
         ) : null}
       </div>
-
-      <button
-        className={style.btnAddToLikes}
-        onClick={handleAddToLikedProduct}
-        onMouseEnter={() => {
-          if (!isAddedToLikedProducts) {
-            setIsHovered(true);
-          }
-        }}
-        onMouseLeave={() => {
-          // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
-          if (!isAddedToLikedProducts) {
-            setIsHovered(false);
-          }
-        }}
-      >
-        <img
-          src={isLiked ? heartRed : isHovered ? heartRed : heartWhite}
-          alt="heartIcon"
-          className={style.heartIcon}
-        />
-      </button>
       
        {isHovered && (
         <button
-          className={isAddedToCart ? style.addedToCart : style.btnAddToCard} 
+          className={isAddedToCart ? style.addedToCart : style.btnAddToCard}
           onClick={isAddedToCart ? handleRemoveFromCart : handleAddToCart}
         >
-          {isAddedToCart ? 'Added' : 'Add to cart'}
+          {isAddedToCart ? "Added" : "Add to cart"}
         </button>
       )}
     </Link>

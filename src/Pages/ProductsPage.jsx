@@ -5,10 +5,10 @@ import { AllProductsFilter } from '../hooks/useFilterAllProducts';
 
 export const ProductsPage = () => {
   return (
-    <div>
+    <main>
       <BreadCrumbs/>
       <AllProductsFilter />
       <ProductsList title={'All Products'}/>
-    </div>
+    </main>
   );
 };
