@@ -5,24 +5,16 @@ import {ProductsCard} from "../ProductsCard/ProductsCard"
 import { closeModal } from '../../slices/modalSlice';
 
 const Modal = () => {
-
-  const dispatch = useDispatch();
+  
   const {modalActive, product } = useSelector((state) => state.modal)
-
-    const handleCloseModal = () => {
-      dispatch(closeModal())
-    }
 
   if (!modalActive || !product || !product.discont_price) return null;
   
 
   return (
    <div className={`${style.modal} ${modalActive ? style.active : ''}`} onClick={handleCloseModal}>
-      <div className={style.modal__content} onClick={(e) => e.stopPropagation()}>
         <ProductsCard product={product} />
-        <button onClick={handleCloseModal}>Close</button>
       </div>
-    </div>
   );
 };
   

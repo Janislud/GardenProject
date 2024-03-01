@@ -14,6 +14,7 @@ import style from "./Header.module.css";
 import { toggleTheme } from "../../slices/themaSlice";
 import Modal from "../../Components/Modal/Modal";
 import { openModal } from "../../slices/modalSlice";
+import { productsLoadedWithDiscount } from "../../slices/productsSlice";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,8 +28,7 @@ export const Header = () => {
   const theme = useSelector((state) => state.theme.theme)
 
   // const [modalActive, setModalActive] = useState(true)
-  const {modalActive} = useSelector((state) => state.modal)
-  const products = useSelector((state) => state.products.products)
+  const {modalActive, product} = useSelector((state) => state.modal.modalActive)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -38,13 +38,17 @@ export const Header = () => {
     dispatch(toggleTheme())
   }
 
-  const handleShowModalWithDiscount = () => {
-    dispatch(openModal(products))
-  }
+  const handleShowRandomProduct = () => {
+    const productsWithDiscount = useSelector((state) => state.products.products.filter((product) => product.discount_price));
+    if (productsWithDiscount.length > 0) {
+      const randomProduct = productsWithDiscount[Math.floor(Math.random() * productsWithDiscount.length)];
+      dispatch(openModal(randomProduct));
+    }
+  };
 
   return (
     <header className={`${style.headerWrapper} `}>
-      {modalActive && <Modal />}
+      <Modal />
       <div className={style.logoToggleWrapper}>
         <img className={style.logo} src={logo} alt="Logo" />
         <div className={`${style.themaWrapper} ${theme === 'light' ? style.activeBg : ""}`}>
@@ -64,9 +68,8 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      
       <nav className={style.navMenu} onClick={toggleMenu}>
-      <button className={style.discountButton} onClick={handleShowModalWithDiscount}>1 day discount!</button>
+      <button className={style.discountButton} onClick={handleShowRandomProduct}>1 day discount!</button>
         <ul className={`${style.navList} ${isOpen ? style.menuToggle : ""} ${theme === 'light' ? style.dark : style.light}`}>
           <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
 
@@ -117,11 +120,9 @@ export const Header = () => {
           </li>
         </ul>
       </nav>
-
       <div className={style.basketWrapper}>
         <Link className={style.toCart} to="/cart">
           <div className={style.cartTotalQuantity}>{totalQuantity}</div>
-
           <div className={style.basketWrapper}></div>
         </Link>
 
@@ -151,7 +152,6 @@ export const Header = () => {
           ></span>
         </div>
       </div>
-      
     </header>
   );
 };
