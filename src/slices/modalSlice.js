@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     modalActive: false,
-    product: null,
+    products: [],
 }
 
 const modalSlice = createSlice({
@@ -12,11 +12,11 @@ const modalSlice = createSlice({
         openModal: (state, action) => {
             console.log('Opening modal with product:', action.payload);
             state.modalActive = true;
-            state.product = action.payload;
+            state.products = action.payload?.length ? action.payload.filter((product) => product.discont_price) : [];
         },
         closeModal: (state) => {
             state.modalActive = false;
-            state.product = null;
+            state.products = null;
         }
     }
 })

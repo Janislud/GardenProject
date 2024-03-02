@@ -65,7 +65,7 @@ const BreadCrumbs = ({ data }) => {
         };
       });
     }
-
+// В этом фрагменте я добавила проверку на то, является ли selectedBreadcrumbs массивом, и установила значение по умолчанию (пустой массив), если нет. Это должно предотвратить ошибку "is not iterable" в том случае, если по каким-то причинам выбранный путь не существует в singleProductsBreadcrumbs.
     if (pathnames.includes("products")) {
       if (data) {
         // Создаем крошку для товара по его id
@@ -73,24 +73,27 @@ const BreadCrumbs = ({ data }) => {
           name: `${data.title}`,
           path: `products/${encodeURIComponent(data.title)}`,
         };
-
-        const breadcrumbs =
-      state && state.prevPath && state.prevPath.includes("categories")
-        ? singleProductsBreadcrumbs["default"]
-        : singleProductsBreadcrumbs[state?.prevPath || "/products"];
-    dispatch(
-      setBreadcrumbs([...breadcrumbs, ...newBreadcrumbs, productBreadcrumb])
-    );
-  } else {
-    dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/products"]]));
-  }
-} else if (pathnames.includes("sales")) {
-  dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/sales"]]));
-} else if (pathnames.includes("favorites")) {
-  dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/favorites"]]));
-} else {
-  dispatch(setBreadcrumbs([defaultPath, ...newBreadcrumbs]));
-}
+    
+        let breadcrumbsPath = state?.prevPath || "/products";
+        let selectedBreadcrumbs = singleProductsBreadcrumbs[breadcrumbsPath];
+    
+        if (!Array.isArray(selectedBreadcrumbs)) {
+          selectedBreadcrumbs = []; 
+        }
+    
+        const newBreadcrumbsList = [...selectedBreadcrumbs, ...newBreadcrumbs, productBreadcrumb];
+        dispatch(setBreadcrumbs(newBreadcrumbsList));
+      } else {
+        dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/products"]]));
+      }
+    } else if (pathnames.includes("sales")) {
+      dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/sales"]]));
+    } else if (pathnames.includes("favorites")) {
+      dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/favorites"]]));
+    } else {
+      dispatch(setBreadcrumbs([defaultPath, ...newBreadcrumbs]));
+    }
+    
   }, [location, dispatch, data, state]);
 
   return (
