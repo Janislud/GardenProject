@@ -220,13 +220,14 @@
   height: 30px;
 }
 
-.divPrices .discontPrice {
+.divPrices  {
   color: #282828;
   font-family: Montserrat;
   font-size: 40px;
   font-style: normal;
   font-weight: 600;
 }
+
 
 .divWithPriceCounterDescription .divPrices .initialPrice {
   color: #8b8b8b;
@@ -271,10 +272,16 @@
   display: flex;
   gap: 80px;
 }
+
 .mainDivSingleProduct .divSingleProduct .divWithPriceCounterDescription {
   display: flex;
   flex-direction: column;
 }
+
+.dark {
+  color: white;
+}
+
 
 @media screen and (max-width: 1800px) {
   .divWithPriceCounterDescription {

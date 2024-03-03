@@ -251,7 +251,6 @@ a {
   .navList {
     display: flex;
     align-items: center;
-    left: 0;
     visibility: hidden;
     gap: 20px;
     background-color: white;
@@ -259,7 +258,7 @@ a {
     justify-content: center;
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 57%;
     height: 100%;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 0;
@@ -308,5 +307,39 @@ a {
     transform: translateX(0);
     visibility: visible;
     opacity: 1;
+  }
+}
+
+@media (min-width: 476px) and (max-width: 650px) {
+  .navList {
+    width: 59%;
+  }
+}
+
+@media (max-width: 430px) {
+  .navList {
+    align-items: flex-start;
+    padding-left: 10px;
+  }
+
+  .logoToggleWrapper {
+    gap: 10px;
+  }
+
+  .headerWrapper {
+    padding: 15px 10px 15px 10px;
+    justify-content: space-evenly;
+  }
+
+  .cartTotalQuantity {
+    right: -91px;
+  }
+
+  .basketWrapper {
+    gap: 10px;
+  }
+
+  .listStyle > a {
+    font-size: 18px;
   }
 }
