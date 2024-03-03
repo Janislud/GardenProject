@@ -22,7 +22,7 @@ export const Cart = () => {
   };
 
   // Обработчик события для добавления одного товара к уже имеющемуся количеству
-  const handleAddOneToCart = (productId, price, discontPrice) => {
+  const handleAddOneToCart = (productId, price, count, discontPrice) => {
     // Проверяем, есть ли у товара скидка
     if (discontPrice) {
       // Если есть скидка, добавляем товар с учетом скидочной цены
