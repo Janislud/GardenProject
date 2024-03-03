@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useGetProductsQuery } from "../../slices/apiSlice";
 import { ProductsCard } from "../ProductsCard/ProductsCard";
 import style from "../Sales/Sales.module.css";
@@ -6,7 +6,6 @@ import { TitleBar } from "../TitleBar/TitleBar";
 
 export const Sales = () => {
   const { data, error, isLoading } = useGetProductsQuery();
-  const {state} = useLocation
 
   if (error) {
     return (

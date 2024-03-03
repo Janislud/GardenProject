@@ -67,6 +67,7 @@
   flex-wrap: wrap;
   transition: transform 0.3s ease-in-out;
   position: relative;
+  border: none;
 }
 
 .myFirstBlock {
@@ -97,6 +98,41 @@
 }
 
 .btnAddToCard {
+  width: 284px;
+  cursor: pointer;
+  padding: 16px 56px;
+  height: 58px;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  top: 250px;
+  left: 13px;
+  border: none;
+  background: #339933;
+  color: #ffffff;
+}
+
+.addedToCart {
+  width: 284px;
+  cursor: pointer;
+  padding: 16px 56px;
+  height: 58px;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  top: 250px;
+  left: 13px;
+  border: none;
+}
+
+.dark {
+  color: white;
+  background: #282828;
+}
+
+.btnAddToLikes {
   max-width: 50px;
   background-color: transparent;
   border: none;
@@ -104,9 +140,4 @@
   left: 255px;
   top: 10px;
   cursor: pointer;
-}
-
-.dark {
-  color: white;
-  background: #282828;
 }
