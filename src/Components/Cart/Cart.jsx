@@ -56,7 +56,6 @@ export const Cart = () => {
             product.discont_price !== null
               ? product.discont_price * product.count
               : null;
-          console.log(cartProducts);
           return (
             <div key={product.id} className={style.cartProduct}>
               <img

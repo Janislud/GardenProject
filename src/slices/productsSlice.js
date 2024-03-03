@@ -15,7 +15,7 @@ const productsSlice = createSlice({
       state.error = "";
     },
     productsLoaded: (state, action) => {
-      state.isFetching = false; // Здесь изменено на false
+      state.isFetching = false; 
       state.products = action.payload?.length ? action.payload : [];
     },
     productsLoadFailed: (state, action) => {

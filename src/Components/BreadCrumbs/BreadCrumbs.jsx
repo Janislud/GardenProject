@@ -34,10 +34,7 @@ const BreadCrumbs = ({ data }) => {
     "/categories": [defaultPath, { name: "Categories", path: "categories" }],
     "/products": [defaultPath, { name: "All Products", path: "products" }],
     "/sales": [defaultPath, { name: "All Sales", path: "sales" }],
-    "/liked-products": [
-      defaultPath,
-      { name: "Liked Products", path: "liked-products" },
-    ],
+    "/favorites": [defaultPath,{ name: "Liked Products", path: "favorites" },],
 
     default: [
       defaultPath,
@@ -58,7 +55,7 @@ const BreadCrumbs = ({ data }) => {
     }
 
     let newBreadcrumbs = [];
-
+   
     if (!pathnames.includes("products")) {
       // Проверяем, нет ли в текущем пути "products"
       newBreadcrumbs = pathnames.map((pathname, index) => {
@@ -68,7 +65,7 @@ const BreadCrumbs = ({ data }) => {
         };
       });
     }
-
+// В этом фрагменте я добавила проверку на то, является ли selectedBreadcrumbs массивом, и установила значение по умолчанию (пустой массив), если нет. Это должно предотвратить ошибку "is not iterable" в том случае, если по каким-то причинам выбранный путь не существует в singleProductsBreadcrumbs.
     if (pathnames.includes("products")) {
       if (data) {
         // Создаем крошку для товара по его id
@@ -76,26 +73,27 @@ const BreadCrumbs = ({ data }) => {
           name: `${data.title}`,
           path: `products/${encodeURIComponent(data.title)}`,
         };
-
-        const breadcrumbs =
-          state && state.prevPath && state.prevPath.includes("categories")
-            ? singleProductsBreadcrumbs["default"]
-            : singleProductsBreadcrumbs[state?.prevPath || "/products"];
-        dispatch(
-          setBreadcrumbs([...breadcrumbs, ...newBreadcrumbs, productBreadcrumb])
-        );
+    
+        let breadcrumbsPath = state?.prevPath || "/products";
+        let selectedBreadcrumbs = singleProductsBreadcrumbs[breadcrumbsPath];
+    
+        if (!Array.isArray(selectedBreadcrumbs)) {
+          selectedBreadcrumbs = []; 
+        }
+    
+        const newBreadcrumbsList = [...selectedBreadcrumbs, ...newBreadcrumbs, productBreadcrumb];
+        dispatch(setBreadcrumbs(newBreadcrumbsList));
       } else {
         dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/products"]]));
       }
     } else if (pathnames.includes("sales")) {
       dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/sales"]]));
+    } else if (pathnames.includes("favorites")) {
+      dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/favorites"]]));
     } else {
       dispatch(setBreadcrumbs([defaultPath, ...newBreadcrumbs]));
     }
-
-    // Выводим информацию о текущем пути в консоль
-    console.log("Current Path:", location.pathname);
-    console.log("Breadcrumbs:", breadcrumbs);
+    
   }, [location, dispatch, data, state]);
 
   return (

@@ -2,7 +2,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Dialog } from "@mui/material";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
-import * as React from "react";
+import  React from "react";
 import { useDispatch } from "react-redux";
 import { cleanCart } from "../../slices/cartSlice";
 
