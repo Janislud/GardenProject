@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { BreadCrumbs } from "../Components/BreadCrumbs/BreadCrumbs";
 import { ProductsCard } from "../Components/ProductsCard/ProductsCard";
 import { TitleBar } from "../Components/TitleBar/TitleBar";
+import { FilterFavorits } from "../hooks/useFilterFavarits";
 import { FilterBar } from "./../Components/FilterBar/FilterBar";
-import { useFilterFavorits } from "./../hooks/useFilterFavarits";
 import style from "./LikedProductsPage.module.css";
 
 export const LikedProductsPage = ({ title }) => {
@@ -14,7 +14,7 @@ export const LikedProductsPage = ({ title }) => {
   console.log(likedProducts);
 
   // Вызываем хук, чтобы он мог выполнить фильтрацию и сортировку
-  const filteredProducts = useFilterFavorits(likedProducts);
+  const filteredProducts = FilterFavorits(likedProducts);
 
   return (
     <section>
@@ -24,9 +24,6 @@ export const LikedProductsPage = ({ title }) => {
         linkTo="/products"
         buttonText="Back to the store"
       />
-
-      {/* Вызываем хук, чтобы он мог выполнить фильтрацию и сортировку */}
-      {/* <useFilterFavoritss /> */}
 
       <FilterBar title={title} />
 
