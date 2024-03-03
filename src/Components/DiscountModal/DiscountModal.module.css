@@ -8,6 +8,7 @@
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1050; 
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
@@ -20,16 +21,10 @@
     visibility: visible;
 }
 
-.modal__content {
-    padding: 20px;
-    border-radius: 12px;
-    background-color: white;
-    height: 200px;
-    width: 200px;
-    transform: scale(0.5);
-    transition: 0.4s all;
-}
-
-.active__content {
-    transform: scale(1);
+.modal_content {
+    background-color: rgba(255, 255, 255, 0.685);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1055;
 }
