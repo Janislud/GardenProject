@@ -34,6 +34,7 @@ const BreadCrumbs = ({ data }) => {
     "/categories": [defaultPath, { name: "Categories", path: "categories" }],
     "/products": [defaultPath, { name: "All Products", path: "products" }],
     "/sales": [defaultPath, { name: "All Sales", path: "sales" }],
+    "/favorites": [defaultPath,{ name: "Liked Products", path: "favorites" },],
 
     default: [
       defaultPath,
@@ -54,7 +55,7 @@ const BreadCrumbs = ({ data }) => {
     }
 
     let newBreadcrumbs = [];
-
+   
     if (!pathnames.includes("products")) {
       // Проверяем, нет ли в текущем пути "products"
       newBreadcrumbs = pathnames.map((pathname, index) => {
@@ -74,24 +75,24 @@ const BreadCrumbs = ({ data }) => {
         };
 
         const breadcrumbs =
-          state && state.prevPath && state.prevPath.includes("categories")
-            ? singleProductsBreadcrumbs["default"]
-            : singleProductsBreadcrumbs[state?.prevPath || "/products"];
-        dispatch(
-          setBreadcrumbs([...breadcrumbs, ...newBreadcrumbs, productBreadcrumb])
-        );
+      state && state.prevPath && state.prevPath.includes("categories")
+        ? singleProductsBreadcrumbs["default"]
+        : singleProductsBreadcrumbs[state?.prevPath || "/products"];
+        if (Array.isArray(breadcrumbs)) {
+    dispatch(
+      setBreadcrumbs([...breadcrumbs, ...newBreadcrumbs, productBreadcrumb])
+    )};
       } else {
         dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/products"]]));
       }
     } else if (pathnames.includes("sales")) {
       dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/sales"]]));
+    } else if (pathnames.includes("favorites")) {
+      dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/favorites"]]));
     } else {
       dispatch(setBreadcrumbs([defaultPath, ...newBreadcrumbs]));
     }
-
-    // Выводим информацию о текущем пути в консоль
-    console.log("Current Path:", location.pathname);
-    console.log("Breadcrumbs:", breadcrumbs);
+    
   }, [location, dispatch, data, state]);
 
   return (

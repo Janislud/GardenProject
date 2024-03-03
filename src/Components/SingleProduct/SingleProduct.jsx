@@ -1,8 +1,15 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import heartRed from "../../assets/images/LikesMedia/heartRed.svg";
+import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
 import { useGetProductByIdQuery } from "../../slices/apiSlice";
 import { addProductToCart } from "../../slices/cartSlice";
+import {
+  addToLikedProducts,
+  deleteFromLikedProducts,
+  getLikedProductsQuantity,
+} from "../../slices/likedProductsSlice";
 import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import { Button } from "../Button/Button";
 import style from "./singleProduct.module.css";
@@ -13,7 +20,13 @@ export const SingleProduct = ({ product }) => {
   const [space, setSpace] = useState(false);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
+  const [isAddedToLikedProducts, setIsAddedToLikedProducts] = useState(false);
+  const [isHoveredLikes, setIsHoveredLikes] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
+
+  const isLiked = useSelector((state) =>
+    state.likedProducts.likedProducts.some((product) => product.id === id)
+  );
 
   const increase = () => {
     setQuantity(quantity + 1);
@@ -56,6 +69,17 @@ export const SingleProduct = ({ product }) => {
     return Math.round(((price - discountPrice) / price) * 100);
   }
 
+  const handleAddToLikedProduct = (event) => {
+    event.preventDefault();
+    if (isLiked) {
+      dispatch(deleteFromLikedProducts(product));
+    } else {
+      dispatch(addToLikedProducts(product));
+    }
+    dispatch(getLikedProductsQuantity());
+    setIsAddedToLikedProducts(true);
+  };
+
   return (
     <>
       <BreadCrumbs data={data[0]} />
@@ -72,14 +96,9 @@ export const SingleProduct = ({ product }) => {
               </div>
 
               <div className={style.divWithPriceCounterDescription}>
-                <h2 className={style.h2TitleText}>{product.title}</h2>
+                <h2 className={`${style.h2TitleText} ${theme === 'light' ? style.dark : style.light}`}>{product.title}</h2>
                 <div className={style.divPrices}>
-                  <p className={style.discontPrice}>
-                    $
-                    {product.discont_price
-                      ? product.discont_price
-                      : product.price}
-                  </p>
+                  <p className={`${style.discontPrice} ${theme === 'light' ? style.dark : style.light}`}>${product.discont_price ? product.discont_price : product.price}</p>
 
                   {product.discont_price ? (
                     <p className={style.initialPrice}>${product.price}</p>
@@ -113,6 +132,7 @@ export const SingleProduct = ({ product }) => {
                       +
                     </button>
                   </div>
+
                   <div className={style.divButton}>
                     <Button
                       className={style.addGreenButton}
