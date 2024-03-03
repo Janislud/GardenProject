@@ -64,38 +64,3 @@ export const DiscountModal = ({ isOpen, onRequestClose }) => {
 };
 
 
-// .modal {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   height: 100vh;
-//   width: 100vw;
-//   background-color: rgba(0, 0, 0, 0.4);
-//   opacity: 0;
-//   pointer-events: none;
-//   visibility: hidden;
-//   transition: opacity 0.5s, visibility 0.5s;
-// }
-
-// .active {
-//   opacity: 1;
-//   pointer-events: all;
-//   visibility: visible;
-// }
-
-// .modal_content {
-//   padding: 20px;
-//   border-radius: 12px;
-//   background-color: white;
-//   height: 200px;
-//   width: 200px;
-//   transform: scale(0.5);
-//   transition: 0.4s all;
-// }
-
-// .active_content {
-//   transform: scale(1);
-// }
