@@ -10,47 +10,61 @@ import heart from "../../assets/images/ThemaToggle/heart-dark-mode.svg";
 import elipseLight from "../../assets/images/ThemaToggle/light-thema-circle.svg";
 import moon from "../../assets/images/ThemaToggle/light-thema-moon.svg";
 import sun from "../../assets/images/ThemaToggle/sun.svg";
-import style from "./Header.module.css";
 import { toggleTheme } from "../../slices/themaSlice";
+import style from "./Header.module.css";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const location = useLocation();
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-  const theme = useSelector((state) => state.theme.theme)
+  const theme = useSelector((state) => state.theme.theme);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const toggleThemeHandler = () => {
-    dispatch(toggleTheme())
-  }
+    dispatch(toggleTheme());
+  };
 
   return (
     <header className={`${style.headerWrapper} `}>
       <div className={style.logoToggleWrapper}>
         <img className={style.logo} src={logo} alt="Logo" />
-        <div className={`${style.themaWrapper} ${theme === 'light' ? style.activeBg : ""}`}>
+        <div
+          className={`${style.themaWrapper} ${
+            theme === "light" ? style.activeBg : ""
+          }`}
+        >
           <div className={style.themaDiv}>
-            <img
-              className={style.modeImg}
-              src={sun}
-              alt="sun"
-            />
-            <button className={`${style.modeBtn} ${theme === 'dark' ? style.activeDarkMode : ""}`} onClick={toggleThemeHandler}>
-              {theme === 'dark' ? <img src={elipseLight} alt="elipseLight" /> : <img src={elipce} alt="sun" />}
+            <img className={style.modeImg} src={sun} alt="sun" />
+            <button
+              className={`${style.modeBtn} ${
+                theme === "dark" ? style.activeDarkMode : ""
+              }`}
+              onClick={toggleThemeHandler}
+            >
+              {theme === "dark" ? (
+                <img src={elipseLight} alt="elipseLight" />
+              ) : (
+                <img src={elipce} alt="sun" />
+              )}
             </button>
-            <img className={style.modeImg}
-              src={moon}
-              alt="moon"
-            />
+            <img className={style.modeImg} src={moon} alt="moon" />
           </div>
         </div>
       </div>
       <nav className={style.navMenu} onClick={toggleMenu}>
-        <ul className={`${style.navList} ${isOpen ? style.menuToggle : ""} ${theme === 'light' ? style.dark : style.light}`}>
-          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
+        <ul
+          className={`${style.navList} ${isOpen ? style.menuToggle : ""} ${
+            theme === "light" ? style.dark : style.light
+          }`}
+        >
+          <li
+            className={`${style.listStyle} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+          >
             <Link
               to="/"
               className={location.pathname === "/" ? style.active : ""}
@@ -58,7 +72,11 @@ export const Header = () => {
               Main Page
             </Link>
           </li>
-          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
+          <li
+            className={`${style.listStyle} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+          >
             <Link
               to="/categories"
               className={
@@ -68,17 +86,23 @@ export const Header = () => {
               Categories
             </Link>
           </li>
-          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
+          <li
+            className={`${style.listStyle} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+          >
             <Link
               to="/products"
-              className={
-                location.pathname === "/products" ? style.active : ""
-              }
+              className={location.pathname === "/products" ? style.active : ""}
             >
               All products
             </Link>
           </li>
-          <li className={`${style.listStyle} ${theme === 'light' ? style.dark : style.light}`}>
+          <li
+            className={`${style.listStyle} ${
+              theme === "light" ? style.dark : style.light
+            }`}
+          >
             <Link
               to="/sales"
               className={location.pathname === "/sales" ? style.active : ""}
@@ -96,26 +120,42 @@ export const Header = () => {
           <div className={style.basketWrapper}></div>
         </Link>
         <Link to="/like">
-          {theme === 'light' ? <img src={heart} alt="heartDarkMode" /> : <img src={like} alt="heartLightMode" />}
+          {theme === "light" ? (
+            <img src={heart} alt="heartDarkMode" />
+          ) : (
+            <img src={like} alt="heartLightMode" />
+          )}
         </Link>
         <Link to="/cart">
-          {theme === 'light' ? <img src={cart} alt="cartDarkMode" /> : <img src={basket} alt="cartLightMode" />}
+          {theme === "light" ? (
+            <img src={cart} alt="cartDarkMode" />
+          ) : (
+            <img src={basket} alt="cartLightMode" />
+          )}
         </Link>
         <div
           onClick={toggleMenu}
           className={`${style.burger} ${isOpen ? style.burger_active : ""} `}
         >
           <span
-            className={`${style.burger_line} ${style.burger_line_first} ${theme === 'light' ? style.light : style.dark}`}
+            className={`${style.burger_line} ${style.burger_line_first} ${
+              theme === "light" ? style.light : style.dark
+            }`}
           ></span>
           <span
-            className={`${style.burger_line} ${style.burger_line_second} ${theme === 'light' ? style.light : style.dark}`}
+            className={`${style.burger_line} ${style.burger_line_second} ${
+              theme === "light" ? style.light : style.dark
+            }`}
           ></span>
           <span
-            className={`${style.burger_line} ${style.burger_line_third} ${theme === 'light' ? style.light : style.dark}`}
+            className={`${style.burger_line} ${style.burger_line_third} ${
+              theme === "light" ? style.light : style.dark
+            }`}
           ></span>
           <span
-            className={`${style.burger_line} ${style.burger_line_fourth} ${theme === 'light' ? style.light : style.dark}`}
+            className={`${style.burger_line} ${style.burger_line_fourth} ${
+              theme === "light" ? style.light : style.dark
+            }`}
           ></span>
         </div>
       </div>

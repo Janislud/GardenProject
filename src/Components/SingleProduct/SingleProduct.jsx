@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../slices/apiSlice";
 import { addProductToCart } from "../../slices/cartSlice";
