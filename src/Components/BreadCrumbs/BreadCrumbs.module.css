@@ -44,8 +44,14 @@
   background: transparent;
   cursor: pointer;
 }
+
 .mainPageBtn {
   color: rgb(139, 139, 139);
+}
+
+.dark {
+  color: white;
+  background: #282828;
 }
 
 .dark .line {
