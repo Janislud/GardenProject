@@ -14,22 +14,12 @@ import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import { Button } from "../Button/Button";
 import style from "./singleProduct.module.css";
 
-export const SingleProduct = ({ product }) => {
-  const { id } = useParams();
+export const SingleProduct = () => {
+  const { id } = useParams(); // Получаем параметр id из URL
   const { data, error, isLoading } = useGetProductByIdQuery(id);
   const [space, setSpace] = useState(false);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
-  const [isAddedToLikedProducts, setIsAddedToLikedProducts] = useState(false);
-
-  /**const likedProducts = useSelector(
-    (state) => state.likedProducts.likedProducts
-  );
-
-  const [isLiked, setIsLiked] = useState(
-    likedProducts.some((item) => item.id === id)
-  );*/
-
   const [isHoveredLikes, setIsHoveredLikes] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
 
@@ -65,7 +55,7 @@ export const SingleProduct = ({ product }) => {
   if (error) {
     return (
       <p className={style.featchingDate}>
-        Error featching date: {error.message}
+        Error fetching date: {error.message}
       </p>
     );
   }
@@ -78,17 +68,16 @@ export const SingleProduct = ({ product }) => {
     return Math.round(((price - discountPrice) / price) * 100);
   }
 
-  const handleAddToLikedProduct = (product) => {
-    const { id, image, title, price, discont_price } = product;
-    //event.stopPropagation();
-    //event.preventDefault();
+  const handleAddToLikedProduct = (event) => {
+    event.preventDefault();
     if (isLiked) {
-      dispatch(deleteFromLikedProducts(id));
+      dispatch(deleteFromLikedProducts(data[0])); // Передаем объект продукта вместо параметра product
     } else {
-      dispatch(addToLikedProducts({ id, image, title, price, discont_price }));
+      dispatch(addToLikedProducts(data[0])); // Передаем объект продукта вместо параметра product
     }
     dispatch(getLikedProductsQuantity());
-    setIsAddedToLikedProducts(true);
+
+    setIsHoveredLikes(!isHoveredLikes);
   };
 
   return (
@@ -116,30 +105,13 @@ export const SingleProduct = ({ product }) => {
                     {product.title}
                   </h2>
                   <button
-                    className={style.buttonIcon}
+                    className={style.btnAddToLikes}
                     onClick={handleAddToLikedProduct}
-                    onMouseEnter={() => {
-                      if (!isAddedToLikedProducts) {
-                        setIsHoveredLikes(true);
-                      }
-                    }}
-                    onMouseLeave={() => {
-                      // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
-                      if (!isAddedToLikedProducts) {
-                        setIsHoveredLikes(false);
-                      }
-                    }}
                   >
                     <img
-                      className={style.heartIcon}
-                      src={
-                        isLiked
-                          ? heartRed
-                          : isHoveredLikes
-                          ? heartRed
-                          : heartWhite
-                      }
+                      src={isLiked || isHoveredLikes ? heartRed : heartWhite} // Установка цвета сердечка
                       alt="heartIcon"
+                      className={style.heartIcon}
                     />
                   </button>
                 </div>

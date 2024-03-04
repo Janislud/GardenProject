@@ -171,6 +171,11 @@
   margin-top: 100px;
 }
 
+.btnAddToLikes {
+  border: none;
+  background-color: transparent;
+}
+
 .divCounter {
   display: flex;
   flex-wrap: wrap;
