@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import cross from "../../assets/images/CartMedia/cross.png";
+import cross from "../../assets/images/CartMedia/cross.svg";
 import {
   addProductToCart,
   dropOneProductFromCart,
