@@ -4,7 +4,8 @@
   margin: 0 auto;
   max-width: 1350px;
   margin-bottom: 80px;
-  gap: 40px;
+  justify-content: space-between;
+  gap: 15px;
 }
 
 .cartProductWrapper {
@@ -183,4 +184,23 @@
   line-height: 130%;
   text-decoration-line: line-through;
   margin-top: 18px;
+}
+
+.light {
+  color: black;
+}
+
+.light
+.discountedPrice {
+  color: black;
+}
+
+.dark .productCardTitle,
+.discountedPrice {
+  color: white;
+}
+
+.dark .btnMinus,
+.btnPlus {
+  background-color: transparent;
 }

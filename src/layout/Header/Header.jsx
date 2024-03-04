@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import { DiscountModal } from "../../Components/DiscountModal/DiscountModal";
 import basket from "../../assets/images/HeaderMedia/headerBag.svg";
 import logo from "../../assets/images/HeaderMedia/headerLogo.svg";
 import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
@@ -9,9 +10,8 @@ import elipce from "../../assets/images/ThemaToggle/elipse-darkMode.svg";
 import elipseLight from "../../assets/images/ThemaToggle/light-thema-circle.svg";
 import moon from "../../assets/images/ThemaToggle/light-thema-moon.svg";
 import sun from "../../assets/images/ThemaToggle/sun.svg";
-import style from "./Header.module.css";
 import { toggleTheme } from "../../slices/themaSlice";
-import { DiscountModal } from "../../Components/DiscountModal/DiscountModal";
+import style from "./Header.module.css";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -133,6 +133,14 @@ export const Header = () => {
             >
               All sales
             </Link>
+          </li>
+          <li
+            className={`${style.listStyle} ${theme === "light" ? style.dark : style.light
+              }`}
+          >
+            <button className={style.discountButtonToggle} onClick={toggleModal}>
+              1 day discount!
+            </button>
           </li>
         </ul>
       </nav>

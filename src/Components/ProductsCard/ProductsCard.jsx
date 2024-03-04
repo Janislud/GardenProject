@@ -12,18 +12,15 @@ import {
 import style from "./ProductsCard.module.css";
 
 export const ProductsCard = ({ product, id }) => {
-  const [isAddedToLikedProducts, setIsAddedToLikedProducts] = useState(false);
-  const isLiked = useSelector((state) =>
-    state.likedProducts.likedProducts.some((product) => product.id === id)
-  );
   const dispatch = useDispatch();
   const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const location = useLocation();
   const theme = useSelector((state) => state.theme.theme);
   const cartItems = useSelector((state) => state.cart.products);
   const likedItems = useSelector((state) => state.likedProducts.likedProducts);
-  const [isHovered, setIsHovered] = useState(false);
   const [isHoveredLikes, setIsHoveredLikes] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     // Проверяем, был ли товар добавлен в корзину ранее при загрузке компонента
@@ -36,17 +33,21 @@ export const ProductsCard = ({ product, id }) => {
     const isAlreadyAddedToLiked = likedItems.some(
       (item) => item.id === product.id
     );
-    setIsAddedToLikedProducts(isAlreadyAddedToLiked);
+    setIsHoveredLikes(isAlreadyAddedToLiked);
   }, [likedItems, product.id]);
 
   const handleAddToCart = (event) => {
     event.preventDefault();
     dispatch(addProductToCart({ ...product, quantity: 1 }));
-    setIsAddedToCart(true);
+    setIsAddedToCart(!isAddedToCart);
+  };
+
+  const handleRemoveFromCart = () => {
+    dispatch(dropOneProductFromCart({ id: product.id }));
+    setIsAddedToCart(false); // Обновляем состояние при удалении товара из корзины
   };
 
   const handleAddToLikedProduct = (event) => {
-    event.stopPropagation();
     event.preventDefault();
     if (isLiked) {
       dispatch(deleteFromLikedProducts(product));
@@ -54,12 +55,7 @@ export const ProductsCard = ({ product, id }) => {
       dispatch(addToLikedProducts(product));
     }
     dispatch(getLikedProductsQuantity());
-    setIsAddedToLikedProducts(true);
-  };
-
-  const handleRemoveFromCart = () => {
-    dispatch(dropOneProductFromCart({ id: product.id }));
-    setIsAddedToCart(false); // Обновляем состояние при удалении товара из корзины
+    setIsLiked(!isLiked);
   };
 
   function calculateDiscountPercent(price, discountPrice) {
@@ -87,16 +83,14 @@ export const ProductsCard = ({ product, id }) => {
       />
 
       <h2
-        className={`${style.saleCardText} ${
-          theme === "light" ? style.dark : style.light
-        }`}
+        className={`${style.saleCardText} ${theme === "light" ? style.dark : style.light
+          }`}
       >
         {product.title}
       </h2>
       <div
-        className={`${style.salePriceWrapper} ${
-          theme === "light" ? style.dark : style.light
-        }`}
+        className={`${style.salePriceWrapper} ${theme === "light" ? style.dark : style.light
+          }`}
       >
         <p className={style.realPrice}>
           ${product.discont_price ?? product.price}
@@ -106,27 +100,14 @@ export const ProductsCard = ({ product, id }) => {
         ) : null}
       </div>
 
-      <button
-        className={style.btnAddToLikes}
-        onClick={handleAddToLikedProduct}
-        onMouseEnter={() => {
-          if (!isAddedToLikedProducts) {
-            setIsHoveredLikes(true);
-          }
-        }}
-        onMouseLeave={() => {
-          // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
-          if (!isAddedToLikedProducts) {
-            setIsHoveredLikes(false);
-          }
-        }}
-      >
+      <button className={style.btnAddToLikes} onClick={handleAddToLikedProduct}>
         <img
-          src={isLiked ? heartRed : isHoveredLikes ? heartRed : heartWhite}
+          src={isLiked || isHoveredLikes ? heartRed : heartWhite} // Установка цвета сердечка
           alt="heartIcon"
           className={style.heartIcon}
         />
       </button>
+
       {isHovered && (
         <button
           className={isAddedToCart ? style.addedToCart : style.btnAddToCard}

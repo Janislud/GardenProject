@@ -14,28 +14,20 @@ import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import { Button } from "../Button/Button";
 import style from "./singleProduct.module.css";
 
-export const SingleProduct = ({ product }) => {
-  const { id } = useParams();
+export const SingleProduct = () => {
+  const { id } = useParams(); // Получаем параметр id из URL
   const { data, error, isLoading } = useGetProductByIdQuery(id);
   const [space, setSpace] = useState(false);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
-  const [isAddedToLikedProducts, setIsAddedToLikedProducts] = useState(false);
-
-  /**const likedProducts = useSelector(
-    (state) => state.likedProducts.likedProducts
-  );
-
-  const [isLiked, setIsLiked] = useState(
-    likedProducts.some((item) => item.id === id)
-  );*/
-
   const [isHoveredLikes, setIsHoveredLikes] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
+  const [isLiked, setIsLiked] = useState(false);
 
-  const isLiked = useSelector((state) =>
-    state.likedProducts.likedProducts.some((product) => product.id === id)
-  );
+  // const isLiked = useSelector((state) =>
+  //   state.likedProducts.likedProducts.some((product) => product.id === id)
+  // );
+  // console.log(isLiked);
 
   const increase = () => {
     setQuantity(quantity + 1);
@@ -65,7 +57,7 @@ export const SingleProduct = ({ product }) => {
   if (error) {
     return (
       <p className={style.featchingDate}>
-        Error featching date: {error.message}
+        Error fetching date: {error.message}
       </p>
     );
   }
@@ -78,17 +70,15 @@ export const SingleProduct = ({ product }) => {
     return Math.round(((price - discountPrice) / price) * 100);
   }
 
-  const handleAddToLikedProduct = (product) => {
-    const { id, image, title, price, discont_price } = product;
-    //event.stopPropagation();
-    //event.preventDefault();
+  const handleAddToLikedProduct = (event) => {
+    event.preventDefault();
     if (isLiked) {
-      dispatch(deleteFromLikedProducts(id));
+      dispatch(deleteFromLikedProducts(data[0]));
     } else {
-      dispatch(addToLikedProducts({ id, image, title, price, discont_price }));
+      dispatch(addToLikedProducts(data[0]));
     }
     dispatch(getLikedProductsQuantity());
-    setIsAddedToLikedProducts(true);
+    setIsLiked(!isLiked); // Переключаем состояние isLiked
   };
 
   return (
@@ -109,37 +99,21 @@ export const SingleProduct = ({ product }) => {
               <div className={style.divWithPriceCounterDescription}>
                 <div className={style.titleAndHeart}>
                   <h2
-                    className={`{style.h2TitleText} ${
+
+                    className={`${style.h2TitleText} ${
                       theme === "light" ? style.dark : style.light
                     }`}
                   >
                     {product.title}
                   </h2>
                   <button
-                    className={style.buttonIcon}
+                    className={style.btnAddToLikes}
                     onClick={handleAddToLikedProduct}
-                    onMouseEnter={() => {
-                      if (!isAddedToLikedProducts) {
-                        setIsHoveredLikes(true);
-                      }
-                    }}
-                    onMouseLeave={() => {
-                      // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
-                      if (!isAddedToLikedProducts) {
-                        setIsHoveredLikes(false);
-                      }
-                    }}
                   >
                     <img
-                      className={style.heartIcon}
-                      src={
-                        isLiked
-                          ? heartRed
-                          : isHoveredLikes
-                          ? heartRed
-                          : heartWhite
-                      }
+                      src={isLiked || isHoveredLikes ? heartRed : heartWhite} // Установка цвета сердечка
                       alt="heartIcon"
+                      className={style.heartIcon}
                     />
                   </button>
                 </div>
@@ -175,16 +149,19 @@ export const SingleProduct = ({ product }) => {
                 </div>
                 <div className={style.counterUndButton}>
                   <div className={style.divCounter}>
-                    <button className={style.minusButton} onClick={decrease}>
+                    <button className={`${style.minusButton} ${theme === "light" ? style.dark : style.light
+              }`} onClick={decrease}>
                       -
                     </button>
                     <input
-                      className={style.countInput}
+                      className={`${style.countInput} ${theme === "light" ? style.dark : style.light
+              }`}
                       type="number"
                       value={quantity}
                       onChange={(e) => setQuantity(parseInt(e.target.value))}
                     />
-                    <button className={style.plusButton} onClick={increase}>
+                    <button className={`${style.plusButton} ${theme === "light" ? style.dark : style.light
+              }`} onClick={increase}>
                       +
                     </button>
                   </div>
@@ -199,7 +176,8 @@ export const SingleProduct = ({ product }) => {
                   </div>
                 </div>
 
-                <div className={style.productDescription}>
+                <div className={`${style.productDescription} ${theme === "light" ? style.dark : style.light
+              }`}>
                   <h6 className={style.h6Description}>Description</h6>
                   <p
                     className={`${style.productTextDescriptionMain} ${
