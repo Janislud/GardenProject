@@ -134,6 +134,14 @@ export const Header = () => {
               All sales
             </Link>
           </li>
+          <li
+            className={`${style.listStyle} ${theme === "light" ? style.dark : style.light
+              }`}
+          >
+            <button className={style.discountButtonToggle} onClick={toggleModal}>
+              1 day discount!
+            </button>
+          </li>
         </ul>
       </nav>
       <div className={style.basketWrapper}>

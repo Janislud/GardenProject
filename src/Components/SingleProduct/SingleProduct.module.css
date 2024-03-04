@@ -121,7 +121,7 @@
   margin: 70px auto;
 }
 
-.divCounter .minusButton {
+.minusButton {
   width: 90px;
   height: 58px;
   background: #fff;
@@ -149,7 +149,7 @@
   border: 1px solid #ddd;
 }
 
-.divCounter .plusButton {
+.plusButton {
   width: 90px;
   height: 58px;
   background: #fff;
@@ -287,7 +287,24 @@
   flex-direction: column;
 }
 
+.light {
+  color: black;
+}
+
 .dark {
+  color: white;
+  background: #282828;
+}
+
+.dark .h6Description {
+  color: white;
+}
+
+.dark .productTextDescriptionReadMore {
+  color: white;
+}
+
+.dark .productTextDescriptionMain {
   color: white;
 }
 

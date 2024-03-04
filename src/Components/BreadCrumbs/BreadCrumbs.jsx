@@ -34,7 +34,10 @@ const BreadCrumbs = ({ data }) => {
     "/categories": [defaultPath, { name: "Categories", path: "categories" }],
     "/products": [defaultPath, { name: "All Products", path: "products" }],
     "/sales": [defaultPath, { name: "All Sales", path: "sales" }],
-    "/favorites": [defaultPath,{ name: "Liked Products", path: "favorites" },],
+    "/favorites": [
+      defaultPath,
+      { name: "Favourite Products", path: "favorites" },
+    ],
 
     default: [
       defaultPath,
@@ -55,7 +58,7 @@ const BreadCrumbs = ({ data }) => {
     }
 
     let newBreadcrumbs = [];
-   
+
     if (!pathnames.includes("products")) {
       // Проверяем, нет ли в текущем пути "products"
       newBreadcrumbs = pathnames.map((pathname, index) => {
@@ -75,13 +78,18 @@ const BreadCrumbs = ({ data }) => {
         };
 
         const breadcrumbs =
-      state && state.prevPath && state.prevPath.includes("categories")
-        ? singleProductsBreadcrumbs["default"]
-        : singleProductsBreadcrumbs[state?.prevPath || "/products"];
+          state && state.prevPath && state.prevPath.includes("categories")
+            ? singleProductsBreadcrumbs["default"]
+            : singleProductsBreadcrumbs[state?.prevPath || "/products"];
         if (Array.isArray(breadcrumbs)) {
-    dispatch(
-      setBreadcrumbs([...breadcrumbs, ...newBreadcrumbs, productBreadcrumb])
-    )};
+          dispatch(
+            setBreadcrumbs([
+              ...breadcrumbs,
+              ...newBreadcrumbs,
+              productBreadcrumb,
+            ])
+          );
+        }
       } else {
         dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/products"]]));
       }
@@ -92,7 +100,6 @@ const BreadCrumbs = ({ data }) => {
     } else {
       dispatch(setBreadcrumbs([defaultPath, ...newBreadcrumbs]));
     }
-    
   }, [location, dispatch, data, state]);
 
   return (

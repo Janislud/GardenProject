@@ -19,7 +19,7 @@ export const LikedProductsPage = ({ title }) => {
     <section>
       <BreadCrumbs />
       <TitleBar
-        title="Liked Products"
+        title="Favourite Products"
         linkTo="/products"
         buttonText="Back to the store"
       />
