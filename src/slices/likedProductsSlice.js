@@ -24,14 +24,18 @@ const likedProductsSlice = createSlice({
         state.likeTotalQuantity += 1;
       }
     },
+
     deleteFromLikedProducts(state, action) {
       const productId = action.payload.id;
-
-      // Удаляем весь товар с заданным идентификатором из страницы любимых товаров
-      state.likedProducts = state.likedProducts.filter(
-        (product) => product.id !== productId
+      // Проверяем, присутствует ли товар в списке избранных
+      const existingProductIndex = state.likedProducts.findIndex(
+        (product) => product.id === productId
       );
-      state.likeTotalQuantity--;
+      if (existingProductIndex !== -1) {
+        // Если товар присутствует, удаляем его
+        state.likedProducts.splice(existingProductIndex, 1);
+        state.likeTotalQuantity--;
+      }
     },
     toggleLikedStatus(state, action) {
       const productId = action.payload.id;

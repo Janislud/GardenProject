@@ -12,9 +12,6 @@ import {
 import style from "./ProductsCard.module.css";
 
 export const ProductsCard = ({ product, id }) => {
-  const isLiked = useSelector((state) =>
-    state.likedProducts.likedProducts.some((product) => product.id === id)
-  );
   const dispatch = useDispatch();
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -23,6 +20,7 @@ export const ProductsCard = ({ product, id }) => {
   const cartItems = useSelector((state) => state.cart.products);
   const likedItems = useSelector((state) => state.likedProducts.likedProducts);
   const [isHoveredLikes, setIsHoveredLikes] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     // Проверяем, был ли товар добавлен в корзину ранее при загрузке компонента
@@ -41,7 +39,7 @@ export const ProductsCard = ({ product, id }) => {
   const handleAddToCart = (event) => {
     event.preventDefault();
     dispatch(addProductToCart({ ...product, quantity: 1 }));
-    setIsAddedToCart(true);
+    setIsAddedToCart(!isAddedToCart);
   };
 
   const handleRemoveFromCart = () => {
@@ -57,7 +55,7 @@ export const ProductsCard = ({ product, id }) => {
       dispatch(addToLikedProducts(product));
     }
     dispatch(getLikedProductsQuantity());
-    setIsHoveredLikes(!isHoveredLikes); // Изменяем состояние нажатия сердечка
+    setIsLiked(!isLiked);
   };
 
   function calculateDiscountPercent(price, discountPrice) {

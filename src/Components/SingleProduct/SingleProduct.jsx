@@ -22,10 +22,12 @@ export const SingleProduct = () => {
   const [quantity, setQuantity] = useState(1);
   const [isHoveredLikes, setIsHoveredLikes] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
+  const [isLiked, setIsLiked] = useState(false);
 
-  const isLiked = useSelector((state) =>
-    state.likedProducts.likedProducts.some((product) => product.id === id)
-  );
+  // const isLiked = useSelector((state) =>
+  //   state.likedProducts.likedProducts.some((product) => product.id === id)
+  // );
+  // console.log(isLiked);
 
   const increase = () => {
     setQuantity(quantity + 1);
@@ -71,13 +73,12 @@ export const SingleProduct = () => {
   const handleAddToLikedProduct = (event) => {
     event.preventDefault();
     if (isLiked) {
-      dispatch(deleteFromLikedProducts(data[0])); // Передаем объект продукта вместо параметра product
+      dispatch(deleteFromLikedProducts(data[0]));
     } else {
-      dispatch(addToLikedProducts(data[0])); // Передаем объект продукта вместо параметра product
+      dispatch(addToLikedProducts(data[0]));
     }
     dispatch(getLikedProductsQuantity());
-
-    setIsHoveredLikes(!isHoveredLikes);
+    setIsLiked(!isLiked); // Переключаем состояние isLiked
   };
 
   return (
