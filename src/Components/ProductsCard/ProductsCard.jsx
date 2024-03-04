@@ -114,12 +114,12 @@ export const ProductsCard = ({ product, id }) => {
             setIsHoveredLikes(true);
           }
         }}
-        /**onMouseLeave={() => {
+        onMouseLeave={() => {
           // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
           if (!isAddedToLikedProducts) {
             setIsHoveredLikes(false);
           }
-        }}*/
+        }}
       >
         <img
           src={isLiked ? heartRed : isHoveredLikes ? heartRed : heartWhite}
