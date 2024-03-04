@@ -21,6 +21,7 @@ export const ProductsCard = ({ product, id }) => {
   const location = useLocation();
   const theme = useSelector((state) => state.theme.theme);
   const cartItems = useSelector((state) => state.cart.products);
+  const likedItems = useSelector((state) => state.likedProducts.likedProducts);
   const [isHovered, setIsHovered] = useState(false);
   const [isHoveredLikes, setIsHoveredLikes] = useState(false);
 
@@ -29,6 +30,14 @@ export const ProductsCard = ({ product, id }) => {
     const isAlreadyAdded = cartItems.some((item) => item.id === product.id);
     setIsAddedToCart(isAlreadyAdded);
   }, [cartItems, product.id]);
+
+  useEffect(() => {
+    // Проверяем, был ли товар добавлен в likedPage ранее при загрузке компонента
+    const isAlreadyAddedToLiked = likedItems.some(
+      (item) => item.id === product.id
+    );
+    setIsAddedToLikedProducts(isAlreadyAddedToLiked);
+  }, [likedItems, product.id]);
 
   const handleAddToCart = (event) => {
     event.preventDefault();
@@ -105,12 +114,12 @@ export const ProductsCard = ({ product, id }) => {
             setIsHoveredLikes(true);
           }
         }}
-        onMouseLeave={() => {
+        /**onMouseLeave={() => {
           // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
           if (!isAddedToLikedProducts) {
             setIsHoveredLikes(false);
           }
-        }}
+        }}*/
       >
         <img
           src={isLiked ? heartRed : isHoveredLikes ? heartRed : heartWhite}
