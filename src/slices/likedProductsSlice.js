@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   likedProducts: [],
-  likedIcons: [],
+  likedIcons: [], // Этот массив можно удалить, если он не используется
   likeTotalQuantity: 0,
 };
 
@@ -27,11 +27,21 @@ const likedProductsSlice = createSlice({
     deleteFromLikedProducts(state, action) {
       const productId = action.payload.id;
 
-      // Удаляем весь товар с заданным идентификатором из страницы люимых товаров
+      // Удаляем весь товар с заданным идентификатором из страницы любимых товаров
       state.likedProducts = state.likedProducts.filter(
         (product) => product.id !== productId
       );
       state.likeTotalQuantity--;
+    },
+    toggleLikedStatus(state, action) {
+      const productId = action.payload.id;
+      const existingProduct = state.likedProducts.find(
+        (product) => product.id === productId
+      );
+
+      if (existingProduct) {
+        existingProduct.isLiked = !existingProduct.isLiked;
+      }
     },
     getLikedProductsQuantity(state) {
       const { likedProducts } = state;
@@ -51,6 +61,7 @@ const likedProductsSlice = createSlice({
 export const {
   addToLikedProducts,
   deleteFromLikedProducts,
+  toggleLikedStatus,
   getLikedProductsQuantity,
 } = likedProductsSlice.actions;
 export default likedProductsSlice.reducer;
