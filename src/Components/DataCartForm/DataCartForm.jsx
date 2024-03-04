@@ -8,7 +8,7 @@ import style from "./DataCartForm.module.css";
 export const DataCartForm = () => {
   const totalCount = useSelector((state) => state.cart.totalCount);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-
+const theme = useSelector((state)=> state.theme.theme)
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
@@ -34,7 +34,8 @@ export const DataCartForm = () => {
   } = useForm({ defaultValues: {} });
 
   return (
-    <div className={style.divFormWrapper}>
+    <div className={`${style.divFormWrapper} ${theme === "light" ? style.dark : style.light
+          }`}>
       <div>
         <h2 className={style.order}>Order details</h2>
         <p className={style.itemCounter}>{totalQuantity} items</p>

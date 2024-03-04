@@ -148,16 +148,19 @@ export const SingleProduct = () => {
                 </div>
                 <div className={style.counterUndButton}>
                   <div className={style.divCounter}>
-                    <button className={style.minusButton} onClick={decrease}>
+                    <button className={`${style.minusButton} ${theme === "light" ? style.dark : style.light
+              }`} onClick={decrease}>
                       -
                     </button>
                     <input
-                      className={style.countInput}
+                      className={`${style.countInput} ${theme === "light" ? style.dark : style.light
+              }`}
                       type="number"
                       value={quantity}
                       onChange={(e) => setQuantity(parseInt(e.target.value))}
                     />
-                    <button className={style.plusButton} onClick={increase}>
+                    <button className={`${style.plusButton} ${theme === "light" ? style.dark : style.light
+              }`} onClick={increase}>
                       +
                     </button>
                   </div>
@@ -172,7 +175,8 @@ export const SingleProduct = () => {
                   </div>
                 </div>
 
-                <div className={style.productDescription}>
+                <div className={`${style.productDescription} ${theme === "light" ? style.dark : style.light
+              }`}>
                   <h6 className={style.h6Description}>Description</h6>
                   <p
                     className={`${style.productTextDescriptionMain} ${
