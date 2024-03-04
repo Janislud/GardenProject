@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import heartRed from "../../assets/images/LikesMedia/heartRed.svg";
 import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
-import { addProductToCart } from "../../slices/cartSlice";
+import {
+  addProductToCart,
+  dropOneProductFromCart,
+} from "../../slices/cartSlice";
 import {
   addToLikedProducts,
   deleteFromLikedProducts,
@@ -39,23 +42,23 @@ export const ProductsCard = ({ product, id }) => {
   const handleAddToCart = (event) => {
     event.preventDefault();
     dispatch(addProductToCart({ ...product, quantity: 1 }));
-    setIsAddedToCart(!isAddedToCart);
   };
 
-  const handleRemoveFromCart = () => {
+  const handleRemoveFromCart = (event) => {
+    event.preventDefault(event);
     dispatch(dropOneProductFromCart({ id: product.id }));
-    setIsAddedToCart(false); // Обновляем состояние при удалении товара из корзины
   };
 
   const handleAddToLikedProduct = (event) => {
     event.preventDefault();
     if (isLiked) {
       dispatch(deleteFromLikedProducts(product));
+      setIsLiked(false); // Сразу обновляем состояние isLiked
     } else {
       dispatch(addToLikedProducts(product));
+      setIsLiked(true); // Сразу обновляем состояние isLiked
     }
     dispatch(getLikedProductsQuantity());
-    setIsLiked(!isLiked);
   };
 
   function calculateDiscountPercent(price, discountPrice) {
@@ -115,7 +118,7 @@ export const ProductsCard = ({ product, id }) => {
           className={isAddedToCart ? style.addedToCart : style.btnAddToCard}
           onClick={isAddedToCart ? handleRemoveFromCart : handleAddToCart}
         >
-          {isAddedToCart ? "Added" : "Add to cart"}
+          {isAddedToCart ? "Remove" : "Add to cart"}
         </button>
       )}
     </Link>

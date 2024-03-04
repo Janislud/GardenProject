@@ -15,19 +15,18 @@ import { Button } from "../Button/Button";
 import style from "./singleProduct.module.css";
 
 export const SingleProduct = () => {
-  const { id } = useParams(); // Получаем параметр id из URL
+  const { id } = useParams();
   const { data, error, isLoading } = useGetProductByIdQuery(id);
   const [space, setSpace] = useState(false);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
-  const [isHoveredLikes, setIsHoveredLikes] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
-  const [isLiked, setIsLiked] = useState(false);
 
-  // const isLiked = useSelector((state) =>
-  //   state.likedProducts.likedProducts.some((product) => product.id === id)
-  // );
-  // console.log(isLiked);
+  // Получаем состояние нажатия на сердечко из локального хранилища
+  const [isLiked, setIsLiked] = useState(() => {
+    const likedState = localStorage.getItem(`liked_${id}`);
+    return likedState === "true";
+  });
 
   const increase = () => {
     setQuantity(quantity + 1);
@@ -40,18 +39,25 @@ export const SingleProduct = () => {
   };
 
   const handleAddToCart = (product) => {
-    dispatch(
-      addProductToCart({
-        ...product,
-        quantity: parseInt(quantity),
-        price: product.price,
-      })
-    );
+    dispatch(addProductToCart({ ...product, quantity }));
   };
 
   const switcherText = (event) => {
     event.preventDefault();
     setSpace((prevSpace) => !prevSpace);
+  };
+
+  const handleAddToLikedProduct = (event) => {
+    event.preventDefault();
+    if (isLiked) {
+      dispatch(addToLikedProducts(data[0]));
+      localStorage.setItem(`liked_${id}`, "true");
+    } else {
+      dispatch(deleteFromLikedProducts(data[0]));
+      localStorage.setItem(`liked_${id}`, "false");
+    }
+    dispatch(getLikedProductsQuantity());
+    setIsLiked(!isLiked);
   };
 
   if (error) {
@@ -69,17 +75,6 @@ export const SingleProduct = () => {
   function calculateDiscountPercent(price, discountPrice) {
     return Math.round(((price - discountPrice) / price) * 100);
   }
-
-  const handleAddToLikedProduct = (event) => {
-    event.preventDefault();
-    if (isLiked) {
-      dispatch(deleteFromLikedProducts(data[0]));
-    } else {
-      dispatch(addToLikedProducts(data[0]));
-    }
-    dispatch(getLikedProductsQuantity());
-    setIsLiked(!isLiked); // Переключаем состояние isLiked
-  };
 
   return (
     <>
@@ -110,7 +105,7 @@ export const SingleProduct = () => {
                     onClick={handleAddToLikedProduct}
                   >
                     <img
-                      src={isLiked || isHoveredLikes ? heartRed : heartWhite} // Установка цвета сердечка
+                      src={isLiked ? heartWhite : heartRed}
                       alt="heartIcon"
                       className={style.heartIcon}
                     />
@@ -129,9 +124,9 @@ export const SingleProduct = () => {
                       : product.price}
                   </p>
 
-                  {product.discont_price ? (
+                  {product.discont_price && (
                     <p className={style.initialPrice}>${product.price}</p>
-                  ) : null}
+                  )}
 
                   {product.price &&
                     product.discont_price &&
@@ -146,6 +141,7 @@ export const SingleProduct = () => {
                       </div>
                     )}
                 </div>
+
                 <div className={style.counterUndButton}>
                   <div className={style.divCounter}>
                     <button className={style.minusButton} onClick={decrease}>
