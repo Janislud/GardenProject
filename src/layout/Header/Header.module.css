@@ -245,7 +245,7 @@ a {
   }
 }
 
-@media (max-width: 836px) {
+@media (max-width: 839px) {
   .navList {
     gap: 10px;
   }
@@ -255,7 +255,7 @@ a {
   }
 }
 
-@media (max-width: 761px) {
+@media (max-width: 766px) {
   .listStyle > a {
     font-size: 12px;
   }
