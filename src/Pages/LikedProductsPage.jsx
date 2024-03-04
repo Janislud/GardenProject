@@ -21,17 +21,22 @@ export const LikedProductsPage = () => {
         buttonText="Back to the store"
       />
 
+      <FilterBar />
+      <AllProductsFilter />
       {(!Array.isArray(likedProducts) || likedProducts.length === 0) && (
         <div className={style.emptyLikedProducts}>
           Oops! There are no liked products...
         </div>
       )}
-      <FilterBar />
-      <AllProductsFilter />
+
       <div className={style.likedProductsList}>
         {likedProducts.map((product) => (
-          <div className={style.productCard} key={product.id}>
-            <Link to={`/products/${product.id}`}>
+          <div className={style.productCard}>
+            <Link
+              key={product.id}
+              to={`/products/${product.id}`}
+              state={{ prevPath: location.pathname }}
+            >
               <ProductsCard product={product} id={product.id} />
             </Link>
           </div>
