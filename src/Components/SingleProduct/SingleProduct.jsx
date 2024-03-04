@@ -21,6 +21,15 @@ export const SingleProduct = ({ product }) => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
   const [isAddedToLikedProducts, setIsAddedToLikedProducts] = useState(false);
+
+  /**const likedProducts = useSelector(
+    (state) => state.likedProducts.likedProducts
+  );
+
+  const [isLiked, setIsLiked] = useState(
+    likedProducts.some((item) => item.id === id)
+  );*/
+
   const [isHoveredLikes, setIsHoveredLikes] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
 
@@ -69,12 +78,14 @@ export const SingleProduct = ({ product }) => {
     return Math.round(((price - discountPrice) / price) * 100);
   }
 
-  const handleAddToLikedProduct = (event) => {
-    event.preventDefault();
+  const handleAddToLikedProduct = (product) => {
+    const { id, image, title, price, discont_price } = product;
+    //event.stopPropagation();
+    //event.preventDefault();
     if (isLiked) {
-      dispatch(deleteFromLikedProducts(product));
+      dispatch(deleteFromLikedProducts(id));
     } else {
-      dispatch(addToLikedProducts(product));
+      dispatch(addToLikedProducts({ id, image, title, price, discont_price }));
     }
     dispatch(getLikedProductsQuantity());
     setIsAddedToLikedProducts(true);
@@ -96,7 +107,38 @@ export const SingleProduct = ({ product }) => {
               </div>
 
               <div className={style.divWithPriceCounterDescription}>
-                <h2 className={`${style.h2TitleText} ${theme === 'light' ? style.dark : style.light}`}>{product.title}</h2>
+
+                <div className={style.titleAndHeart}>
+                  <h2 className={style.h2TitleText} ${theme === 'light' ? style.dark : style.light}`}>{product.title}</h2>
+                  <button
+                    className={style.buttonIcon}
+                    onClick={handleAddToLikedProduct}
+                    onMouseEnter={() => {
+                      if (!isAddedToLikedProducts) {
+                        setIsHoveredLikes(true);
+                      }
+                    }}
+                    onMouseLeave={() => {
+                      // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
+                      if (!isAddedToLikedProducts) {
+                        setIsHoveredLikes(false);
+                      }
+                    }}
+                  >
+                    <img
+                      className={style.heartIcon}
+                      src={
+                        isLiked
+                          ? heartRed
+                          : isHoveredLikes
+                          ? heartRed
+                          : heartWhite
+                      }
+                      alt="heartIcon"
+                    />
+                  </button>
+                </div>
+
                 <div className={style.divPrices}>
                   <p className={`${style.discontPrice} ${theme === 'light' ? style.dark : style.light}`}>${product.discont_price ? product.discont_price : product.price}</p>
 
