@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   likedProducts: [],
-  likedIcons: [], // Этот массив можно удалить, если он не используется
   likeTotalQuantity: 0,
 };
 
@@ -37,6 +36,7 @@ const likedProductsSlice = createSlice({
         state.likeTotalQuantity--;
       }
     },
+
     toggleLikedStatus(state, action) {
       const productId = action.payload.id;
       const existingProduct = state.likedProducts.find(
