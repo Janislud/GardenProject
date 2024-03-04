@@ -107,8 +107,9 @@ export const SingleProduct = ({ product }) => {
               </div>
 
               <div className={style.divWithPriceCounterDescription}>
+
                 <div className={style.titleAndHeart}>
-                  <h2 className={style.h2TitleText}>{product.title}</h2>
+                  <h2 className={style.h2TitleText} ${theme === 'light' ? style.dark : style.light}`}>{product.title}</h2>
                   <button
                     className={style.buttonIcon}
                     onClick={handleAddToLikedProduct}
@@ -137,13 +138,9 @@ export const SingleProduct = ({ product }) => {
                     />
                   </button>
                 </div>
+
                 <div className={style.divPrices}>
-                  <p className={style.discontPrice}>
-                    $
-                    {product.discont_price
-                      ? product.discont_price
-                      : product.price}
-                  </p>
+                  <p className={`${style.discontPrice} ${theme === 'light' ? style.dark : style.light}`}>${product.discont_price ? product.discont_price : product.price}</p>
 
                   {product.discont_price ? (
                     <p className={style.initialPrice}>${product.price}</p>

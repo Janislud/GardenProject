@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         element: <CartPage />,
       },
       {
-        path: "/liked-products",
+        path: "/favorites",
         element: <LikedProductsPage />,
       },
       {
