@@ -171,6 +171,11 @@
   margin-top: 100px;
 }
 
+.btnAddToLikes {
+  border: none;
+  background-color: transparent;
+}
+
 .divCounter {
   display: flex;
   flex-wrap: wrap;
@@ -213,21 +218,20 @@
 
 .percentagePrice {
   color: white;
-  padding: 4px 8px;
+  padding: 2px 10px;
   border-radius: 6px;
   background-color: #393;
-  width: 50px;
-  height: 30px;
+  font-size: 15px;
+  margin-bottom: 24px;
 }
 
-.divPrices  {
+.divPrices {
   color: #282828;
   font-family: Montserrat;
   font-size: 40px;
   font-style: normal;
   font-weight: 600;
 }
-
 
 .divWithPriceCounterDescription .divPrices .initialPrice {
   color: #8b8b8b;
@@ -286,7 +290,6 @@
 .dark {
   color: white;
 }
-
 
 @media screen and (max-width: 1800px) {
   .divWithPriceCounterDescription {

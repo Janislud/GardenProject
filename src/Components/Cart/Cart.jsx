@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import cross from "../../assets/images/CartMedia/cross.png";
@@ -13,6 +13,18 @@ import { DataCartForm } from "../DataCartForm/DataCartForm";
 export const Cart = () => {
   const cartProducts = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      dispatch({ type: "SET_CART", payload: JSON.parse(savedCart) });
+    }
+  }, [dispatch]);
+
+  // Обработчик события для сохранения корзины в localStorage при изменении
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
   // Обработчик события для удаления товара из корзины
   const handleRemoveFromCart = (productId, price, count) => {
