@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import cross from "../../assets/images/CartMedia/cross.png";
+import cross from "../../assets/images/CartMedia/cross.svg";
+import crossWhite from "../../assets/images/CartMedia/cross-white.png"
 import {
   addProductToCart,
   dropOneProductFromCart,
@@ -13,6 +14,7 @@ import { DataCartForm } from "../DataCartForm/DataCartForm";
 export const Cart = () => {
   const cartProducts = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.theme)
 
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
@@ -69,7 +71,8 @@ export const Cart = () => {
               ? product.discont_price * product.count
               : null;
           return (
-            <div key={product.id} className={style.cartProduct}>
+            <div key={product.id} className={`${style.cartProduct} ${theme === "light" ? style.dark : style.light
+              }`}>
               <img
                 className={style.cartImgSize}
                 src={`http://localhost:3333${product.image}`}
@@ -128,12 +131,14 @@ export const Cart = () => {
                 </div>
               </div>
               <button
-                className={style.crossBtn}
+                className={`${style.crossBtn} ${theme === "light" ? style.dark : style.light
+                  }`}
                 onClick={() =>
                   dispatch(dropOneProductFromCart({ id: product.id }))
                 }
-              >
-                <img className={style.btnCroosImg} src={cross} alt="cross" />
+              >     {theme === 'dark' ?
+                <img className={style.btnCroosImg} src={cross} alt="cross" /> :
+                <img className={style.btnCroosImg} src={crossWhite} alt="cross" />}
               </button>
             </div>
           );

@@ -61,4 +61,23 @@
   font-weight: 700;
 }
 
+.dark {
+  background: #404040;
+}
 
+.light {
+  background: #f1f3f4;
+}
+
+.light .price {
+  color: black;
+}
+
+.dark .order,
+.price {
+  color: white;
+}
+
+.dark .allThreeInputs {
+  background: #282828;
+}

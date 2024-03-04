@@ -85,16 +85,14 @@ export const ProductsCard = ({ product, id }) => {
       />
 
       <h2
-        className={`${style.saleCardText} ${
-          theme === "light" ? style.dark : style.light
-        }`}
+        className={`${style.saleCardText} ${theme === "light" ? style.dark : style.light
+          }`}
       >
         {product.title}
       </h2>
       <div
-        className={`${style.salePriceWrapper} ${
-          theme === "light" ? style.dark : style.light
-        }`}
+        className={`${style.salePriceWrapper} ${theme === "light" ? style.dark : style.light
+          }`}
       >
         <p className={style.realPrice}>
           ${product.discont_price ?? product.price}
