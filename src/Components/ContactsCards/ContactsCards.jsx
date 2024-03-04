@@ -40,14 +40,20 @@ export const ContactsCards = ({ cardData }) => {
               theme === "light" ? style.dark : style.light
             }`}
           >
-            <a href="https://www.instagram.com/startainstitute?igsh=MTNraWR1cHh3MjdpaA==">
+            <a
+              className={style.instaIcon}
+              href="https://www.instagram.com/startainstitute?igsh=MTNraWR1cHh3MjdpaA=="
+            >
               {theme === "light" ? (
                 <img src={instagramWhite} alt="instagram" />
               ) : (
                 <img src={instagram} alt="instagram" />
               )}
             </a>
-            <a href="https://wa.me/+499999999999">
+            <a
+              className={style.whatsappIcon}
+              href="https://wa.me/+499999999999"
+            >
               {theme === "light" ? (
                 <img src={whatsAppWhite} alt="whatsApp" />
               ) : (

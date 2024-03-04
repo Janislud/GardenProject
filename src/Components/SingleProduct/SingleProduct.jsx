@@ -99,6 +99,7 @@ export const SingleProduct = () => {
               <div className={style.divWithPriceCounterDescription}>
                 <div className={style.titleAndHeart}>
                   <h2
+
                     className={`${style.h2TitleText} ${
                       theme === "light" ? style.dark : style.light
                     }`}
