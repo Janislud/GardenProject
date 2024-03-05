@@ -21,20 +21,15 @@ export const SingleProduct = () => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
   const theme = useSelector((state) => state.theme.theme);
-
-  // Получаем состояние нажатия на сердечко из локального хранилища
-  const [isLiked, setIsLiked] = useState(() => {
-    const likedState = localStorage.getItem(`liked_${id}`);
-    return likedState === "true";
-  });
+  const [isLiked, setIsLiked] = useState(false);
 
   const increase = () => {
-    setQuantity(quantity + 1);
+    setQuantity((quantity) => quantity + 1);
   };
 
   const decrease = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      setQuantity((quantity) => quantity - 1);
     }
   };
 
@@ -50,11 +45,9 @@ export const SingleProduct = () => {
   const handleAddToLikedProduct = (event) => {
     event.preventDefault();
     if (isLiked) {
-      dispatch(addToLikedProducts(data[0]));
-      localStorage.setItem(`liked_${id}`, "true");
-    } else {
       dispatch(deleteFromLikedProducts(data[0]));
-      localStorage.setItem(`liked_${id}`, "false");
+    } else {
+      dispatch(addToLikedProducts(data[0]));
     }
     dispatch(getLikedProductsQuantity());
     setIsLiked(!isLiked);
@@ -94,7 +87,6 @@ export const SingleProduct = () => {
               <div className={style.divWithPriceCounterDescription}>
                 <div className={style.titleAndHeart}>
                   <h2
-
                     className={`${style.h2TitleText} ${
                       theme === "light" ? style.dark : style.light
                     }`}
@@ -106,7 +98,7 @@ export const SingleProduct = () => {
                     onClick={handleAddToLikedProduct}
                   >
                     <img
-                      src={isLiked ? heartWhite : heartRed}
+                      src={isLiked ? heartRed : heartWhite}
                       alt="heartIcon"
                       className={style.heartIcon}
                     />
@@ -145,19 +137,28 @@ export const SingleProduct = () => {
 
                 <div className={style.counterUndButton}>
                   <div className={style.divCounter}>
-                    <button className={`${style.minusButton} ${theme === "light" ? style.dark : style.light
-              }`} onClick={decrease}>
+                    <button
+                      className={`${style.minusButton} ${
+                        theme === "light" ? style.dark : style.light
+                      }`}
+                      onClick={decrease}
+                    >
                       -
                     </button>
                     <input
-                      className={`${style.countInput} ${theme === "light" ? style.dark : style.light
-              }`}
+                      className={`${style.countInput} ${
+                        theme === "light" ? style.dark : style.light
+                      }`}
                       type="number"
                       value={quantity}
                       onChange={(e) => setQuantity(parseInt(e.target.value))}
                     />
-                    <button className={`${style.plusButton} ${theme === "light" ? style.dark : style.light
-              }`} onClick={increase}>
+                    <button
+                      className={`${style.plusButton} ${
+                        theme === "light" ? style.dark : style.light
+                      }`}
+                      onClick={increase}
+                    >
                       +
                     </button>
                   </div>
@@ -172,8 +173,11 @@ export const SingleProduct = () => {
                   </div>
                 </div>
 
-                <div className={`${style.productDescription} ${theme === "light" ? style.dark : style.light
-              }`}>
+                <div
+                  className={`${style.productDescription} ${
+                    theme === "light" ? style.dark : style.light
+                  }`}
+                >
                   <h6 className={style.h6Description}>Description</h6>
                   <p
                     className={`${style.productTextDescriptionMain} ${
