@@ -35,18 +35,8 @@ export const ProductsCard = ({ product, id }) => {
     const isAlreadyAddedToLiked = likedItems.some(
       (item) => item.id === product.id
     );
-    setIsHoveredLikes(isAlreadyAddedToLiked);
+    setIsLiked(isAlreadyAddedToLiked);
   }, [likedItems, product.id]);
-
-  const handleAddToCart = (event) => {
-    event.preventDefault();
-    dispatch(addProductToCart({ ...product, quantity: 1 }));
-  };
-
-  const handleRemoveFromCart = (event) => {
-    event.preventDefault(event);
-    dispatch(dropOneProductFromCart({ id: product.id }));
-  };
 
   const handleAddToLikedProduct = (event) => {
     event.preventDefault();
@@ -57,6 +47,16 @@ export const ProductsCard = ({ product, id }) => {
       dispatch(addToLikedProducts(product));
       setIsLiked(true); // Сразу обновляем состояние isLiked
     }
+  };
+
+  const handleAddToCart = (event) => {
+    event.preventDefault();
+    dispatch(addProductToCart({ ...product, quantity: 1 }));
+  };
+
+  const handleRemoveFromCart = (event) => {
+    event.preventDefault(event);
+    dispatch(dropOneProductFromCart({ id: product.id }));
   };
 
   function calculateDiscountPercent(price, discountPrice) {
