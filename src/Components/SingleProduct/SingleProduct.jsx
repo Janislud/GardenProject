@@ -14,6 +14,7 @@ import { Button } from "../Button/Button";
 import style from "./singleProduct.module.css";
 
 export const SingleProduct = () => {
+
   const { id: routeId } = useParams();
   const { data, error, isLoading } = useGetProductByIdQuery(routeId);
   const [space, setSpace] = useState(false);
@@ -42,6 +43,7 @@ export const SingleProduct = () => {
     }
   };
 
+
   const handleAddToCart = () => {
     if (data && data.length > 0) {
       dispatch(addProductToCart({ ...data[0], quantity }));
@@ -55,6 +57,7 @@ export const SingleProduct = () => {
 
   const handleAddToLikedProduct = (event) => {
     event.preventDefault();
+
     if (data && data.length > 0) {
       if (isLiked) {
         dispatch(deleteFromLikedProducts(data[0]));
