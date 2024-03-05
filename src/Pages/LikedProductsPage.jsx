@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BreadCrumbs } from "../Components/BreadCrumbs/BreadCrumbs";
 import { TitleBar } from "../Components/TitleBar/TitleBar";
 import heartRed from "../assets/images/LikesMedia/heartRed.svg";
@@ -41,7 +41,8 @@ export const LikedProductsPage = ({ title, id }) => {
     dispatch(dropOneProductFromCart({ ...product, quantity: 1 }));
   };
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product, event) => {
+    event.preventDefault();
     dispatch(addProductToCart({ ...product, quantity: 1 }));
   };
 
@@ -69,7 +70,7 @@ export const LikedProductsPage = ({ title, id }) => {
       <div className={style.likedProductsList}>
         {filteredProducts.map((product) => (
           <div className={style.productCard} key={product.id}>
-            <div
+            <Link
               key={product.id}
               className={style.saleCard}
               to={`/products/${product.id}`}
@@ -115,7 +116,10 @@ export const LikedProductsPage = ({ title, id }) => {
 
               <button
                 className={style.btnAddToLikes}
-                onClick={() => handleDeleteFromFavorits(product.id)}
+                onClick={(event) => {
+                  event.preventDefault();
+                  handleDeleteFromFavorits(product.id);
+                }}
               >
                 <img
                   src={heartRed}
@@ -131,16 +135,17 @@ export const LikedProductsPage = ({ title, id }) => {
                       ? style.addedToCart
                       : style.btnAddToCard
                   }
-                  onClick={() => {
+                  onClick={(event) => {
+                    event.preventDefault();
                     addedToCartMap[product.id]
                       ? handleRemoveFromCart(product)
-                      : handleAddToCart(product);
+                      : handleAddToCart(product, event); // Передаем event в функцию handleAddToCart
                   }}
                 >
                   {addedToCartMap[product.id] ? "Remove" : "Add to cart"}
                 </button>
               )}
-            </div>
+            </Link>
           </div>
         ))}
       </div>
