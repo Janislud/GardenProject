@@ -167,7 +167,8 @@ a:hover {
 .burger_line_second,
 .burger_line_third {
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.3s ease-in-out;
 }
 
 .burger_line_fourth {
@@ -181,12 +182,24 @@ a:hover {
 
 .burger_active .burger_line_second {
   transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.3s ease-in-out;
   color: #ffff;
 }
 
 .burger_active .burger_line_third {
   transform: translateY(-50%) rotate(-45deg);
+  transition: transform 0.3s ease-in-out;
   color: #ffff;
+}
+
+.burger:not(.burger_active) .burger_line_second {
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.burger:not(.burger_active) .burger_line_third {
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.3s ease-in-out;
 }
 
 /* //////TOGGLE THEMA//// */
@@ -231,13 +244,13 @@ a:hover {
 
 .dark > a {
   color: white;
-  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  transition: left 0.1s ease-in-out;
 }
 
 .light {
   background: white;
   color: black;
-  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  transition: left 0.1s ease-in-out;
 }
 .dark .active {
   color: #393; /* Цвет текста для темы dark */
@@ -259,7 +272,7 @@ a:hover {
   background: white;
 }
 
-@media (max-width: 954px) {
+@media (max-width: 958px) {
   .listStyle > a {
     font-size: 17px;
   }
@@ -269,7 +282,7 @@ a:hover {
   }
 }
 
-@media (max-width: 836px) {
+@media (max-width: 839px) {
   .navList {
     gap: 10px;
   }
@@ -279,7 +292,7 @@ a:hover {
   }
 }
 
-@media (max-width: 761px) {
+@media (max-width: 766px) {
   .listStyle > a {
     font-size: 12px;
   }
@@ -305,7 +318,7 @@ a:hover {
     gap: 20px;
     background-color: white;
     flex-direction: column;
-    justify-content: center;
+    padding-top: 90px;
     position: absolute;
     top: 0;
     width: 57%;
@@ -328,7 +341,7 @@ a:hover {
   .dark {
     background: #282828;
     color: white;
-    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+    transition: left 0.1s ease-in-out;
   }
 
   .light > {
@@ -358,6 +371,7 @@ a:hover {
     transform: translateX(0);
     visibility: visible;
     opacity: 1;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   }
 }
 

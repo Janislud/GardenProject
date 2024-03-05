@@ -36,6 +36,7 @@ const likedProductsSlice = createSlice({
         state.likeTotalQuantity--;
       }
     },
+
     toggleLikedStatus(state, action) {
       const productId = action.payload.id;
       const existingProduct = state.likedProducts.find(
