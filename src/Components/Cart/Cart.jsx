@@ -79,12 +79,17 @@ export const Cart = () => {
                 theme === "light" ? style.dark : style.light
               }`}
             >
-              <img
-                className={style.cartImgSize}
-                src={`http://localhost:3333${product.image}`}
-                alt={product.title}
-              />
-
+              <Link
+                className={style.linkCartImgSize}
+                key={product.id}
+                to={`/products/${product.id}`}
+              >
+                <img
+                  className={style.cartImgSize}
+                  src={`http://localhost:3333${product.image}`}
+                  alt={product.title}
+                />
+              </Link>
               <div className={style.productCardWrapper}>
                 <Link
                   className={style.linkCartImgSize}
