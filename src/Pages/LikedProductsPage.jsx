@@ -14,6 +14,7 @@ export const LikedProductsPage = ({ title }) => {
 
   // Вызываем хук, чтобы он мог выполнить фильтрацию и сортировку
   const filteredProducts = FilterFavorits(likedProducts);
+  console.log(likedProducts);
 
   return (
     <section>
