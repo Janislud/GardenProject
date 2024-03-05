@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import heartRed from "../../assets/images/LikesMedia/heartRed.svg";
 import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
-import { addProductToCart } from "../../slices/cartSlice";
+import {
+  addProductToCart,
+  dropOneProductFromCart,
+} from "../../slices/cartSlice";
 import {
   addToLikedProducts,
   deleteFromLikedProducts,
-  getLikedProductsQuantity,
 } from "../../slices/likedProductsSlice";
 import style from "./ProductsCard.module.css";
 
@@ -33,29 +35,28 @@ export const ProductsCard = ({ product, id }) => {
     const isAlreadyAddedToLiked = likedItems.some(
       (item) => item.id === product.id
     );
-    setIsHoveredLikes(isAlreadyAddedToLiked);
+    setIsLiked(isAlreadyAddedToLiked);
   }, [likedItems, product.id]);
-
-  const handleAddToCart = (event) => {
-    event.preventDefault();
-    dispatch(addProductToCart({ ...product, quantity: 1 }));
-    setIsAddedToCart(!isAddedToCart);
-  };
-
-  const handleRemoveFromCart = () => {
-    dispatch(dropOneProductFromCart({ id: product.id }));
-    setIsAddedToCart(false); // Обновляем состояние при удалении товара из корзины
-  };
 
   const handleAddToLikedProduct = (event) => {
     event.preventDefault();
     if (isLiked) {
       dispatch(deleteFromLikedProducts(product));
+      setIsLiked(false); // Сразу обновляем состояние isLiked
     } else {
       dispatch(addToLikedProducts(product));
+      setIsLiked(true); // Сразу обновляем состояние isLiked
     }
-    dispatch(getLikedProductsQuantity());
-    setIsLiked(!isLiked);
+  };
+
+  const handleAddToCart = (event) => {
+    event.preventDefault();
+    dispatch(addProductToCart({ ...product, quantity: 1 }));
+  };
+
+  const handleRemoveFromCart = (event) => {
+    event.preventDefault(event);
+    dispatch(dropOneProductFromCart({ id: product.id }));
   };
 
   function calculateDiscountPercent(price, discountPrice) {
@@ -83,14 +84,16 @@ export const ProductsCard = ({ product, id }) => {
       />
 
       <h2
-        className={`${style.saleCardText} ${theme === "light" ? style.dark : style.light
-          }`}
+        className={`${style.saleCardText} ${
+          theme === "light" ? style.dark : style.light
+        }`}
       >
         {product.title}
       </h2>
       <div
-        className={`${style.salePriceWrapper} ${theme === "light" ? style.dark : style.light
-          }`}
+        className={`${style.salePriceWrapper} ${
+          theme === "light" ? style.dark : style.light
+        }`}
       >
         <p className={style.realPrice}>
           ${product.discont_price ?? product.price}
@@ -102,7 +105,7 @@ export const ProductsCard = ({ product, id }) => {
 
       <button className={style.btnAddToLikes} onClick={handleAddToLikedProduct}>
         <img
-          src={isLiked || isHoveredLikes ? heartRed : heartWhite} // Установка цвета сердечка
+          src={isLiked || isHoveredLikes ? heartRed : heartWhite}
           alt="heartIcon"
           className={style.heartIcon}
         />
@@ -113,7 +116,7 @@ export const ProductsCard = ({ product, id }) => {
           className={isAddedToCart ? style.addedToCart : style.btnAddToCard}
           onClick={isAddedToCart ? handleRemoveFromCart : handleAddToCart}
         >
-          {isAddedToCart ? "Added" : "Add to cart"}
+          {isAddedToCart ? "Remove" : "Add to cart"}
         </button>
       )}
     </Link>
