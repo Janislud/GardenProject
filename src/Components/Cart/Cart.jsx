@@ -53,7 +53,9 @@ export const Cart = () => {
   if (!Array.isArray(cartProducts) || cartProducts.length === 0) {
     return (
       <div className={style.emptyCart}>
-        <h2>Looks like you have no items in your basket currently.</h2>
+        <h2 className={style.emptyCartMessage}>
+          Looks like you have no items in your basket currently.
+        </h2>
         <Link className={style.emptyCartBtn} to={"/"}>
           Continue Shopping
         </Link>
@@ -82,8 +84,15 @@ export const Cart = () => {
                 src={`http://localhost:3333${product.image}`}
                 alt={product.title}
               />
+
               <div className={style.productCardWrapper}>
-                <h3 className={style.productCardTitle}>{product.title}</h3>
+                <Link
+                  className={style.linkCartImgSize}
+                  key={product.id}
+                  to={`/products/${product.id}`}
+                >
+                  <h3 className={style.productCardTitle}>{product.title}</h3>
+                </Link>
                 <div className={style.countPlusPriceWrapper}>
                   <div className={style.btnWrapper}>
                     <button
@@ -144,7 +153,7 @@ export const Cart = () => {
               >
                 {" "}
                 {theme === "dark" ? (
-                  <img className={style.btnCroosImg} src={cross} alt="cross" />
+                  <img className={style.btnCrossImg} src={cross} alt="cross" />
                 ) : (
                   <img
                     className={style.btnCroosImg}

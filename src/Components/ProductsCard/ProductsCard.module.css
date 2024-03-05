@@ -17,6 +17,7 @@
   line-height: 130%;
   margin: 0px 32px 16px 32px;
   min-height: 55px;
+  color: #282828;
 }
 .saleCardText:hover {
   color: #393;
@@ -37,6 +38,7 @@
   font-size: 40px;
   font-weight: 600;
   line-height: 110%;
+  color: #282828;
 }
 .firstPrice {
   font-size: 23px;
