@@ -105,7 +105,7 @@ export const ProductsCard = ({ product, id }) => {
 
       <button className={style.btnAddToLikes} onClick={handleAddToLikedProduct}>
         <img
-          src={isLiked || isHoveredLikes ? heartRed : heartWhite} // Установка цвета сердечка
+          src={isLiked || isHoveredLikes ? heartRed : heartWhite}
           alt="heartIcon"
           className={style.heartIcon}
         />

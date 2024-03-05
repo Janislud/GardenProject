@@ -1,20 +1,53 @@
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { BreadCrumbs } from "../Components/BreadCrumbs/BreadCrumbs";
-import { ProductsCard } from "../Components/ProductsCard/ProductsCard";
 import { TitleBar } from "../Components/TitleBar/TitleBar";
+import heartRed from "../assets/images/LikesMedia/heartRed.svg";
 import { FilterFavorits } from "../hooks/useFilterFavarits";
+import { addProductToCart, dropOneProductFromCart } from "../slices/cartSlice";
+import { deleteFromLikedProducts } from "../slices/likedProductsSlice";
 import { FilterBar } from "./../Components/FilterBar/FilterBar";
 import style from "./LikedProductsPage.module.css";
 
-export const LikedProductsPage = ({ title }) => {
+export const LikedProductsPage = ({ title, id }) => {
   const likedProducts = useSelector(
     (state) => state.likedProducts.likedProducts
   );
-
-  // Вызываем хук, чтобы он мог выполнить фильтрацию и сортировку
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.theme);
+  const [isHovered, setIsHovered] = useState(false);
+  const [addedToCartMap, setAddedToCartMap] = useState({}); // Создаем состояние для отслеживания добавленных товаров
+  const location = useLocation();
   const filteredProducts = FilterFavorits(likedProducts);
-  console.log(likedProducts);
+  const cartItems = useSelector((state) => state.cart.products);
+
+  useEffect(() => {
+    // Проверяем, был ли товар добавлен в корзину ранее при загрузке компонента
+    filteredProducts.forEach((product) => {
+      const isAlreadyAdded = cartItems.some((item) => item.id === product.id);
+      setAddedToCartMap((prevState) => ({
+        ...prevState,
+        [product.id]: isAlreadyAdded,
+      }));
+    });
+  }, [cartItems, filteredProducts]);
+
+  const handleDeleteFromFavorits = (productId) => {
+    dispatch(deleteFromLikedProducts({ id: productId }));
+  };
+
+  const handleRemoveFromCart = (product) => {
+    dispatch(dropOneProductFromCart({ ...product, quantity: 1 }));
+  };
+
+  const handleAddToCart = (product) => {
+    dispatch(addProductToCart({ ...product, quantity: 1 }));
+  };
+
+  function calculateDiscountPercent(price, discountPrice) {
+    return Math.round(((price - discountPrice) / price) * 100);
+  }
 
   return (
     <section>
@@ -34,12 +67,80 @@ export const LikedProductsPage = ({ title }) => {
       )}
 
       <div className={style.likedProductsList}>
-        {/* Выводим отфильтрованные продукты */}
         {filteredProducts.map((product) => (
           <div className={style.productCard} key={product.id}>
-            <Link to={`/products/${product.id}`}>
-              <ProductsCard product={product} id={product.id} />
-            </Link>
+            <div
+              key={product.id}
+              className={style.saleCard}
+              to={`/products/${product.id}`}
+              state={{ prevPath: location.pathname }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              {product.discont_price && product.price && (
+                <div className={style.saleBlock}>
+                  -
+                  {calculateDiscountPercent(
+                    product.price,
+                    product.discont_price
+                  )}
+                  %
+                </div>
+              )}
+              <img
+                className={style.saleImg}
+                src={`http://localhost:3333${product.image}`}
+                alt={product.title}
+              />
+
+              <h2
+                className={`${style.saleCardText} ${
+                  theme === "light" ? style.dark : style.light
+                }`}
+              >
+                {product.title}
+              </h2>
+              <div
+                className={`${style.salePriceWrapper} ${
+                  theme === "light" ? style.dark : style.light
+                }`}
+              >
+                <p className={style.realPrice}>
+                  ${product.discont_price ?? product.price}
+                </p>
+                {product.discont_price ? (
+                  <p className={style.firstPrice}>${product.price}</p>
+                ) : null}
+              </div>
+
+              <button
+                className={style.btnAddToLikes}
+                onClick={() => handleDeleteFromFavorits(product.id)}
+              >
+                <img
+                  src={heartRed}
+                  alt="heartIcon"
+                  className={style.heartIcon}
+                />
+              </button>
+
+              {isHovered && (
+                <button
+                  className={
+                    addedToCartMap[product.id]
+                      ? style.addedToCart
+                      : style.btnAddToCard
+                  }
+                  onClick={() => {
+                    addedToCartMap[product.id]
+                      ? handleRemoveFromCart(product)
+                      : handleAddToCart(product);
+                  }}
+                >
+                  {addedToCartMap[product.id] ? "Remove" : "Add to cart"}
+                </button>
+              )}
+            </div>
           </div>
         ))}
       </div>
