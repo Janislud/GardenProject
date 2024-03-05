@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   likedProducts: [],
-  likedIcons: [], // Этот массив можно удалить, если он не используется
   likeTotalQuantity: 0,
 };
 

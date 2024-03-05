@@ -1,10 +1,11 @@
 .titleTextWrapper {
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-margin: 0 auto;
-max-width: 1350px;
-margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1350px;
+  margin-top: 40px;
+  padding: 0 40px 40px 40px;
 }
 
 .titleDescription {

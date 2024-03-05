@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   padding: 32px;
-  max-width: 548px;
+  width: 540px;
   max-height: 582px;
   background: rgb(241, 243, 244);
   border-radius: 12px;
@@ -24,7 +24,7 @@
 
 .allThreeInputs {
   padding: 16px 32px;
-  width: 484px;
+  width: 100%;
   height: 58px;
   font-size: 20px;
   font-weight: 500;
@@ -33,6 +33,11 @@
   border: 1px solid rgb(221, 221, 221);
   border-radius: 6px;
   background: rgb(255, 255, 255);
+  transition: transform 0.3s ease-in-out;
+}
+
+.allThreeInputs:hover {
+  transform: scale(1.1);
 }
 
 .order {
@@ -80,4 +85,91 @@
 
 .dark .allThreeInputs {
   background: #282828;
+}
+
+@media screen and (max-width: 1098px) {
+  .divFormWrapper {
+    max-width: 460px;
+  }
+  .price {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 1017px) {
+  .divFormWrapper {
+    max-width: 420px;
+  }
+  .price {
+    font-size: 40px;
+  }
+  .totalPrice {
+    margin-top: 19px;
+  }
+}
+
+@media screen and (max-width: 978px) {
+  .divFormWrapper {
+    max-width: 370px;
+  }
+  .price {
+    font-size: 30px;
+  }
+  .totalPrice {
+    margin-top: 20px;
+    gap: 115px;
+  }
+}
+
+@media screen and (max-width: 927px) {
+  .divFormWrapper {
+    max-width: 360px;
+  }
+  .price {
+    font-size: 30px;
+  }
+  .totalPrice {
+    margin-top: 20px;
+    gap: 115px;
+  }
+}
+
+@media screen and (max-width: 917px) {
+  .divFormWrapper {
+    max-width: 800px;
+    margin: 10px auto;
+  }
+  .price {
+    font-size: 40px;
+  }
+  .totalPrice {
+    margin-top: 20px;
+    gap: 115px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .divFormWrapper {
+    max-width: 350px;
+    margin: 10px auto;
+  }
+  .price {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .divFormWrapper {
+    max-width: 300px;
+    margin: 2px auto;
+  }
+  .order,
+  .itemCounter,
+  .total,
+  .price {
+    font-size: 30px;
+  }
+  .totalPrice {
+    gap: 20px;
+  }
 }

@@ -36,6 +36,13 @@
   border-radius: 8px;
 }
 
+.dark .instaIcon:hover {
+  transform: scale(1.4);
+  background-color: #393;
+  border-radius: 8px;
+  padding: 5px;
+}
+
 .whatsappIcon {
   transition: transform 0.3s ease-in-out;
 }
@@ -45,6 +52,13 @@
   background-color: #393;
   border-radius: 22px;
   padding: 1px;
+}
+
+.dark .whatsappIcon:hover {
+  transform: scale(1.4);
+  background-color: #393;
+  border-radius: 22px;
+  padding: 5px;
 }
 
 .dark {

@@ -1,8 +1,13 @@
+.emptyCart {
+  margin-left: 30px;
+}
+
 .CartWrapper {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  max-width: 1350px;
+  max-width: 1440px;
+  padding: 0 40px 80px 40px;
   margin-bottom: 80px;
   justify-content: space-between;
   gap: 15px;
@@ -15,9 +20,16 @@
   flex-direction: column;
 }
 
-.btnCroosImg {
+.btnCrossImg {
   width: 20px;
   height: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.btnCrossImg:hover {
+  transform: scale(1.5);
+  background-color: #393;
+  border-radius: 5px;
 }
 
 .crossBtn {
@@ -29,6 +41,13 @@
   padding: 0;
   margin: 0;
   cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.crossBtn:hover {
+  transform: scale(1.1);
+  background-color: #393;
+  border-radius: 5px;
 }
 
 .titleWrapperWithCross {
@@ -40,6 +59,13 @@
   max-width: 200px;
   margin: 0px 32px 0px 0px;
   border-radius: 12px 0px 0px 12px;
+  height: 178px;
+  margin-bottom: -4px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cartImgSize:hover {
+  transform: scale(0.95);
 }
 
 .cartProduct {
@@ -47,23 +73,38 @@
   border: 1px solid rgb(221, 221, 221);
   border-radius: 12px;
   position: relative;
-  max-width: 700px;
+  max-width: 900px;
   max-height: 180px;
+  padding: 0 180px 0 0;
 }
 .productCardWrapper {
   display: flex;
   flex-wrap: wrap;
-  padding: 41px 25px 8px 0px;
+  padding: 41px 25px 18px 0px;
   position: relative;
   flex-direction: column;
 }
 
 .productCardTitle {
   color: rgb(40, 40, 40);
-  font-size: 15px;
+  font-size: 22px;
   font-weight: 500;
   line-height: 130%;
-  max-width: 430px;
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform 0.3s ease-in-out;
+}
+
+.productCardTitle:hover {
+  color: #393;
+  text-decoration: underline;
+}
+
+.dark .productCardTitle:hover {
+  color: #393;
+  text-decoration: underline;
 }
 
 .productCardDiscountPrice {
@@ -136,6 +177,14 @@
   cursor: pointer;
   font-size: 20px;
   color: rgb(139, 139, 139);
+  transition: transform 1.9s ease-in-out;
+}
+
+.btnMinus:hover {
+  color: #393;
+  font-size: 30px;
+  font-weight: 300px;
+  transform: scale(1);
 }
 
 .count {
@@ -156,6 +205,14 @@
   cursor: pointer;
   font-size: 20px;
   color: rgb(139, 139, 139);
+  transition: transform 1.9s ease-in-out;
+}
+
+.btnPlus:hover {
+  color: #393;
+  font-size: 30px;
+  font-weight: 300px;
+  transform: scale(1);
 }
 
 .salePriceWrapper {
@@ -190,8 +247,7 @@
   color: black;
 }
 
-.light
-.discountedPrice {
+.light .discountedPrice {
   color: black;
 }
 
@@ -203,4 +259,179 @@
 .dark .btnMinus,
 .btnPlus {
   background-color: transparent;
+}
+
+@media screen and (max-width: 1440px) {
+  .cartProduct {
+    padding: 0 140px 0 0;
+  }
+  .emptyCart {
+    margin: auto 30px;
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  .cartProduct {
+    padding: 0 120px 0 0;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .cartProduct {
+    padding: 0 100px 0 0;
+  }
+}
+
+@media screen and (max-width: 1378px) {
+  .cartProduct {
+    padding: 0 90px 0 0;
+  }
+}
+
+@media screen and (max-width: 1369px) {
+  .cartProduct {
+    padding: 0 70px 0 0;
+  }
+}
+
+@media screen and (max-width: 1349px) {
+  .cartProduct {
+    padding: 0 50px 0 0;
+  }
+}
+
+@media screen and (max-width: 1328px) {
+  .cartProduct {
+    padding: 0 30px 0 0;
+  }
+}
+
+@media screen and (max-width: 1308px) {
+  .cartProduct {
+    padding: 0 10px 0 0;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .countPlusPriceWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    margin-left: -300px;
+  }
+  .productCardWrapper {
+    padding: 25px 15px 4px 0;
+  }
+}
+
+@media screen and (max-width: 1198px) {
+  .productCardTitle {
+    width: 200px;
+  }
+  .countPlusPriceWrapper {
+    margin-left: -200px;
+  }
+}
+
+@media screen and (max-width: 917px) {
+  .productCardTitle {
+    width: 500px;
+  }
+  .countPlusPriceWrapper {
+    flex-direction: row;
+    justify-content: start;
+    margin-left: 5px;
+  }
+  .cartProduct {
+    padding: 0 220px 0 0;
+  }
+}
+
+@media screen and (max-width: 853px) {
+  .cartProduct {
+    padding: 0 10px 0 0;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .productCardTitle {
+    width: 450px;
+  }
+  .cartProduct {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .productCardTitle {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  .productCardTitle {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 663px) {
+  .countPlusPriceWrapper {
+    flex-direction: column;
+    gap: 10px;
+    margin-left: -300px;
+  }
+}
+
+@media screen and (max-width: 597px) {
+  .productCardTitle {
+    width: 200px;
+  }
+  .countPlusPriceWrapper {
+    margin-left: -200px;
+  }
+}
+
+@media screen and (max-width: 502px) {
+  .cartImgSize {
+    max-width: 150px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .cartImgSize {
+    max-width: 100px;
+    max-height: 200px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 423px) {
+  .cartImgSize {
+    margin: 0px 9px 0px 0px;
+  }
+  .CartWrapper {
+    padding: 0 20px 60px 20px;
+  }
+  .emptyCart > .emptyCartBtn {
+    padding: 14px 5px;
+  }
+  .emptyCart > .emptyCartMessage {
+    font-size: 20px;
+  }
+  .productCardTitle {
+    width: 180px;
+  }
+  .btnMinus {
+    width: 45px;
+  }
+  .btnPlus {
+    width: 45px;
+  }
+  .countPlusPriceWrapper {
+    margin-left: -186px;
+  }
+  .discountedPrice {
+    font-size: 35px;
+  }
 }
