@@ -7,6 +7,7 @@
   border-bottom: 1px solid #dddddd;
   object-fit: cover;
 }
+
 .saleCard:hover {
   transform: scale(1.1);
 }
@@ -16,6 +17,7 @@
   line-height: 130%;
   margin: 0px 32px 16px 32px;
   min-height: 55px;
+  color: #282828;
 }
 .saleCardText:hover {
   color: #393;
@@ -36,6 +38,13 @@
   font-size: 40px;
   font-weight: 600;
   line-height: 110%;
+  color: #282828;
+}
+.dark .realPrice {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 110%;
+  color: #ffffff;
 }
 .firstPrice {
   font-size: 23px;
@@ -128,7 +137,6 @@
 
 .dark {
   color: white;
-  background: #282828;
 }
 
 .btnAddToLikes {

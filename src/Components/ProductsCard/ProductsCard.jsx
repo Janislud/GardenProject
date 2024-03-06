@@ -3,26 +3,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import heartRed from "../../assets/images/LikesMedia/heartRed.svg";
 import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
-import { addProductToCart } from "../../slices/cartSlice";
+import {
+  addProductToCart,
+  dropOneProductFromCart,
+} from "../../slices/cartSlice";
 import {
   addToLikedProducts,
   deleteFromLikedProducts,
-  getLikedProductsQuantity,
 } from "../../slices/likedProductsSlice";
 import style from "./ProductsCard.module.css";
 
 export const ProductsCard = ({ product, id }) => {
-  const [isAddedToLikedProducts, setIsAddedToLikedProducts] = useState(false);
-  const isLiked = useSelector((state) =>
-    state.likedProducts.likedProducts.some((product) => product.id === id)
-  );
   const dispatch = useDispatch();
   const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const location = useLocation();
   const theme = useSelector((state) => state.theme.theme);
   const cartItems = useSelector((state) => state.cart.products);
-  const [isHovered, setIsHovered] = useState(false);
+  const likedItems = useSelector((state) => state.likedProducts.likedProducts);
   const [isHoveredLikes, setIsHoveredLikes] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     // Проверяем, был ли товар добавлен в корзину ранее при загрузке компонента
@@ -30,27 +30,33 @@ export const ProductsCard = ({ product, id }) => {
     setIsAddedToCart(isAlreadyAdded);
   }, [cartItems, product.id]);
 
-  const handleAddToCart = (event) => {
-    event.preventDefault();
-    dispatch(addProductToCart({ ...product, quantity: 1 }));
-    setIsAddedToCart(true);
-  };
+  useEffect(() => {
+    // Проверяем, был ли товар добавлен в likedPage ранее при загрузке компонента
+    const isAlreadyAddedToLiked = likedItems.some(
+      (item) => item.id === product.id
+    );
+    setIsLiked(isAlreadyAddedToLiked);
+  }, [likedItems, product.id]);
 
   const handleAddToLikedProduct = (event) => {
-    event.stopPropagation();
     event.preventDefault();
     if (isLiked) {
       dispatch(deleteFromLikedProducts(product));
+      setIsLiked(false); // Сразу обновляем состояние isLiked
     } else {
       dispatch(addToLikedProducts(product));
+      setIsLiked(true); // Сразу обновляем состояние isLiked
     }
-    dispatch(getLikedProductsQuantity());
-    setIsAddedToLikedProducts(true);
   };
 
-  const handleRemoveFromCart = () => {
+  const handleAddToCart = (event) => {
+    event.preventDefault();
+    dispatch(addProductToCart({ ...product, quantity: 1 }));
+  };
+
+  const handleRemoveFromCart = (event) => {
+    event.preventDefault(event);
     dispatch(dropOneProductFromCart({ id: product.id }));
-    setIsAddedToCart(false); // Обновляем состояние при удалении товара из корзины
   };
 
   function calculateDiscountPercent(price, discountPrice) {
@@ -97,33 +103,20 @@ export const ProductsCard = ({ product, id }) => {
         ) : null}
       </div>
 
-      <button
-        className={style.btnAddToLikes}
-        onClick={handleAddToLikedProduct}
-        onMouseEnter={() => {
-          if (!isAddedToLikedProducts) {
-            setIsHoveredLikes(true);
-          }
-        }}
-        onMouseLeave={() => {
-          // Если товар уже добавлен в корзину, игнорируем изменение изображения при уходе курсора
-          if (!isAddedToLikedProducts) {
-            setIsHoveredLikes(false);
-          }
-        }}
-      >
+      <button className={style.btnAddToLikes} onClick={handleAddToLikedProduct}>
         <img
-          src={isLiked ? heartRed : isHoveredLikes ? heartRed : heartWhite}
+          src={isLiked || isHoveredLikes ? heartRed : heartWhite}
           alt="heartIcon"
           className={style.heartIcon}
         />
       </button>
+
       {isHovered && (
         <button
           className={isAddedToCart ? style.addedToCart : style.btnAddToCard}
           onClick={isAddedToCart ? handleRemoveFromCart : handleAddToCart}
         >
-          {isAddedToCart ? "Added" : "Add to cart"}
+          {isAddedToCart ? "Remove" : "Add to cart"}
         </button>
       )}
     </Link>

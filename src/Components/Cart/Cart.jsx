@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import cross from "../../assets/images/CartMedia/cross.png";
+import crossWhite from "../../assets/images/CartMedia/cross-white.png";
+import cross from "../../assets/images/CartMedia/cross.svg";
 import {
   addProductToCart,
   dropOneProductFromCart,
@@ -13,6 +14,19 @@ import { DataCartForm } from "../DataCartForm/DataCartForm";
 export const Cart = () => {
   const cartProducts = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.theme);
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      dispatch({ type: "SET_CART", payload: JSON.parse(savedCart) });
+    }
+  }, [dispatch]);
+
+  // Обработчик события для сохранения корзины в localStorage при изменении
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
   // Обработчик события для удаления товара из корзины
   const handleRemoveFromCart = (productId, price, count) => {
@@ -39,7 +53,9 @@ export const Cart = () => {
   if (!Array.isArray(cartProducts) || cartProducts.length === 0) {
     return (
       <div className={style.emptyCart}>
-        <h2>Looks like you have no items in your basket currently.</h2>
+        <h2 className={style.emptyCartMessage}>
+          Looks like you have no items in your basket currently.
+        </h2>
         <Link className={style.emptyCartBtn} to={"/"}>
           Continue Shopping
         </Link>
@@ -57,14 +73,31 @@ export const Cart = () => {
               ? product.discont_price * product.count
               : null;
           return (
-            <div key={product.id} className={style.cartProduct}>
-              <img
-                className={style.cartImgSize}
-                src={`http://localhost:3333${product.image}`}
-                alt={product.title}
-              />
+            <div
+              key={product.id}
+              className={`${style.cartProduct} ${
+                theme === "light" ? style.dark : style.light
+              }`}
+            >
+              <Link
+                className={style.linkCartImgSize}
+                key={product.id}
+                to={`/products/${product.id}`}
+              >
+                <img
+                  className={style.cartImgSize}
+                  src={`http://localhost:3333${product.image}`}
+                  alt={product.title}
+                />
+              </Link>
               <div className={style.productCardWrapper}>
-                <h3 className={style.productCardTitle}>{product.title}</h3>
+                <Link
+                  className={style.linkCartImgSize}
+                  key={product.id}
+                  to={`/products/${product.id}`}
+                >
+                  <h3 className={style.productCardTitle}>{product.title}</h3>
+                </Link>
                 <div className={style.countPlusPriceWrapper}>
                   <div className={style.btnWrapper}>
                     <button
@@ -116,12 +149,23 @@ export const Cart = () => {
                 </div>
               </div>
               <button
-                className={style.crossBtn}
+                className={`${style.crossBtn} ${
+                  theme === "light" ? style.dark : style.light
+                }`}
                 onClick={() =>
                   dispatch(dropOneProductFromCart({ id: product.id }))
                 }
               >
-                <img className={style.btnCroosImg} src={cross} alt="cross" />
+                {" "}
+                {theme === "dark" ? (
+                  <img className={style.btnCrossImg} src={cross} alt="cross" />
+                ) : (
+                  <img
+                    className={style.btnCroosImg}
+                    src={crossWhite}
+                    alt="cross"
+                  />
+                )}
               </button>
             </div>
           );
