@@ -1,3 +1,13 @@
+# GardenProject
+
+# Добро пожаловать в GardenProject / Welcome to GardenProject
+
+## Документация/Documentation
+
+- [Русская версия](src/docs/README_RUS.md)
+- [English version](src/docs/README_ENG.md)
+
+
 # React + Vite
 
 _Инструкции по Запуску_
