@@ -7,3 +7,60 @@
     background: #282828;
     color: white;
 }
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .loaderText {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .loaderAnimation {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #18b842, #1e90ff);
+    animation: rotate 2s linear infinite;
+  }
+  
+  .loaderAnimation:before, .loaderAnimation:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent);
+    animation: pulse 2s infinite ease-out;
+  }
+  
+  .loaderAnimation:after {
+    animation-delay: 1s; /* Делает анимацию пульсаций несинхронизированной */
+  }
+  
+  @keyframes rotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(0.5);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+  }
+  
