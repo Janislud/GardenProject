@@ -126,11 +126,15 @@
   }
 }
 
-@media screen and (max-width: 1100px) {
+/* @media screen and (max-width: 1100px) {
+    .divForm .divInputs {
+    width: 450px;
+    height: 276px;
+  }
   .imgWrapper .formHands {
     width: 550px;
   }
-}
+} */
 
 @media screen and (max-width: 1050px) {
   .imgWrapper .formHands {
@@ -138,14 +142,35 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1024px) {
+  .imgWrapper .formHands {
+    object-fit: cover;
+    width: 444px;
+    height: 293px;
+    margin-left: -16px;
+    margin-bottom: -281px;
+  }
+
+  .allThreeInputs {
+    width: 95%;
+  }
+
+  .greenDiv {
+    max-height: 434px;
+    margin: 0px 20px;
+  }
+  .divForm {
+    justify-content: space-around;
+  }
+
   .h2TitleForm {
     font-size: 64px;
   }
-  .divInputs {
+  .divForm .divInputs {
     width: 450px;
+    height: 276px;
   }
-}
+} */
 
 @media screen and (max-width: 950px) {
   .divInputs {

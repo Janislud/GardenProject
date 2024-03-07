@@ -1,10 +1,10 @@
 .titleTextWrapper {
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-margin: 0 auto;
-max-width: 1350px;
-margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1350px;
+  margin-top: 40px;
 }
 
 .titleDescription {
@@ -44,13 +44,27 @@ margin-top: 40px;
   background: #282828;
 }
 
-@media (min-width: 360px) and (max-width: 510px) {
+@media (max-width: 536px) {
+  .titleDescription {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 110%;
+  }
+  .titleBtn {
+    width: 129px;
+    height: 34px;
+    padding: 8px 16px;
+  }
+  .titleBtnDescription {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 126%;
+  }
+}
+
+@media (max-width: 431px) {
   .line {
     display: none;
-  }
-
-  .titleDescription {
-    margin: 30px auto;
   }
 
   .titleBtn {
@@ -58,6 +72,14 @@ margin-top: 40px;
   }
 
   .titleDescription {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .titleDescription {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 110%;
   }
 }
