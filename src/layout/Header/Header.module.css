@@ -8,7 +8,6 @@
   padding: 30px 40px 28px 40px;
   font-family: "Montserrat";
   border-bottom: 1px solid rgb(221, 221, 221);
-  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 
 .discountButton {
@@ -20,24 +19,26 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
   margin: 0px auto;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 
 .discountButton:hover {
   background-color: #45a049;
+  transform: scale(1.1);
 }
 
 .discountButtonToggle {
-  padding: 4px 16px;
+  padding: 1px 6px;
   background-color: #393;
   color: white;
   text-align: center;
   text-decoration: none;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   margin: 0px auto;
   display: none;
 }
@@ -66,6 +67,13 @@ a {
 }
 .listStyle:hover {
   transform: scale(1.1);
+  background-color: rgb(86, 163, 86);
+  border-radius: 6px;
+  padding: 2px 10px;
+}
+
+a:hover {
+  color: #ffffff;
 }
 
 .basketWrapper {
@@ -77,6 +85,22 @@ a {
 .logo {
   height: 70px;
 }
+
+.toLikedProducts {
+  transition: transform 0.1s ease-in-out;
+}
+
+.toLikedProducts:hover {
+  transform: scale(1.3);
+}
+
+/**.toCart {
+  transition: transform 0.1s ease-in-out;
+}
+
+.toCart:hover {
+  transform: scale(1.3);
+}*/
 
 .burgerMenu {
   display: none;
@@ -290,6 +314,7 @@ a {
 
   .discountButtonToggle {
     display: block;
+    padding: 5px 8px;
   }
 
   header {

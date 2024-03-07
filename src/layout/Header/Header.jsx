@@ -135,10 +135,14 @@ export const Header = () => {
             </Link>
           </li>
           <li
-            className={`${style.listStyle} ${theme === "light" ? style.dark : style.light
-              }`}
+            className={`${style.listStyle} ${
+              theme === "light" ? style.dark : style.light
+            }`}
           >
-            <button className={style.discountButtonToggle} onClick={toggleModal}>
+            <button
+              className={style.discountButtonToggle}
+              onClick={toggleModal}
+            >
               1 day discount!
             </button>
           </li>
@@ -147,15 +151,15 @@ export const Header = () => {
       <div className={style.basketWrapper}>
         <Link className={style.toCart} to="/cart">
           <div className={style.cartTotalQuantity}>{totalQuantity}</div>
-          <div className={style.basketWrapper}></div>
+          <div className={style.divBasketWrapper}></div>
         </Link>
 
         <Link className={style.toLikedProducts} to="/favorites">
           <div className={style.likeTotalQuantity}>{likeTotalQuantity}</div>
-          <img src={heartWhite} alt="Heart" />
+          <img className={style.heartWhite} src={heartWhite} alt="Heart" />
         </Link>
 
-        <Link to="/cart">
+        <Link className={style.cartToCart} to="/cart">
           {theme === "light" ? (
             <img src={cart} alt="cartDarkMode" />
           ) : (
