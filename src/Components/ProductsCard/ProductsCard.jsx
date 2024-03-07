@@ -82,7 +82,7 @@ export const ProductsCard = ({ product, id }) => {
         src={`http://localhost:3333${product.image}`}
         alt={product.title}
       />
-
+      <div className={style.saleCardTextPriceWrapper}>
       <h2
         className={`${style.saleCardText} ${
           theme === "light" ? style.dark : style.light
@@ -101,6 +101,7 @@ export const ProductsCard = ({ product, id }) => {
         {product.discont_price ? (
           <p className={style.firstPrice}>${product.price}</p>
         ) : null}
+      </div>
       </div>
 
       <button className={style.btnAddToLikes} onClick={handleAddToLikedProduct}>

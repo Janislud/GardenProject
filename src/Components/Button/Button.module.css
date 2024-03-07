@@ -76,12 +76,12 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
   .addGreenButton {
     padding: 22px 59px 22px 59px;
   }
   .whiteButton {
-    width: 450px;
+    width: 95%;
   }
 }
 
