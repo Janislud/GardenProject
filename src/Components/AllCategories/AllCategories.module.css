@@ -124,8 +124,38 @@
   }
 }
 
+@media (max-width: 768px) {
+  .categoryImg {
+    width: 325px;
+    height: 250px;
+  }
+  .categoriesWrapperText {
+    margin: 40px 0px;
+  }
+}
+
 @media (min-width: 510px) {
   .categoryBtnAdaptive {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .categoryImg {
+    width: 180px;
+    height: 254px;
+  }
+}
+
+@media (max-width: 400px) {
+  .categoriesWrapperText {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  .categoryImg {
+    width: 270px;
+    height: 250px;
   }
 }
