@@ -97,6 +97,11 @@
   font-weight: 500;
   line-height: 126%;
 }
+@media (max-width: 1390px) {
+  .salesCategoryWrapper {
+    padding: 0px 40px;
+  }
+}
 
 @media (max-width: 1024px) {
   .salesCategoryWrapper {

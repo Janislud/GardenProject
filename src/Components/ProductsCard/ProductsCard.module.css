@@ -149,6 +149,22 @@
   cursor: pointer;
 }
 
+@media (max-width: 1402px) {
+  .salesCategoryWrapper {
+    padding: 0px 20px;
+  }
+  .btnAddToLikes {
+    left: 189px;
+    top: 11px;
+  }
+  .saleCard {
+    max-width: 260px;
+  }
+  .saleImg {
+    width: 259px;
+  }
+}
+
 @media (max-width: 1358px) {
   .btnAddToLikes {
     left: 174px;
@@ -177,11 +193,11 @@
 
 @media (max-width: 1177px) {
   .saleImg {
-    width: 224px;
+    width: 223px;
   }
 
   .saleCard {
-    max-width: 225px;
+    max-width: 224px;
   }
 }
 
@@ -246,12 +262,13 @@
   }
   .saleImg {
     width: 169px;
+    margin-bottom: 5px;
   }
   .btnAddToLikes {
     left: 114px;
   }
   .saleCardTextPriceWrapper {
-    height: 180px;
+    height: 250px;
   }
 }
 /* @media (max-width: 1008px) {
