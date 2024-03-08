@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+// Загрузка избранных товаров из localStorage или инициализация начального состояния
+const savedLikedProducts = JSON.parse(
+  localStorage.getItem("likedProducts")
+) || {
   likedProducts: [],
   likeTotalQuantity: 0,
 };
 
 const likedProductsSlice = createSlice({
   name: "likedProducts",
-  initialState,
+  initialState: savedLikedProducts,
   reducers: {
     addToLikedProducts(state, action) {
       const existingIndex = state.likedProducts.findIndex(
@@ -22,6 +25,7 @@ const likedProductsSlice = createSlice({
         state.likedProducts.push(tempProduct);
         state.likeTotalQuantity += 1;
       }
+      localStorage.setItem('likedProducts', JSON.stringify(state));
     },
 
     deleteFromLikedProducts(state, action) {
@@ -35,6 +39,7 @@ const likedProductsSlice = createSlice({
         state.likedProducts.splice(existingProductIndex, 1);
         state.likeTotalQuantity--;
       }
+      localStorage.setItem('likedProducts', JSON.stringify(state));
     },
 
     toggleLikedStatus(state, action) {
@@ -46,6 +51,7 @@ const likedProductsSlice = createSlice({
       if (existingProduct) {
         existingProduct.isLiked = !existingProduct.isLiked;
       }
+      localStorage.setItem('likedProducts', JSON.stringify(state));
     },
     getLikedProductsQuantity(state) {
       const { likedProducts } = state;
