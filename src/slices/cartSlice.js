@@ -1,10 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  products: [], // добавляем массив для хранения товаров в корзине
-  totalCount: 0,
-  totalQuantity: 0,
-}
+const getInitialState = () => {
+  const savedCartData = localStorage.getItem('cart');
+  if (savedCartData) {
+    try {
+      return JSON.parse(savedCartData);
+    } catch (error) {
+      console.error('Parsing error on cart data from localStorage', error);
+    }
+  }
+  return {
+    products: [],
+    totalCount: 0,
+    totalQuantity: 0,
+  };
+};
+
+const initialState = getInitialState();
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -32,6 +44,7 @@ const cartSlice = createSlice({
     // Если скидочной цены нет, используем обычную цену
     state.totalCount += action.payload.price * action.payload.quantity;
   }
+  localStorage.setItem('cart', JSON.stringify(state));
 },
 
 dropProductFromCart: (state, action) => {
@@ -60,6 +73,7 @@ dropProductFromCart: (state, action) => {
       state.totalCount -= existingProduct.price;
     }
   }
+  localStorage.setItem('cart', JSON.stringify(state));
 },
     
     cleanCart: (state) => {
@@ -85,6 +99,7 @@ dropProductFromCart: (state, action) => {
         // Уменьшаем общее количество товаров в корзине
         state.totalQuantity -= existingProduct.count;
     }
+    localStorage.setItem('cart', JSON.stringify(state));
 },
   }
 });

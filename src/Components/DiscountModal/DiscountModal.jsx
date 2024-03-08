@@ -30,13 +30,6 @@ export const DiscountModal = ({ isOpen, onRequestClose }) => {
     }
   }, [isOpen, products, isLoading, isError]);
 
-  // Убеждаемся, что функции обработчики вызываются с правильным продуктом
-  const handleAddToCart = () => {
-    if (selectedProduct) {
-      dispatch(addProductToCart({ ...selectedProduct, quantity: 1 }));
-    }
-  };
-
   return (
     <div className={`${style.modal} ${isActive ? style.active : ''}`} onClick={onRequestClose}>
       <div className={`${style.modal_content} ${isActive ? style.active_content : ''}`} onClick={e => e.stopPropagation()}>
