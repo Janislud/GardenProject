@@ -10,7 +10,7 @@ import { deleteFromLikedProducts } from "../slices/likedProductsSlice";
 import { FilterBar } from "./../Components/FilterBar/FilterBar";
 import style from "./LikedProductsPage.module.css";
 
-export const LikedProductsPage = ({ title, id }) => {
+export const LikedProductsPage = ({ title, id, isLoading }) => {
   const likedProducts = useSelector(
     (state) => state.likedProducts.likedProducts
   );
@@ -50,6 +50,15 @@ export const LikedProductsPage = ({ title, id }) => {
     return Math.round(((price - discountPrice) / price) * 100);
   }
 
+  if (isLoading) {
+    return (
+      <div className={style.loader}>
+        <div className={style.loaderText}>Loading...</div>
+        <div className={style.loaderAnimation}></div>
+      </div>
+    );
+  }
+  
   return (
     <section>
       <BreadCrumbs />
