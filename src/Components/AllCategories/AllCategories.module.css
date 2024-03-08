@@ -1,6 +1,6 @@
 .categoryImg {
   width: 248px;
-  height: 350px;
+  height: 320px;
   border-radius: 12px;
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
@@ -141,14 +141,16 @@
   }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .categoryImg {
     width: 180px;
     height: 254px;
   }
-}
+} */
 
 @media (max-width: 400px) {
+
+  
   .categoriesWrapperText {
     font-weight: 700;
     font-size: 40px;
