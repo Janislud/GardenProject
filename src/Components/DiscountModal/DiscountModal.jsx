@@ -41,9 +41,9 @@ export const DiscountModal = ({ isOpen, onRequestClose }) => {
     <div className={`${style.modal} ${isActive ? style.active : ''}`} onClick={onRequestClose}>
       <div className={`${style.modal_content} ${isActive ? style.active_content : ''}`} onClick={e => e.stopPropagation()}>
         {selectedProduct && (
-          <Link to={`/products/${selectedProduct.id}`} onClick={onRequestClose}>
+          <div to={`/products/${selectedProduct.id}`} onClick={onRequestClose}>
             <ProductsCard product={selectedProduct} id={selectedProduct.id} />
-          </Link>
+          </div>
         )}
       </div>
     </div>
