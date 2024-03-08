@@ -5,7 +5,6 @@
   margin: 0 auto;
   max-width: 1350px;
   margin-top: 40px;
-  padding: 0 40px 40px 40px;
 }
 
 .titleDescription {
@@ -45,13 +44,27 @@
   background: #282828;
 }
 
-@media (min-width: 360px) and (max-width: 510px) {
+@media (max-width: 554px) {
+  .titleDescription {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 110%;
+  }
+  .titleBtn {
+    width: 129px;
+    height: 34px;
+    padding: 8px 12px;
+  }
+  .titleBtnDescription {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 126%;
+  }
+}
+
+@media (max-width: 450px) {
   .line {
     display: none;
-  }
-
-  .titleDescription {
-    margin: 30px auto;
   }
 
   .titleBtn {
@@ -59,6 +72,14 @@
   }
 
   .titleDescription {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .titleDescription {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 110%;
   }
 }

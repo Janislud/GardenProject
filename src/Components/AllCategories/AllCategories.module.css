@@ -1,39 +1,43 @@
 .categoryImg {
-  max-width: 248px;
-  height: 350px;
+  width: 248px;
+  height: 320px;
   border-radius: 12px;
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
   margin-bottom: 20px;
 }
+
 .categoryCard:hover,
 .categoryCardText:hover {
   transform: scale(1.1);
 }
+
 .categoryCardText:hover {
   color: #393;
 }
+
 .categoryCardsWrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 80px;
 }
 
 .error {
-    margin: 0 auto;
-    max-width: 1350px;
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 130%;
-    margin-bottom: 80px;
-    justify-content: center;
-    margin-top: 80px;
+  margin: 0 auto;
+  max-width: 1350px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 130%;
+  margin-bottom: 80px;
+  justify-content: center;
+  margin-top: 80px;
 }
+
 .categoryCard {
   transition: transform 0.3s ease-in-out;
 }
@@ -76,6 +80,7 @@
   flex-grow: 1;
   border-bottom: 1px solid #ddd;
 }
+
 .mainPageBtn,
 .categoreisBtn {
   padding: 8px 16px;
@@ -87,6 +92,7 @@
   background: transparent;
   cursor: pointer;
 }
+
 .mainPageBtn {
   color: rgb(139, 139, 139);
 }
@@ -94,22 +100,65 @@
 .categoriesWrapperText {
   margin-bottom: 40px;
   font-size: 64px;
-  margin: 60px auto;
+  margin: 60px 0px;
   max-width: 1380px;
 }
 
 .allCategoriesWrapper {
-  margin: 0 auto;
+  padding: 0px 40px;
   max-width: 1440px;
+  margin: 0 auto;
 }
 
 .dark {
   color: white;
   background: #282828;
 }
+@media (max-width: 1024px) {
+  .categoryImg {
+    width: 290px;
+    height: 250px;
+  }
+  .categoryCardsWrapper {
+    justify-content: flex-start;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .categoryImg {
+    width: 325px;
+    height: 250px;
+  }
+  .categoriesWrapperText {
+    margin: 40px 0px;
+  }
+}
 
 @media (min-width: 510px) {
   .categoryBtnAdaptive {
     display: none;
+  }
+}
+
+/* @media (max-width: 480px) {
+  .categoryImg {
+    width: 180px;
+    height: 254px;
+  }
+} */
+
+@media (max-width: 400px) {
+
+  
+  .categoriesWrapperText {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  .categoryImg {
+    width: 270px;
+    height: 250px;
   }
 }

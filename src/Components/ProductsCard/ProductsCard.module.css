@@ -1,5 +1,5 @@
 .saleImg {
-  max-width: 312px;
+  width: 312px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   margin-bottom: 20px;
@@ -82,7 +82,7 @@
   display: flex;
 }
 
-.productCartButton {
+/* .productCartButton {
   visibility: hidden;
   padding: 16px 56px;
   width: 284px;
@@ -103,7 +103,7 @@
   visibility: visible;
   background-color: #282828;
   color: #ffffff;
-}
+} */
 
 .btnAddToCard {
   width: 284px;
@@ -147,4 +147,273 @@
   left: 255px;
   top: 10px;
   cursor: pointer;
+}
+
+@media (max-width: 1402px) {
+  .salesCategoryWrapper {
+    padding: 0px 20px;
+  }
+  .btnAddToLikes {
+    left: 189px;
+    top: 11px;
+  }
+  .saleCard {
+    max-width: 260px;
+  }
+  .saleImg {
+    width: 259px;
+  }
+}
+
+@media (max-width: 1358px) {
+  .btnAddToLikes {
+    left: 174px;
+  }
+
+  .salesCategoryWrapper {
+    padding: 0px 40px;
+  }
+  .saleCard {
+    max-width: 226px;
+  }
+
+  .saleImg {
+    width: 225px;
+  }
+  .btnAddToCard,
+  .addedToCart {
+    max-width: 200px;
+    max-height: 50px;
+    padding: 16px, 56px;
+    gap: 10px;
+    font-size: 15px;
+    left: 11px;
+  }
+}
+
+@media (max-width: 1256px) {
+  .saleImg {
+    width: 238px;
+  }
+  .btnAddToCard,
+  .addedToCart {
+    left: 17px;
+  }
+  .saleCard {
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 1177px) {
+  .saleImg {
+    width: 223px;
+  }
+
+  .btnAddToCard,
+  .addedToCart {
+    left: 10px;
+  }
+
+  .saleCard {
+    max-width: 224px;
+  }
+}
+
+@media (max-width: 1090px) {
+  .saleCardWrapper {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .saleCard {
+    max-width: 223px;
+  }
+
+  .saleCardText {
+    margin: 0px 20px;
+  }
+
+  .saleCardTextPriceWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0px;
+    height: 170px;
+  }
+  .saleImg {
+    width: 221px;
+  }
+
+  .realPrice {
+    font-size: 32px;
+  }
+
+  .firstPrice {
+    font-size: 20px;
+  }
+  .salePriceWrapper {
+    margin: 0px 20px;
+    gap: 10px;
+  }
+
+  .btnAddToLikes {
+    left: 167px;
+    top: 13px;
+  }
+
+  .btnAddToCard,
+  .addedToCart {
+    max-width: 200px;
+    max-height: 50px;
+    padding: 16px, 56px;
+    gap: 10px;
+    font-size: 15px;
+    left: 9px;
+  }
+}
+
+@media (max-width: 959px) {
+  .saleCard {
+    max-width: 170px;
+  }
+  .saleImg {
+    width: 169px;
+    margin-bottom: 5px;
+  }
+  .btnAddToLikes {
+    left: 114px;
+  }
+  .saleCardTextPriceWrapper {
+    height: 250px;
+  }
+  .btnAddToCard,
+  .addedToCart {
+    left: 2px;
+    top: 270px;
+    max-width: 165px;
+    max-height: 40px;
+    padding: 1px 2px;
+  }
+  .salePriceWrapper .realPrice {
+    font-size: 30px;
+  }
+  .salePriceWrapper .firstPrice {
+    font-size: 15px;
+  }
+
+  .saleCardTextPriceWrapper {
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 818px) {
+  .saleImg {
+    width: 333px;
+    height: 250px;
+  }
+  .saleCard {
+    max-width: 335px;
+  }
+  .saleCardTextPriceWrapper {
+    height: 150px;
+  }
+  .btnAddToLikes {
+    left: 241px;
+  }
+  .btnAddToCard,
+  .addedToCart {
+    max-width: 300px;
+    max-height: 50px;
+    padding: 16px, 60px;
+    gap: 10px;
+    font-size: 15px;
+    left: 26px;
+    top: 197px;
+  }
+}
+
+@media (max-width: 728px) {
+  .btnAddToLikes {
+    left: 153px;
+  }
+  .saleImg {
+    width: 213px;
+    height: 240px;
+  }
+
+  .saleCardTextPriceWrapper {
+    height: 160px;
+  }
+
+  .saleCard {
+    max-width: 215px;
+  }
+  .btnAddToCard,
+  .addedToCart {
+    max-width: 200px;
+    max-height: 40px;
+    left: 7px;
+    top: 195px;
+  }
+}
+
+@media (max-width: 507px) {
+  .saleCard {
+    max-width: 198px;
+  }
+
+  .saleImg {
+    width: 196px;
+  }
+  .btnAddToLikes {
+    left: 142px;
+  }
+  .btnAddToCard,
+  .addedToCart {
+    max-width: 190px;
+    left: 3px;
+  }
+}
+
+@media (max-width: 460px) {
+  .saleCardTextPriceWrapper {
+    height: 130px;
+  }
+  .saleCard {
+    max-width: 320px;
+  }
+  .saleImg {
+    width: 318px;
+  }
+
+  .btnAddToLikes {
+    left: 252px;
+  }
+  .btnAddToCard,
+  .addedToCart {
+    max-width: 285px;
+    max-height: 50px;
+    left: 15px;
+    top: 187px;
+  }
+}
+
+@media (max-width: 361px) {
+  .saleCard {
+    max-width: 320px;
+  }
+
+  .saleCardTextPriceWrapper {
+    height: 125px;
+  }
+  .saleImg {
+    width: 318px;
+    margin-bottom: 10px;
+  }
+  .btnAddToLikes {
+    left: 255px;
+    top: 10px;
+  }
 }

@@ -1,9 +1,9 @@
 .saleCardWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 32px;
-    margin-bottom: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 80px;
 }
 
 .errorFetching {
@@ -14,39 +14,38 @@
   text-align: center;
 }
 
-
 .salesCategoryWrapper {
- font-family: "Montserrat", sans-serif; 
+  font-family: "Montserrat", sans-serif;
 }
 
 .saleCard {
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    max-width: 313px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  max-width: 313px;
 }
 
 .saleBlock {
-    position: absolute;
-    margin-left: 240px;
-    margin-top: 16px;
-    background-color: #393;
-    color: #ffffff;
-    padding:4px 8px;
-    border-radius: 4px;
-    font-size: 20px;
-    line-height: 130%;
-    letter-spacing: 0.6px;
+  position: absolute;
+  margin-left: 240px;
+  margin-top: 16px;
+  background-color: #393;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0.6px;
 }
 
 .saleImg {
-    max-width: 310px;
-    border-top-left-radius: 11px;
-    border-top-right-radius: 11px;
-    margin-bottom: 20px;
-    height: 315px;
-    border-bottom: 1px solid #DDDDDD;
-    object-fit: cover;
-    padding: 1px;
+  max-width: 310px;
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+  margin-bottom: 20px;
+  height: 315px;
+  border-bottom: 1px solid #dddddd;
+  object-fit: cover;
+  padding: 1px;
 }
 
 .saleCardText {
@@ -54,20 +53,20 @@
   font-weight: 500;
   line-height: 130%;
   margin: 0px 32px 16px 32px;
-  min-height: 55px;  
+  min-height: 55px;
 }
 
 .salePriceWrapper {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 15px;
-   margin: 0px 32px 32px 32px; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 0px 32px 32px 32px;
 }
 
 .realPrice {
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 110%;    
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 110%;
 }
 
 .firstPrice {
@@ -98,9 +97,23 @@
   font-weight: 500;
   line-height: 126%;
 }
+@media (max-width: 1390px) {
+  .salesCategoryWrapper {
+    padding: 0px 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .salesCategoryWrapper {
+    padding: 0px 20px;
+  }
+  .saleCardWrapper {
+    gap: 20px;
+  }
+}
 
 @media (min-width: 510px) {
-    .saleBtnAdaptive {
-        display: none;
-    }
+  .saleBtnAdaptive {
+    display: none;
+  }
 }

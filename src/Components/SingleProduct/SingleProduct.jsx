@@ -19,6 +19,7 @@ export const SingleProduct = () => {
   const [space, setSpace] = useState(false);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
+  const [showImageModal, setShowImageModal] = useState(false);
   const theme = useSelector((state) => state.theme.theme);
   const likedItems = useSelector((state) => state.likedProducts.likedProducts);
   const [isLiked, setIsLiked] = useState(false);
@@ -53,6 +54,16 @@ export const SingleProduct = () => {
     setSpace((prevSpace) => !prevSpace);
   };
 
+  const toggleImageModal = () => setShowImageModal(!showImageModal);
+
+  const ImageModal = ({ src, alt }) => (
+    <div className={style.imageModal} onClick={toggleImageModal}>
+      <div className={style.modalContent} onClick={(e) => e.stopPropagation()}>
+        <img src={src} alt={alt} className={style.modalImage} />
+      </div>
+    </div>
+  );
+
   const handleAddToLikedProduct = (event) => {
     event.preventDefault();
 
@@ -85,12 +96,13 @@ export const SingleProduct = () => {
           <section className={style.mainDivSingleProduct}>
             <section className={style.divSingleProduct}>
               <div key={data[0].id} className={style.saleBlock}>
-                <div className={style.productItemImage}>
+                <div className={style.productItemImage} onClick={toggleImageModal}>
                   <img
                     className={style.imgProduct}
                     src={`http://localhost:3333${data[0].image}`}
                     alt={data[0].title}
                   />
+                  {showImageModal && <ImageModal src={`http://localhost:3333${data[0].image}`} alt={data[0].title} />}
                 </div>
 
                 <div className={style.divWithPriceCounterDescription}>
