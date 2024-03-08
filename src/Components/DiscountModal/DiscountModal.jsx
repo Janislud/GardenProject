@@ -37,18 +37,6 @@ export const DiscountModal = ({ isOpen, onRequestClose }) => {
     }
   };
 
-  const handleAddToLiked = () => {
-    if (selectedProduct) {
-      dispatch(addToLikedProducts(selectedProduct));
-    }
-  };
-
-  const handleRemoveFromLiked = () => {
-    if (selectedProduct) {
-      dispatch(deleteFromLikedProducts(selectedProduct.id));
-    }
-  };
-
   return (
     <div className={`${style.modal} ${isActive ? style.active : ''}`} onClick={onRequestClose}>
       <div className={`${style.modal_content} ${isActive ? style.active_content : ''}`} onClick={e => e.stopPropagation()}>

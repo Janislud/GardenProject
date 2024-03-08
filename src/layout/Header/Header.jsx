@@ -37,15 +37,6 @@ export const Header = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const handleDiscountClick = () => {
-    if (!isLoading && !isError && products.length > 0) {
-      const discountProducts = products.filter((p) => p.discont_price);
-      const randomProduct =
-        discountProducts[Math.floor(Math.random() * discountProducts.length)];
-      setModalProduct(randomProduct);
-      setIsModalOpen(true);
-    }
-  };
 
   return (
     <header className={`${style.headerWrapper} `}>
