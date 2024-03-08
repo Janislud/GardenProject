@@ -28,25 +28,6 @@ export const DiscountModal = ({ isOpen, onRequestClose }) => {
     }
   }, [isOpen, products, isLoading, isError]);
 
-  // Убеждаемся, что функции обработчики вызываются с правильным продуктом
-  const handleAddToCart = () => {
-    if (selectedProduct) {
-      dispatch(addProductToCart({ ...selectedProduct, quantity: 1 }));
-    }
-  };
-
-  const handleAddToLiked = () => {
-    if (selectedProduct) {
-      dispatch(addToLikedProducts(selectedProduct));
-    }
-  };
-
-  const handleRemoveFromLiked = () => {
-    if (selectedProduct) {
-      dispatch(deleteFromLikedProducts(selectedProduct.id));
-    }
-  };
-
   return (
     <div
       className={`${style.modal} ${isActive ? style.active : ""}`}
