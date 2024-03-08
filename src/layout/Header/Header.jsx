@@ -82,7 +82,9 @@ export const Header = () => {
           >
             <Link
               to="/"
-              className={location.pathname === "/" ? style.active : ""}
+              className={`${style.listStyleMain} ${
+                location.pathname === "/" ? style.active : ""
+              }`}
             >
               Main Page
             </Link>
@@ -94,9 +96,9 @@ export const Header = () => {
           >
             <Link
               to="/categories"
-              className={
+              className={`${style.listStyleCategories} ${
                 location.pathname === "/categories" ? style.active : ""
-              }
+              }`}
             >
               Categories
             </Link>
@@ -108,7 +110,9 @@ export const Header = () => {
           >
             <Link
               to="/products"
-              className={location.pathname === "/products" ? style.active : ""}
+              className={`${style.listStyleProducts} ${
+                location.pathname === "/products" ? style.active : ""
+              }`}
             >
               All products
             </Link>
@@ -120,7 +124,9 @@ export const Header = () => {
           >
             <Link
               to="/sales"
-              className={location.pathname === "/sales" ? style.active : ""}
+              className={`${
+                location.pathname === "/sales" ? style.active : ""
+              } ${style.listStyleSales}`}
             >
               All sales
             </Link>
