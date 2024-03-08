@@ -58,3 +58,9 @@
   color: white;
   background: white;
 }
+
+@media screen and (max-width: 850px) {
+  .buttonWrapper {
+    display: none;
+  }
+}

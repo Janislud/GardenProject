@@ -14,7 +14,6 @@ import { Button } from "../Button/Button";
 import style from "./singleProduct.module.css";
 
 export const SingleProduct = () => {
-
   const { id: routeId } = useParams();
   const { data, error, isLoading } = useGetProductByIdQuery(routeId);
   const [space, setSpace] = useState(false);
@@ -42,7 +41,6 @@ export const SingleProduct = () => {
       setQuantity((quantity) => quantity - 1);
     }
   };
-
 
   const handleAddToCart = () => {
     if (data && data.length > 0) {
@@ -176,8 +174,8 @@ export const SingleProduct = () => {
 
                     <div className={style.divButton}>
                       <Button
-                        className={style.addGreenButton}
-                        buttonClass="primary"
+                        className={style.addGreenButtonSingle}
+                        buttonClass="addGreenButtonSingle"
                         text="Add to cart"
                         onClick={handleAddToCart}
                       />
