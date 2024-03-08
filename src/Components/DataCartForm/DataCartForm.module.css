@@ -181,6 +181,7 @@
   .divFormWrapper {
     max-width: 300px;
     margin: 2px auto;
+    margin-top: 30px;
   }
   .order,
   .itemCounter,
