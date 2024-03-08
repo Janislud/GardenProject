@@ -9,7 +9,7 @@ export const DataCartForm = () => {
   const totalCount = useSelector((state) => state.cart.totalCount);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const theme = useSelector((state) => state.theme.theme);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); //хук сохраняет и заменяет состояние действия
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const handleClose = () => {
@@ -22,9 +22,6 @@ export const DataCartForm = () => {
 
   const onSubmit = () => {
     setIsFormSubmitted(true);
-    // Вы можете добавить здесь логику для отправки данных формы, если это необходимо
-    // Например, вызов функции для отправки данных на сервер
-    // Затем можно вызвать handleOpen() для открытия модального окна
     handleOpen();
   };
 
@@ -35,7 +32,11 @@ export const DataCartForm = () => {
   } = useForm({ defaultValues: {} });
 
   return (
-    <div className={`${style.divFormWrapper} ${theme === "light" ? style.dark : style.light}`}>
+    <div
+      className={`${style.divFormWrapper} ${
+        theme === "light" ? style.dark : style.light
+      }`}
+    >
       <div>
         <h2 className={style.order}>Order details</h2>
         <p className={style.itemCounter}>{totalQuantity} items</p>
@@ -83,9 +84,7 @@ export const DataCartForm = () => {
                 },
               })}
             />
-            <p className={style.formErrorMessage}>
-              {errors.email?.message}
-            </p>
+            <p className={style.formErrorMessage}>{errors.email?.message}</p>
             <input
               className={`${style.allThreeInputs} ${style.lastInput}`}
               type="email"

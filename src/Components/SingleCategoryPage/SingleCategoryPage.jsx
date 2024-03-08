@@ -18,12 +18,15 @@ export const SingleCategoryPage = () => {
 
   useEffect(() => {
     if (data && data.data) {
-      const filteredProducts = filterProducts(data.data, { minPrice, maxPrice, sort, showOnlyDiscounted });
+      const filteredProducts = filterProducts(data.data, {
+        minPrice,
+        maxPrice,
+        sort,
+        showOnlyDiscounted,
+      });
       setProducts([...filteredProducts]);
     }
   }, [data, minPrice, maxPrice, sort, showOnlyDiscounted]);
-
-  console.log(data)
 
   if (error) {
     return <h2>Error....</h2>;
@@ -35,7 +38,7 @@ export const SingleCategoryPage = () => {
   return (
     <>
       <section className={style.singleCategoryWrapper}>
-        <BreadCrumbs data={data.category}/>
+        <BreadCrumbs data={data.category} />
         <div className={style.singleBtnWrapper}></div>
         <FilterBar title={data.category.title} />
         <div className={style.singleCategoryCardsWrapper}>
