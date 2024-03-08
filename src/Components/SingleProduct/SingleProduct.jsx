@@ -96,13 +96,21 @@ export const SingleProduct = () => {
           <section className={style.mainDivSingleProduct}>
             <section className={style.divSingleProduct}>
               <div key={data[0].id} className={style.saleBlock}>
-                <div className={style.productItemImage} onClick={toggleImageModal}>
+                <div
+                  className={style.productItemImage}
+                  onClick={toggleImageModal}
+                >
                   <img
                     className={style.imgProduct}
                     src={`http://localhost:3333${data[0].image}`}
                     alt={data[0].title}
                   />
-                  {showImageModal && <ImageModal src={`http://localhost:3333${data[0].image}`} alt={data[0].title} />}
+                  {showImageModal && (
+                    <ImageModal
+                      src={`http://localhost:3333${data[0].image}`}
+                      alt={data[0].title}
+                    />
+                  )}
                 </div>
 
                 <div className={style.divWithPriceCounterDescription}>
@@ -221,8 +229,6 @@ export const SingleProduct = () => {
           </section>
         </>
       )}
-
-      {data && data.length === 0 && <p>No data available</p>}
     </>
   );
 };

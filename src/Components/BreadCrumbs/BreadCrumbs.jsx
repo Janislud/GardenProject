@@ -74,7 +74,7 @@ const BreadCrumbs = ({ data }) => {
         // Создаем крошку для товара по его id
         const productBreadcrumb = {
           name: `${data.title}`,
-          path: `products/${encodeURIComponent(data.title)}`,
+          path: `products/${encodeURIComponent(data.title)}`, // кодирование заголовка продукта
         };
 
         const breadcrumbs =

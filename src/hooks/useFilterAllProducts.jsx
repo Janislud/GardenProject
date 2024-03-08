@@ -41,7 +41,7 @@ export const AllProductsFilter = () => {
       const sortedProducts =
         sort === "" || sort === "by default"
           ? filteredProducts
-          : filteredProducts.slice().sort((a, b) => {
+          : filteredProducts.sort((a, b) => {
               const aPrice = a.discont_price || a.price;
               const bPrice = b.discont_price || b.price;
               return sort === "Ascending" ? bPrice - aPrice : aPrice - bPrice;

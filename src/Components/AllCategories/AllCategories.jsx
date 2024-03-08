@@ -6,8 +6,8 @@ import style from "./AllCategories.module.css";
 import { useSelector } from "react-redux";
 
 export const AllCategories = () => {
-  const { data, error, isLoading } = useGetCategoriesQuery();
-  const theme = useSelector((state) => state.theme.theme);
+  const { data, error, isLoading } = useGetCategoriesQuery(); //подгружаем данные из редакс слайса
+  const theme = useSelector((state) => state.theme.theme); //получаем состояние темы
 
   if (error) {
     return <h2 className={style.error}>"Error fetching date:"</h2>;
