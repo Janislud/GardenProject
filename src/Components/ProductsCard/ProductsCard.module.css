@@ -180,11 +180,24 @@
   .saleImg {
     width: 225px;
   }
+  .btnAddToCard,
+  .addedToCart {
+    max-width: 200px;
+    max-height: 50px;
+    padding: 16px, 56px;
+    gap: 10px;
+    font-size: 15px;
+    left: 11px;
+  }
 }
 
 @media (max-width: 1256px) {
   .saleImg {
     width: 238px;
+  }
+  .btnAddToCard,
+  .addedToCart {
+    left: 17px;
   }
   .saleCard {
     max-width: 240px;
@@ -194,6 +207,11 @@
 @media (max-width: 1177px) {
   .saleImg {
     width: 223px;
+  }
+
+  .btnAddToCard,
+  .addedToCart {
+    left: 10px;
   }
 
   .saleCard {
@@ -277,6 +295,16 @@
     max-width: 165px;
     max-height: 40px;
     padding: 1px 2px;
+  }
+  .salePriceWrapper .realPrice {
+    font-size: 30px;
+  }
+  .salePriceWrapper .firstPrice {
+    font-size: 15px;
+  }
+
+  .saleCardTextPriceWrapper {
+    max-height: 250px;
   }
 }
 
