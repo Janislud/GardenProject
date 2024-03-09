@@ -8,6 +8,15 @@
   object-fit: cover;
 }
 
+ .saleCardTextPriceWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0px;
+    height: auto;
+  }
+
 .saleCard:hover {
   transform: scale(1.1);
 }
@@ -234,14 +243,7 @@
     margin: 0px 20px;
   }
 
-  .saleCardTextPriceWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 10px 0px;
-    height: 170px;
-  }
+ 
   .saleImg {
     width: 221px;
   }
@@ -285,9 +287,7 @@
   .btnAddToLikes {
     left: 114px;
   }
-  .saleCardTextPriceWrapper {
-    height: 250px;
-  }
+
   .btnAddToCard,
   .addedToCart {
     left: 2px;
@@ -302,10 +302,6 @@
   .salePriceWrapper .firstPrice {
     font-size: 15px;
   }
-
-  .saleCardTextPriceWrapper {
-    max-height: 250px;
-  }
 }
 
 @media (max-width: 818px) {
@@ -316,9 +312,7 @@
   .saleCard {
     max-width: 335px;
   }
-  .saleCardTextPriceWrapper {
-    height: 150px;
-  }
+
   .btnAddToLikes {
     left: 241px;
   }
@@ -341,10 +335,6 @@
   .saleImg {
     width: 213px;
     height: 240px;
-  }
-
-  .saleCardTextPriceWrapper {
-    height: 160px;
   }
 
   .saleCard {
@@ -378,9 +368,6 @@
 }
 
 @media (max-width: 460px) {
-  .saleCardTextPriceWrapper {
-    height: 130px;
-  }
   .saleCard {
     max-width: 320px;
   }
@@ -405,9 +392,6 @@
     max-width: 320px;
   }
 
-  .saleCardTextPriceWrapper {
-    height: 125px;
-  }
   .saleImg {
     width: 318px;
     margin-bottom: 10px;
