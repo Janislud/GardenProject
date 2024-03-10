@@ -15,6 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
+  margin-right: 20px;
 }
 
 .productTextDescriptionMain {
@@ -287,10 +288,9 @@
   width: 700px;
   height: 700px;
   border-radius: 10px;
+  object-fit: cover;
+  cursor: pointer;
 }
-/**.imgProduct:hover {
-  transform: scale(1.1);
-}*/
 
 .buttonIcon {
   border: none;
@@ -536,7 +536,7 @@
   }
 }
 
-@media screen and (max-width: 809px) {
+@media screen and (max-width: 816px) {
   .productItemImage .imgProduct {
     width: 400px;
     height: 460px;
@@ -547,6 +547,7 @@
   }
   .h2TitleText {
     font-size: 30px;
+    max-width: 210px;
   }
   .divWithPriceCounterDescription {
     margin-left: -20px;
@@ -555,33 +556,34 @@
 
 @media screen and (max-width: 750px) {
   .productItemImage .imgProduct {
-    width: 360px;
+    width: 340px;
     height: 450px;
   }
   .productDescription {
-    margin-left: -390px;
+    margin-left: -360px;
   }
   .h2TitleText {
     font-size: 30px;
+    max-width: 180px;
   }
   .divWithPriceCounterDescription {
-    margin-left: -30px;
+    margin-left: -35px;
   }
 }
 
 @media screen and (max-width: 700px) {
   .productItemImage .imgProduct {
-    width: 360px;
+    width: 340px;
     height: 450px;
   }
   .productDescription {
-    margin-left: -380px;
+    margin-left: -350px;
   }
   .h2TitleText {
     font-size: 30px;
   }
   .divWithPriceCounterDescription {
-    margin-left: -25px;
+    margin-left: -45px;
   }
 }
 
@@ -594,13 +596,13 @@
     height: 380px;
   }
   .productDescription {
-    margin-left: -330px;
+    margin-left: -310px;
   }
   .h2TitleText {
     font-size: 25px;
   }
   .divWithPriceCounterDescription {
-    margin-left: -40px;
+    margin-left: -50px;
   }
   .productDescription {
     margin-top: 100px;
@@ -614,21 +616,24 @@
   }
   .productDescription {
     margin-top: 50px;
-    margin-left: -330px;
+    margin-left: -300px;
   }
   .divPrices {
     margin-top: 5px;
+  }
+  .divWithPriceCounterDescription {
+    margin-left: -60px;
   }
 }
 
 @media screen and (max-width: 630px) {
   .productItemImage .imgProduct {
-    width: 280px;
-    height: 340px;
+    width: 260px;
+    height: 350px;
   }
   .productDescription {
     margin-top: 50px;
-    margin-left: -320px;
+    margin-left: -280px;
   }
   .h2TitleText {
     font-size: 25px;
@@ -644,10 +649,10 @@
   }
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 600px) {
   .productItemImage .imgProduct {
     width: 200px;
-    height: 300px;
+    height: 310px;
   }
   .productDescription {
     margin-top: 50px;
@@ -674,7 +679,7 @@
   }
 }
 
-@media screen and (max-width: 512px) {
+@media screen and (max-width: 559px) {
   .divWithPriceCounterDescription {
     margin-left: -70px;
   }
@@ -691,21 +696,21 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 529px) {
   .divSingleProduct .saleBlock {
     flex-direction: column;
   }
   .productDescription {
     margin-top: 50px;
     margin-left: 10px;
-    max-width: 350px;
+    max-width: 370px;
   }
   .divWithPriceCounterDescription {
     margin: 10px auto;
     margin-top: -400px;
   }
   .productItemImage .imgProduct {
-    width: 370px;
+    width: 410px;
     margin-top: 60px;
   }
   .saleBlock .productItemImage .imgProduct {
@@ -718,7 +723,7 @@
   }
   .percentagePrice {
     margin-top: -310px;
-    margin-left: 50px;
+    margin-left: 40px;
     height: 27px;
   }
   .btnAddToLikes {
