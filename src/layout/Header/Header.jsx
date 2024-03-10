@@ -28,6 +28,7 @@ export const Header = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  console.log(isOpen);
 
   const toggleThemeHandler = () => {
     dispatch(toggleTheme());
@@ -44,16 +45,14 @@ export const Header = () => {
       <div className={style.logoToggleWrapper}>
         <img className={style.logo} src={logo} alt="Logo" />
         <div
-          className={`${style.themaWrapper} ${
-            theme === "light" ? style.activeBg : ""
-          }`}
+          className={`${style.themaWrapper} ${theme === "light" ? style.activeBg : ""
+            }`}
         >
           <div className={style.themaDiv}>
             <img className={style.modeImg} src={sun} alt="sun" />
             <button
-              className={`${style.modeBtn} ${
-                theme === "dark" ? style.activeDarkMode : ""
-              }`}
+              className={`${style.modeBtn} ${theme === "dark" ? style.activeDarkMode : ""
+                }`}
               onClick={toggleThemeHandler}
             >
               {theme === "dark" ? (
@@ -66,75 +65,65 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <nav className={style.navMenu} onClick={toggleMenu}>
+      <nav className={style.navMenu}>
         <button className={style.discountButton} onClick={toggleModal}>
           1 day discount!
         </button>
         <ul
-          className={`${style.navList} ${isOpen ? style.menuToggle : ""} ${
-            theme === "light" ? style.dark : style.light
-          }`}
+          className={`${style.navList} ${isOpen ? style.menuToggle : ""} ${theme === "light" ? style.dark : style.light
+            }`}
         >
           <li
-            className={`${style.listStyle} ${
-              theme === "light" ? style.dark : style.light
-            }`}
+            className={`${style.listStyle} ${theme === "light" ? style.dark : style.light
+              }`}
           >
             <Link
               to="/"
-              className={`${style.listStyleMain} ${
-                location.pathname === "/" ? style.active : ""
-              }`}
+              className={`${style.listStyleMain} ${location.pathname === "/" ? style.active : ""
+                }`}
             >
               Main Page
             </Link>
           </li>
           <li
-            className={`${style.listStyle} ${
-              theme === "light" ? style.dark : style.light
-            }`}
+            className={`${style.listStyle} ${theme === "light" ? style.dark : style.light
+              }`}
           >
             <Link
               to="/categories"
-              className={`${style.listStyleCategories} ${
-                location.pathname === "/categories" ? style.active : ""
-              }`}
+              className={`${style.listStyleCategories} ${location.pathname === "/categories" ? style.active : ""
+                }`}
             >
               Categories
             </Link>
           </li>
           <li
-            className={`${style.listStyle} ${
-              theme === "light" ? style.dark : style.light
-            }`}
+            className={`${style.listStyle} ${theme === "light" ? style.dark : style.light
+              }`}
           >
             <Link
               to="/products"
-              className={`${style.listStyleProducts} ${
-                location.pathname === "/products" ? style.active : ""
-              }`}
+              className={`${style.listStyleProducts} ${location.pathname === "/products" ? style.active : ""
+                }`}
             >
               All products
             </Link>
           </li>
           <li
-            className={`${style.listStyle} ${
-              theme === "light" ? style.dark : style.light
-            }`}
+            className={`${style.listStyle} ${theme === "light" ? style.dark : style.light
+              }`}
           >
             <Link
               to="/sales"
-              className={`${
-                location.pathname === "/sales" ? style.active : ""
-              } ${style.listStyleSales}`}
+              className={`${location.pathname === "/sales" ? style.active : ""
+                } ${style.listStyleSales}`}
             >
               All sales
             </Link>
           </li>
           <li
-            className={`${style.listStyle} ${
-              theme === "light" ? style.dark : style.light
-            }`}
+            className={`${style.listStyle} ${theme === "light" ? style.dark : style.light
+              }`}
           >
             <button
               className={style.discountButtonToggle}
@@ -164,28 +153,24 @@ export const Header = () => {
           )}
         </Link>
         <div
-          onClick={toggleMenu}
+            onClick={toggleMenu}  
           className={`${style.burger} ${isOpen ? style.burger_active : ""} `}
         >
           <span
-            className={`${style.burger_line} ${style.burger_line_first} ${
-              theme === "light" ? style.light : style.dark
-            }`}
+            className={`${style.burger_line} ${style.burger_line_first} ${theme === "light" ? style.light : style.dark
+              }`}
           ></span>
           <span
-            className={`${style.burger_line} ${style.burger_line_second} ${
-              theme === "light" ? style.light : style.dark
-            }`}
+            className={`${style.burger_line} ${style.burger_line_second} ${theme === "light" ? style.light : style.dark
+              }`}
           ></span>
           <span
-            className={`${style.burger_line} ${style.burger_line_third} ${
-              theme === "light" ? style.light : style.dark
-            }`}
+            className={`${style.burger_line} ${style.burger_line_third} ${theme === "light" ? style.light : style.dark
+              }`}
           ></span>
           <span
-            className={`${style.burger_line} ${style.burger_line_fourth} ${
-              theme === "light" ? style.light : style.dark
-            }`}
+            className={`${style.burger_line} ${style.burger_line_fourth} ${theme === "light" ? style.light : style.dark
+              }`}
           ></span>
         </div>
       </div>
