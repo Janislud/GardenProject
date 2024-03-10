@@ -3,11 +3,16 @@ import { useGetCategoriesQuery } from "../../slices/apiSlice";
 import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import style from "./AllCategories.module.css";
 
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 export const AllCategories = () => {
   const { data, error, isLoading } = useGetCategoriesQuery(); //подгружаем данные из редакс слайса
   const theme = useSelector((state) => state.theme.theme); //получаем состояние темы
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
 
   if (error) {
     return <h2 className={style.error}>"Error fetching date:"</h2>;
@@ -18,9 +23,8 @@ export const AllCategories = () => {
 
   return (
     <section
-      className={`${style.allCategoriesWrapper} ${
-        theme === "light" ? style.dark : style.light
-      }`}
+      className={`${style.allCategoriesWrapper} ${theme === "light" ? style.dark : style.light
+        }`}
     >
       <BreadCrumbs data={data} />
       <h2 className={style.categoriesWrapperText}>Categories</h2>
@@ -37,9 +41,8 @@ export const AllCategories = () => {
               alt={category.title}
             />
             <h2
-              className={`${style.categoryCardText} ${
-                theme === "light" ? style.dark : style.light
-              }`}
+              className={`${style.categoryCardText} ${theme === "light" ? style.dark : style.light
+                }`}
             >
               {category.title}
             </h2>

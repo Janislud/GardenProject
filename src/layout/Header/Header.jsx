@@ -50,13 +50,12 @@ export const Header = () => {
             theme === "light" ? style.activeBg : ""
           }`}
         >
-          <div className={style.themaDiv}>
+          <div className={style.themaDiv} onClick={toggleThemeHandler}>
             <img className={style.modeImg} src={sun} alt="sun" />
             <button
               className={`${style.modeBtn} ${
                 theme === "dark" ? style.activeDarkMode : ""
               }`}
-              onClick={toggleThemeHandler}
             >
               {theme === "dark" ? (
                 <img src={elipseLight} alt="elipseLight" />

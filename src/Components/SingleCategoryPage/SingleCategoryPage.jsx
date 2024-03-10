@@ -17,6 +17,10 @@ export const SingleCategoryPage = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
+  useEffect(() => {
     if (data && data.data) {
       const filteredProducts = filterProducts(data.data, {
         minPrice,
