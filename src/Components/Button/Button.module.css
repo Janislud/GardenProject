@@ -65,7 +65,8 @@
 }
 
 .addGreenButtonSingle {
-  padding: 22px 99px 22px 99px;
+  padding: 5px 89px 5px 89px;
+  text-align: center;
   gap: 10px;
   background-color: #393;
   border-radius: 6px;
@@ -73,39 +74,41 @@
   text-align: center;
   font-size: 20px;
   font-style: normal;
+  font-family: Montserrat;
   font-weight: 600;
   border: none;
   cursor: pointer;
+  margin-right: 20px;
   transition: transform 0.3s ease-in-out;
 }
 .addGreenButtonSingle:hover {
   transform: scale(1.1);
 }
 
-@media screen and (max-width: 1215px) {
+@media screen and (max-width: 1221px) {
   .addGreenButtonSingle {
-    padding: 22px 79px 22px 79px;
+    padding: 0px 65px 0px 65px;
   }
 }
 
-@media screen and (max-width: 1130px) {
+@media screen and (max-width: 1136px) {
   .addGreenButtonSingle {
-    padding: 22px 69px 22px 69px;
+    padding: 0px 59px 0px 59px;
   }
 }
 
-@media screen and (max-width: 1085px) {
+@media screen and (max-width: 1110px) {
   .addGreenButtonSingle {
-    padding: 22px 55px 22px 55px;
+    padding: 0px 50px 0px 50px;
   }
 }
 
-@media screen and (max-width: 1000px) {
-  .addGreenButton {
-    padding: 22px 59px 22px 59px;
+@media screen and (max-width: 1069px) {
+  .addGreenButtonSingle {
+    padding: 0px 40px 0px 40px;
   }
   .whiteButton {
-    width: 95%;
+    width: 100%;
   }
 }
 
@@ -115,7 +118,7 @@
   }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 970px) {
   .whiteButton {
     width: 400px;
   }
@@ -170,8 +173,9 @@
 }
 
 @media screen and (max-width: 650px) {
-  .addGreenButton {
-    padding: 22px 59px 22px 59px;
+  .addGreenButtonSingle {
+    padding: 0px 39px 2px 39px;
+    text-align: center;
   }
 }
 
@@ -187,9 +191,9 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 528px) {
   .addGreenButtonSingle {
-    padding: 22px 139px 22px 139px;
+    padding: 0px 129px 0px 129px;
   }
 }
 

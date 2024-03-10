@@ -134,8 +134,8 @@ option {
     align-items: center;
   }
 
-  .formFilterBar{
-    gap: 10px ;
+  .formFilterBar {
+    gap: 10px;
   }
   .sortedLable {
     margin-left: 0px;

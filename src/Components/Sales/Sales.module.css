@@ -4,6 +4,7 @@
   justify-content: center;
   gap: 32px;
   margin-bottom: 80px;
+  padding: 0 40px;
 }
 
 .errorFetching {
@@ -97,16 +98,8 @@
   font-weight: 500;
   line-height: 126%;
 }
-@media (max-width: 1390px) {
-  .salesCategoryWrapper {
-    padding: 0px 40px;
-  }
-}
 
 @media (max-width: 1024px) {
-  .salesCategoryWrapper {
-    padding: 0px 20px;
-  }
   .saleCardWrapper {
     gap: 20px;
   }

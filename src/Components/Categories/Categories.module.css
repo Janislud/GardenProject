@@ -102,9 +102,6 @@
     width: 260px;
     height: 340px;
   }
-  .categoriesSection {
-    padding: 0px 40px;
-  }
 }
 
 @media (max-width: 1256px) {
@@ -127,11 +124,6 @@
     gap: 20px;
     margin-bottom: 60px;
   }
-
-  .categoriesSection {
-    padding: 0px 20px;
-  }
-
   .categoryImg {
     width: 225px;
   }

@@ -23,6 +23,7 @@
   padding: 9px 14px;
   color: #8b8b8b;
   text-align: center;
+  margin-top: 20px;
 }
 
 .buttonWrapper {
@@ -66,7 +67,7 @@
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 600px) {
   .buttonWrapper {
     display: none;
   }
