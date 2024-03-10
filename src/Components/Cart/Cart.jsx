@@ -7,6 +7,7 @@ import {
   addProductToCart,
   dropOneProductFromCart,
   dropProductFromCart,
+  saveCartToLocalStorage,
 } from "../../slices/cartSlice";
 import style from "../Cart/Cart.module.css";
 import { DataCartForm } from "../DataCartForm/DataCartForm";
@@ -21,6 +22,7 @@ export const Cart = () => {
     dispatch(
       dropProductFromCart({ id: productId, price: price, quantity: count })
     );
+    dispatch(saveCartToLocalStorage());
   };
 
   // Обработчик события для добавления одного товара к уже имеющемуся количеству
@@ -35,6 +37,7 @@ export const Cart = () => {
       // Если скидки нет, добавляем товар с обычной ценой
       dispatch(addProductToCart({ id: productId, price: price, quantity: 1 }));
     }
+    dispatch(saveCartToLocalStorage());
   };
 
   // Проверяем, является ли cartProducts массивом и содержит ли он товары
