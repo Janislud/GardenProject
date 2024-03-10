@@ -25,7 +25,7 @@ const likedProductsSlice = createSlice({
         state.likedProducts.push(tempProduct);
         state.likeTotalQuantity += 1;
       }
-      localStorage.setItem('likedProducts', JSON.stringify(state));
+      localStorage.setItem("likedProducts", JSON.stringify(state));
     },
 
     deleteFromLikedProducts(state, action) {
@@ -39,7 +39,7 @@ const likedProductsSlice = createSlice({
         state.likedProducts.splice(existingProductIndex, 1);
         state.likeTotalQuantity--;
       }
-      localStorage.setItem('likedProducts', JSON.stringify(state));
+      localStorage.setItem("likedProducts", JSON.stringify(state));
     },
 
     toggleLikedStatus(state, action) {
@@ -51,7 +51,7 @@ const likedProductsSlice = createSlice({
       if (existingProduct) {
         existingProduct.isLiked = !existingProduct.isLiked;
       }
-      localStorage.setItem('likedProducts', JSON.stringify(state));
+      localStorage.setItem("likedProducts", JSON.stringify(state));
     },
     getLikedProductsQuantity(state) {
       const { likedProducts } = state;
