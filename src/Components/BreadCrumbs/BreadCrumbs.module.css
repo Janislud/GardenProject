@@ -13,7 +13,7 @@
   gap: 20px;
   flex-wrap: wrap;
   margin: auto 0px;
-  padding: 0px 40px;
+  padding: 0px;
 }
 
 .divBorder {
@@ -58,6 +58,12 @@
 .dark .line {
   color: white;
   background: white;
+}
+
+@media (max-width: 1458px) {
+  .buttonWrapper .flexDivs {
+    padding: 0px 40px;
+  }
 }
 
 @media screen and (max-width: 850px) {

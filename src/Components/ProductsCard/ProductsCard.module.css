@@ -8,14 +8,14 @@
   object-fit: cover;
 }
 
- .saleCardTextPriceWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 10px 0px;
-    height: auto;
-  }
+.saleCardTextPriceWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0px;
+  height: auto;
+}
 
 .saleCard:hover {
   transform: scale(1.1);
@@ -159,9 +159,6 @@
 }
 
 @media (max-width: 1402px) {
-  .salesCategoryWrapper {
-    padding: 0px 20px;
-  }
   .btnAddToLikes {
     left: 189px;
     top: 11px;
@@ -243,7 +240,6 @@
     margin: 0px 20px;
   }
 
- 
   .saleImg {
     width: 221px;
   }

@@ -153,7 +153,7 @@ export const Header = () => {
           )}
         </Link>
         <div
-          onClick={toggleMenu}
+            onClick={toggleMenu}  
           className={`${style.burger} ${isOpen ? style.burger_active : ""} `}
         >
           <span
