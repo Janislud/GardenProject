@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BreadCrumbs } from "../Components/BreadCrumbs/BreadCrumbs";
 import { ProductsList } from "../Components/ProductsList/ProductsList";
 import { AllSalesFilter } from "../hooks/useFilterAllSales";
 
 export const AllSalesPage = ({isLoading}) => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
 
   if (isLoading) {
     return (

@@ -25,6 +25,10 @@ export const SingleProduct = () => {
   const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
+  useEffect(() => {
     if (data && data.length > 0) {
       const isAlreadyAddedToLiked = likedItems.some(
         (item) => item.id === data[0].id
@@ -116,9 +120,8 @@ export const SingleProduct = () => {
                 <div className={style.divWithPriceCounterDescription}>
                   <div className={style.titleAndHeart}>
                     <h2
-                      className={`${style.h2TitleText} ${
-                        theme === "light" ? style.dark : style.light
-                      }`}
+                      className={`${style.h2TitleText} ${theme === "light" ? style.dark : style.light
+                        }`}
                     >
                       {data[0].title}
                     </h2>
@@ -136,9 +139,8 @@ export const SingleProduct = () => {
 
                   <div className={style.divPrices}>
                     <p
-                      className={`${style.discontPrice} ${
-                        theme === "light" ? style.dark : style.light
-                      }`}
+                      className={`${style.discontPrice} ${theme === "light" ? style.dark : style.light
+                        }`}
                     >
                       $
                       {data[0].discont_price
@@ -167,25 +169,22 @@ export const SingleProduct = () => {
                   <div className={style.counterAndButton}>
                     <div className={style.divCounter}>
                       <button
-                        className={`${style.minusButton} ${
-                          theme === "light" ? style.dark : style.light
-                        }`}
+                        className={`${style.minusButton} ${theme === "light" ? style.dark : style.light
+                          }`}
                         onClick={decrease}
                       >
                         -
                       </button>
                       <input
-                        className={`${style.countInput} ${
-                          theme === "light" ? style.dark : style.light
-                        }`}
+                        className={`${style.countInput} ${theme === "light" ? style.dark : style.light
+                          }`}
                         type="number"
                         value={quantity}
                         onChange={(e) => setQuantity(parseInt(e.target.value))}
                       />
                       <button
-                        className={`${style.plusButton} ${
-                          theme === "light" ? style.dark : style.light
-                        }`}
+                        className={`${style.plusButton} ${theme === "light" ? style.dark : style.light
+                          }`}
                         onClick={increase}
                       >
                         +
@@ -203,15 +202,13 @@ export const SingleProduct = () => {
                   </div>
 
                   <div
-                    className={`${style.productDescription} ${
-                      theme === "light" ? style.dark : style.light
-                    }`}
+                    className={`${style.productDescription} ${theme === "light" ? style.dark : style.light
+                      }`}
                   >
                     <h6 className={style.h6Description}>Description</h6>
                     <p
-                      className={`${style.productTextDescriptionMain} ${
-                        space ? "" : style.clamp
-                      }`}
+                      className={`${style.productTextDescriptionMain} ${space ? "" : style.clamp
+                        }`}
                     >
                       {data[0].description}
                     </p>
