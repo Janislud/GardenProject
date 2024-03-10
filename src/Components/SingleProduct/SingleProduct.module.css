@@ -229,6 +229,12 @@
   max-height: 80vh;
 }
 
+.countInput::-webkit-inner-spin-button,
+.countInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .productDescription {
   margin-top: 52px;
   max-width: 600px;
