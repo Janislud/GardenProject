@@ -149,15 +149,10 @@ option {
   .filterTitle {
     margin: 40px 0px;
     font-size: 48px;
-    /* text-align: center; */
   }
   .formFilterBar {
     margin: 30px 0px;
-    /* max-width: 400px; */
     gap: 30px;
-  }
-  .filterBarWrapper {
-    /* align-items: center; */
   }
   .priceInput {
     width: 85px;
@@ -184,9 +179,3 @@ option {
     font-weight: 700;
   }
 }
-
-/* @media (min-width: 988px) and (max-width: 1440px) {
-  .filterBarWrapper {
-    margin: 0px 40px 40px 40px;
-  }
-} */

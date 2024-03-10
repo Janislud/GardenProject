@@ -5,12 +5,21 @@ import { v4 as uuidv4 } from "uuid";
 import imgGreenForm from "../../assets/images/imgGreenForm/imgGreenForm.svg";
 import { addNewUser } from "../../slices/usersSlice";
 import { Button } from "../Button/Button";
+import ModalUserForm from "../ModalUserForm/ModalUserForm";
 import style from "./DataUserForm.module.css";
 
 export const DataUserForm = () => {
   const dispatch = useDispatch();
-
+  const [open, setOpen] = useState(false); //хук сохраняет и заменяет состояние действия
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   const {
     register,
@@ -27,6 +36,7 @@ export const DataUserForm = () => {
 
     dispatch(addNewUser(newUser));
     setIsFormSubmitted(true);
+    handleOpen();
     reset();
   };
 
@@ -45,9 +55,11 @@ export const DataUserForm = () => {
           <div className={style.divInputs}>
             {isFormSubmitted && (
               <p className={style.pSubmittedRegistration}>
-                {isSubmitSuccessful
-                  ? "Thank you for your registration! Check your Email and enjoy the promo code of 5%!"
-                  : "Try please your registration one more time. Thank you!"}
+                {isSubmitSuccessful ? (
+                  <ModalUserForm open={open} handleClose={handleClose} />
+                ) : (
+                  "Try please your registration one more time. Thank you!"
+                )}
               </p>
             )}
             {!isFormSubmitted && (

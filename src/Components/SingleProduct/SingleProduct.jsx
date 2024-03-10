@@ -11,6 +11,7 @@ import {
 } from "../../slices/likedProductsSlice";
 import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import { Button } from "../Button/Button";
+import ModalSingleProduct from "./../ModalSingleProduct/ModalSingleProduct";
 import style from "./singleProduct.module.css";
 
 export const SingleProduct = () => {
@@ -83,6 +84,19 @@ export const SingleProduct = () => {
   function calculateDiscountPercent(price, discountPrice) {
     return Math.round(((price - discountPrice) / price) * 100);
   }
+  const [open, setOpen] = useState(false); //хук сохраняет и заменяет состояние действия
+
+  const handleOnClick = () => {
+    handleAddToCart();
+    handleOpen();
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   return (
     <>
@@ -179,6 +193,7 @@ export const SingleProduct = () => {
                         className={`${style.countInput} ${theme === "light" ? style.dark : style.light
                           }`}
                         type="number"
+                        inputMode="numeric"
                         value={quantity}
                         onChange={(e) => setQuantity(parseInt(e.target.value))}
                       />
@@ -196,7 +211,11 @@ export const SingleProduct = () => {
                         className={style.addGreenButtonSingle}
                         buttonClass="addGreenButtonSingle"
                         text="Add to cart"
-                        onClick={handleAddToCart}
+                        onClick={handleOnClick}
+                      />
+                      <ModalSingleProduct
+                        open={open}
+                        handleClose={handleClose}
                       />
                     </div>
                   </div>
