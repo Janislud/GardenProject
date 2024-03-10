@@ -1,15 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  products: [], // добавляем массив для хранения товаров в корзине
-  totalCount: 0,
-  totalQuantity: 0,
-};
+const savedCart = localStorage.getItem("cart");
+const initialState = savedCart
+  ? JSON.parse(savedCart)
+  : {
+      products: [],
+      totalCount: 0,
+      totalQuantity: 0,
+    };
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    saveCartToLocalStorage: (state) => {
+      const { products, totalCount, totalQuantity } = state;
+      const cart = { products, totalCount, totalQuantity };
+      localStorage.setItem("cart", JSON.stringify(cart));
+    },
+
     addProductToCart: (state, action) => {
       const existingProductIndex = state.products.findIndex(
         (product) => product.id === action.payload.id
@@ -38,6 +47,7 @@ const cartSlice = createSlice({
         // Если скидочной цены нет, используем обычную цену
         state.totalCount += action.payload.price * action.payload.quantity;
       }
+      saveCartToLocalStorage(state);
     },
 
     dropProductFromCart: (state, action) => {
@@ -68,6 +78,7 @@ const cartSlice = createSlice({
           state.totalCount -= existingProduct.price;
         }
       }
+      saveCartToLocalStorage(state);
     },
 
     cleanCart: (state) => {
@@ -77,6 +88,7 @@ const cartSlice = createSlice({
         (acc, product) => acc + product.count,
         0
       );
+      saveCartToLocalStorage(state);
     },
 
     dropOneProductFromCart: (state, action) => {
@@ -102,6 +114,7 @@ const cartSlice = createSlice({
         // Уменьшаем общее количество товаров в корзине
         state.totalQuantity -= existingProduct.count;
       }
+      saveCartToLocalStorage(state);
     },
   },
 });
@@ -111,5 +124,6 @@ export const {
   dropProductFromCart,
   cleanCart,
   dropOneProductFromCart,
+  saveCartToLocalStorage,
 } = cartSlice.actions;
 export default cartSlice.reducer;

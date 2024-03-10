@@ -6,6 +6,7 @@ import heartWhite from "../../assets/images/LikesMedia/heartWhite.svg";
 import {
   addProductToCart,
   dropOneProductFromCart,
+  saveCartToLocalStorage,
 } from "../../slices/cartSlice";
 import {
   addToLikedProducts,
@@ -52,11 +53,13 @@ export const ProductsCard = ({ product, id }) => {
   const handleAddToCart = (event) => {
     event.preventDefault();
     dispatch(addProductToCart({ ...product, quantity: 1 }));
+    dispatch(saveCartToLocalStorage());
   };
 
   const handleRemoveFromCart = (event) => {
     event.preventDefault(event);
     dispatch(dropOneProductFromCart({ id: product.id }));
+    dispatch(saveCartToLocalStorage());
   };
 
   function calculateDiscountPercent(price, discountPrice) {
@@ -83,25 +86,25 @@ export const ProductsCard = ({ product, id }) => {
         alt={product.title}
       />
       <div className={style.saleCardTextPriceWrapper}>
-      <h2
-        className={`${style.saleCardText} ${
-          theme === "light" ? style.dark : style.light
-        }`}
-      >
-        {product.title}
-      </h2>
-      <div
-        className={`${style.salePriceWrapper} ${
-          theme === "light" ? style.dark : style.light
-        }`}
-      >
-        <p className={style.realPrice}>
-          ${product.discont_price ?? product.price}
-        </p>
-        {product.discont_price ? (
-          <p className={style.firstPrice}>${product.price}</p>
-        ) : null}
-      </div>
+        <h2
+          className={`${style.saleCardText} ${
+            theme === "light" ? style.dark : style.light
+          }`}
+        >
+          {product.title}
+        </h2>
+        <div
+          className={`${style.salePriceWrapper} ${
+            theme === "light" ? style.dark : style.light
+          }`}
+        >
+          <p className={style.realPrice}>
+            ${product.discont_price ?? product.price}
+          </p>
+          {product.discont_price ? (
+            <p className={style.firstPrice}>${product.price}</p>
+          ) : null}
+        </div>
       </div>
 
       <button className={style.btnAddToLikes} onClick={handleAddToLikedProduct}>
