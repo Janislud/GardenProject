@@ -47,13 +47,13 @@ export const Header = () => {
         <div
           className={`${style.themaWrapper} ${theme === "light" ? style.activeBg : ""
             }`}
+          onClick={toggleThemeHandler}
         >
           <div className={style.themaDiv}>
             <img className={style.modeImg} src={sun} alt="sun" />
             <button
               className={`${style.modeBtn} ${theme === "dark" ? style.activeDarkMode : ""
                 }`}
-              onClick={toggleThemeHandler}
             >
               {theme === "dark" ? (
                 <img src={elipseLight} alt="elipseLight" />
@@ -153,7 +153,7 @@ export const Header = () => {
           )}
         </Link>
         <div
-            onClick={toggleMenu}  
+          onClick={toggleMenu}
           className={`${style.burger} ${isOpen ? style.burger_active : ""} `}
         >
           <span
