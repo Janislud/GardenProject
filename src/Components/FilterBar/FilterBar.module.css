@@ -179,3 +179,9 @@ option {
     font-weight: 700;
   }
 }
+
+@media (min-width: 360px) and (max-width: 1360px) {
+  .filterBarWrapper {
+    padding: 0px 40px;
+  }
+}

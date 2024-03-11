@@ -58,12 +58,12 @@ export const LikedProductsPage = ({ title, id, isLoading }) => {
       </div>
     );
   }
-  
+
   return (
     <section>
       <BreadCrumbs />
       <TitleBar
-        title="Favourite Products"
+        title="Favourites"
         linkTo="/products"
         buttonText="Back to the store"
       />

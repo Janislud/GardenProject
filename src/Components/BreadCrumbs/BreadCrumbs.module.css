@@ -61,9 +61,9 @@
   background: white;
 }
 
-@media (max-width: 1458px) {
+@media (min-width: 360px) and (max-width: 1360px) {
   .buttonWrapper .flexDivs {
-    padding: 0px 40px;
+    margin: auto 40px;
   }
 }
 

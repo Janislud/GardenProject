@@ -3,11 +3,10 @@ import { BreadCrumbs } from "../Components/BreadCrumbs/BreadCrumbs";
 import { ProductsList } from "../Components/ProductsList/ProductsList";
 import { AllProductsFilter } from "../hooks/useFilterAllProducts";
 
-export const ProductsPage = ({isLoading}) => {
-
+export const ProductsPage = ({ isLoading }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
 
   if (isLoading) {
     return (
@@ -17,6 +16,7 @@ export const ProductsPage = ({isLoading}) => {
       </div>
     );
   }
+
   return (
     <main>
       <BreadCrumbs />
