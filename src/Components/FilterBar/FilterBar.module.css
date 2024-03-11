@@ -142,7 +142,7 @@ option {
   }
 }
 
-@media (min-width: 361px) and (max-width: 768px) {
+@media (min-width: 360px) and (max-width: 768px) {
   .sortedLable {
     margin-left: 0px;
   }
@@ -180,8 +180,14 @@ option {
   }
 }
 
-@media (min-width: 360px) and (max-width: 1360px) {
+@media (min-width: 300px) and (max-width: 1021px) {
   .filterBarWrapper {
-    padding: 0px 40px;
+    padding: 0px 20px;
+  }
+}
+
+@media (min-width: 1021px) and (max-width: 1385px) {
+  .filterBarWrapper {
+    padding: 0px 25px;
   }
 }

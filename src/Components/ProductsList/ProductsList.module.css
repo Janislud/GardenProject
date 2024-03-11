@@ -1,10 +1,11 @@
 .productsList {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 22px;
   margin: 0 auto;
   max-width: 1360px;
-  justify-content: center;
+  justify-content: start;
+  padding: 0px 20px;
 }
 
 .myFirstSection {
