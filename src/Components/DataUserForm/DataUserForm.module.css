@@ -4,7 +4,6 @@
   max-width: 1360px;
   height: 510px;
   margin: 30px auto;
-  justify-content: center;
 }
 
 .h2TitleForm {
@@ -16,6 +15,10 @@
   font-weight: 700;
   padding-top: 30px;
   margin-bottom: 30px;
+}
+
+.discountForm {
+  padding: 20px;
 }
 
 .divForm {
@@ -43,8 +46,8 @@
 
 .formHands {
   width: 850px;
-  height: 371px;
-  margin-left: -40px;
+  height: 367px;
+  margin-left: -28px;
 }
 
 .divForm .divInputs {
