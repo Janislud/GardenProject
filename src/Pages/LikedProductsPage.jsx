@@ -49,16 +49,7 @@ export const LikedProductsPage = ({ title, id, isLoading }) => {
   function calculateDiscountPercent(price, discountPrice) {
     return Math.round(((price - discountPrice) / price) * 100);
   }
-
-  if (isLoading) {
-    return (
-      <div className={style.loader}>
-        <div className={style.loaderText}>Loading...</div>
-        <div className={style.loaderAnimation}></div>
-      </div>
-    );
-  }
-
+  
   return (
     <section>
       <BreadCrumbs />

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useGetProductsQuery } from "../../slices/apiSlice";
 import { ProductsCard } from "../ProductsCard/ProductsCard";
 import style from "./DiscountModal.module.css";
@@ -8,7 +7,6 @@ export const DiscountModal = ({ isOpen, onRequestClose }) => {
   const { data: products, isError, isLoading } = useGetProductsQuery();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isActive, setIsActive] = useState(false);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isOpen) {
