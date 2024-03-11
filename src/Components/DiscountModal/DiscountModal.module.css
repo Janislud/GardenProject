@@ -27,7 +27,6 @@
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1055;
-  /* transition: transform 0.5s, opacity 0.5s; */
   transform: translateY(100%);
   opacity: 0;
   background: linear-gradient(120deg, #3ea834 0%, #fda085 100%);
@@ -45,10 +44,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(0px);
-  transition: backdrop-filter;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.5s;
   z-index: -1;
 }
 .modal.active::before {
-  backdrop-filter: blur(5px);
+  opacity: 1;
 }
