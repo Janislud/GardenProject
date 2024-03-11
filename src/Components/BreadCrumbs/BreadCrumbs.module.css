@@ -13,7 +13,6 @@
   gap: 20px;
   flex-wrap: wrap;
   margin: auto 0px;
-  padding: 0px;
 }
 
 .divBorder {
@@ -40,7 +39,6 @@
   padding: 8px 18px;
   border: 1px solid rgb(221, 221, 221);
   border-radius: 6px;
-  font-family: Montserrat;
   font-size: 16px;
   font-weight: 500;
   background: transparent;
@@ -61,14 +59,20 @@
   background: white;
 }
 
-@media (min-width: 360px) and (max-width: 1360px) {
-  .buttonWrapper .flexDivs {
-    margin: auto 40px;
-  }
-}
-
 @media screen and (max-width: 600px) {
   .buttonWrapper {
     display: none;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 1021px) {
+  .buttonWrapper .flexDivs {
+    padding: 0px 20px;
+  }
+}
+
+@media (min-width: 1021px) and (max-width: 1385px) {
+  .flexDivs {
+    padding: 0px 25px;
   }
 }
