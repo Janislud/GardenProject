@@ -19,7 +19,7 @@
 .categoryCardsWrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 25px;
   text-align: center;
   justify-content: flex-start;
   margin-bottom: 80px;
