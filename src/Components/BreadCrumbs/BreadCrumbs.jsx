@@ -34,7 +34,7 @@ const BreadCrumbs = ({ data }) => {
     "/categories": [defaultPath, { name: "Categories", path: "categories" }],
     "/products": [defaultPath, { name: "All Products", path: "products" }],
     "/sales": [defaultPath, { name: "All Sales", path: "sales" }],
-    "/favorites": [defaultPath, { name: "Favourites", path: "favorites" }],
+    "/favorites": [defaultPath,{ name: "Favourites", path: "favorites" },],
 
     default: [
       defaultPath,
@@ -55,7 +55,7 @@ const BreadCrumbs = ({ data }) => {
     }
 
     let newBreadcrumbs = [];
-
+   
     if (!pathnames.includes("products")) {
       // Проверяем, нет ли в текущем пути "products"
       newBreadcrumbs = pathnames.map((pathname, index) => {
@@ -71,22 +71,17 @@ const BreadCrumbs = ({ data }) => {
         // Создаем крошку для товара по его id
         const productBreadcrumb = {
           name: `${data.title}`,
-          path: `products/${encodeURIComponent(data.title)}`, // кодирование заголовка продукта
+          path: `products/${encodeURIComponent(data.title)}`,
         };
-
-        const breadcrumbs =
+    
+        const currentBreadcrumbs =
           state && state.prevPath && state.prevPath.includes("categories")
             ? singleProductsBreadcrumbs["default"]
             : singleProductsBreadcrumbs[state?.prevPath || "/products"];
-        if (Array.isArray(breadcrumbs)) {
-          dispatch(
-            setBreadcrumbs([
-              ...breadcrumbs,
-              ...newBreadcrumbs,
-              productBreadcrumb,
-            ])
-          );
-        }
+    
+        dispatch(
+          setBreadcrumbs([...(currentBreadcrumbs || []), ...newBreadcrumbs, productBreadcrumb])
+        );
       } else {
         dispatch(setBreadcrumbs([...singleProductsBreadcrumbs["/products"]]));
       }
@@ -106,7 +101,7 @@ const BreadCrumbs = ({ data }) => {
       }`}
     >
       <div className={style.flexDivs}>
-        {breadcrumbs.map((breadcrumb, index) =>
+        {breadcrumbs && breadcrumbs.map && breadcrumbs.map((breadcrumb, index) =>
           index !== breadcrumbs.length - 1 ? (
             <Link
               className={`${theme === "light" ? style.dark : style.light}`}
