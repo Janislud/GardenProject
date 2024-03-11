@@ -7,6 +7,7 @@ import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import { FilterBar } from "../FilterBar/FilterBar";
 import { ProductsCard } from "../ProductsCard/ProductsCard";
 import style from "./SingleCategoryPage.module.css";
+import SkeletonForProductsCard from "../../UI/SkeletonForProductsCard";
 
 export const SingleCategoryPage = () => {
   const { id } = useParams();
@@ -36,7 +37,20 @@ export const SingleCategoryPage = () => {
     return <h2>Error....</h2>;
   }
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return (
+      <>
+        <section className={style.singleCategoryWrapper}>
+          <BreadCrumbs data={[]} />
+          <div className={style.singleBtnWrapper}></div>
+          <FilterBar title="" />
+          <div className={style.singleCategoryCardsWrapper}>
+            {[...Array(10)].map((_, index) => (
+              <SkeletonForProductsCard key={index} />
+            ))}
+          </div>
+        </section>
+      </>
+    );
   }
 
   return (
