@@ -41,7 +41,7 @@ export const DataUserForm = () => {
   };
 
   return (
-    <>
+    <section className={style.discountForm}>
       <div className={style.greenDiv}>
         <h2 className={style.h2TitleForm}>5% off on the first order</h2>
         <form className={style.divForm} onSubmit={handleSubmit(handleAddUser)}>
@@ -128,6 +128,6 @@ export const DataUserForm = () => {
           </div>
         </form>
       </div>
-    </>
+    </section>
   );
 };
