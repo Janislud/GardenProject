@@ -222,45 +222,13 @@
 }
 
 .likedProductsList {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(23%, 1fr));
-  gap: 2rem; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   max-width: 1360px;
-  /* margin: 100px auto; */
   margin: 0px auto;
   gap: 29px;
   padding: 10px;
 }
-
-/* @media (max-width: 1440px) {
-  .likedProductsList {
-    grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
-  }
-}
-
-@media (max-width: 1000px) {
-  .likedProductsList {
-    grid-template-columns: repeat(auto-fill, minmax(47%, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .likedProductsList {
-    grid-template-columns: repeat(auto-fill, minmax(46%, 1fr));
-  }
-}
-
-@media (max-width: 480px) {
-  .likedProductsList {
-    display: flex;
-    flex-direction: column;
-  }
-  .productCard {
-    width: 100%;
-  }
-} */

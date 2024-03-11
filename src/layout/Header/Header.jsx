@@ -28,7 +28,6 @@ export const Header = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-  console.log(isOpen);
 
   const toggleThemeHandler = () => {
     dispatch(toggleTheme());
