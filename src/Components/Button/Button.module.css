@@ -153,7 +153,7 @@
   }
 }
 
-@media screen and (max-width: 528px) {
+@media screen and (max-width: 529px) {
   .addGreenButtonSingle {
     padding: 0px 129px 0px 129px;
   }
@@ -185,20 +185,35 @@
   }
 }
 
-@media screen and (max-width: 445px) {
+@media screen and (max-width: 450px) {
   .whiteButton {
-    width: 300px;
+    width: 280px;
+    margin-left: -140px;
   }
+}
+
+@media screen and (max-width: 425px) {
+  .whiteButton {
+    width: 240px;
+    margin-left: -180px;
+  }
+}
+
+@media screen and (max-width: 445px) {
   .addGreenButtonSingle {
     padding: 12px 109px 12px 109px;
     margin: 10px auto;
   }
 }
 
-@media screen and (max-width: 395px) {
+@media screen and (max-width: 398px) {
   .whiteButton {
-    width: 290px;
+    width: 220px;
+    margin-left: -200px;
   }
+}
+
+@media screen and (max-width: 395px) {
   .addGreenButtonSingle {
     padding: 12px 89px 12px 89px;
     margin: 10px auto;
