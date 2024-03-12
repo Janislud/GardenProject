@@ -4,14 +4,13 @@ import { ProductsList } from "../Components/ProductsList/ProductsList";
 import { AllSalesFilter } from "../hooks/useFilterAllSales";
 
 export const AllSalesPage = () => {
-
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
 
   return (
     <main>
-      <BreadCrumbs/>
+      <BreadCrumbs />
       <AllSalesFilter />
       <ProductsList title={"All Sales"} />
     </main>

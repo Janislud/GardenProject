@@ -6,7 +6,6 @@ import { Header } from "./layout/Header/Header";
 
 function App() {
   const theme = useSelector((state) => state.theme.theme);
-  
 
   return (
     <div className={theme === "light" ? style.dark : style.light}>
