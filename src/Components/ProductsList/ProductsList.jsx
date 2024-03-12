@@ -8,7 +8,7 @@ import CustomPagination from "../../UI/Pagination";
 
 export const ProductsList = ({ title }) => {
   const products = useSelector((state) => state.products.products);
-  const productsPerPage = 10;
+  const productsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
   const indexOfLastProduct = currentPage * productsPerPage;

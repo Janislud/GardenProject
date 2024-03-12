@@ -1,6 +1,12 @@
 import Pagination from "@mui/material/Pagination";
 
 const CustomPagination = ({ count, handleChange }) => {
+  
+  const handlePageChange = (event, page) => {
+    handleChange(event, page); // Передаем событие и номер страницы внешнему обработчику
+    window.scrollTo(0, 0); // Прокрутка наверх страницы
+  };
+
   return (
     <Pagination
       count={count}
@@ -8,7 +14,7 @@ const CustomPagination = ({ count, handleChange }) => {
       defaultPage={1}
       color="secondary"
       size="medium"
-      onChange={handleChange}
+      onChange={handlePageChange}
       sx={{
         maxWidth: "1300px",
         display: "flex",
