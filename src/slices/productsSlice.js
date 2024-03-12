@@ -15,19 +15,25 @@ const productsSlice = createSlice({
       state.error = "";
     },
     productsLoaded: (state, action) => {
-      state.isFetching = false; 
+      state.isFetching = false;
       state.products = action.payload?.length ? action.payload : [];
     },
     productsLoadFailed: (state, action) => {
       state.isFetching = false;
       state.error = action.payload;
     },
-    productsLoadedWithDiscount: (state,action) => {
+    productsLoadedWithDiscount: (state, action) => {
       state.isFetching = true;
-      state.products = action.payload?.length ? action.payload.filter((product) => product.discont_price) : [];
-    }
+      state.products = action.payload?.length
+        ? action.payload.filter((product) => product.discont_price)
+        : [];
+    },
   },
 });
-export const { startFetching, productsLoadFailed, productsLoaded, productsLoadedWithDiscount } =
-  productsSlice.actions;
+export const {
+  startFetching,
+  productsLoadFailed,
+  productsLoaded,
+  productsLoadedWithDiscount,
+} = productsSlice.actions;
 export default productsSlice.reducer;

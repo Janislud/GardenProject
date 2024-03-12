@@ -49,7 +49,7 @@ export const LikedProductsPage = ({ title, id, isLoading }) => {
   function calculateDiscountPercent(price, discountPrice) {
     return Math.round(((price - discountPrice) / price) * 100);
   }
-  
+
   return (
     <section>
       <BreadCrumbs />

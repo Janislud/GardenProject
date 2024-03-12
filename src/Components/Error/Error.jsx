@@ -29,4 +29,3 @@ export default function Error() {
     </div>
   );
 }
-//<button className={style.buttonGoHome}>Go Home</button>
