@@ -125,6 +125,18 @@
     gap: 20px;
   }
 }
+@media (max-width: 800px) {
+  .categoriesWrapperText {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  .categoryImg {
+    width: 270px;
+    height: 250px;
+  }
+}
 
 @media (max-width: 768px) {
   .categoryImg {
@@ -142,15 +154,12 @@
   }
 }
 
-@media (max-width: 800px) {
-  .categoriesWrapperText {
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 44px;
-  }
+@media (min-width: 360px) and (max-width: 480px) {
 
-  .categoryImg {
-    width: 270px;
-    height: 250px;
+  .categoryCard:hover {
+    transform: none;
+    .categoryCardText {
+      color: #393;
+    }
   }
 }

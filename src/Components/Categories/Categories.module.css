@@ -105,6 +105,12 @@
   .categoriesSection {
     padding: 20px;
   }
+  .categoryCard:hover {
+    transform: none;
+    .categoryCardText {
+      color: #393;
+    }
+  }
 }
 
 /* TABS */

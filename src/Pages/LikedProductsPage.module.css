@@ -232,3 +232,9 @@
   gap: 29px;
   padding: 10px;
 }
+
+@media (min-width: 360px) and (max-width: 480px) {
+  .saleCard:hover {
+  transform: none;
+}
+}
