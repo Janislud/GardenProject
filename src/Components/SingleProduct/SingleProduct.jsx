@@ -15,7 +15,7 @@ import {
 import { BreadCrumbs } from "../BreadCrumbs/BreadCrumbs";
 import { Button } from "../Button/Button";
 import ModalSingleProduct from "./../ModalSingleProduct/ModalSingleProduct";
-import style from "./singleProduct.module.css";
+import style from "./SingleProduct.module.css";
 
 export const SingleProduct = () => {
   const { id: routeId } = useParams();
