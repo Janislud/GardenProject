@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import whatsAppWhite from "../../assets/images/FooterMedia/WhatsAppWhite.svg";
 import instagram from "../../assets/images/FooterMedia/ic-instagram.svg";
 import whatsapp from "../../assets/images/FooterMedia/ic-whatsapp.svg";
 import instagramWhite from "../../assets/images/FooterMedia/instagramWhite.svg";
-import whatsAppWhite from "../../assets/images/FooterMedia/whatsAppWhite.svg";
 import style from "./ContactsCards.module.css";
 
 export const ContactsCards = ({ cardData }) => {
@@ -13,28 +13,29 @@ export const ContactsCards = ({ cardData }) => {
 
   return (
     <div
-      className={`${style.contactsCards} ${theme === "light" ? style.dark : style.light
-        }`}
+      className={`${style.contactsCards} ${
+        theme === "light" ? style.dark : style.light
+      }`}
     >
       <div
-        className={`${style.contactsCardsTitle} ${theme === "light" ? style.dark : style.light
-          } `}
+        className={`${style.contactsCardsTitle} ${
+          theme === "light" ? style.dark : style.light
+        } `}
       >
         {cardData.title}
       </div>
 
       {cardData.content ? (
         <div
-          className={`${style.contactsCardsContent} ${theme === "light" ? style.dark : style.light
-            }`}
+          className={`${style.contactsCardsContent} ${
+            theme === "light" ? style.dark : style.light
+          }`}
         >
           {cardData.content}
         </div>
       ) : (
         isSocialMedia && (
-          <div
-            className={style.contactsCardsImages}
-          >
+          <div className={style.contactsCardsImages}>
             <a
               className={style.instaIcon}
               href="https://www.instagram.com/startainstitute?igsh=MTNraWR1cHh3MjdpaA=="
