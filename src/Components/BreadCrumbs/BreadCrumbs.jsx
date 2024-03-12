@@ -34,7 +34,7 @@ const BreadCrumbs = ({ data }) => {
     "/categories": [defaultPath, { name: "Categories", path: "categories" }],
     "/products": [defaultPath, { name: "All Products", path: "products" }],
     "/sales": [defaultPath, { name: "All Sales", path: "sales" }],
-    "/favorites": [defaultPath,{ name: "Favourites", path: "favorites" },],
+    "/favorites": [defaultPath, { name: "Favourites", path: "favorites" },],
 
     default: [
       defaultPath,
@@ -55,7 +55,7 @@ const BreadCrumbs = ({ data }) => {
     }
 
     let newBreadcrumbs = [];
-   
+
     if (!pathnames.includes("products")) {
       // Проверяем, нет ли в текущем пути "products"
       newBreadcrumbs = pathnames.map((pathname, index) => {
@@ -73,12 +73,12 @@ const BreadCrumbs = ({ data }) => {
           name: `${data.title}`,
           path: `products/${encodeURIComponent(data.title)}`,
         };
-    
+
         const currentBreadcrumbs =
           state && state.prevPath && state.prevPath.includes("categories")
             ? singleProductsBreadcrumbs["default"]
             : singleProductsBreadcrumbs[state?.prevPath || "/products"];
-    
+
         dispatch(
           setBreadcrumbs([...(currentBreadcrumbs || []), ...newBreadcrumbs, productBreadcrumb])
         );
@@ -96,9 +96,7 @@ const BreadCrumbs = ({ data }) => {
 
   return (
     <div
-      className={`${style.buttonWrapper} ${
-        theme === "light" ? style.dark : style.light
-      }`}
+      className={style.buttonWrapper}
     >
       <div className={style.flexDivs}>
         {breadcrumbs && breadcrumbs.map && breadcrumbs.map((breadcrumb, index) =>
@@ -109,25 +107,21 @@ const BreadCrumbs = ({ data }) => {
               key={index}
             >
               <div
-                className={`${style.divBorder} ${
-                  location.pathname === `/${breadcrumb.path}`
+                className={`${style.divBorder} ${location.pathname === `/${breadcrumb.path}`
                     ? style.active
                     : ""
-                }`}
+                  }`}
               >
                 {breadcrumb.name}
               </div>
               <div
-                className={`${style.line} ${
-                  theme === "light" ? style.dark : style.light
-                }`}
+                className={style.line}
               ></div>
             </Link>
           ) : (
             <div
-              className={`${style.divBorder} ${
-                location.pathname === `/${breadcrumb.path}` ? style.active : ""
-              }`}
+              className={`${style.divBorder} ${location.pathname === `/${breadcrumb.path}` ? style.active : ""
+                }`}
               key={index}
             >
               {breadcrumb.name}
@@ -135,9 +129,7 @@ const BreadCrumbs = ({ data }) => {
           )
         )}
         <div
-          className={`${style.lineDiv} ${
-            theme === "light" ? style.dark : style.light
-          }`}
+          className={style.lineDiv}
         ></div>
       </div>
     </div>

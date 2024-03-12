@@ -51,26 +51,23 @@ export const FilterBar = ({ title }) => {
   return (
     <div className={style.filterBarWrapper}>
       <h2
-        className={`${style.filterTitle}  ${
-          theme === "light" ? style.dark : style.light
-        }`}
+        className={`${style.filterTitle}  ${theme === "light" ? style.dark : style.light
+          }`}
       >
         {title}
       </h2>
       <form className={style.formFilterBar}>
         <div className={style.priceWrapper}>
           <label
-            className={`${style.lablePrice} ${
-              theme === "light" ? style.dark : style.light
-            }`}
+            className={`${style.lablePrice} ${theme === "light" ? style.dark : style.light
+              }`}
             htmlFor="price"
           >
             Price
           </label>
           <input
-            className={`${style.priceInput} ${
-              theme === "light" ? style.dark : style.light
-            }`}
+            className={`${style.priceInput} ${theme === "light" ? style.dark : style.light
+              }`}
             type="number"
             placeholder="from"
             id="price"
@@ -78,9 +75,8 @@ export const FilterBar = ({ title }) => {
             onChange={(element) => setMinPriceInput(element.target.value)}
           />
           <input
-            className={`${style.priceInput} ${
-              theme === "light" ? style.dark : style.light
-            }`}
+            className={`${style.priceInput} ${theme === "light" ? style.dark : style.light
+              }`}
             type="number"
             placeholder="to"
             min="0"
@@ -90,17 +86,15 @@ export const FilterBar = ({ title }) => {
         {title !== "All Sales" && (
           <div className={style.discountItemsWrapper}>
             <label
-              className={`${style.lableDiscount} ${
-                theme === "light" ? style.dark : style.light
-              }`}
+              className={`${style.lableDiscount} ${theme === "light" ? style.dark : style.light
+                }`}
               htmlFor="discounted-items"
             >
               Discounted items
             </label>
             <input
-              className={`${style.inputCheckBox} ${
-                theme === "light" ? style.dark : style.light
-              }`}
+              className={`${style.inputCheckBox} ${theme === "light" ? style.dark : style.light
+                }`}
               type="checkbox"
               id="discounted-items"
               name="discount"
@@ -112,39 +106,31 @@ export const FilterBar = ({ title }) => {
 
         <div className={style.customSelect}>
           <label
-            className={`${style.sortedLable} ${
-              theme === "light" ? style.dark : style.light
-            }`}
+            className={`${style.sortedLable} ${theme === "light" ? style.dark : style.light
+              }`}
             htmlFor="sort"
           >
             Sorted
           </label>
           <select
-            className={`${style.selectOption} ${
-              theme === "light" ? style.dark : style.light
-            }`}
+            className={`${style.selectOption} ${theme === "light" ? style.dark : style.light
+              }`}
             id="sort"
             onChange={(element) => dispatch(sortChange(element.target.value))}
           >
             <option
-              className={`${style.btnOption} ${
-                theme === "light" ? style.dark : style.light
-              }`}
+              className={style.btnOption}
             >
               by default
             </option>
             <option
-              className={`${style.btnOption} ${
-                theme === "light" ? style.dark : style.light
-              }`}
+              className={style.btnOption}
               value="Ascending"
             >
               price: high-low
             </option>
             <option
-              className={`${style.btnOption} ${
-                theme === "light" ? style.dark : style.light
-              }`}
+              className={style.btnOption}
               value="Descending"
             >
               price: low-high

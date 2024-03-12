@@ -7,14 +7,11 @@ export const TitleBar = ({ title, linkTo, buttonText }) => {
 
   return (
     <div
-      className={`${style.titleTextWrapper} ${
-        theme === "light" ? style.dark : style.light
-      }`}
+      className={style.titleTextWrapper}
     >
       <h2
-        className={`${style.titleDescription} ${
-          theme === "light" ? style.dark : style.light
-        }`}
+        className={`${style.titleDescription} ${theme === "light" ? style.dark : style.light
+          }`}
       >
         {title}
       </h2>
@@ -22,14 +19,12 @@ export const TitleBar = ({ title, linkTo, buttonText }) => {
       <div className={style.line}></div>
 
       <button
-        className={`${style.titleBtn} ${
-          theme === "light" ? style.dark : style.light
-        }`}
+        className={`${style.titleBtn} ${theme === "light" ? style.dark : style.light
+          }`}
       >
         <Link
-          className={`${style.titleBtnDescription} ${
-            theme === "light" ? style.dark : style.light
-          }`}
+          className={`${style.titleBtnDescription} ${theme === "light" ? style.dark : style.light
+            }`}
           to={linkTo}
         >
           {buttonText}

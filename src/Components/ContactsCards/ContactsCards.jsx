@@ -13,32 +13,27 @@ export const ContactsCards = ({ cardData }) => {
 
   return (
     <div
-      className={`${style.contactsCards} ${
-        theme === "light" ? style.dark : style.light
-      }`}
+      className={`${style.contactsCards} ${theme === "light" ? style.dark : style.light
+        }`}
     >
       <div
-        className={`${style.contactsCardsTitle} ${
-          theme === "light" ? style.dark : style.light
-        } `}
+        className={`${style.contactsCardsTitle} ${theme === "light" ? style.dark : style.light
+          } `}
       >
         {cardData.title}
       </div>
 
       {cardData.content ? (
         <div
-          className={`${style.contactsCardsContent} ${
-            theme === "light" ? style.dark : style.light
-          }`}
+          className={`${style.contactsCardsContent} ${theme === "light" ? style.dark : style.light
+            }`}
         >
           {cardData.content}
         </div>
       ) : (
         isSocialMedia && (
           <div
-            className={`${style.contactsCardsImages} ${
-              theme === "light" ? style.dark : style.light
-            }`}
+            className={style.contactsCardsImages}
           >
             <a
               className={style.instaIcon}

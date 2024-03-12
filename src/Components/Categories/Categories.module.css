@@ -50,9 +50,7 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.categoryCard:hover,
-.categoryCardText:hover,
-.categoryImg:hover {
+.categoryCard:hover{
   transform: scale(1.1);
 }
 
@@ -74,7 +72,6 @@
 }
 .categoryCardText:hover {
   color: #393;
-  transform: scale(1.3);
 }
 
 .categoriesWrapperText h2 {

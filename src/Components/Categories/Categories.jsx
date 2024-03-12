@@ -33,17 +33,13 @@ export const Categories = () => {
       />
 
       <section
-        className={`${style.categoryCardsWrapper} ${
-          theme === "light" ? style.dark : style.light
-        }`}
+        className={style.categoryCardsWrapper}
       >
         {data &&
           data.slice(0, 4).map((category) => (
             <Link
               key={category.id}
-              className={`${style.categoryCard}${
-                theme === "light" ? style.dark : style.light
-              }`}
+              className={style.categoryCard}
               to={`/categories/${category.id}`}
             >
               <img
@@ -52,9 +48,7 @@ export const Categories = () => {
                 alt={category.title}
               />
               <h2
-                className={`${style.categoryCardText} ${
-                  theme === "light" ? style.dark : style.light
-                }`}
+                className={style.categoryCardText}
               >
                 {category.title}
               </h2>
@@ -62,14 +56,10 @@ export const Categories = () => {
           ))}
       </section>
       <button
-        className={`${style.categoryBtnAdaptive} ${
-          theme === "light" ? style.dark : style.light
-        }`}
+        className={`${style.categoryBtnAdaptive}`}
       >
         <Link
-          className={`${style.categoryBtnDescription} ${
-            theme === "light" ? style.dark : style.light
-          }`}
+          className={style.categoryBtnDescription}
           to="/categories"
         >
           {"All Categories"}
