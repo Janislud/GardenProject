@@ -3,10 +3,11 @@ import { useGetProductsQuery } from "../../slices/apiSlice";
 import { ProductsCard } from "../ProductsCard/ProductsCard";
 import style from "../Sales/Sales.module.css";
 import { TitleBar } from "../TitleBar/TitleBar";
+import { useSelector } from "react-redux";
 
 export const Sales = () => {
   const { data, error, isLoading } = useGetProductsQuery();
-
+  const theme = useSelector((state) => state.theme.theme);
   if (error) {
     return (
       <p className={style.errorFetching}>
@@ -41,7 +42,7 @@ export const Sales = () => {
           <ProductsCard key={sale.id} product={sale} />
         ))}
       </section>
-      <button className={style.saleBtnAdaptive}>
+      <button className={`${style.saleBtnAdaptive} ${theme === "light" ? style.dark : style.light}`} >
         <Link className={style.saleBtnDescription} to={"/sales"}>
           {"All Sales"}
         </Link>

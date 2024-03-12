@@ -100,6 +100,11 @@
   line-height: 126%;
 }
 
+.dark {
+  color: #8b8b8b;
+  background: transparent;
+}
+
 @media (max-width: 1024px) {
   .saleCardWrapper {
     gap: 20px;
