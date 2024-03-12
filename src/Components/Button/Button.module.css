@@ -101,14 +101,14 @@
   .addGreenButtonSingle {
     padding: 0px 50px 0px 50px;
   }
+  .whiteButton {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 1069px) {
   .addGreenButtonSingle {
     padding: 0px 40px 0px 40px;
-  }
-  .whiteButton {
-    width: 100%;
   }
 }
 
@@ -118,27 +118,9 @@
   }
 }
 
-@media screen and (max-width: 970px) {
-  .whiteButton {
-    width: 400px;
-  }
-}
-
 @media screen and (max-width: 940px) {
   .addGreenButton {
     padding: 22px 99px 22px 99px;
-  }
-}
-
-@media screen and (max-width: 870px) {
-  .whiteButton {
-    width: 370px;
-  }
-}
-
-@media screen and (max-width: 845px) {
-  .whiteButton {
-    width: 320px;
   }
 }
 
@@ -148,46 +130,26 @@
   }
 }
 
-@media screen and (max-width: 815px) {
-  .whiteButton {
-    width: 270px;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .whiteButton {
-    width: 270px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .whiteButton {
-    width: 350px;
-  }
-}
-
-@media screen and (max-width: 757px) {
-  .whiteButton {
-    width: 250px;
-  }
-}
-
 @media screen and (max-width: 650px) {
   .addGreenButtonSingle {
     padding: 0px 39px 2px 39px;
     text-align: center;
   }
-}
-
-@media screen and (max-width: 600px) {
   .whiteButton {
-    width: 370px;
+    width: 380px;
   }
 }
 
-@media screen and (max-width: 566px) {
+@media screen and (max-width: 570px) {
   .whiteButton {
-    width: 370px;
+    width: 340px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .whiteButton {
+    width: 330px;
+    margin-left: -50px;
   }
 }
 
@@ -197,12 +159,23 @@
   }
 }
 
+@media screen and (max-width: 515px) {
+  .whiteButton {
+    width: 310px;
+    margin-left: -90px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .whiteButton {
+    width: 300px;
+    margin-left: -120px;
+  }
+}
+
 @media screen and (max-width: 470px) {
   .addGreenButton {
     padding: 12px 49px 12px 49px;
-  }
-  .whiteButton {
-    width: 370px;
   }
 }
 
