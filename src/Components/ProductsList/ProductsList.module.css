@@ -1,0 +1,13 @@
+.productsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 45px 22px;
+  margin: 0 auto;
+  max-width: 1360px;
+  justify-content: start;
+  padding: 0px 20px;
+}
+
+.myFirstSection {
+  margin: 0px auto 80px auto;
+}

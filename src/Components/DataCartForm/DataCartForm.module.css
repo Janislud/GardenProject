@@ -1,0 +1,195 @@
+.divFormWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  width: 540px;
+  max-height: 582px;
+  background: rgb(241, 243, 244);
+  border-radius: 12px;
+}
+
+.pSubmittedRegistration {
+  font-size: 40px;
+  color: #fff;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+}
+
+.formErrorMessage {
+  color: rgb(246, 5, 5);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  margin-bottom: -10px;
+  margin-top: -15px;
+}
+
+.totalPrice {
+  display: flex;
+  align-items: flex-end;
+  gap: 135px;
+  margin-bottom: 32px;
+  justify-content: space-between;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.allThreeInputs {
+  padding: 16px 32px;
+  width: 100%;
+  height: 58px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 130%;
+  color: rgb(139, 139, 139);
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  background: rgb(255, 255, 255);
+  transition: transform 0.3s ease-in-out;
+}
+
+.allThreeInputs:hover {
+  transform: scale(1.1);
+}
+
+.order {
+  font-size: 40px;
+  color: rgb(40, 40, 40);
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.itemCounter {
+  color: rgb(139, 139, 139);
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 0%;
+}
+.total {
+  color: rgb(139, 139, 139);
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 0%;
+}
+
+.price {
+  color: rgb(40, 40, 40);
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.dark {
+  background: #404040;
+}
+
+.light {
+  background: #f1f3f4;
+}
+
+.light .price {
+  color: black;
+}
+
+.dark .order,
+.price {
+  color: white;
+}
+
+.dark .allThreeInputs {
+  background: #282828;
+}
+
+@media screen and (max-width: 1098px) {
+  .divFormWrapper {
+    max-width: 460px;
+  }
+  .price {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 1017px) {
+  .divFormWrapper {
+    max-width: 420px;
+  }
+  .price {
+    font-size: 40px;
+  }
+  .totalPrice {
+    margin-top: 19px;
+  }
+}
+
+@media screen and (max-width: 978px) {
+  .divFormWrapper {
+    max-width: 370px;
+  }
+  .price {
+    font-size: 30px;
+  }
+  .totalPrice {
+    margin-top: 20px;
+    gap: 115px;
+  }
+}
+
+@media screen and (max-width: 927px) {
+  .divFormWrapper {
+    max-width: 360px;
+  }
+  .price {
+    font-size: 30px;
+  }
+  .totalPrice {
+    margin-top: 20px;
+    gap: 115px;
+  }
+}
+
+@media screen and (max-width: 917px) {
+  .divFormWrapper {
+    max-width: 800px;
+    margin: 10px auto;
+  }
+  .price {
+    font-size: 40px;
+  }
+  .totalPrice {
+    margin-top: 20px;
+    gap: 115px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .divFormWrapper {
+    max-width: 350px;
+    margin: 10px auto;
+  }
+  .price {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .divFormWrapper {
+    max-width: 300px;
+    margin: 2px auto;
+    margin-top: 30px;
+  }
+  .order,
+  .itemCounter,
+  .total,
+  .price {
+    font-size: 30px;
+  }
+  .totalPrice {
+    gap: 20px;
+  }
+}

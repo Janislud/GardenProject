@@ -1,0 +1,240 @@
+/* .productCard {
+  padding: 0 40px;
+} */
+
+.saleImg {
+  max-width: 312px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 20px;
+  height: 315px;
+  border-bottom: 1px solid #dddddd;
+  object-fit: cover;
+}
+
+.saleCard:hover {
+  transform: scale(1.1);
+}
+.saleCardText {
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 130%;
+  margin: 0px 32px 16px 32px;
+  min-height: 55px;
+  color: #282828;
+}
+.saleCardText:hover {
+  color: #393;
+}
+
+.saleCard:hover .productCartButton {
+  visibility: visible;
+}
+
+.productCartButton:hover {
+  visibility: visible;
+  background-color: #282828;
+  color: #ffffff;
+}
+
+.salePriceWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 0px 32px 32px 32px;
+  align-items: baseline;
+}
+.realPrice {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 110%;
+  color: #282828;
+}
+.dark .realPrice {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 110%;
+  color: #ffffff;
+}
+.firstPrice {
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 130%;
+  text-decoration-line: line-through;
+  color: #8b8b8b;
+}
+
+.saleBlock {
+  position: absolute;
+  margin-left: 15px;
+  margin-top: 16px;
+  background-color: #393;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0.6px;
+}
+
+.saleCard {
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  max-width: 313px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+.myFirstBlock {
+  display: flex;
+}
+
+.productCartButton {
+  visibility: hidden;
+  padding: 16px 56px;
+  width: 284px;
+  height: 58px;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #339933;
+  color: #ffffff;
+  position: absolute;
+  bottom: 177px;
+  left: 13px;
+}
+
+.btnAddToCard {
+  width: 284px;
+  cursor: pointer;
+  padding: 16px 56px;
+  height: 58px;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  top: 250px;
+  left: 13px;
+  border: none;
+  background: #339933;
+  color: #ffffff;
+}
+
+.addedToCart {
+  width: 284px;
+  cursor: pointer;
+  padding: 16px 56px;
+  height: 58px;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  top: 250px;
+  left: 13px;
+  border: none;
+}
+
+.dark {
+  color: white;
+  background: #282828;
+}
+
+.btnAddToLikes {
+  max-width: 50px;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  left: 255px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.emptyLikedProducts {
+  font-size: 30px;
+  color: #979696;
+  margin: 100px auto;
+  max-width: 1360px;
+  text-align: center;
+  padding: 0 40px;
+}
+
+.saleCard {
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  max-width: 313px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+.saleImg {
+  max-width: 312px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 20px;
+  height: 315px;
+  border-bottom: 1px solid #dddddd;
+  object-fit: cover;
+}
+
+.saleBlock {
+  position: absolute;
+  margin-left: 15px;
+  margin-top: 16px;
+  background-color: #393;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0.6px;
+}
+
+.cartImgSize {
+  max-width: 312px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 20px;
+  height: 315px;
+  border-bottom: 1px solid #dddddd;
+  object-fit: cover;
+}
+
+.productCard .btnDelete {
+  background-color: transparent;
+  border: none;
+  max-width: 50px;
+  position: absolute;
+  left: 255px;
+  bottom: 30px;
+  cursor: pointer;
+}
+
+.productCard {
+  position: relative;
+}
+
+.likedProductsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  max-width: 1360px;
+  margin: 0px auto;
+  gap: 29px;
+  padding: 10px;
+}
+
+@media (min-width: 360px) and (max-width: 480px) {
+  .saleCard:hover {
+  transform: none;
+}
+}

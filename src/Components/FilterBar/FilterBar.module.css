@@ -1,0 +1,193 @@
+.filterBarWrapper {
+  margin: 0 auto;
+  max-width: 1350px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.sortedLable {
+  margin-left: 40px;
+  color: rgb(40, 40, 40);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.formFilterBar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.selectOption {
+  margin-left: 16px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  padding: 8px 8px 8px 16px;
+  width: 200px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.filterTitle {
+  color: rgb(40, 40, 40);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 110%;
+  margin: 0px 0px 40px 0px;
+}
+
+.lablePrice {
+  color: rgb(40, 40, 40);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.discountItemsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+
+.inputCheckBox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  background-color: #fff;
+}
+
+.inputCheckBox:checked {
+  background: rgb(51, 153, 51);
+  background-image: url(../../assets/images/imgFilter/checkbox-active.svg);
+  background-size: cover;
+  border: none;
+}
+
+.selectOption option:checked {
+  color: rgb(40, 40, 40);
+}
+
+option {
+  color: grey;
+}
+
+.priceInput {
+  width: 112px;
+  height: 36px;
+  padding: 8px 16px 8px 16px;
+  margin: 0px 16px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.priceInput::placeholder {
+  color: rgb(139, 139, 139);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 126%;
+  letter-spacing: 0%;
+}
+
+.lableDiscount {
+  color: rgb(40, 40, 40);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.dark {
+  color: white;
+  background: #282828;
+}
+
+.dark .priceInput {
+  color: white;
+  background: #282828;
+}
+
+@media (max-width: 360px) {
+  .filterTitle {
+    font-size: 40px;
+  }
+  .priceInput {
+    width: 85px;
+    margin: 0px 8px;
+  }
+  .selectOption {
+    width: 164px;
+  }
+  .priceWrapper {
+    display: flex;
+    align-items: center;
+  }
+  .customSelect {
+    display: flex;
+    align-items: center;
+  }
+
+  .formFilterBar {
+    gap: 10px;
+  }
+  .sortedLable {
+    margin-left: 0px;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 768px) {
+  .sortedLable {
+    margin-left: 0px;
+  }
+  .filterTitle {
+    margin: 40px 0px;
+    font-size: 48px;
+  }
+  .formFilterBar {
+    margin: 30px 0px;
+    gap: 30px;
+  }
+  .priceInput {
+    width: 85px;
+    margin: 0px 8px;
+  }
+  .selectOption {
+    width: 164px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 987px) {
+  .sortedLable {
+    margin-left: 0px;
+  }
+  .filterBarWrapper {
+    margin-top: 30px;
+  }
+  .formFilterBar {
+    gap: 30px;
+    margin: 40px 0px;
+  }
+  .filterTitle {
+    font-size: 56px;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 1021px) {
+  .filterBarWrapper {
+    padding: 0px 20px;
+  }
+}
+
+@media (min-width: 1021px) and (max-width: 1385px) {
+  .filterBarWrapper {
+    padding: 0px 25px;
+  }
+}

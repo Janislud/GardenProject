@@ -1,0 +1,415 @@
+.greenDiv {
+  background: #0b710b;
+  border-radius: 20px;
+  max-width: 1360px;
+  height: 510px;
+  margin: 30px auto;
+}
+
+.imgWrapper {
+  width: 780px;
+}
+
+.h2TitleForm {
+  color: #fff;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+.discountForm {
+  padding: 0 20px;
+}
+
+.divForm {
+  display: flex;
+}
+
+.formErrorMessage {
+  color: rgb(246, 5, 5);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+  margin-bottom: -10px;
+  margin-top: -5px;
+}
+
+.pSubmittedRegistration {
+  font-size: 40px;
+  color: #fff;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+}
+
+.formHands {
+  width: 850px;
+  height: 367px;
+  margin-left: -28px;
+}
+
+.divForm .divInputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: auto 40px;
+  margin-top: 10px;
+}
+
+.allThreeInputs {
+  border-radius: 6px;
+  padding: 16px 32px;
+  width: 100%;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  background: transparent;
+  transition: transform 0.3s ease-in-out;
+}
+.allThreeInputs:hover {
+  transform: scale(1.1);
+}
+
+.allThreeInputs::placeholder {
+  color: #fff;
+}
+
+.whiteButton {
+  color: #282828;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  width: 519px;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  background: #fff;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1400px) {
+  .imgWrapper .formHands {
+    width: 680px;
+    margin-left: 30px;
+  }
+  .divForm {
+    margin-left: -40px;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .imgWrapper .formHands {
+    width: 770px;
+    margin-left: 60px;
+  }
+  .divForm {
+    margin-left: -70px;
+  }
+}
+
+@media screen and (max-width: 1315px) {
+  .imgWrapper .formHands {
+    width: 650px;
+    margin-left: 120px;
+  }
+  .divForm {
+    margin-left: -120px;
+  }
+}
+
+@media screen and (max-width: 1255px) {
+  .imgWrapper .formHands {
+    width: 600px;
+    margin-left: 190px;
+  }
+  .divForm {
+    margin-left: -180px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .imgWrapper .formHands {
+    width: 550px;
+    margin-left: 220px;
+  }
+  .divForm {
+    margin-left: -220px;
+    margin-right: 30px;
+  }
+}
+
+@media screen and (max-width: 1144px) {
+  .imgWrapper .formHands {
+    width: 500px;
+    margin-left: 270px;
+  }
+  .divForm {
+    margin-left: -260px;
+    margin-right: 30px;
+  }
+}
+
+/**@media screen and (max-width: 1100px) {
+  .imgWrapper .formHands {
+    object-fit: cover;
+    width: 444px;
+    height: 293px;
+    margin-left: -16px;
+    margin-bottom: -281px;
+  }
+
+  .allThreeInputs {
+    width: 95%;
+  }
+
+  .greenDiv {
+    max-height: 434px;
+    margin: 0px 20px;
+  }
+  .divForm {
+    justify-content: space-around;
+  }
+
+  .h2TitleForm {
+    font-size: 64px;
+  }
+  .divForm .divInputs {
+    width: 450px;
+    height: 276px;
+  }
+}*/
+
+@media screen and (max-width: 1100px) {
+  .divInputs {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .divInputs {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .divInputs {
+    margin-left: 335px;
+  }
+  .greenDiv .imgWrapper {
+    width: 418px;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .greenDiv .imgWrapper {
+    width: 368px;
+    margin-right: 30px;
+  }
+  .h2TitleForm {
+    font-size: 49px;
+  }
+}
+
+@media screen and (max-width: 845px) {
+  .greenDiv .imgWrapper {
+    width: 340px;
+  }
+  .h2TitleForm {
+    font-size: 49px;
+  }
+}
+
+/*@media screen and (max-width: 815px) {
+  .divInputs .allThreeInputs {
+    width: 270px;
+    padding: auto 20px;
+  }
+}*/
+
+@media screen and (max-width: 800px) {
+  .imgWrapper {
+    width: 300px;
+    margin-right: 40px;
+  }
+}
+
+@media screen and (max-width: 784px) {
+  .h2TitleForm {
+    font-size: 45px;
+    margin-bottom: 60px;
+  }
+  .greenDiv .imgWrapper {
+    width: 260px;
+  }
+  .imgWrapper .formHands {
+    width: 150%;
+    height: 371px;
+  }
+}
+
+@media screen and (max-width: 757px) {
+  .greenDiv .imgWrapper {
+    width: 320px;
+  }
+  .divInputs .allThreeInputs {
+    width: 250px;
+    padding: auto 20px;
+  }
+  .divInputs .whiteButton {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .greenDiv .imgWrapper {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .greenDiv .imgWrapper {
+    width: 220px;
+  }
+
+  .h2TitleForm {
+    font-size: 40px;
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .h2TitleForm {
+    font-size: 37px;
+  }
+  .divForm {
+    flex-direction: column-reverse;
+  }
+  .greenDiv .imgWrapper {
+    width: 380px;
+
+    margin-left: 5px;
+  }
+  .imgWrapper .formHands {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+  .divInputs .allThreeInputs {
+    width: 380px;
+  }
+
+  .greenDiv {
+    width: 86%;
+    padding: 5px 10px;
+    height: 630px;
+    margin: 20px;
+  }
+  .divForm {
+    margin-top: -15px;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .h2TitleForm {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .divInputs .allThreeInputs {
+    width: 340px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .imgWrapper .formHands {
+    width: 330px;
+    margin-top: 40px;
+  }
+  .divInputs .allThreeInputs {
+    width: 330px;
+    margin: 0 auto;
+    margin-left: -40px;
+  }
+  .h2TitleForm {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .divInputs .allThreeInputs {
+    width: 310px;
+    margin: 0 auto;
+    margin-left: -50px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .divInputs .allThreeInputs {
+    margin: 10px auto;
+    width: 300px;
+    margin-left: -60px;
+  }
+  .greenDiv .imgWrapper {
+    width: 270px;
+    margin-left: -15px;
+  }
+  .greenDiv {
+    height: 660px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .divInputs .allThreeInputs {
+    width: 280px;
+  }
+  .imgWrapper .formHands {
+    width: 310px;
+    height: 150px;
+  }
+  .greenDiv {
+    height: 660px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .h2TitleForm {
+    font-size: 20px;
+  }
+  .divInputs .allThreeInputs {
+    width: 240px;
+  }
+  .imgWrapper .formHands {
+    width: 280px;
+    height: 150px;
+  }
+  .greenDiv {
+    height: 660px;
+  }
+}
+
+@media screen and (max-width: 398px) {
+  .divInputs .allThreeInputs {
+    width: 220px;
+  }
+  .imgWrapper .formHands {
+    width: 250px;
+    height: 150px;
+  }
+}

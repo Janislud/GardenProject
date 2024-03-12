@@ -1,0 +1,117 @@
+.saleCardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+.errorFetching {
+  text-align: center;
+}
+
+.loadingData {
+  text-align: center;
+}
+
+.salesCategoryWrapper {
+  font-family: "Montserrat", sans-serif;
+  padding: 20px;
+}
+
+.saleCard {
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  max-width: 313px;
+}
+
+.saleBlock {
+  position: absolute;
+  margin-left: 240px;
+  margin-top: 16px;
+  background-color: #393;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0.6px;
+}
+
+.saleImg {
+  max-width: 310px;
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+  margin-bottom: 20px;
+  height: 315px;
+  border-bottom: 1px solid #dddddd;
+  object-fit: cover;
+  padding: 1px;
+}
+
+.saleCardText {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 130%;
+  margin: 0px 32px 16px 32px;
+  min-height: 55px;
+}
+
+.salePriceWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 0px 32px 32px 32px;
+}
+
+.realPrice {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 110%;
+}
+
+.firstPrice {
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 130%;
+  text-decoration-line: line-through;
+  color: #8b8b8b;
+}
+
+.saleBtnAdaptive {
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  max-width: 97px;
+  max-height: 36px;
+  background-color: #fff;
+  display: flex;
+  padding: 8px 14px;
+  align-items: center;
+  margin: 30px auto;
+}
+
+.saleBtnDescription {
+  color: #8b8b8b;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 126%;
+}
+
+.dark {
+  color: #8b8b8b;
+  background: transparent;
+}
+
+@media (max-width: 1024px) {
+  .saleCardWrapper {
+    gap: 20px;
+  }
+}
+
+@media (min-width: 510px) {
+  .saleBtnAdaptive {
+    display: none;
+  }
+}

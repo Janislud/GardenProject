@@ -1,0 +1,230 @@
+.button {
+  padding: 16px 56px;
+  height: 58px;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: #393;
+  color: #fff;
+  transition: transform 0.3s ease-in-out;
+}
+.primary:hover {
+  transform: scale(1.1);
+}
+
+.secondary {
+  background-color: #fff;
+  color: #282828;
+  width: 100%;
+}
+
+.addGreenButton {
+  padding: 22px 99px 22px 99px;
+  gap: 10px;
+  background-color: #393;
+  border-radius: 6px;
+  color: #ffff;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.addGreenButton:hover {
+  transform: scale(1.1);
+}
+
+.whiteButton {
+  color: #282828;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  width: 519px;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  background: #fff;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.whiteButton:hover {
+  transform: scale(1.1);
+}
+
+.addGreenButtonSingle {
+  padding: 5px 89px 5px 89px;
+  text-align: center;
+  gap: 10px;
+  background-color: #393;
+  border-radius: 6px;
+  color: #ffff;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-family: Montserrat;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+.addGreenButtonSingle:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 1221px) {
+  .addGreenButtonSingle {
+    padding: 0px 65px 0px 65px;
+  }
+}
+
+@media screen and (max-width: 1136px) {
+  .addGreenButtonSingle {
+    padding: 0px 59px 0px 59px;
+  }
+}
+
+@media screen and (max-width: 1110px) {
+  .addGreenButtonSingle {
+    padding: 0px 50px 0px 50px;
+  }
+  .whiteButton {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1069px) {
+  .addGreenButtonSingle {
+    padding: 0px 40px 0px 40px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .addGreenButton {
+    padding: 22px 139px 22px 139px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .addGreenButton {
+    padding: 22px 99px 22px 99px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .addGreenButton {
+    padding: 22px 79px 22px 79px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .addGreenButtonSingle {
+    padding: 0px 39px 2px 39px;
+    text-align: center;
+  }
+  .whiteButton {
+    width: 380px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .whiteButton {
+    width: 340px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .whiteButton {
+    width: 330px;
+    margin-left: -50px;
+  }
+}
+
+@media screen and (max-width: 529px) {
+  .addGreenButtonSingle {
+    padding: 0px 129px 0px 129px;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .whiteButton {
+    width: 310px;
+    margin-left: -90px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .whiteButton {
+    width: 300px;
+    margin-left: -120px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .addGreenButton {
+    padding: 12px 49px 12px 49px;
+  }
+}
+
+@media screen and (max-width: 455px) {
+  .addGreenButton {
+    padding: 12px 129px 12px 129px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .whiteButton {
+    width: 280px;
+    margin-left: -140px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .whiteButton {
+    width: 240px;
+    margin-left: -180px;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .addGreenButtonSingle {
+    padding: 12px 109px 12px 109px;
+    margin: 10px auto;
+  }
+}
+
+@media screen and (max-width: 398px) {
+  .whiteButton {
+    width: 220px;
+    margin-left: -200px;
+  }
+}
+
+@media screen and (max-width: 395px) {
+  .addGreenButtonSingle {
+    padding: 12px 89px 12px 89px;
+    margin: 10px auto;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .addGreenButton {
+    padding: 12px 109px 12px 109px;
+  }
+  .whiteButton:hover {
+    transform: scale(0.9);
+  }
+}
