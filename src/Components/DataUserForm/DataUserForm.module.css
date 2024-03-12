@@ -317,7 +317,7 @@
   .greenDiv {
     width: 86%;
     padding: 5px 10px;
-    height: 674px;
+    height: 630px;
     margin: 20px;
   }
   .divForm {
@@ -325,12 +325,15 @@
   }
 }
 
+@media screen and (max-width: 590px) {
+  .h2TitleForm {
+    font-size: 30px;
+  }
+}
+
 @media screen and (max-width: 570px) {
   .divInputs .allThreeInputs {
     width: 340px;
-  }
-  .h2TitleForm {
-    font-size: 30px;
   }
 }
 
@@ -364,7 +367,8 @@
     margin-left: -60px;
   }
   .greenDiv .imgWrapper {
-    width: 300px;
+    width: 270px;
+    margin-left: -15px;
   }
   .greenDiv {
     height: 660px;
@@ -372,54 +376,40 @@
 }
 
 @media screen and (max-width: 450px) {
-  .divInputs {
-    width: 70px;
-  }
   .divInputs .allThreeInputs {
-    width: 300px;
+    width: 280px;
   }
-  .greenDiv .imgWrapper {
-    margin-left: 5px;
-    width: 350px;
-    height: 200px;
+  .imgWrapper .formHands {
+    width: 310px;
+    height: 150px;
   }
   .greenDiv {
-    height: 630px;
+    height: 660px;
   }
 }
 
-@media screen and (max-width: 395px) {
+@media screen and (max-width: 425px) {
   .h2TitleForm {
-    font-size: 25px;
-  }
-  .divForm {
-    flex-direction: column-reverse;
-  }
-  .greenDiv .imgWrapper {
-    width: 280px;
-    overflow: hidden;
-  }
-  .imgWrapper .formHands {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    margin-left: 2px;
-  }
-  .divInputs {
-    margin: 10px auto;
+    font-size: 20px;
   }
   .divInputs .allThreeInputs {
-    width: 290px;
-    padding: auto 20px;
+    width: 240px;
   }
-
+  .imgWrapper .formHands {
+    width: 280px;
+    height: 150px;
+  }
   .greenDiv {
-    width: 89%;
-    padding: 5px 5px;
-    height: 615px;
-    margin: 15px;
+    height: 660px;
   }
-  .divForm {
-    margin-top: -15px;
+}
+
+@media screen and (max-width: 398px) {
+  .divInputs .allThreeInputs {
+    width: 220px;
+  }
+  .imgWrapper .formHands {
+    width: 250px;
+    height: 150px;
   }
 }
