@@ -6,7 +6,7 @@
 .singleCategoryCardsWrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 26px;
   padding: 0 40px;
 }
 
