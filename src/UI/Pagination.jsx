@@ -7,7 +7,7 @@ const CustomPagination = ({ count, handleChange }) => {
     handleChange(event, page); // Передаем событие и номер страницы внешнему обработчику
     window.scrollTo(0, 0); // Прокрутка наверх страницы
   };
-
+  
     const theme = useSelector((state) => state.theme.theme)
   
     return (
@@ -32,5 +32,6 @@ const CustomPagination = ({ count, handleChange }) => {
       />
     );
   };
+
 
 export default CustomPagination;
