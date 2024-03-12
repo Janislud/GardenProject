@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { useDebounce } from "../../hooks/useDebounce";
 import {
   maxPriceChange,
   minPriceChange,
@@ -18,6 +19,10 @@ export const FilterBar = ({ title }) => {
   const [isChecked, setIsChecked] = useState(!showOnlyDiscounted);
   const location = useLocation();
   const theme = useSelector((state) => state.theme.theme);
+  const [minPriceInput, setMinPriceInput] = useState("");
+  const [maxPriceInput, setMaxPriceInput] = useState("");
+  const debouncedMinPrice = useDebounce(minPriceInput, 1000);
+  const debouncedMaxPrice = useDebounce(maxPriceInput, 1000);
 
   useEffect(() => {
     setIsChecked(showOnlyDiscounted);
@@ -36,6 +41,12 @@ export const FilterBar = ({ title }) => {
       dispatch(toggleShowOnlyDiscounted());
     }
   };
+
+  useEffect(() => {
+    // Применяем значения "от" и "до" после debounce
+    dispatch(minPriceChange(debouncedMinPrice));
+    dispatch(maxPriceChange(debouncedMaxPrice));
+  }, [debouncedMinPrice, debouncedMaxPrice, dispatch]);
 
   return (
     <div className={style.filterBarWrapper}>
@@ -64,9 +75,7 @@ export const FilterBar = ({ title }) => {
             placeholder="from"
             id="price"
             min="0"
-            onChange={(element) =>
-              dispatch(minPriceChange(element.target.value))
-            }
+            onChange={(element) => setMinPriceInput(element.target.value)}
           />
           <input
             className={`${style.priceInput} ${
@@ -75,9 +84,7 @@ export const FilterBar = ({ title }) => {
             type="number"
             placeholder="to"
             min="0"
-            onChange={(element) =>
-              dispatch(maxPriceChange(element.target.value))
-            }
+            onChange={(event) => setMaxPriceInput(event.target.value)}
           />
         </div>
         {title !== "All Sales" && (
@@ -119,11 +126,27 @@ export const FilterBar = ({ title }) => {
             id="sort"
             onChange={(element) => dispatch(sortChange(element.target.value))}
           >
-            <option className={`${style.btnOption} ${theme === 'light' ? style.dark : style.light}`}>by default</option>
-            <option className={`${style.btnOption} ${theme === 'light' ? style.dark : style.light}`} value="Ascending">
+            <option
+              className={`${style.btnOption} ${
+                theme === "light" ? style.dark : style.light
+              }`}
+            >
+              by default
+            </option>
+            <option
+              className={`${style.btnOption} ${
+                theme === "light" ? style.dark : style.light
+              }`}
+              value="Ascending"
+            >
               price: high-low
             </option>
-            <option className={`${style.btnOption} ${theme === 'light' ? style.dark : style.light}`} value="Descending">
+            <option
+              className={`${style.btnOption} ${
+                theme === "light" ? style.dark : style.light
+              }`}
+              value="Descending"
+            >
               price: low-high
             </option>
           </select>

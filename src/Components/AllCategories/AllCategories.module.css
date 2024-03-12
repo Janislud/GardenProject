@@ -142,14 +142,7 @@
   }
 }
 
-/* @media (max-width: 480px) {
-  .categoryImg {
-    width: 180px;
-    height: 254px;
-  }
-} */
-
-@media (max-width: 400px) {
+@media (max-width: 800px) {
   .categoriesWrapperText {
     font-weight: 700;
     font-size: 40px;

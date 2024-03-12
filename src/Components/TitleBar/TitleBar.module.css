@@ -4,7 +4,6 @@
   align-items: center;
   margin: 0 auto;
   max-width: 1350px;
-  margin-bottom: -50px;
 }
 
 .titleDescription {
@@ -46,7 +45,7 @@
 
 /* MOBILE */
 
-@media (min-width: 360px) and (max-width: 680px) {
+@media (min-width: 330px) and (max-width: 800px) {
   .titleBtn {
     display: none;
   }
@@ -58,7 +57,7 @@
   }
 }
 
-@media (min-width: 360px) and (max-width: 1385px) {
+@media (min-width: 330px) and (max-width: 1385px) {
   .titleTextWrapper {
     padding: 20px;
     margin-top: 40px;
